@@ -1,0 +1,1 @@
+{"total": 4212, "diff_olt": 1887, "same_olt": 2325, "under_5km_before": 4212, "under_5km_after": 3799, "total_len_before": 341176.0, "total_len_after": 9732857.0, "improved": 0, "maintained": 3799, "degraded": 413, "unresolved": 0}

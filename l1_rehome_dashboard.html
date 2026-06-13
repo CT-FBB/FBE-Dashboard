@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L1 Rehome Executive Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #818cf8;
+            --accent-secondary: #38bdf8;
+            --accent-success: #34d399;
+            --accent-warning: #fbbf24;
+            --accent-red: #ef4444;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #1e1b4b);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+        
+        
+        
+        
+        
+        
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 0.5rem 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+        .card h3 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .value.primary { color: var(--accent-primary); }
+        .value.secondary { color: var(--accent-secondary); }
+        .value.success { color: var(--accent-success); }
+        .value.warning { color: var(--accent-warning); }
+        .value.red { color: var(--accent-red); }
+        
+        .section-title {
+            font-size: 1.4rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .special-card {
+            border-left: 4px solid var(--accent-secondary);
+        }
+        .special-card.warning {
+            border-left: 4px solid var(--accent-warning);
+        }
+
+        .report-section {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            width: 300px;
+            outline: none;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+        .search-box:focus {
+            border-color: var(--accent-secondary);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-height: 450px;
+            overflow-y: auto;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-muted);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr.clickable {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        tr.clickable:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        tr.selected {
+            background-color: rgba(56, 189, 248, 0.15) !important;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .page-btn:hover {
+            background: var(--accent-secondary);
+            color: #000;
+        }
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .details-section {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .details-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent-secondary);
+        }
+        
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .badge-success { background: rgba(52, 211, 153, 0.2); color: var(--accent-success); }
+        .badge-warning { background: rgba(251, 191, 36, 0.2); color: var(--accent-warning); }
+        .badge-red { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+    
+    /* ── Global Nav Styles ── */
+    .global-nav {
+        position: fixed; top: 0; left: 0; right: 0; height: 70px;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        box-sizing: border-box;
+    }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-logo span { color: #38bdf8; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+</style>
+</head>
+<body>
+    <nav class="global-nav">
+    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="nav-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">Executive</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="active">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+    </div>
+</nav>
+
+    <div class="container">
+        <header>
+            <h1>L1 Rehome Analysis Dashboard</h1>
+            <p>Executive Overview of Splitter Migrations and Optimization with ONU Mapping</p>
+        </header>
+
+        <h2 class="section-title">General Metrics</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Total Rehomed</h3>
+                <p class="value primary" id="kpi-total">0</p>
+            </div>
+            <div class="card">
+                <h3>Same OLT</h3>
+                <p class="value secondary" id="kpi-same-olt">0</p>
+            </div>
+            <div class="card">
+                <h3>Different OLT</h3>
+                <p class="value secondary" id="kpi-diff-olt">0</p>
+            </div>
+            <div class="card">
+                <h3>Distance Saved (m)</h3>
+                <p class="value success" id="kpi-distance-saved">0.00</p>
+            </div>
+            <div class="card">
+                <h3>Affected ONUs</h3>
+                <p class="value primary" id="kpi-affected-onus" style="color: var(--accent-primary)">0</p>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--accent-red);">
+                <h3>🚨 Overloaded L1</h3>
+                <p class="value red" id="kpi-overloaded-l1">0</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Distance Optimization Insights</h2>
+        <div class="highlight-grid">
+            <div class="card special-card">
+                <h3>Splitters optimized from > 5km to < 5km</h3>
+                <p class="value secondary" id="kpi-over-5k">0</p>
+                <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem;">
+                    Number of splitters that successfully crossed the 5km threshold (Before > 5km, After < 5km).
+                </p>
+            </div>
+            
+            <div class="card special-card warning">
+                <h3>Insignificant Optimization (≤ 30m shortened)</h3>
+                <p class="value warning" id="kpi-insignificant">0</p>
+                <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem;">
+                    Splitters rehomed with less than or equal to 30 meters of distance reduction (Not considered a significant change).
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Rehomed Splitters & ONU Detail</h2>
+        <div class="report-section">
+            <div class="table-controls">
+                <input type="text" id="searchBox" class="search-box" placeholder="Search L1 Name, Device, or Port..." onkeyup="onSearch()">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">
+                    Click a row to view ONUs under that L1 Splitter
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>L1 Splitter Name</th>
+                            <th>Rehome Type</th>
+                            <th>Old Device</th>
+                            <th>New Device</th>
+                            <th>Old Port</th>
+                            <th>New Port</th>
+                            <th>Distance Diff (m)</th>
+                            <th>Capacity</th>
+                            <th>L2 Ports</th>
+                            <th>ONU Count</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rehomeTableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <span id="pageInfo">Showing 0 to 0 of 0 splitters</span>
+                <div class="pagination-buttons">
+                    <button class="page-btn" id="btnPrev" onclick="changePage(-1)">Previous</button>
+                    <button class="page-btn" id="btnNext" onclick="changePage(1)">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section" id="detailsSection">
+            <div class="details-header">
+                <h3 id="detailsTitle">ONUs Under Splitter: -</h3>
+                <span class="badge badge-success" id="detailsOnuCount">0 ONUs</span>
+            </div>
+            <div class="table-container" style="max-height: 300px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Access ID</th>
+                            <th>ONU Serial</th>
+                            <th>Vendor</th>
+                            <th>Model</th>
+                            <th>Ranging Distance (m)</th>
+                            <th>Rx Power (dBm)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="onuTableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let fullData = [];
+        let filteredData = [];
+        let currentPage = 1;
+        const pageSize = 15;
+        let selectedL1Name = null;
+
+        async function loadData() {
+            try {
+                const response = await fetch('l1_rehome_onu_data.json');
+                const data = await response.json();
+                
+                // Update KPIs
+                document.getElementById('kpi-total').innerText = data.summary.total_rehomed.toLocaleString();
+                document.getElementById('kpi-same-olt').innerText = data.summary.same_olt.toLocaleString();
+                document.getElementById('kpi-diff-olt').innerText = data.summary.diff_olt.toLocaleString();
+                document.getElementById('kpi-distance-saved').innerText = data.summary.distance_saved.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                document.getElementById('kpi-affected-onus').innerText = data.summary.total_affected_onus.toLocaleString();
+                document.getElementById('kpi-overloaded-l1').innerText = data.summary.total_overloaded_l1.toLocaleString();
+                document.getElementById('kpi-over-5k').innerText = data.summary.over_5k_to_under_5k.toLocaleString();
+                document.getElementById('kpi-insignificant').innerText = data.summary.insignificant_change.toLocaleString();
+
+                fullData = data.rehome_details;
+                filteredData = [...fullData];
+                
+                renderTable();
+
+            } catch (err) {
+                console.error("Error loading JSON data:", err);
+            }
+        }
+
+        function renderTable() {
+            const startIdx = (currentPage - 1) * pageSize;
+            const endIdx = Math.min(startIdx + pageSize, filteredData.length);
+            const tbody = document.getElementById('rehomeTableBody');
+            tbody.innerHTML = '';
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="11" style="text-align: center; color: var(--text-muted);">No records found.</td></tr>';
+                document.getElementById('pageInfo').innerText = 'Showing 0 to 0 of 0 splitters';
+                document.getElementById('btnPrev').disabled = true;
+                document.getElementById('btnNext').disabled = true;
+                return;
+            }
+
+            for (let i = startIdx; i < endIdx; i++) {
+                const item = filteredData[i];
+                const row = document.createElement('tr');
+                row.className = 'clickable';
+                if (item.l1_name === selectedL1Name) {
+                    row.className += ' selected';
+                }
+                
+                let diffClass = item.length_diff < 0 ? 'text-green' : (item.length_diff > 0 ? 'text-red' : '');
+                let diffSign = item.length_diff < 0 ? '' : (item.length_diff > 0 ? '+' : '');
+
+                // Status Badge logic
+                let statusBadge = '<span class="badge badge-success">Normal</span>';
+                if (item.is_overloaded_onu && item.is_overloaded_l2) {
+                    statusBadge = '<span class="badge badge-red">Total & Port Overload</span>';
+                } else if (item.is_overloaded_onu) {
+                    statusBadge = '<span class="badge badge-red">ONU Overload</span>';
+                } else if (item.is_overloaded_l2) {
+                    statusBadge = '<span class="badge badge-red">L2 Port Overload</span>';
+                }
+
+                row.innerHTML = `
+                    <td style="font-weight: 600;">${item.l1_name}</td>
+                    <td style="font-size: 0.8rem;">${item.rehome_type}</td>
+                    <td>${item.old_device}</td>
+                    <td>${item.new_device}</td>
+                    <td>${item.old_port}</td>
+                    <td>${item.new_port}</td>
+                    <td class="${diffClass}">${diffSign}${item.length_diff.toLocaleString()}</td>
+                    <td>1:${item.split_ratio}</td>
+                    <td>${item.l2_count} / ${item.l1_ratio}</td>
+                    <td><span class="badge ${item.is_overloaded_onu ? 'badge-red' : 'badge-success'}">${item.onu_count}</span></td>
+                    <td>${statusBadge}</td>
+                `;
+
+                row.addEventListener('click', () => selectSplitter(item));
+                tbody.appendChild(row);
+            }
+
+            document.getElementById('pageInfo').innerText = `Showing ${startIdx + 1} to ${endIdx} of ${filteredData.length} splitters`;
+            document.getElementById('btnPrev').disabled = currentPage === 1;
+            document.getElementById('btnNext').disabled = endIdx >= filteredData.length;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            renderTable();
+        }
+
+        function onSearch() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+            filteredData = fullData.filter(item => 
+                item.l1_name.toLowerCase().includes(query) ||
+                item.old_device.toLowerCase().includes(query) ||
+                item.new_device.toLowerCase().includes(query) ||
+                item.old_port.toLowerCase().includes(query) ||
+                item.new_port.toLowerCase().includes(query) ||
+                (query === 'overloaded' && item.is_overloaded)
+            );
+            currentPage = 1;
+            renderTable();
+        }
+
+        function selectSplitter(item) {
+            selectedL1Name = item.l1_name;
+            
+            // Highlight selected row in table
+            const rows = document.querySelectorAll('#rehomeTableBody tr');
+            rows.forEach((row, idx) => {
+                const globalIdx = (currentPage - 1) * pageSize + idx;
+                if (filteredData[globalIdx] && filteredData[globalIdx].l1_name === selectedL1Name) {
+                    row.classList.add('selected');
+                } else {
+                    row.classList.remove('selected');
+                }
+            });
+
+            // Render ONUs details
+            const detailsSection = document.getElementById('detailsSection');
+            const onuBody = document.getElementById('onuTableBody');
+            document.getElementById('detailsTitle').innerText = `ONUs Under Splitter: ${item.l1_name}`;
+            document.getElementById('detailsOnuCount').innerText = `${item.onu_count} ONUs`;
+            
+            onuBody.innerHTML = '';
+            
+            if (item.onu_count === 0) {
+                onuBody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No ONUs mapped to this splitter in source CSV.</td></tr>';
+            } else {
+                item.onus.forEach(onu => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td style="font-weight: 600;">${onu.accessid}</td>
+                        <td>${onu.onu_serial}</td>
+                        <td>${onu.vendor}</td>
+                        <td>${onu.model}</td>
+                        <td>${onu.ranging.toLocaleString()} m</td>
+                        <td class="${onu.onu_rxpwr <= -27 ? 'text-red' : ''}">${onu.onu_rxpwr} dBm</td>
+                    `;
+                    onuBody.appendChild(row);
+                });
+            }
+
+            detailsSection.style.display = 'block';
+            detailsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>

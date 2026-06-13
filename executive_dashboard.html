@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive OLT Dashboard 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #070a13;
+            --panel-color: #0d1222;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background-color: var(--panel-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-title {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .text-success { color: var(--success); }
+        .text-warning { color: var(--warning); }
+        .text-danger { color: var(--danger); }
+        .text-primary { color: var(--accent-primary); }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>รายงานผู้บริหาร: วิเคราะห์สถานะ OLT Uplink & XGS-PON</h1>
+            <p>เปรียบเทียบข้อมูลปี 2025 (Baseline) และ ปี 2026 (ล่าสุด)</p>
+        </header>
+
+        <div class="info-box">
+            <strong>บทสรุปผู้บริหาร (Executive Summary):</strong>
+            <p>การวิเคราะห์ข้อมูล OLT Uplink เพื่อประเมินความพร้อมของโครงข่ายสำหรับการให้บริการแพ็กเกจระดับ 2 Gbps และเทคโนโลยี XGS-PON. 
+            มีการปรับปรุงแบนด์วิดท์ Uplink เป็น 10G เพื่อรองรับแคมเปญการตลาดอย่างต่อเนื่อง</p>
+        </div>
+
+        <h2 class="section-title">สถานะ Single Uplink (ภาพรวม)</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-title">OLT ขาเดียวทั้งหมด (2026)</div>
+                <div class="card-value">611</div>
+                <div class="card-desc">จำนวนอุปกรณ์ OLT ที่ทำงานด้วย Uplink เพียง 1 เส้นในปัจจุบัน</div>
+            </div>
+            <div class="card">
+                <div class="card-title">คงที่ต่อเนื่อง (Persistent)</div>
+                <div class="card-value text-warning">462</div>
+                <div class="card-desc">OLT ที่เป็นขาเดียวตั้งแต่ปี 2025 และยังคงเป็นขาเดียวในปี 2026</div>
+            </div>
+            <div class="card">
+                <div class="card-title">ลิงก์ชำรุดถดถอย (Degraded)</div>
+                <div class="card-value text-danger">136</div>
+                <div class="card-desc">เคยมีมากกว่า 1 ลิงก์ในปี 2025 แต่ลดลงเหลือลิงก์เดียวในปี 2026</div>
+            </div>
+            <div class="card">
+                <div class="card-title">ติดตั้งเปิดบริการใหม่ (New)</div>
+                <div class="card-value text-primary">13</div>
+                <div class="card-desc">อุปกรณ์ที่ติดตั้งใหม่ในปี 2026 และเปิดด้วยลิงก์เดียว</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">ความพร้อมเทคโนโลยี XGS-PON</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-title">XGS-PON Capable OLTs</div>
+                <div class="card-value text-success">1032</div>
+                <div class="card-desc">อุปกรณ์ที่รองรับและมีการใช้งาน XGS-PON 10G Splitter (เฉพาะ Fiberhome, Huawei, ZTE)</div>
+            </div>
+        </div>
+        
+        <div class="info-box" style="background: rgba(245, 158, 11, 0.1); border-color: var(--warning);">
+            <strong>หมายเหตุสำคัญทางธุรกิจ:</strong>
+            <p>การอัปเกรด Uplink เป็น 10G สำหรับอุปกรณ์บางกลุ่ม (เช่น Dasan, Raisecom) เป็นไปเพื่อรองรับ <strong>แพ็กเกจการตลาด 2 Gbps</strong> และป้องกันปัญหาคอขวดของทราฟฟิก (Traffic Bottleneck) เท่านั้น ไม่ได้หมายความว่าอุปกรณ์เหล่านี้จะรองรับบริการ XGS-PON</p>
+        </div>
+    </div>
+</body>
+</html>

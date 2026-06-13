@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLT Traffic Monitor Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #eab308;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+        }
+        /* Sticky Global Nav */
+        
+        
+        
+        
+        
+        
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
+        .header h1 { font-size: 1.8rem; margin: 0 0 0.5rem 0; }
+        .header p { color: var(--text-muted); margin: 0; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-title { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; display:flex; align-items:center; gap:0.5rem;}
+        .stat-value { font-size: 2.2rem; font-weight: 700; }
+        
+        .text-red { color: var(--accent-red); }
+        .text-orange { color: var(--accent-orange); }
+        .text-yellow { color: var(--accent-yellow); }
+        .text-green { color: var(--accent-green); }
+        .text-blue { color: var(--accent-blue); }
+        
+        .charts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .chart-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); min-height: 400px; }
+        .chart-card h3 { margin: 0 0 1rem 0; font-size: 1.1rem; color: #fff; }
+        .canvas-wrapper { position: relative; height: 350px; width: 100%; }
+        
+        .table-container { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); overflow-x: auto; height: 500px; overflow-y: auto;}
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; background: var(--card-bg); z-index: 10;}
+        .badge { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        .badge-critical { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-high { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .badge-mod { background: rgba(234, 179, 8, 0.2); color: var(--accent-yellow); }
+    
+    /* ── Global Nav Styles ── */
+    .global-nav {
+        position: fixed; top: 0; left: 0; right: 0; height: 70px;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        box-sizing: border-box;
+    }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-logo span { color: #38bdf8; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+</style>
+</head>
+<body>
+    <nav class="global-nav">
+    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="nav-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">Executive</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="active">Uplink Traffic</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+    </div>
+</nav>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>🚦 OLT Uplink Traffic Monitor</h1>
+                <p>รายงานตรวจสอบ Bandwidth Utilization ของ OLT แยกตาม Region (4 ระดับความเสี่ยง)</p>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-title">Total OLTs</div>
+                <div class="stat-value text-blue" id="statTotal">0</div>
+            </div>
+            <div class="stat-card" style="border-top: 4px solid var(--accent-red);">
+                <div class="stat-title">🔴 Critical (>80%)</div>
+                <div class="stat-value text-red" id="statCrit">0</div>
+            </div>
+            <div class="stat-card" style="border-top: 4px solid var(--accent-orange);">
+                <div class="stat-title">🟧 High (70-80%)</div>
+                <div class="stat-value text-orange" id="statHigh">0</div>
+            </div>
+            <div class="stat-card" style="border-top: 4px solid var(--accent-yellow);">
+                <div class="stat-title">🟨 Mod (50-70%)</div>
+                <div class="stat-value text-yellow" id="statMod">0</div>
+            </div>
+            <div class="stat-card" style="border-top: 4px solid var(--accent-green);">
+                <div class="stat-title">✅ Healthy (<50%)</div>
+                <div class="stat-value text-green" id="statHealth">0</div>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>Regional Traffic Overview (Total OLTs)</h3>
+                <div class="canvas-wrapper"><canvas id="regionTotalChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <h3>Utilization Alerts by Region (>= 50%)</h3>
+                <div class="canvas-wrapper"><canvas id="regionAlertChart"></canvas></div>
+            </div>
+        </div>
+        
+        <div class="charts-container" style="grid-template-columns: 1fr;">
+            <div class="chart-card">
+                <h3>Proportion of Utilization by Region (Stacked)</h3>
+                <div class="canvas-wrapper" style="height: 500px;"><canvas id="regionStackedChart"></canvas></div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h3>⚠️ OLT Alerts (Utilization >= 50%)</h3>
+            <table id="anomalyTable">
+                <thead>
+                    <tr>
+                        <th>Device Name</th>
+                        <th>Region</th>
+                        <th>Max Utilization</th>
+                        <th>Port Description</th>
+                        <th>In Rate (Mbps)</th>
+                        <th>Out Rate (Mbps)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const dashboardData = {
+  "total_devices": 12896,
+  "total_critical": 4,
+  "total_high": 1,
+  "total_mod": 117,
+  "total_healthy": 12774,
+  "region_stats": {
+    "BMA": {
+      "critical": 0,
+      "high": 1,
+      "mod": 93,
+      "healthy": 1925,
+      "total": 2019
+    },
+    "Central": {
+      "critical": 0,
+      "high": 0,
+      "mod": 0,
+      "healthy": 1332,
+      "total": 1332
+    },
+    "East": {
+      "critical": 2,
+      "high": 0,
+      "mod": 2,
+      "healthy": 1224,
+      "total": 1228
+    },
+    "Lower NEA": {
+      "critical": 0,
+      "high": 0,
+      "mod": 0,
+      "healthy": 119,
+      "total": 119
+    },
+    "Lower North": {
+      "critical": 0,
+      "high": 0,
+      "mod": 4,
+      "healthy": 1366,
+      "total": 1370
+    },
+    "Lower Northeast": {
+      "critical": 1,
+      "high": 0,
+      "mod": 2,
+      "healthy": 1470,
+      "total": 1473
+    },
+    "Lower South": {
+      "critical": 1,
+      "high": 0,
+      "mod": 6,
+      "healthy": 711,
+      "total": 718
+    },
+    "Unknown": {
+      "critical": 0,
+      "high": 0,
+      "mod": 0,
+      "healthy": 37,
+      "total": 37
+    },
+    "Upper NEA": {
+      "critical": 0,
+      "high": 0,
+      "mod": 0,
+      "healthy": 267,
+      "total": 267
+    },
+    "Upper North": {
+      "critical": 0,
+      "high": 0,
+      "mod": 1,
+      "healthy": 1254,
+      "total": 1255
+    },
+    "Upper Northeast": {
+      "critical": 0,
+      "high": 0,
+      "mod": 2,
+      "healthy": 1627,
+      "total": 1629
+    },
+    "Upper South": {
+      "critical": 0,
+      "high": 0,
+      "mod": 2,
+      "healthy": 585,
+      "total": 587
+    },
+    "West": {
+      "critical": 0,
+      "high": 0,
+      "mod": 5,
+      "healthy": 857,
+      "total": 862
+    }
+  },
+  "anomalies": [
+    {
+      "device": "NKR01092GO0",
+      "region": "Lower Northeast",
+      "utilization": 1386445.75,
+      "severity": "Critical",
+      "ifDescr": "XFP 10/1",
+      "in_rate": 138644574.92,
+      "out_rate": 137848208.49
+    },
+    {
+      "device": "CBR07069GO0",
+      "region": "East",
+      "utilization": 6702.77,
+      "severity": "Critical",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/3/0",
+      "in_rate": 670276.76,
+      "out_rate": 60061.56
+    },
+    {
+      "device": "CBR07072GO0",
+      "region": "East",
+      "utilization": 2239.77,
+      "severity": "Critical",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/3/0",
+      "in_rate": 223977.14,
+      "out_rate": 25589.49
+    },
+    {
+      "device": "PTL08006G00",
+      "region": "Lower South",
+      "utilization": 82.66,
+      "severity": "Critical",
+      "ifDescr": "Connect to (ip uplink)",
+      "in_rate": 826.62,
+      "out_rate": 63.72
+    },
+    {
+      "device": "BKK27001G00",
+      "region": "BMA",
+      "utilization": 70.66,
+      "severity": "High",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 7066.43,
+      "out_rate": 945.43
+    },
+    {
+      "device": "PSN01003G00",
+      "region": "Lower North",
+      "utilization": 68.48,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 6847.52,
+      "out_rate": 577.4
+    },
+    {
+      "device": "LPG01001G00",
+      "region": "Upper North",
+      "utilization": 67.54,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/0",
+      "in_rate": 6753.54,
+      "out_rate": 827.14
+    },
+    {
+      "device": "SMK01001G01",
+      "region": "West",
+      "utilization": 67.46,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/1",
+      "in_rate": 6745.72,
+      "out_rate": 702.73
+    },
+    {
+      "device": "BKK49002G01",
+      "region": "BMA",
+      "utilization": 67.05,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 6705.15,
+      "out_rate": 590.57
+    },
+    {
+      "device": "SMP01002G00",
+      "region": "BMA",
+      "utilization": 66.71,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 6670.91,
+      "out_rate": 899.63
+    },
+    {
+      "device": "SMP01007G00",
+      "region": "BMA",
+      "utilization": 66.34,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 6634.46,
+      "out_rate": 841.26
+    },
+    {
+      "device": "BKK43AGNG00",
+      "region": "BMA",
+      "utilization": 66.3,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6629.81,
+      "out_rate": 815.64
+    },
+    {
+      "device": "NKS01001G00",
+      "region": "Lower South",
+      "utilization": 66.11,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6611.13,
+      "out_rate": 928.27
+    },
+    {
+      "device": "UTR01001G00",
+      "region": "Lower North",
+      "utilization": 65.67,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/1",
+      "in_rate": 6567.25,
+      "out_rate": 724.16
+    },
+    {
+      "device": "BKK15002G00",
+      "region": "BMA",
+      "utilization": 65.28,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 6527.98,
+      "out_rate": 827.5
+    },
+    {
+      "device": "SMP05005G00",
+      "region": "BMA",
+      "utilization": 64.9,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 6489.91,
+      "out_rate": 849.88
+    },
+    {
+      "device": "BKK35002G00",
+      "region": "BMA",
+      "utilization": 64.71,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 6470.57,
+      "out_rate": 895.67
+    },
+    {
+      "device": "PTN01001G00",
+      "region": "Lower South",
+      "utilization": 64.59,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6459.13,
+      "out_rate": 743.02
+    },
+    {
+      "device": "NTB04002G00",
+      "region": "BMA",
+      "utilization": 64.41,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6441.26,
+      "out_rate": 975.45
+    },
+    {
+      "device": "NTB01006G00",
+      "region": "BMA",
+      "utilization": 64.39,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6438.96,
+      "out_rate": 890.18
+    },
+    {
+      "device": "SMP02001G00",
+      "region": "BMA",
+      "utilization": 64.32,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/0",
+      "in_rate": 6431.69,
+      "out_rate": 652.93
+    },
+    {
+      "device": "NTB01004G00",
+      "region": "BMA",
+      "utilization": 64.03,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6402.92,
+      "out_rate": 716.79
+    },
+    {
+      "device": "BKK35002G01",
+      "region": "BMA",
+      "utilization": 63.71,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/1",
+      "in_rate": 6371.31,
+      "out_rate": 1194.42
+    },
+    {
+      "device": "BKK42002G00",
+      "region": "BMA",
+      "utilization": 63.61,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6361.14,
+      "out_rate": 645.98
+    },
+    {
+      "device": "BKK27002G00",
+      "region": "BMA",
+      "utilization": 63.36,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6335.68,
+      "out_rate": 734.49
+    },
+    {
+      "device": "BKK02001G00",
+      "region": "BMA",
+      "utilization": 62.9,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6289.74,
+      "out_rate": 691.16
+    },
+    {
+      "device": "BKK30AGNG00",
+      "region": "BMA",
+      "utilization": 62.17,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6217.0,
+      "out_rate": 840.28
+    },
+    {
+      "device": "NTB03AGNG00",
+      "region": "BMA",
+      "utilization": 62.12,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6211.97,
+      "out_rate": 660.96
+    },
+    {
+      "device": "BKK26AGNG03",
+      "region": "BMA",
+      "utilization": 62.1,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 6210.46,
+      "out_rate": 1086.51
+    },
+    {
+      "device": "BKK32001G01",
+      "region": "BMA",
+      "utilization": 61.39,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/1",
+      "in_rate": 6139.39,
+      "out_rate": 968.23
+    },
+    {
+      "device": "NKR21035GO0",
+      "region": "Lower Northeast",
+      "utilization": 61.2,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 611.96,
+      "out_rate": 42.64
+    },
+    {
+      "device": "NTB03001G00",
+      "region": "BMA",
+      "utilization": 61.0,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6100.31,
+      "out_rate": 782.72
+    },
+    {
+      "device": "BKK48001G00",
+      "region": "BMA",
+      "utilization": 60.86,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/1",
+      "in_rate": 6086.46,
+      "out_rate": 728.33
+    },
+    {
+      "device": "BKK15006GO0",
+      "region": "BMA",
+      "utilization": 60.79,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/3/0",
+      "in_rate": 6078.94,
+      "out_rate": 692.83
+    },
+    {
+      "device": "BKK44007GO0",
+      "region": "BMA",
+      "utilization": 60.76,
+      "severity": "Moderate",
+      "ifDescr": "SFP+ 3/1",
+      "in_rate": 6076.02,
+      "out_rate": 663.23
+    },
+    {
+      "device": "MHR01002GO0",
+      "region": "Upper Northeast",
+      "utilization": 60.69,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5600-V800R018-ETHERNET",
+      "in_rate": 606.92,
+      "out_rate": 47.11
+    },
+    {
+      "device": "BKK11003G00",
+      "region": "BMA",
+      "utilization": 60.65,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 6064.71,
+      "out_rate": 799.15
+    },
+    {
+      "device": "SMP05008GO1",
+      "region": "BMA",
+      "utilization": 60.32,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/4/0",
+      "in_rate": 6032.36,
+      "out_rate": 613.35
+    },
+    {
+      "device": "BKK29001G00",
+      "region": "BMA",
+      "utilization": 60.05,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 6005.12,
+      "out_rate": 823.82
+    },
+    {
+      "device": "BKK32002G01",
+      "region": "BMA",
+      "utilization": 59.95,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/0",
+      "in_rate": 5994.86,
+      "out_rate": 1078.27
+    },
+    {
+      "device": "NTB04004G00",
+      "region": "BMA",
+      "utilization": 59.81,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5980.67,
+      "out_rate": 676.52
+    },
+    {
+      "device": "NTB01003G00",
+      "region": "BMA",
+      "utilization": 59.74,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5974.41,
+      "out_rate": 624.73
+    },
+    {
+      "device": "NTB04003G00",
+      "region": "BMA",
+      "utilization": 59.52,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5951.97,
+      "out_rate": 696.73
+    },
+    {
+      "device": "BKK19002G00",
+      "region": "BMA",
+      "utilization": 59.51,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5951.05,
+      "out_rate": 573.28
+    },
+    {
+      "device": "PTT03001G00",
+      "region": "BMA",
+      "utilization": 59.38,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5937.74,
+      "out_rate": 770.48
+    },
+    {
+      "device": "BKK32001G00",
+      "region": "BMA",
+      "utilization": 59.22,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5921.7,
+      "out_rate": 1182.82
+    },
+    {
+      "device": "SMP04002G01",
+      "region": "BMA",
+      "utilization": 59.12,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5911.71,
+      "out_rate": 593.69
+    },
+    {
+      "device": "NTB03AGNG01",
+      "region": "BMA",
+      "utilization": 58.84,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5883.74,
+      "out_rate": 484.81
+    },
+    {
+      "device": "NTB01006G01",
+      "region": "BMA",
+      "utilization": 58.63,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5863.5,
+      "out_rate": 570.78
+    },
+    {
+      "device": "BKK46001G00",
+      "region": "BMA",
+      "utilization": 58.55,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5855.11,
+      "out_rate": 715.14
+    },
+    {
+      "device": "NRT13001G00",
+      "region": "Lower South",
+      "utilization": 58.26,
+      "severity": "Moderate",
+      "ifDescr": "gigabitethernet1/3",
+      "in_rate": 582.6,
+      "out_rate": 51.68
+    },
+    {
+      "device": "SMPPRI1PGW0",
+      "region": "East",
+      "utilization": 58.12,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5600-V800R011-ETHERNET",
+      "in_rate": 172.11,
+      "out_rate": 581.23
+    },
+    {
+      "device": "BKK20010GO0",
+      "region": "BMA",
+      "utilization": 58.04,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/4/0",
+      "in_rate": 5804.36,
+      "out_rate": 609.22
+    },
+    {
+      "device": "PTT06AGNG00",
+      "region": "BMA",
+      "utilization": 58.03,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5803.49,
+      "out_rate": 617.94
+    },
+    {
+      "device": "BKK03001G00",
+      "region": "BMA",
+      "utilization": 58.0,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5800.31,
+      "out_rate": 525.6
+    },
+    {
+      "device": "PTT01001G00",
+      "region": "BMA",
+      "utilization": 57.72,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5771.78,
+      "out_rate": 614.24
+    },
+    {
+      "device": "PTT03003G00",
+      "region": "BMA",
+      "utilization": 57.64,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5764.28,
+      "out_rate": 645.13
+    },
+    {
+      "device": "NTB04001G00",
+      "region": "BMA",
+      "utilization": 57.56,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5755.6,
+      "out_rate": 558.7
+    },
+    {
+      "device": "BKK40003G00",
+      "region": "BMA",
+      "utilization": 57.53,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5753.47,
+      "out_rate": 599.57
+    },
+    {
+      "device": "NTB01026GO0",
+      "region": "BMA",
+      "utilization": 57.2,
+      "severity": "Moderate",
+      "ifDescr": "XFP 10/1",
+      "in_rate": 5719.93,
+      "out_rate": 534.54
+    },
+    {
+      "device": "BKK23001G01",
+      "region": "BMA",
+      "utilization": 57.17,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/0",
+      "in_rate": 5716.63,
+      "out_rate": 503.71
+    },
+    {
+      "device": "BKK42001G01",
+      "region": "BMA",
+      "utilization": 57.11,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5711.38,
+      "out_rate": 760.82
+    },
+    {
+      "device": "PTT06002G01",
+      "region": "BMA",
+      "utilization": 56.99,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5699.2,
+      "out_rate": 514.64
+    },
+    {
+      "device": "BKK47001G00",
+      "region": "BMA",
+      "utilization": 56.89,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 5689.13,
+      "out_rate": 745.65
+    },
+    {
+      "device": "SMP01AGNG00",
+      "region": "BMA",
+      "utilization": 56.86,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5685.7,
+      "out_rate": 572.33
+    },
+    {
+      "device": "BKK20001G00",
+      "region": "BMA",
+      "utilization": 56.77,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/2",
+      "in_rate": 5677.21,
+      "out_rate": 554.68
+    },
+    {
+      "device": "BKK42002G01",
+      "region": "BMA",
+      "utilization": 56.75,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5674.99,
+      "out_rate": 489.74
+    },
+    {
+      "device": "SMP03001G00",
+      "region": "BMA",
+      "utilization": 56.51,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5650.77,
+      "out_rate": 558.24
+    },
+    {
+      "device": "BKK15001G00",
+      "region": "BMA",
+      "utilization": 56.49,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5649.46,
+      "out_rate": 490.05
+    },
+    {
+      "device": "BKK35002G02",
+      "region": "BMA",
+      "utilization": 56.44,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 5643.77,
+      "out_rate": 721.94
+    },
+    {
+      "device": "BKK32018GO0",
+      "region": "BMA",
+      "utilization": 56.4,
+      "severity": "Moderate",
+      "ifDescr": "XFP 10/1",
+      "in_rate": 5639.53,
+      "out_rate": 425.79
+    },
+    {
+      "device": "PTL02005G00",
+      "region": "Lower South",
+      "utilization": 56.4,
+      "severity": "Moderate",
+      "ifDescr": "Connect to (ip uplink)",
+      "in_rate": 563.99,
+      "out_rate": 44.42
+    },
+    {
+      "device": "NTB06002G01",
+      "region": "BMA",
+      "utilization": 56.37,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5636.86,
+      "out_rate": 753.75
+    },
+    {
+      "device": "BKK40001G01",
+      "region": "BMA",
+      "utilization": 56.24,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/1",
+      "in_rate": 5623.94,
+      "out_rate": 696.92
+    },
+    {
+      "device": "BKK23001G00",
+      "region": "BMA",
+      "utilization": 56.15,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/1",
+      "in_rate": 5614.69,
+      "out_rate": 834.2
+    },
+    {
+      "device": "BKK49002G00",
+      "region": "BMA",
+      "utilization": 56.12,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/0",
+      "in_rate": 5611.81,
+      "out_rate": 612.56
+    },
+    {
+      "device": "SMK02002G01",
+      "region": "West",
+      "utilization": 55.99,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/1",
+      "in_rate": 5599.39,
+      "out_rate": 529.02
+    },
+    {
+      "device": "BKK24001G00",
+      "region": "BMA",
+      "utilization": 55.87,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/0",
+      "in_rate": 5586.58,
+      "out_rate": 669.25
+    },
+    {
+      "device": "BKK40002G00",
+      "region": "BMA",
+      "utilization": 55.86,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 5586.42,
+      "out_rate": 605.75
+    },
+    {
+      "device": "BKK23002G00",
+      "region": "BMA",
+      "utilization": 55.82,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5582.02,
+      "out_rate": 523.31
+    },
+    {
+      "device": "BKK19001G00",
+      "region": "BMA",
+      "utilization": 55.09,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5508.73,
+      "out_rate": 550.59
+    },
+    {
+      "device": "CCS03016G00",
+      "region": "East",
+      "utilization": 54.94,
+      "severity": "Moderate",
+      "ifDescr": "Port14-XE-FX",
+      "in_rate": 549.39,
+      "out_rate": 45.04
+    },
+    {
+      "device": "BKK11003G01",
+      "region": "BMA",
+      "utilization": 54.92,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/9/1",
+      "in_rate": 5491.82,
+      "out_rate": 629.92
+    },
+    {
+      "device": "BKK11001G00",
+      "region": "BMA",
+      "utilization": 54.31,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5431.06,
+      "out_rate": 549.06
+    },
+    {
+      "device": "NTB06AGNG01",
+      "region": "BMA",
+      "utilization": 54.05,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5404.63,
+      "out_rate": 828.88
+    },
+    {
+      "device": "BKK35001G00",
+      "region": "BMA",
+      "utilization": 54.03,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5403.16,
+      "out_rate": 721.65
+    },
+    {
+      "device": "BKK22001G00",
+      "region": "BMA",
+      "utilization": 53.88,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5388.34,
+      "out_rate": 536.79
+    },
+    {
+      "device": "BKK41002G00",
+      "region": "BMA",
+      "utilization": 53.84,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5384.23,
+      "out_rate": 588.61
+    },
+    {
+      "device": "NTB06001G00",
+      "region": "BMA",
+      "utilization": 53.73,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5372.87,
+      "out_rate": 646.04
+    },
+    {
+      "device": "SRT01001G00",
+      "region": "Upper South",
+      "utilization": 53.41,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5341.48,
+      "out_rate": 650.77
+    },
+    {
+      "device": "BKK24001G01",
+      "region": "BMA",
+      "utilization": 53.32,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/0",
+      "in_rate": 5332.42,
+      "out_rate": 697.23
+    },
+    {
+      "device": "SMK02002G00",
+      "region": "West",
+      "utilization": 53.15,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/0",
+      "in_rate": 5314.94,
+      "out_rate": 599.99
+    },
+    {
+      "device": "NTB04006G00",
+      "region": "BMA",
+      "utilization": 53.01,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5300.79,
+      "out_rate": 512.78
+    },
+    {
+      "device": "BKK45001G01",
+      "region": "BMA",
+      "utilization": 52.84,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5284.46,
+      "out_rate": 725.5
+    },
+    {
+      "device": "SKA11005G00",
+      "region": "Lower South",
+      "utilization": 52.73,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5272.77,
+      "out_rate": 539.82
+    },
+    {
+      "device": "BKK37002G00",
+      "region": "BMA",
+      "utilization": 52.71,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 5271.43,
+      "out_rate": 1100.61
+    },
+    {
+      "device": "BKK26AGNG01",
+      "region": "BMA",
+      "utilization": 52.68,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/1",
+      "in_rate": 5268.02,
+      "out_rate": 736.56
+    },
+    {
+      "device": "NTB03002G00",
+      "region": "BMA",
+      "utilization": 52.68,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5267.88,
+      "out_rate": 700.85
+    },
+    {
+      "device": "NTB03001G01",
+      "region": "BMA",
+      "utilization": 52.52,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5252.38,
+      "out_rate": 723.97
+    },
+    {
+      "device": "BKK48001G01",
+      "region": "BMA",
+      "utilization": 52.5,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/0",
+      "in_rate": 5249.92,
+      "out_rate": 503.19
+    },
+    {
+      "device": "SMP03001G01",
+      "region": "BMA",
+      "utilization": 52.49,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/0",
+      "in_rate": 5249.5,
+      "out_rate": 505.7
+    },
+    {
+      "device": "BKK44001G00",
+      "region": "BMA",
+      "utilization": 52.4,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/0",
+      "in_rate": 5239.79,
+      "out_rate": 757.6
+    },
+    {
+      "device": "NTB01016GO0",
+      "region": "BMA",
+      "utilization": 52.17,
+      "severity": "Moderate",
+      "ifDescr": "XFP 10/1",
+      "in_rate": 5216.81,
+      "out_rate": 604.7
+    },
+    {
+      "device": "TRG01002G00",
+      "region": "Lower South",
+      "utilization": 51.97,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 519.71,
+      "out_rate": 108.46
+    },
+    {
+      "device": "PSN09008GO0",
+      "region": "Lower North",
+      "utilization": 51.84,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5600-V800R018-ETHERNET",
+      "in_rate": 518.44,
+      "out_rate": 229.31
+    },
+    {
+      "device": "SMP02002G00",
+      "region": "BMA",
+      "utilization": 51.56,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5155.61,
+      "out_rate": 511.67
+    },
+    {
+      "device": "TAK06001G00",
+      "region": "Lower North",
+      "utilization": 51.5,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/1",
+      "in_rate": 5150.19,
+      "out_rate": 832.68
+    },
+    {
+      "device": "BKK32002G00",
+      "region": "BMA",
+      "utilization": 51.37,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/0",
+      "in_rate": 5137.38,
+      "out_rate": 518.28
+    },
+    {
+      "device": "BKK05002G00",
+      "region": "BMA",
+      "utilization": 51.3,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5130.32,
+      "out_rate": 615.71
+    },
+    {
+      "device": "BKK21023GO0",
+      "region": "BMA",
+      "utilization": 51.24,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/3/0",
+      "in_rate": 5123.84,
+      "out_rate": 911.73
+    },
+    {
+      "device": "SRN09002G00",
+      "region": "Lower Northeast",
+      "utilization": 51.13,
+      "severity": "Moderate",
+      "ifDescr": "To_SRN6716_CPE_ZXCTN 6120H-SC_10.167.103.229_1G_1/1/0/14",
+      "in_rate": 511.33,
+      "out_rate": 41.05
+    },
+    {
+      "device": "BKK47004GO0",
+      "region": "BMA",
+      "utilization": 51.11,
+      "severity": "Moderate",
+      "ifDescr": "XFP 10/1",
+      "in_rate": 5110.61,
+      "out_rate": 574.36
+    },
+    {
+      "device": "BKK10001G01",
+      "region": "BMA",
+      "utilization": 51.09,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5108.99,
+      "out_rate": 935.86
+    },
+    {
+      "device": "BKK21001G00",
+      "region": "BMA",
+      "utilization": 50.77,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5077.13,
+      "out_rate": 478.54
+    },
+    {
+      "device": "NTB06003G00",
+      "region": "BMA",
+      "utilization": 50.73,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5073.38,
+      "out_rate": 580.23
+    },
+    {
+      "device": "BKK04001G00",
+      "region": "BMA",
+      "utilization": 50.67,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/10/1",
+      "in_rate": 5066.94,
+      "out_rate": 787.71
+    },
+    {
+      "device": "NKT06001G00",
+      "region": "West",
+      "utilization": 50.66,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R022-ETHERNET 0/10/1",
+      "in_rate": 5066.09,
+      "out_rate": 685.49
+    },
+    {
+      "device": "BKK08001G00",
+      "region": "BMA",
+      "utilization": 50.57,
+      "severity": "Moderate",
+      "ifDescr": "Huawei-MA5800-V100R020-ETHERNET 0/9/0",
+      "in_rate": 5057.19,
+      "out_rate": 977.3
+    },
+    {
+      "device": "RCB07001G00",
+      "region": "West",
+      "utilization": 50.51,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5051.16,
+      "out_rate": 718.02
+    },
+    {
+      "device": "NTB01005G01",
+      "region": "BMA",
+      "utilization": 50.3,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5029.98,
+      "out_rate": 487.61
+    },
+    {
+      "device": "KBI01002G00",
+      "region": "Upper South",
+      "utilization": 50.16,
+      "severity": "Moderate",
+      "ifDescr": "N/A",
+      "in_rate": 5015.93,
+      "out_rate": 565.59
+    },
+    {
+      "device": "MHR05008G00",
+      "region": "Upper Northeast",
+      "utilization": 50.14,
+      "severity": "Moderate",
+      "ifDescr": "Connect_to_ALU7210_Port_1/1/15",
+      "in_rate": 501.44,
+      "out_rate": 47.29
+    }
+  ]
+};
+
+        function initDashboard() {
+            if (!dashboardData) return;
+
+            // Stats
+            document.getElementById('statTotal').textContent = dashboardData.total_devices.toLocaleString();
+            document.getElementById('statCrit').textContent = dashboardData.total_critical.toLocaleString();
+            document.getElementById('statHigh').textContent = dashboardData.total_high.toLocaleString();
+            document.getElementById('statMod').textContent = dashboardData.total_mod.toLocaleString();
+            document.getElementById('statHealth').textContent = dashboardData.total_healthy.toLocaleString();
+
+            const regions = Object.keys(dashboardData.region_stats).sort((a, b) => dashboardData.region_stats[b].total - dashboardData.region_stats[a].total);
+            
+            const totalData = regions.map(r => dashboardData.region_stats[r].total);
+            const critData = regions.map(r => dashboardData.region_stats[r].critical);
+            const highData = regions.map(r => dashboardData.region_stats[r].high);
+            const modData = regions.map(r => dashboardData.region_stats[r].mod);
+            const healthData = regions.map(r => dashboardData.region_stats[r].healthy);
+
+            // Chart 1: Total Devices
+            new Chart(document.getElementById('regionTotalChart'), {
+                type: 'bar',
+                data: {
+                    labels: regions,
+                    datasets: [{
+                        label: 'Total OLTs',
+                        data: totalData,
+                        backgroundColor: 'rgba(59, 130, 246, 0.85)',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                        x: { grid: { display: false }, ticks: { color: '#94a3b8', maxRotation: 45, minRotation: 45 } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Chart 2: Alerts Stacked (Only Critical, High, Mod)
+            const alertRegions = regions.filter(r => (dashboardData.region_stats[r].critical + dashboardData.region_stats[r].high + dashboardData.region_stats[r].mod) > 0);
+            const aCrit = alertRegions.map(r => dashboardData.region_stats[r].critical);
+            const aHigh = alertRegions.map(r => dashboardData.region_stats[r].high);
+            const aMod = alertRegions.map(r => dashboardData.region_stats[r].mod);
+            
+            new Chart(document.getElementById('regionAlertChart'), {
+                type: 'bar',
+                data: {
+                    labels: alertRegions,
+                    datasets: [
+                        { label: '🔴 Critical (>80%)', data: aCrit, backgroundColor: 'rgba(239, 68, 68, 0.85)', borderRadius: 2 },
+                        { label: '🟧 High (70-80%)', data: aHigh, backgroundColor: 'rgba(245, 158, 11, 0.85)', borderRadius: 2 },
+                        { label: '🟨 Mod (50-70%)', data: aMod, backgroundColor: 'rgba(234, 179, 8, 0.85)', borderRadius: 2 }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { display: false }, ticks: { color: '#94a3b8' } },
+                        y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', stepSize: 1 } }
+                    },
+                    plugins: { legend: { labels: { color: '#f8fafc' } } }
+                }
+            });
+            
+            // Chart 3: Stacked Bar (All)
+            new Chart(document.getElementById('regionStackedChart'), {
+                type: 'bar',
+                data: {
+                    labels: regions,
+                    datasets: [
+                        { label: '🔴 Critical (>80%)', data: critData, backgroundColor: 'rgba(239, 68, 68, 0.85)' },
+                        { label: '🟧 High (70-80%)', data: highData, backgroundColor: 'rgba(245, 158, 11, 0.85)' },
+                        { label: '🟨 Mod (50-70%)', data: modData, backgroundColor: 'rgba(234, 179, 8, 0.85)' },
+                        { label: '✅ Healthy (<50%)', data: healthData, backgroundColor: 'rgba(16, 185, 129, 0.85)' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true, maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                        y: { stacked: true, grid: { display: false }, ticks: { color: '#94a3b8' } }
+                    },
+                    plugins: { legend: { labels: { color: '#f8fafc' } } }
+                }
+            });
+
+            // Populate Table
+            const tbody = document.querySelector('#anomalyTable tbody');
+            if (dashboardData.anomalies.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:var(--text-muted);">No alerts found</td></tr>';
+            } else {
+                dashboardData.anomalies.forEach(a => {
+                    let badgeClass = 'badge-mod';
+                    if (a.severity === 'Critical') badgeClass = 'badge-critical';
+                    else if (a.severity === 'High') badgeClass = 'badge-high';
+                    
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td style="font-family:monospace; font-weight: bold; color: var(--text-main);">${a.device}</td>
+                        <td>${a.region}</td>
+                        <td><span class="badge ${badgeClass}">${a.utilization}%</span></td>
+                        <td style="color: var(--accent-blue); font-size: 0.9rem;">${a.ifDescr}</td>
+                        <td style="color: var(--accent-green);">${a.in_rate}</td>
+                        <td style="color: var(--accent-orange);">${a.out_rate}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>

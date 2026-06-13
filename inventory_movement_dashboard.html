@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Movement Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #0f172a 100%);
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      
+      --hw-color: #ef4444;      /* Red accent for Huawei */
+      --fbh-color: #10b981;     /* Green accent for Fiberhome */
+      --zte-color: #3b82f6;     /* Blue accent for ZTE */
+      --aci-color: #a855f7;     /* Purple accent for ACI */
+      --other-color: #64748b;   /* Gray accent for Other */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Global Nav Styles ── */
+    .global-nav {
+        position: fixed; top: 0; left: 0; right: 0; height: 70px;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        box-sizing: border-box;
+    }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Outfit', sans-serif; }
+    .nav-logo span { color: #38bdf8; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 6.5rem 1.5rem 2.5rem 1.5rem;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header Design */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 150px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 99px;
+    }
+
+    .header-title h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: linear-gradient(135deg, #ffffff 0%, #d1d5db 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-title p {
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .meta-badge {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Glassmorphism Card Style */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Grid Layouts */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .kpi-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-blue);
+      border-radius: 99px;
+    }
+
+    .kpi-item.increase::before { background: var(--success); }
+    .kpi-item.decrease::before { background: var(--danger); }
+    .kpi-item.period::before { background: var(--accent-purple); }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .kpi-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-subtext {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .val-positive { color: var(--success); }
+    .val-negative { color: var(--danger); }
+
+    /* Vendor Navigation Tabs */
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      background: rgba(17, 24, 39, 0.5);
+      padding: 0.35rem;
+      border-radius: 99px;
+      border: 1px solid var(--card-border);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 0.6rem 1.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      background: var(--accent-blue);
+      color: var(--text-primary);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .tab-btn.active.tab-hw { background: var(--hw-color); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
+    .tab-btn.active.tab-fbh { background: var(--fbh-color); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+    .tab-btn.active.tab-zte { background: var(--zte-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
+    .tab-btn.active.tab-other { background: var(--other-color); box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3); }
+    .tab-btn.active.tab-aci { background: var(--aci-color); box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); }
+
+    /* Charts Section */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 968px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .chart-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .chart-canvas-wrapper {
+      position: relative;
+      height: 320px;
+      width: 100%;
+    }
+
+    /* Timeline Cards for Vendors */
+    .vendor-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .vendor-card {
+      background: rgba(17, 24, 39, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+    }
+
+    .vendor-card:hover {
+      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    .vendor-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .vendor-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-hw { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-fbh { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-zter, .badge-zte { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-other { background: rgba(100, 116, 139, 0.15); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.3); }
+    .badge-aci { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .metric-row strong {
+      color: var(--text-primary);
+    }
+
+    .in-out-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 99px;
+      overflow: hidden;
+      display: flex;
+      margin: 0.75rem 0;
+    }
+
+    .bar-in { height: 100%; background: var(--success); }
+    .bar-out { height: 100%; background: var(--danger); }
+
+    /* Table Design */
+    .table-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 250px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 0.75rem;
+      border: 1px solid var(--card-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+
+    th {
+      background: rgba(17, 24, 39, 0.95);
+      padding: 1rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      border-bottom: 2px solid var(--card-border);
+      white-space: nowrap;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    tr:hover td {
+      background: rgba(255,255,255,0.015);
+    }
+
+    .material-id-link {
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    
+    .pill-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .pill-red { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+    .pill-zero { background: rgba(255,255,255,0.05); color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <!-- Sticky Global Navigation Bar -->
+  <nav class="global-nav">
+    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="nav-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">Executive</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory" class="active">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Top Header -->
+    <div class="header">
+      <div class="header-title">
+        <h1>Material Inventory Movement Timeline</h1>
+        <p>เปรียบเทียบผลต่างของวัสดุ (MAT) ในระบบคลังสินค้า GI สำหรับ Huawei, FBH, ZTER และ ACI</p>
+      </div>
+      <div>
+        <span class="meta-badge" id="data-updated-range">TIMELINE ANALYSIS</span>
+      </div>
+    </div>
+
+    <!-- KPI Grid -->
+    <div class="kpi-grid">
+      <div class="glass-card kpi-item period">
+        <div class="kpi-label">Analyzed Period Timeline</div>
+        <div class="kpi-value" style="font-size: 1.5rem; padding: 0.4rem 0;" id="kpi-dates-range">Loading...</div>
+        <div class="kpi-subtext" id="kpi-total-files">4 checkpoint files parsed</div>
+      </div>
+      <div class="glass-card kpi-item">
+        <div class="kpi-label">Total Target MATs</div>
+        <div class="kpi-value" id="kpi-total-mats">-</div>
+        <div class="kpi-subtext">Listed in MAT-GI.txt</div>
+      </div>
+      <div class="glass-card kpi-item increase">
+        <div class="kpi-label">Top Stock Increase (Latest)</div>
+        <div class="kpi-value val-positive" id="kpi-inc-val">-</div>
+        <div class="kpi-subtext" id="kpi-inc-mat">-</div>
+      </div>
+      <div class="glass-card kpi-item decrease">
+        <div class="kpi-label">Top Stock Decrease (Latest)</div>
+        <div class="kpi-value val-negative" id="kpi-dec-val">-</div>
+        <div class="kpi-subtext" id="kpi-dec-mat">-</div>
+      </div>
+    </div>
+
+    <!-- Vendor Tabs Navigation -->
+    <div class="tabs-container">
+      <button class="tab-btn active" onclick="switchVendor('All', this)">All Vendors</button>
+      <button class="tab-btn tab-hw" onclick="switchVendor('HW', this)">HW</button>
+      <button class="tab-btn tab-zte" onclick="switchVendor('ZTE', this)">ZTE</button>
+      <button class="tab-btn tab-fbh" onclick="switchVendor('FBH', this)">FBH</button>
+      <button class="tab-btn tab-aci" onclick="switchVendor('ACI', this)">ACI</button>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-grid">
+      <div class="glass-card">
+        <div class="chart-header">
+          <div class="chart-title" id="trend-chart-title">Vendor Inventory Balance Trend (Units)</div>
+        </div>
+        <div class="chart-canvas-wrapper">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+      <div class="glass-card">
+        <div class="chart-header">
+          <div class="chart-title" id="movement-chart-title">In / Out Movement Timeline Breakdown</div>
+        </div>
+        <div class="chart-canvas-wrapper">
+          <canvas id="movementChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor Summaries Grid -->
+    <div class="vendor-summary-grid" id="vendor-cards-container">
+      <!-- Injected dynamically -->
+    </div>
+
+    <!-- Detailed Inventory List -->
+    <div class="glass-card">
+      <div class="chart-header">
+        <div class="chart-title">Detailed Materials Movement History</div>
+      </div>
+      <div class="table-controls">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาด้วยรหัส MAT หรือคำอธิบาย (Material ID / Description)..." onkeyup="applyFilter()">
+      </div>
+      <div class="table-wrapper">
+        <table id="materialsTable">
+          <thead>
+            <tr id="tableHeaderRow">
+              <th>Vendor</th>
+              <th>Material</th>
+              <th>Material Description</th>
+              <!-- Dates and movements columns injected via JS -->
+            </tr>
+          </thead>
+          <tbody id="tableBodyRow">
+            <tr>
+              <td colspan="10" style="text-align: center; color: var(--text-secondary);">Loading materials data...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let dbData = null;
+    let selectedVendor = 'All';
+    let trendChartInstance = null;
+    let movementChartInstance = null;
+
+    function formatNumber(num) {
+      if (num === null || num === undefined) return '-';
+      return Math.round(num).toLocaleString();
+    }
+
+    function formatMovement(num) {
+      if (num === null || num === undefined) return '-';
+      const formatted = Math.round(Math.abs(num)).toLocaleString();
+      if (num > 0) return `<span class="pill pill-green">+${formatted}</span>`;
+      if (num < 0) return `<span class="pill pill-red">-${formatted}</span>`;
+      return `<span class="pill pill-zero">0</span>`;
+    }
+
+    async function init() {
+      try {
+        const response = await fetch('inventory_movement_data.json');
+        dbData = await response.json();
+        
+        // Setup dates range badge and KPI values
+        const dates = dbData.dates;
+        document.getElementById('data-updated-range').innerText = `Timeline: ${dates[0]} to ${dates[dates.length - 1]}`;
+        document.getElementById('kpi-dates-range').innerText = `${dates[0]} → ${dates[dates.length - 1]}`;
+        document.getElementById('kpi-total-mats').innerText = formatNumber(dbData.kpis.total_mats);
+        
+        // Latest period KPIs
+        const latestPeriod = dbData.kpis.latest_period;
+        const topInc = dbData.kpis.top_increases[0];
+        const topDec = dbData.kpis.top_decreases[0];
+        
+        if (topInc) {
+          const incCol = Object.keys(topInc).find(k => k.startsWith('Movement_'));
+          document.getElementById('kpi-inc-val').innerText = '+' + formatNumber(topInc[incCol]);
+          document.getElementById('kpi-inc-mat').innerText = `${topInc.Material} (${topInc.Vendor})`;
+        }
+        if (topDec) {
+          const decCol = Object.keys(topDec).find(k => k.startsWith('Movement_'));
+          document.getElementById('kpi-dec-val').innerText = formatNumber(topDec[decCol]);
+          document.getElementById('kpi-dec-mat').innerText = `${topDec.Material} (${topDec.Vendor})`;
+        }
+
+        // Render everything
+        renderVendorSummaryCards();
+        renderTableHeaders();
+        renderTableBody();
+        updateCharts();
+
+      } catch (err) {
+        console.error("Error loading dashboard data:", err);
+        document.getElementById('tableBodyRow').innerHTML = `<tr><td colspan="10" style="text-align:center;color:var(--danger)">Error loading dashboard data. Make sure inventory_movement_data.json exists.</td></tr>`;
+      }
+    }
+
+    function renderVendorSummaryCards() {
+      const container = document.getElementById('vendor-cards-container');
+      container.innerHTML = '';
+      
+      const vendors = ['HW', 'ZTE', 'FBH', 'ACI'];
+      const badges = { HW: 'badge-hw', ZTE: 'badge-zte', FBH: 'badge-fbh', ACI: 'badge-aci' };
+      
+      vendors.forEach(v => {
+        const history = dbData.vendor_timeline_summary[v] || [];
+        if (history.length === 0) return;
+        
+        // Get cumulative totals
+        const first = history[0];
+        const last = history[history.length - 1];
+        
+        const totalIn = history.reduce((sum, item) => sum + item.in, 0);
+        const totalOut = history.reduce((sum, item) => sum + item.out, 0);
+        const netMove = last.balance - first.baseline;
+        
+        const card = document.createElement('div');
+        card.className = 'vendor-card';
+        card.innerHTML = `
+          <div class="vendor-card-header">
+            <span class="vendor-badge ${badges[v]}">${v}</span>
+            <span style="font-weight: 700; font-size: 0.9rem; color: ${netMove >= 0 ? 'var(--success)' : 'var(--danger)'}">
+              ${netMove >= 0 ? '+' : ''}${formatNumber(netMove)} Net
+            </span>
+          </div>
+          <div class="metric-row">
+            <span>Baseline (เดิม):</span>
+            <strong>${formatNumber(first.baseline)}</strong>
+          </div>
+          <div class="metric-row">
+            <span>Balance (ปัจจุบัน):</span>
+            <strong>${formatNumber(last.balance)}</strong>
+          </div>
+          <div class="metric-row" style="margin-top: 0.75rem;">
+            <span style="color: var(--success)">Total In (+):</span>
+            <strong style="color: var(--success)">${formatNumber(totalIn)}</strong>
+          </div>
+          <div class="metric-row">
+            <span style="color: var(--danger)">Total Out (-):</span>
+            <strong style="color: var(--danger)">${formatNumber(totalOut)}</strong>
+          </div>
+          <div class="in-out-bar">
+            <div class="bar-in" style="width: ${(totalIn / (totalIn + totalOut) * 100) || 0}%"></div>
+            <div class="bar-out" style="width: ${(totalOut / (totalIn + totalOut) * 100) || 0}%"></div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderTableHeaders() {
+      const headerRow = document.getElementById('tableHeaderRow');
+      // Clear extra columns from previous renders if any
+      headerRow.innerHTML = `
+        <th>Vendor</th>
+        <th>Material</th>
+        <th>Material Description</th>
+      `;
+      
+      // We read columns from json
+      const cols = dbData.columns;
+      // Filter date columns and movement columns
+      const dateCols = dbData.dates;
+      const movCols = cols.filter(c => c.startsWith('Movement_') || c === 'Net_Movement');
+      
+      dateCols.forEach(d => {
+        const th = document.createElement('th');
+        th.innerText = d;
+        headerRow.appendChild(th);
+      });
+      
+      movCols.forEach(m => {
+        const th = document.createElement('th');
+        th.innerText = m.replace('Movement_', 'Mov ').replace('_to_', ' → ').replace('Net_Movement', 'Net Movement');
+        headerRow.appendChild(th);
+      });
+    }
+
+    function renderTableBody() {
+      applyFilter();
+    }
+
+    function applyFilter() {
+      const searchVal = document.getElementById('searchInput').value.toLowerCase();
+      const tbody = document.getElementById('tableBodyRow');
+      tbody.innerHTML = '';
+      
+      const filtered = dbData.data.filter(row => {
+        // Vendor filter
+        if (selectedVendor !== 'All' && row.Vendor !== selectedVendor) {
+          return false;
+        }
+        // Search query filter
+        const matchSearch = row.Material.toLowerCase().includes(searchVal) || 
+                            row['Material Description'].toLowerCase().includes(searchVal);
+        return matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;color:var(--text-secondary);">No matching materials found.</td></tr>`;
+        return;
+      }
+
+      const dateCols = dbData.dates;
+      const movCols = dbData.columns.filter(c => c.startsWith('Movement_') || c === 'Net_Movement');
+
+      filtered.forEach(row => {
+        const tr = document.createElement('tr');
+        
+        // Vendor Badge Cell
+        let badgeClass = 'badge-other';
+        if (row.Vendor === 'HW') badgeClass = 'badge-hw';
+        else if (row.Vendor === 'ZTE') badgeClass = 'badge-zte';
+        else if (row.Vendor === 'FBH') badgeClass = 'badge-fbh';
+        else if (row.Vendor === 'ACI') badgeClass = 'badge-aci';
+        
+        tr.innerHTML = `
+          <td><span class="vendor-badge ${badgeClass}" style="font-size: 0.7rem;">${row.Vendor}</span></td>
+          <td><a href="#" class="material-id-link" onclick="event.preventDefault();">${row.Material}</a></td>
+          <td style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${row['Material Description']}">${row['Material Description']}</td>
+        `;
+        
+        // Dates Quantities Cells
+        dateCols.forEach(d => {
+          const td = document.createElement('td');
+          td.innerText = formatNumber(row[d]);
+          tr.appendChild(td);
+        });
+        
+        // Movements Cells
+        movCols.forEach(m => {
+          const td = document.createElement('td');
+          td.innerHTML = formatMovement(row[m]);
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function switchVendor(vendor, element) {
+      selectedVendor = vendor;
+      
+      // Update active tab buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+      
+      // Update charts & table data
+      updateCharts();
+      applyFilter();
+    }
+
+    function updateCharts() {
+      // 1. Update Trend Chart
+      renderTrendChart();
+      // 2. Update In/Out Chart
+      renderMovementChart();
+    }
+
+    function renderTrendChart() {
+      const ctx = document.getElementById('trendChart').getContext('2d');
+      if (trendChartInstance) trendChartInstance.destroy();
+      
+      const dates = dbData.dates;
+      
+      let datasets = [];
+      const colors = {
+        HW: '#ef4444',
+        ZTE: '#3b82f6',
+        FBH: '#10b981',
+        Other: '#64748b',
+        ACI: '#a855f7'
+      };
+
+      if (selectedVendor === 'All') {
+        document.getElementById('trend-chart-title').innerText = "All Vendors Inventory Balance Trend";
+        // Show line for each vendor
+        ['HW', 'ZTE', 'FBH', 'ACI'].forEach(v => {
+          const history = dbData.vendor_timeline_summary[v] || [];
+          if (history.length === 0) return;
+          
+          const dataPoints = [history[0].baseline];
+          history.forEach(item => dataPoints.push(item.balance));
+          
+          datasets.push({
+            label: v,
+            data: dataPoints,
+            borderColor: colors[v],
+            backgroundColor: colors[v] + '15',
+            tension: 0.3,
+            fill: true,
+            borderWidth: 3,
+            pointRadius: 4,
+            pointHoverRadius: 6
+          });
+        });
+      } else {
+        document.getElementById('trend-chart-title').innerText = `${selectedVendor} Inventory Balance Trend`;
+        const history = dbData.vendor_timeline_summary[selectedVendor] || [];
+        if (history.length > 0) {
+          const dataPoints = [history[0].baseline];
+          history.forEach(item => dataPoints.push(item.balance));
+          
+          datasets.push({
+            label: selectedVendor,
+            data: dataPoints,
+            borderColor: colors[selectedVendor],
+            backgroundColor: colors[selectedVendor] + '22',
+            tension: 0.3,
+            fill: true,
+            borderWidth: 4,
+            pointRadius: 5,
+            pointHoverRadius: 7
+          });
+        }
+      }
+
+      trendChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#9ca3af', font: { family: 'Plus Jakarta Sans', weight: '600' } }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: { color: '#9ca3af' }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: '#9ca3af' }
+            }
+          }
+        }
+      });
+    }
+
+    function renderMovementChart() {
+      const ctx = document.getElementById('movementChart').getContext('2d');
+      if (movementChartInstance) movementChartInstance.destroy();
+
+      let periods = [];
+      let inData = [];
+      let outData = [];
+      
+      if (selectedVendor === 'All') {
+        document.getElementById('movement-chart-title').innerText = "All Vendors In / Out Movement Timeline";
+        // Sum across all vendors for each period
+        const tempSummary = {};
+        ['HW', 'ZTE', 'FBH', 'ACI'].forEach(v => {
+          const history = dbData.vendor_timeline_summary[v] || [];
+          history.forEach(item => {
+            if (!tempSummary[item.period]) {
+              tempSummary[item.period] = { in: 0, out: 0 };
+            }
+            tempSummary[item.period].in += item.in;
+            tempSummary[item.period].out += item.out;
+          });
+        });
+        
+        Object.keys(tempSummary).forEach(period => {
+          periods.push(period);
+          inData.push(tempSummary[period].in);
+          outData.push(-tempSummary[period].out); // Output negative for visual distinction
+        });
+      } else {
+        document.getElementById('movement-chart-title').innerText = `${selectedVendor} In / Out Movement Timeline`;
+        const history = dbData.vendor_timeline_summary[selectedVendor] || [];
+        history.forEach(item => {
+          periods.push(item.period);
+          inData.push(item.in);
+          outData.push(-item.out);
+        });
+      }
+
+      movementChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: periods,
+          datasets: [
+            {
+              label: 'Stock In (+)',
+              data: inData,
+              backgroundColor: 'rgba(16, 185, 129, 0.8)',
+              borderRadius: 6
+            },
+            {
+              label: 'Stock Out (-)',
+              data: outData,
+              backgroundColor: 'rgba(239, 68, 68, 0.8)',
+              borderRadius: 6
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#9ca3af', font: { family: 'Plus Jakarta Sans', weight: '600' } }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: { 
+                color: '#9ca3af',
+                callback: function(value) {
+                  return Math.abs(value).toLocaleString();
+                }
+              }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: '#9ca3af' }
+            }
+          }
+        }
+      });
+    }
+
+    // Load everything when the DOM is ready
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

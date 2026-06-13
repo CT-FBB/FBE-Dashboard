@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLT PON Traffic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #eab308;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+        }
+        
+        /* Sticky Global Nav */
+        
+        
+        
+        
+        
+        
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
+        .header h1 { font-size: 1.8rem; margin: 0 0 0.5rem 0; }
+        .header p { color: var(--text-muted); margin: 0; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-title { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; display:flex; align-items:center; gap:0.5rem;}
+        .stat-value { font-size: 2.2rem; font-weight: 700; }
+        
+        .text-red { color: var(--accent-red); }
+        .text-orange { color: var(--accent-orange); }
+        .text-yellow { color: var(--accent-yellow); }
+        .text-green { color: var(--accent-green); }
+        .text-blue { color: var(--accent-blue); }
+        
+        .charts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .chart-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); min-height: 350px; }
+        .chart-card h3 { margin: 0 0 1rem 0; font-size: 1.1rem; color: #fff; }
+        .canvas-wrapper { position: relative; height: 300px; width: 100%; }
+        
+        .table-section { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem; }
+        .table-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem; }
+        .table-header-row h3 { margin: 0; font-size: 1.2rem; }
+        
+        .search-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            width: 250px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .search-input:focus {
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .table-tabs { display: flex; gap: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
+        .tab-btn {
+            background: none; border: none; color: var(--text-muted); font-size: 0.95rem; font-weight: 600; cursor: pointer; padding: 0.5rem 1rem; border-radius: 6px; transition: all 0.2s;
+        }
+        .tab-btn:hover { color: #fff; }
+        .tab-btn.active {
+            color: var(--accent-blue); background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .table-container { overflow-x: auto; max-height: 400px; overflow-y: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+        th { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; background: var(--card-bg); z-index: 10;}
+        
+        tr.clickable {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        tr.clickable:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        tr.selected {
+            background-color: rgba(59, 130, 246, 0.15) !important;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .badge { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        .badge-red { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-yellow { background: rgba(234, 179, 8, 0.2); color: var(--accent-yellow); }
+        .badge-blue { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
+
+        .details-section {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+        .details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+        .details-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+        }
+
+        /* L2 Splitter tree style */
+        .l2-tree-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .l2-tree-item:hover {
+            background: rgba(255,255,255,0.04);
+        }
+        .l2-tree-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .l2-tree-onus {
+            margin-top: 0.75rem;
+            display: none;
+            overflow-x: auto;
+        }
+    
+    /* ── Global Nav Styles ── */
+    .global-nav {
+        position: fixed; top: 0; left: 0; right: 0; height: 70px;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        box-sizing: border-box;
+    }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-logo span { color: #38bdf8; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+</style>
+</head>
+<body>
+    <nav class="global-nav">
+    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="nav-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">Executive</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="active">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+    </div>
+</nav>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>🔌 OLT PON Traffic Monitor</h1>
+                <p id="reportDateSubtitle">รายงานความหนาแน่นและสถานะการทำงานของพอร์ต PON</p>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-title">Total PON Ports</div>
+                <div class="stat-value text-blue" id="statTotalPorts">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Total Active ONUs</div>
+                <div class="stat-value text-green" id="statTotalCust">0</div>
+            </div>
+            <div class="stat-card" style="border-top: 4px solid var(--accent-red);">
+                <div class="stat-title">🚨 Overloaded Ports</div>
+                <div class="stat-value text-red" id="statOverload">0</div>
+            </div>
+            <div class="stat-card" style="border-top: 4px solid var(--accent-yellow);">
+                <div class="stat-title">⚠️ Ports with BIP Errors</div>
+                <div class="stat-value text-yellow" id="statBipErrors">0</div>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>Vendor Distribution of PON Ports</h3>
+                <div class="canvas-wrapper"><canvas id="vendorDistChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <h3>Split Ratio Distribution</h3>
+                <div class="canvas-wrapper"><canvas id="splitDistChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <h3>% Utilize Customer per PON Port (by Vendor)</h3>
+                <div class="canvas-wrapper"><canvas id="vendorAvgCustChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <h3>% Bandwidth Utilization Distribution</h3>
+                <div class="canvas-wrapper"><canvas id="bwDistChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <h3>Avg Bandwidth Utilization (by Vendor)</h3>
+                <div class="canvas-wrapper"><canvas id="vendorAvgBwChart"></canvas></div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <div class="table-header-row">
+                <div class="table-tabs" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="tab-btn active" onclick="switchTab('overload')">🚨 Top Overloaded Ports (ActiveCust > SplitRatio)</button>
+                        <button class="tab-btn" onclick="switchTab('bandwidth')">⚡ Top Bandwidth Utilization Ports</button>
+                        <button class="tab-btn" onclick="switchTab('errors')">⚠️ Top BIP Errors</button>
+                    </div>
+                    <button class="tab-btn" style="background: #10b981; color: #fff; font-weight: 700; border: none; border-radius: 6px; display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#059669'" onmouseout="this.style.background='#10b981'" onclick="exportToExcel()">
+                        📥 Export to Excel
+                    </button>
+                </div>
+                <input type="text" id="tableSearch" class="search-input" placeholder="Search by Device or Port..." onkeyup="filterTable()">
+            </div>
+            
+            <div class="table-container">
+                <table id="ponTable">
+                    <thead>
+                        <tr id="tableHeader">
+                            <!-- Populated dynamically -->
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="details-section" id="detailsSection">
+            <div class="details-header">
+                <h3 id="detailsTitle">ODN Tree structure under L1: -</h3>
+                <span class="badge badge-blue" id="detailsL2Count">0 L2 Splitters</span>
+            </div>
+            <div id="treeContainer">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let dashboardData = {};
+        let overloadDetailsMap = {};
+        let currentTab = 'overload';
+        let selectedL1Name = null;
+
+        // Load JSON data
+        async function loadData() {
+            try {
+                const response = await fetch('pon_traffic_data.json');
+                dashboardData = await response.json();
+
+                try {
+                    const detailsResponse = await fetch('pon_overload_details.json');
+                    overloadDetailsMap = await detailsResponse.json();
+                } catch(e) {
+                    console.warn("Details JSON not loaded:", e);
+                }
+                
+                // Update header date
+                document.getElementById('reportDateSubtitle').innerText = `รายงานความหนาแน่นและสถานะการทำงานของพอร์ต PON — ข้อมูลวันที่ ${dashboardData.report_date}`;
+
+                // Update KPIs
+                document.getElementById('statTotalPorts').innerText = dashboardData.total_ports.toLocaleString();
+                document.getElementById('statTotalCust').innerText = dashboardData.total_active_cust.toLocaleString();
+                document.getElementById('statOverload').innerText = dashboardData.total_overloaded.toLocaleString();
+                document.getElementById('statBipErrors').innerText = dashboardData.total_with_errors.toLocaleString();
+
+                // Build Charts
+                buildCharts();
+
+                // Populate Table
+                renderTable();
+
+            } catch (err) {
+                console.error("Failed to load dashboard data:", err);
+            }
+        }
+
+        function buildCharts() {
+            // 1. Vendor Distribution Chart
+            const vLabels = Object.keys(dashboardData.vendor_dist);
+            const vData = Object.values(dashboardData.vendor_dist);
+            new Chart(document.getElementById('vendorDistChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: vLabels,
+                    datasets: [{
+                        data: vData,
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8' } }
+                    }
+                }
+            });
+
+            // 2. Split Ratio Chart
+            const sLabels = Object.keys(dashboardData.split_dist).map(k => `1:${k}`);
+            const sData = Object.values(dashboardData.split_dist);
+            new Chart(document.getElementById('splitDistChart'), {
+                type: 'bar',
+                data: {
+                    labels: sLabels,
+                    datasets: [{
+                        label: 'PON Ports',
+                        data: sData,
+                        backgroundColor: '#3b82f6'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // 3. Avg Customers Chart
+            const avgLabels = Object.keys(dashboardData.vendor_stats);
+            const avgData = avgLabels.map(v => dashboardData.vendor_stats[v].avg_cust_per_port);
+            new Chart(document.getElementById('vendorAvgCustChart'), {
+                type: 'bar',
+                data: {
+                    labels: avgLabels,
+                    datasets: [{
+                        label: '% Utilize Customer per PON Port',
+                        data: avgData,
+                        backgroundColor: '#10b981'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                        y: { 
+                            grid: { color: 'rgba(255,255,255,0.05)' }, 
+                            ticks: { 
+                                color: '#94a3b8',
+                                callback: function(value) { return value + '%'; }
+                            } 
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 4. Bandwidth Distribution Chart
+            if (dashboardData.bw_dist) {
+                const bwLabels = ["0-10%", "10-30%", "30-50%", "50-70%", ">70%"];
+                const bwData = bwLabels.map(l => dashboardData.bw_dist[l] || 0);
+                new Chart(document.getElementById('bwDistChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: bwLabels,
+                        datasets: [{
+                            label: 'PON Ports',
+                            data: bwData,
+                            backgroundColor: '#f59e0b'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // 5. Avg Bandwidth Utilization by Vendor Chart
+            if (dashboardData.vendor_stats) {
+                const bwVendorLabels = Object.keys(dashboardData.vendor_stats);
+                const bwVendorData = bwVendorLabels.map(v => dashboardData.vendor_stats[v].avg_bw_util_percent || 0.0);
+                new Chart(document.getElementById('vendorAvgBwChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: bwVendorLabels,
+                        datasets: [{
+                            label: 'Avg BW Utilization',
+                            data: bwVendorData,
+                            backgroundColor: '#8b5cf6'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                            y: { 
+                                grid: { color: 'rgba(255,255,255,0.05)' }, 
+                                ticks: { 
+                                    color: '#94a3b8',
+                                    callback: function(value) { return value + '%'; }
+                                } 
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return ` Avg BW Utilization: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Activate clicked button
+            if (tab === 'overload') buttons[0].classList.add('active');
+            else if (tab === 'bandwidth') buttons[1].classList.add('active');
+            else buttons[2].classList.add('active');
+
+            // Clear search
+            document.getElementById('tableSearch').value = '';
+            
+            // Hide details
+            document.getElementById('detailsSection').style.display = 'none';
+            selectedL1Name = null;
+
+            renderTable();
+        }
+
+        function renderTable() {
+            const header = document.getElementById('tableHeader');
+            const body = document.getElementById('tableBody');
+            body.innerHTML = '';
+
+            header.innerHTML = `
+                <th>Device Name</th>
+                <th>Vendor</th>
+                <th>Model</th>
+                <th>PON Port</th>
+                <th>L1 Splitter (PON Port Name)</th>
+                <th>Capacity</th>
+                <th>Active Cust</th>
+                <th>DL BW Util</th>
+                <th>UL BW Util</th>
+                <th>Max BW Util</th>
+                <th>BIP Errors</th>
+                <th>Temp (°C)</th>
+            `;
+
+            let listData = [];
+            if (currentTab === 'overload') {
+                listData = dashboardData.overloaded_ports;
+            } else if (currentTab === 'bandwidth') {
+                listData = dashboardData.bw_ports;
+            } else {
+                listData = dashboardData.error_ports;
+            }
+
+            listData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'clickable';
+                if (item.l1_name === selectedL1Name) {
+                    row.className += ' selected';
+                }
+                
+                let bwBadgeClass = 'badge-blue';
+                if (item.max_bw_util >= 70) bwBadgeClass = 'badge-red';
+                else if (item.max_bw_util >= 50) bwBadgeClass = 'badge-yellow';
+
+                row.innerHTML = `
+                    <td style="font-weight: 600;">${item.device}</td>
+                    <td>${item.vendor}</td>
+                    <td>${item.model}</td>
+                    <td>${item.pon_port}</td>
+                    <td style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">${item.l1_name}</td>
+                    <td>1:${item.split_ratio}</td>
+                    <td><span class="badge ${currentTab === 'overload' ? 'badge-red' : ''}">${item.active_cust}</span></td>
+                    <td>${item.dl_util.toFixed(2)}%</td>
+                    <td>${item.ul_util.toFixed(2)}%</td>
+                    <td><span class="badge ${bwBadgeClass}">${item.max_bw_util.toFixed(2)}%</span></td>
+                    <td><span class="badge ${currentTab === 'errors' ? 'badge-yellow' : ''}">${item.in_bip_err.toLocaleString()}</span></td>
+                    <td>${item.temp}</td>
+                `;
+                row.addEventListener('click', () => selectL1Splitter(item));
+                body.appendChild(row);
+            });
+        }
+
+        function selectL1Splitter(item) {
+            selectedL1Name = item.l1_name;
+
+            // Highlight selected row
+            const rows = document.querySelectorAll('#tableBody tr');
+            rows.forEach((row, idx) => {
+                let listData = [];
+                if (currentTab === 'overload') {
+                    listData = dashboardData.overloaded_ports;
+                } else if (currentTab === 'bandwidth') {
+                    listData = dashboardData.bw_ports;
+                } else {
+                    listData = dashboardData.error_ports;
+                }
+                if (listData[idx] && listData[idx].l1_name === selectedL1Name) {
+                    row.classList.add('selected');
+                } else {
+                    row.classList.remove('selected');
+                }
+            });
+
+            // Load ODN details
+            const detailsSection = document.getElementById('detailsSection');
+            const treeContainer = document.getElementById('treeContainer');
+            
+            document.getElementById('detailsTitle').innerText = `ODN Tree Structure under L1: ${item.l1_name}`;
+            treeContainer.innerHTML = '';
+
+            const details = overloadDetailsMap[selectedL1Name];
+            if (!details || !details.l2_splitters || details.l2_splitters.length === 0) {
+                document.getElementById('detailsL2Count').innerText = '0 L2 Splitters';
+                treeContainer.innerHTML = '<div style="color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1rem;">No L2 splitters mapped to this L1 Splitter in the ODN design file.</div>';
+            } else {
+                document.getElementById('detailsL2Count').innerText = `${details.l2_count} L2 Splitters`;
+                
+                details.l2_splitters.forEach(l2 => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'l2-tree-item';
+                    
+                    itemDiv.innerHTML = `
+                        <div class="l2-tree-header" onclick="toggleL2ONUs(this)">
+                            <div style="font-weight:600; display:flex; align-items:center; gap:0.5rem;">
+                                <span>📂</span> ${l2.l2_name}
+                            </div>
+                            <span class="badge ${l2.onu_count > 0 ? 'badge-blue' : 'badge-yellow'}">${l2.onu_count} Active ONUs (Circuits)</span>
+                        </div>
+                        <div class="l2-tree-onus">
+                            <table style="margin-top: 0.5rem; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                                <thead>
+                                    <tr>
+                                        <th>Circuit ID (96)</th>
+                                        <th>ONU Serial</th>
+                                        <th>Vendor</th>
+                                        <th>Model</th>
+                                        <th>Ranging Distance (m)</th>
+                                        <th>Rx Power (dBm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${l2.onu_count === 0 ? 
+                                        '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); font-size: 0.8rem;">No active ONUs connected.</td></tr>' :
+                                        l2.onus.map(onu => `
+                                            <tr>
+                                                <td style="font-weight:600; color:#fff;">${onu.accessid}</td>
+                                                <td>${onu.onu_serial}</td>
+                                                <td>${onu.vendor}</td>
+                                                <td>${onu.model}</td>
+                                                <td>${onu.ranging.toLocaleString()} m</td>
+                                                <td class="${onu.onu_rxpwr <= -27 ? 'text-red' : ''}">${onu.onu_rxpwr} dBm</td>
+                                            </tr>
+                                        `).join('')
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                    treeContainer.appendChild(itemDiv);
+                });
+            }
+
+            detailsSection.style.display = 'block';
+            detailsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function toggleL2ONUs(headerEl) {
+            const onusDiv = headerEl.nextElementSibling;
+            if (onusDiv.style.display === 'block') {
+                onusDiv.style.display = 'none';
+                headerEl.querySelector('span').innerText = '📂';
+            } else {
+                onusDiv.style.display = 'block';
+                headerEl.querySelector('span').innerText = '📂';
+            }
+        }
+
+        function filterTable() {
+            const query = document.getElementById('tableSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#tableBody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function exportToExcel() {
+            let listData = [];
+            let fileName = "PON_Traffic_Report.xlsx";
+            
+            if (currentTab === 'overload') {
+                listData = dashboardData.overloaded_ports;
+                fileName = "Top_Overloaded_PON_Ports_" + dashboardData.report_date + ".xlsx";
+            } else if (currentTab === 'bandwidth') {
+                listData = dashboardData.bw_ports;
+                fileName = "Top_Bandwidth_Utilization_PON_Ports_" + dashboardData.report_date + ".xlsx";
+            } else {
+                listData = dashboardData.error_ports;
+                fileName = "Top_BIP_Errors_PON_Ports_" + dashboardData.report_date + ".xlsx";
+            }
+            
+            if (!listData || listData.length === 0) {
+                alert("No data available to export.");
+                return;
+            }
+            
+            const formattedData = listData.map(item => ({
+                "Device Name": item.device,
+                "Vendor": item.vendor,
+                "Model": item.model,
+                "PON Port": item.pon_port,
+                "L1 Splitter (PON Port Name)": item.l1_name,
+                "Capacity (Split Ratio)": `1:${item.split_ratio}`,
+                "Active Customers (ONUs)": item.active_cust,
+                "DL Bandwidth Util %": (item.dl_util || 0).toFixed(2) + "%",
+                "UL Bandwidth Util %": (item.ul_util || 0).toFixed(2) + "%",
+                "Max Bandwidth Util %": (item.max_bw_util || 0).toFixed(2) + "%",
+                "BIP Errors": item.in_bip_err,
+                "Temperature (°C)": item.temp
+            }));
+            
+            const worksheet = XLSX.utils.json_to_sheet(formattedData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "PON Traffic Details");
+            XLSX.writeFile(workbook, fileName);
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>

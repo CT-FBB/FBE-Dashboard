@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Mismatch Tracking Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #070a13;
+            --panel-bg: rgba(13, 18, 34, 0.7);
+            --text-main: #ffffff;
+            --text-muted: #8892b0;
+            --accent-huawei: #ff4757;
+            --accent-zte: #2ed573;
+            --accent-fiberhome: #1e90ff;
+            --gradient-primary: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(108, 92, 231, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(30, 144, 255, 0.15), transparent 25%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            padding-top: 80px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        /* Glassmorphism Panels */
+        .glass-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .kpi-card {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+        }
+        
+        .kpi-total::before { background: var(--gradient-primary); }
+        .kpi-huawei::before { background: var(--accent-huawei); }
+        .kpi-zte::before { background: var(--accent-zte); }
+        .kpi-fiberhome::before { background: var(--accent-fiberhome); }
+        
+        .kpi-title {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .kpi-total .kpi-value { color: #a29bfe; }
+        .kpi-huawei .kpi-value { color: var(--accent-huawei); }
+        .kpi-zte .kpi-value { color: var(--accent-zte); }
+        .kpi-fiberhome .kpi-value { color: var(--accent-fiberhome); }
+
+        /* Main Content Layout */
+        .dashboard-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .info-panel h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+        
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .info-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .vendor-name {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .action-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        
+        .action-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @media (max-width: 900px) {
+            .dashboard-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Global Navigation Bar Styles */
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--panel-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(16px);
+            box-sizing: border-box;
+        }
+    
+    /* ── Global Nav Styles ── */
+    .global-nav {
+        position: fixed; top: 0; left: 0; right: 0; height: 70px;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        box-sizing: border-box;
+    }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-logo span { color: #38bdf8; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+</style>
+</head>
+<body>
+    <nav class="global-nav">
+    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="nav-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch" class="active">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">Executive</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+    </div>
+</nav>
+
+    <div class="container">
+        <header class="dashboard-header">
+            <div style="flex-grow: 1; text-align: left;">
+                <h1 style="font-size: 2rem; margin: 0; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OLT Card Mismatch Tracking</h1>
+                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981;" onclick="window.open('mismatch_im_vs_pms.xlsx', '_blank')">
+                    <svg style="width:16px;height:16px;vertical-align:middle;margin-right:4px;" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
+                    </svg>
+                    ดาวน์โหลด Excel (Full)
+                </button>
+            </div>
+        </header>
+
+        <div class="kpi-grid">
+            <div class="glass-panel kpi-card kpi-total">
+                <div class="kpi-title">Total Mismatches</div>
+                <div class="kpi-value" id="kpi-total">574</div>
+            </div>
+            <div class="glass-panel kpi-card kpi-huawei">
+                <div class="kpi-title">Huawei</div>
+                <div class="kpi-value" id="kpi-huawei">248</div>
+            </div>
+            <div class="glass-panel kpi-card kpi-zte">
+                <div class="kpi-title">ZTE</div>
+                <div class="kpi-value" id="kpi-zte">154</div>
+            </div>
+            <div class="glass-panel kpi-card kpi-fiberhome">
+                <div class="kpi-title">Fiberhome</div>
+                <div class="kpi-value" id="kpi-fiberhome">172</div>
+            </div>
+        </div>
+
+        <div class="dashboard-main">
+            <div class="glass-panel">
+                <div class="chart-container">
+                    <canvas id="mismatchPieChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="glass-panel info-panel">
+                <h2>Mismatch Overview by Vendor</h2>
+                <ul class="info-list">
+                    <li>
+                        <div class="vendor-name">
+                            <div class="dot" style="background: var(--accent-huawei);"></div>
+                            Huawei (Total: 248)
+                        </div>
+                        <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
+                            GPON vs XGS-PON config errors
+                        </div>
+                    </li>
+                    <li>
+                        <div class="vendor-name">
+                            <div class="dot" style="background: var(--accent-zte);"></div>
+                            ZTE (Total: 154)
+                        </div>
+                        <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
+                            GPON vs Combo (e.g., GFGL, HFTL)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="vendor-name">
+                            <div class="dot" style="background: var(--accent-fiberhome);"></div>
+                            Fiberhome (Total: 172)
+                        </div>
+                        <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
+                            GPON vs Combo conflicts (e.g., GC8B, GPOP)
+                        </div>
+                    </li>
+                </ul>
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="action-btn" onclick="window.open('mismatch_im_vs_pms.xlsx', '_blank')">
+                        <svg style="width:16px;height:16px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
+                        </svg>
+                        Download Full Report (.xlsx)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('mismatchPieChart').getContext('2d');
+            
+            // Chart.js global defaults for dark theme
+            Chart.defaults.color = '#8892b0';
+            Chart.defaults.font.family = 'Inter';
+            
+            const data = {
+                labels: ['Huawei', 'ZTE', 'Fiberhome'],
+                datasets: [{
+                    data: [248, 154, 172],
+                    backgroundColor: [
+                        '#ff4757', // Huawei Red
+                        '#2ed573', // ZTE Green
+                        '#1e90ff'  // Fiberhome Blue
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            };
+            
+            const config = {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 14,
+                                    weight: 600
+                                },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(13, 18, 34, 0.9)',
+                            titleFont: { size: 14 },
+                            bodyFont: { size: 16, weight: 'bold' },
+                            padding: 15,
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + ' Cards';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true,
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            };
+            
+            new Chart(ctx, config);
+        });
+    </script>
+</body>
+</html>

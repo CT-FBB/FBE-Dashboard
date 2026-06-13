@@ -1,0 +1,11 @@
+{
+  "total_rehomed": 4212,
+  "same_olt": 2325,
+  "diff_olt": 1887,
+  "distance_saved": 5104.0,
+  "over_5k_to_under_5k": 0,
+  "insignificant_change": 116,
+  "threshold_5km": 5000,
+  "threshold_30m": 30,
+  "total_affected_onus": 87292
+}
