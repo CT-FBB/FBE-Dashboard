@@ -23,7 +23,7 @@
       --hw-color: #ef4444;      /* Red accent for Huawei */
       --fbh-color: #10b981;     /* Green accent for Fiberhome */
       --zte-color: #3b82f6;     /* Blue accent for ZTE */
-      --aci-color: #a855f7;     /* Purple accent for ACI */
+
       --other-color: #64748b;   /* Gray accent for Other */
     }
 
@@ -237,7 +237,7 @@
     .tab-btn.active.tab-fbh { background: var(--fbh-color); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
     .tab-btn.active.tab-zte { background: var(--zte-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
     .tab-btn.active.tab-other { background: var(--other-color); box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3); }
-    .tab-btn.active.tab-aci { background: var(--aci-color); box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); }
+
 
     /* Charts Section */
     .charts-grid {
@@ -315,7 +315,7 @@
     .badge-fbh { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
     .badge-zter, .badge-zte { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
     .badge-other { background: rgba(100, 116, 139, 0.15); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.3); }
-    .badge-aci { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+
 
     .metric-row {
       display: flex;
@@ -430,17 +430,18 @@
   <nav class="global-nav">
     <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
     <div class="nav-links">
-        <a href="index.html" id="nav-main">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
-        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
-        <a href="olt_executive_dashboard.html" id="nav-executive">Executive</a>
-        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
-        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
-        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
-        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
-        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="index.html" id="nav-main" class="">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel" class="">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive" class="">Executive</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade" class="">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
         <a href="inventory_movement_dashboard.html" id="nav-inventory" class="active">Inventory</a>
-        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap" class="">swap</a>
     </div>
   </nav>
 
@@ -450,7 +451,7 @@
     <div class="header">
       <div class="header-title">
         <h1>Material Inventory Movement Timeline</h1>
-        <p>เปรียบเทียบผลต่างของวัสดุ (MAT) ในระบบคลังสินค้า GI สำหรับ Huawei, FBH, ZTER และ ACI</p>
+        <p>เปรียบเทียบผลต่างของวัสดุ (MAT) ในระบบคลังสินค้า GI สำหรับ Huawei, FBH และ ZTE</p>
       </div>
       <div>
         <span class="meta-badge" id="data-updated-range">TIMELINE ANALYSIS</span>
@@ -487,7 +488,7 @@
       <button class="tab-btn tab-hw" onclick="switchVendor('HW', this)">HW</button>
       <button class="tab-btn tab-zte" onclick="switchVendor('ZTE', this)">ZTE</button>
       <button class="tab-btn tab-fbh" onclick="switchVendor('FBH', this)">FBH</button>
-      <button class="tab-btn tab-aci" onclick="switchVendor('ACI', this)">ACI</button>
+
     </div>
 
     <!-- Charts Section -->
@@ -606,8 +607,8 @@
       const container = document.getElementById('vendor-cards-container');
       container.innerHTML = '';
       
-      const vendors = ['HW', 'ZTE', 'FBH', 'ACI'];
-      const badges = { HW: 'badge-hw', ZTE: 'badge-zte', FBH: 'badge-fbh', ACI: 'badge-aci' };
+      const vendors = ['HW', 'ZTE', 'FBH'];
+      const badges = { HW: 'badge-hw', ZTE: 'badge-zte', FBH: 'badge-fbh' };
       
       vendors.forEach(v => {
         const history = dbData.vendor_timeline_summary[v] || [];
@@ -719,7 +720,7 @@
         if (row.Vendor === 'HW') badgeClass = 'badge-hw';
         else if (row.Vendor === 'ZTE') badgeClass = 'badge-zte';
         else if (row.Vendor === 'FBH') badgeClass = 'badge-fbh';
-        else if (row.Vendor === 'ACI') badgeClass = 'badge-aci';
+
         
         tr.innerHTML = `
           <td><span class="vendor-badge ${badgeClass}" style="font-size: 0.7rem;">${row.Vendor}</span></td>
@@ -776,14 +777,13 @@
         HW: '#ef4444',
         ZTE: '#3b82f6',
         FBH: '#10b981',
-        Other: '#64748b',
-        ACI: '#a855f7'
+        Other: '#64748b'
       };
 
       if (selectedVendor === 'All') {
         document.getElementById('trend-chart-title').innerText = "All Vendors Inventory Balance Trend";
         // Show line for each vendor
-        ['HW', 'ZTE', 'FBH', 'ACI'].forEach(v => {
+        ['HW', 'ZTE', 'FBH'].forEach(v => {
           const history = dbData.vendor_timeline_summary[v] || [];
           if (history.length === 0) return;
           
@@ -863,7 +863,7 @@
         document.getElementById('movement-chart-title').innerText = "All Vendors In / Out Movement Timeline";
         // Sum across all vendors for each period
         const tempSummary = {};
-        ['HW', 'ZTE', 'FBH', 'ACI'].forEach(v => {
+        ['HW', 'ZTE', 'FBH'].forEach(v => {
           const history = dbData.vendor_timeline_summary[v] || [];
           history.forEach(item => {
             if (!tempSummary[item.period]) {
