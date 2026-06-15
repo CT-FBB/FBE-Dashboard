@@ -534,27 +534,27 @@
     <div class="kpi-grid">
       <div class="kpi-card normal">
         <span class="kpi-title">🔒 ปกติคู่คงเดิม (Persistent Even)</span>
-        <span class="kpi-value">11,050</span>
+        <span class="kpi-value">11,019</span>
         <span class="kpi-desc">พอร์ต Uplink เชื่อมต่อครบคู่คงที่สมบูรณ์ตลอดปี</span>
       </div>
       <div class="kpi-card fault">
         <span class="kpi-title">🚨 เกิด Fault ค้าง (Active Fault)</span>
-        <span class="kpi-value" style="color:var(--color-danger);">166</span>
+        <span class="kpi-value" style="color:var(--color-danger);">161</span>
         <span class="kpi-desc">พอร์ตชำรุดลดเหลือพอร์ตเดี่ยว และยังไม่ได้รับการซ่อมแซม</span>
       </div>
       <div class="kpi-card improvement">
         <span class="kpi-title">🎉 ซ่อม/เพิ่มครบคู่ (Improvement)</span>
-        <span class="kpi-value" style="color:var(--color-success);">410</span>
+        <span class="kpi-value" style="color:var(--color-success);">417</span>
         <span class="kpi-desc">เริ่มแบบพอร์ตเดี่ยว ปัจจุบันเพิ่มเป็นคู่สำรองสำเร็จแล้ว</span>
       </div>
       <div class="kpi-card repaired">
         <span class="kpi-title">🔄 เสียและซ่อมเสร็จ (Fault & Repaired)</span>
-        <span class="kpi-value" style="color:var(--color-accent);">376</span>
+        <span class="kpi-value" style="color:var(--color-accent);">417</span>
         <span class="kpi-desc">เคยพอร์ตตกชำรุดระหว่างทาง ปัจจุบันซ่อมครบคู่แล้ว</span>
       </div>
       <div class="kpi-card persistent-odd">
         <span class="kpi-title">⚠️ ขาเดียวคงเดิม (Persistent Odd)</span>
-        <span class="kpi-value" style="color:var(--color-warning);">755</span>
+        <span class="kpi-value" style="color:var(--color-warning);">749</span>
         <span class="kpi-desc">พอร์ตเดี่ยวคงเดิมสะสมมาโดยตลอด รอคิวขยายลิงก์สำรอง</span>
       </div>
     </div>
@@ -2212,30 +2212,6 @@
     </tr>
     
     <tr>
-      <td>45</td>
-      <td><strong>NKR28001G00</strong></td>
-      <td><span class="vendor-badge badge-huawei">Huawei</span></td>
-      <td>MA5801-FL16</td>
-      <td>18/06/2025</td>
-      <td>1 พอร์ต</td>
-      <td style="color:var(--color-success); font-weight:600;">2 พอร์ต</td>
-      <td><code>[1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]</code></td>
-      <td style="color:var(--color-success); font-weight:600;">2026-02-01</td>
-    </tr>
-    
-    <tr>
-      <td>46</td>
-      <td><strong>NKR29001G00</strong></td>
-      <td><span class="vendor-badge badge-huawei">Huawei</span></td>
-      <td>MA5801-FL16</td>
-      <td>17/06/2025</td>
-      <td>1 พอร์ต</td>
-      <td style="color:var(--color-success); font-weight:600;">2 พอร์ต</td>
-      <td><code>[1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]</code></td>
-      <td style="color:var(--color-success); font-weight:600;">2026-02-01</td>
-    </tr>
-    
-    <tr>
       <td>47</td>
       <td><strong>PHE07014G00</strong></td>
       <td><span class="vendor-badge badge-dasan">Dasan</span></td>
@@ -2343,11 +2319,11 @@
         labels: ['ปกติคู่คงเดิม', 'เกิด Fault ค้าง', 'ซ่อม/เพิ่มครบคู่', 'เสียและซ่อมเสร็จ', 'ขาเดียวคงเดิม'],
         datasets: [{
           data: [
-            11050,
-            166,
-            410,
-            376,
-            755
+            11019,
+            161,
+            417,
+            417,
+            749
           ],
           backgroundColor: [
             'rgba(16, 185, 129, 0.75)', // Emerald
@@ -2385,7 +2361,7 @@
       new Chart(upgradesCtx, {
         type: 'bar',
         data: {
-          labels: ['2025-09-01', '2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01', '2026-05-01', '2026-05-29', '2026-05-30', '2026-05-31', '2026-06-01', '2026-06-04'],
+          labels: ['2025-09-01', '2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01', '2026-05-01', '2026-05-29', '2026-05-30', '2026-05-31', '2026-06-01', '2026-06-04', '2026-06-06', '2026-06-10', '2026-06-11', '2026-06-13'],
           datasets: [
             {
               label: 'ตู้ที่ปล่อยสัญญาณพอร์ต XGS-PON 10G สำเร็จ (upgrade-xgs)',
@@ -2451,19 +2427,19 @@
       new Chart(singleCtx, {
         type: 'bar',
         data: {
-          labels: ['Huawei', 'Raisecom', 'GCOM', 'Dasan', 'Fiberhome', 'ZTE', 'Nokia'],
+          labels: ['Huawei', 'Raisecom', 'GCOM', 'Dasan', 'Fiberhome', 'ZTE'],
           datasets: [
             {
-              label: 'จํานวนพอร์ตขาเดียวปี 2025',
-              data: [301, 221, 151, 143, 96, 169, 84],
+              label: 'จํานวน OLT FTTH ขาเดียวปี 2025 (Jul) - ไม่รวม MSAN',
+              data: [231, 226, 174, 163, 77, 68],
               backgroundColor: 'rgba(239, 68, 68, 0.4)',
               borderColor: 'rgba(239, 68, 68, 0.95)',
               borderWidth: 1.5,
               borderRadius: 4
             },
             {
-              label: 'จํานวนพอร์ตขาเดียวปี 2026 (ปัจจุบัน)',
-              data: [153, 220, 153, 167, 29, 108, 84],
+              label: 'จํานวน OLT FTTH ขาเดียวปี 2026 (Jun 13) - ไม่รวม MSAN',
+              data: [48, 212, 149, 145, 24, 17],
               backgroundColor: 'rgba(16, 185, 129, 0.75)',
               borderColor: 'var(--color-success)',
               borderWidth: 1.5,
@@ -2492,11 +2468,11 @@
     new Chart(lineCtx, {
       type: 'line',
       data: {
-        labels: ['2025-09-01', '2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01', '2026-05-01', '2026-05-29', '2026-05-30', '2026-05-31', '2026-06-01', '2026-06-04'],
+        labels: ['2025-09-01', '2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01', '2026-05-01', '2026-05-29', '2026-05-30', '2026-05-31', '2026-06-01', '2026-06-04', '2026-06-06', '2026-06-10', '2026-06-11', '2026-06-13'],
         datasets: [
           {
             label: 'ซ่อม/เพิ่มครบคู่สำเร็จ (Improvement)',
-            data: [191, 30, 85, 36, 16, 13, 9, 10, 7, 9, 1, 0, 0, 3],
+            data: [190, 28, 84, 38, 16, 13, 9, 10, 7, 9, 2, 0, 0, 1, 1, 2, 0, 7],
             borderColor: 'rgba(0, 242, 254, 0.85)',
             backgroundColor: 'rgba(0, 242, 254, 0.1)',
             fill: true,
@@ -2505,7 +2481,7 @@
           },
           {
             label: 'เกิด Fault แล้วยังไม่ได้รับการซ่อม (Active Fault)',
-            data: [37, 15, 12, 14, 8, 6, 10, 9, 17, 17, 1, 1, 0, 19],
+            data: [35, 16, 13, 12, 8, 6, 10, 9, 16, 12, 1, 0, 0, 4, 3, 6, 0, 10],
             borderColor: 'rgba(239, 68, 68, 0.85)',
             backgroundColor: 'rgba(239, 68, 68, 0.1)',
             fill: true,
@@ -2514,7 +2490,7 @@
           },
           {
             label: 'เสียชั่วคราวและได้รับการแก้ไข (Fault & Repaired)',
-            data: [0, 39, 34, 40, 39, 31, 23, 31, 40, 47, 10, 19, 10, 13],
+            data: [0, 38, 34, 37, 39, 29, 23, 23, 40, 43, 8, 18, 10, 10, 17, 15, 18, 15],
             borderColor: 'rgba(127, 0, 255, 0.85)',
             backgroundColor: 'rgba(127, 0, 255, 0.05)',
             fill: true,
