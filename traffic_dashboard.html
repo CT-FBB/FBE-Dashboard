@@ -66,6 +66,8 @@
         .badge-critical { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
         .badge-high { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
         .badge-mod { background: rgba(234, 179, 8, 0.2); color: var(--accent-yellow); }
+        .export-btn { background: var(--accent-blue); color: #fff; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
+        .export-btn:hover { background: #2563eb; }
     </style>
 </head>
 <body>
@@ -116,6 +118,13 @@
                 <div class="stat-title">✅ Healthy (<50%)</div>
                 <div class="stat-value text-green" id="statHealth">0</div>
             </div>
+        </div>
+
+        <div class="header" style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="margin: 0;">⚠️ Single Active Uplink (FTTH Only) by Vendor</h2>
+            <a href="single_uplink_olt_report.xlsx" download class="export-btn">📥 Export Excel</a>
+        </div>
+        <div class="stats-grid" id="vendorGrid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 2rem;">
         </div>
 
         <div class="charts-container">
@@ -1374,7 +1383,14 @@
       "in_rate": 501.44,
       "out_rate": 47.29
     }
-  ]
+  ],
+  "single_uplink_vendors": {
+    "Dasan": 143,
+    "Huawei": 41,
+    "Fiberhome": 19,
+    "ZTE": 16,
+    "Nokia": 7
+  }
 };
 
         function initDashboard() {
@@ -1394,6 +1410,30 @@
             const highData = regions.map(r => dashboardData.region_stats[r].high);
             const modData = regions.map(r => dashboardData.region_stats[r].mod);
             const healthData = regions.map(r => dashboardData.region_stats[r].healthy);
+            // Populate Single Uplink Vendor Cards
+            const vendorGrid = document.getElementById('vendorGrid');
+            if (vendorGrid && dashboardData.single_uplink_vendors) {
+                let totalSingle = 0;
+                Object.entries(dashboardData.single_uplink_vendors).forEach(([vendor, count]) => {
+                    totalSingle += count;
+                    vendorGrid.innerHTML += `
+                        <div class="stat-card" style="border-top: 4px solid var(--accent-blue); padding: 1rem;">
+                            <div class="stat-title" style="font-size: 0.75rem;">${vendor}</div>
+                            <div class="stat-value text-blue" style="font-size: 1.5rem;">${count}</div>
+                        </div>
+                    `;
+                });
+                if (totalSingle > 0) {
+                    vendorGrid.innerHTML = `
+                        <div class="stat-card" style="border-top: 4px solid var(--accent-red); padding: 1rem;">
+                            <div class="stat-title" style="font-size: 0.75rem;">🚨 TOTAL</div>
+                            <div class="stat-value text-red" style="font-size: 1.5rem;">${totalSingle}</div>
+                        </div>
+                    ` + vendorGrid.innerHTML;
+                } else {
+                    vendorGrid.innerHTML = '<div style="color: var(--text-muted);">No single uplink OLTs found.</div>';
+                }
+            }
 
             // Chart 1: Total Devices
             new Chart(document.getElementById('regionTotalChart'), {
