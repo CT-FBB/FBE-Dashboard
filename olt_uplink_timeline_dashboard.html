@@ -447,7 +447,34 @@
         .nav-links a { font-size: 0.9rem; }
     }
 
-</style>
+
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        .sub-nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .sub-nav a:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+        .sub-nav a.active {
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+    </style>
 </head>
 <body>
     <nav class="global-nav">
@@ -461,6 +488,7 @@
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="">L2 Distance</a>
         <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
         <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
+            <a href="optical_dashboard.html" id="nav-optical" class="">Optical</a>
         <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
         <a href="inventory_movement_dashboard.html" id="nav-inventory" class="">Inventory</a>
         <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>

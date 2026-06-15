@@ -162,10 +162,6 @@
         .kpi-10g::before { background: var(--color-primary); }
         .kpi-1g::before { background: var(--color-warning); }
         .kpi-top-vendor::before { background: var(--color-secondary); }
-        .kpi-hops-1::before { background: var(--color-success); }
-        .kpi-hops-2plus::before { background: var(--color-danger); }
-        .kpi-links-design::before { background: var(--color-success); }
-        .kpi-links-single::before { background: var(--color-warning); }
 
         .kpi-title {
             font-size: 13px;
@@ -281,7 +277,7 @@
             font-size: 11px;
         }
     
-    /* ── Global Nav Styles ── */
+        /* ── Global Nav Styles ── */
     .global-nav {
         position: fixed; top: 0; left: 0; right: 0; height: 70px;
         background-color: rgba(15, 23, 42, 0.95);
@@ -289,11 +285,19 @@
         display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
         box-sizing: border-box;
     }
-    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
     .nav-logo span { color: #38bdf8; }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-links { display: flex; gap: 2rem; overflow-x: auto; white-space: nowrap; -ms-overflow-style: none; scrollbar-width: none; flex-grow: 1; align-items: center; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
     .nav-links a:hover, .nav-links a.active { color: #fff; }
+    
+    @media (max-width: 768px) {
+        .global-nav { padding: 0 1rem; }
+        .nav-logo { font-size: 1.2rem; margin-right: 1.5rem; }
+        .nav-links { gap: 1.2rem; padding-right: 1rem; }
+        .nav-links a { font-size: 0.9rem; }
+    }
 
 </style>
 </head>
@@ -310,6 +314,7 @@
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="">L2 Distance</a>
         <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
         <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
+            <a href="optical_dashboard.html" id="nav-optical" class="">Optical</a>
         <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
         <a href="inventory_movement_dashboard.html" id="nav-inventory" class="">Inventory</a>
         <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>
@@ -336,47 +341,23 @@
         <section class="kpi-grid">
             <div class="kpi-card kpi-total">
                 <div class="kpi-title">🔗 OLT Cascade ทั้งหมด</div>
-                <div class="kpi-value">165 เครื่อง</div>
+                <div class="kpi-value">168 เครื่อง</div>
                 <div class="kpi-desc">อัปเดตจากไฟล์ล่าสุด</div>
             </div>
             <div class="kpi-card kpi-10g">
                 <div class="kpi-title">⚡ ลิงก์พ่วงความเร็ว 10G</div>
-                <div class="kpi-value">136 ลิงก์</div>
-                <div class="kpi-desc">82.4% รองรับการขยายตัวความเร็วพอร์ต FTTx</div>
+                <div class="kpi-value">139 ลิงก์</div>
+                <div class="kpi-desc">82.7% รองรับการขยายตัวความเร็วพอร์ต FTTx</div>
             </div>
             <div class="kpi-card kpi-1g">
                 <div class="kpi-title">🐢 ลิงก์พ่วงความเร็ว 1G</div>
                 <div class="kpi-value">29 ลิงก์</div>
-                <div class="kpi-desc">17.6% อัตราส่วนสายพ่วงแบบดั้งเดิม</div>
+                <div class="kpi-desc">17.3% อัตราส่วนสายพ่วงแบบดั้งเดิม</div>
             </div>
             <div class="kpi-card kpi-top-vendor">
                 <div class="kpi-title">🏢 แบรนด์ Cascade หลัก</div>
                 <div class="kpi-value">Fiberhome</div>
-                <div class="kpi-desc">65 เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)</div>
-            </div>
-        </section>
-
-        <!-- KPI Grid 2: Hop Count & Link Count Validation -->
-        <section class="kpi-grid" style="margin-top: 16px;">
-            <div class="kpi-card kpi-hops-1">
-                <div class="kpi-title">📍 Cascade 1 Hop</div>
-                <div class="kpi-value">161 เครื่อง</div>
-                <div class="kpi-desc">ต่อตรงเข้าแม่ OLT ตัวหลัก</div>
-            </div>
-            <div class="kpi-card kpi-hops-2plus">
-                <div class="kpi-title">⚠️ Cascade >= 2 Hops</div>
-                <div class="kpi-value">4 เครื่อง</div>
-                <div class="kpi-desc">ต่อผ่าน OLT ตัวลูกอื่น (มีความเสี่ยงสูง)</div>
-            </div>
-            <div class="kpi-card kpi-links-design">
-                <div class="kpi-title">✅ ตรงตามแบบ (2 ลิงก์)</div>
-                <div class="kpi-value">61 เครื่อง</div>
-                <div class="kpi-desc">มีลิงก์สำรองตรงตามเกณฑ์มาตรฐาน</div>
-            </div>
-            <div class="kpi-card kpi-links-single">
-                <div class="kpi-title">🚨 ผิดแบบ/ไม่มีสำรอง (1 ลิงก์)</div>
-                <div class="kpi-value">20 เครื่อง</div>
-                <div class="kpi-desc">พบความเสี่ยงลิงก์เดี่ยวไม่มีสำรอง</div>
+                <div class="kpi-desc">67 เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)</div>
             </div>
         </section>
 
@@ -412,21 +393,19 @@
                             <th>แบรนด์ (ตัวแม่)</th>
                             <th>รุ่น (ตัวแม่)</th>
                             <th>ความเร็ว Uplink (Cascade Link)</th>
-                            <th>จำนวน Hop</th>
-                            <th>จำนวน Link</th>
                         </tr>
                     </thead>
                                         <tbody>
-                        <tr><td>AYT11002GO0</td><td>Huawei</td><td>MA5608T</td><td>AYT01032GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">2 Links (OK)</span></td></tr>
-                        <tr><td>BKK05020GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK05012GO0</td><td>Fiberhome</td><td>AN6000-2</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK05021GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK05014GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK06017GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06013GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK06019GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06011GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK06024GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06010GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK06025GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06023GO0</td><td>Huawei</td><td>MA5800-X2</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK06026GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06012GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK06027GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06007GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
-                        <tr><td>BKK15007GO0</td><td>Huawei</td><td>MA5800-X2</td><td>BKK15006GO0</td><td>Huawei</td><td>MA5800-X2</td><td><span class="badge-10g">10 Gbps</span></td><td><span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span></td><td><span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">4 Link (Warning)</span></td></tr>
+                        <tr><td>AYT11002GO0</td><td>Huawei</td><td>MA5608T</td><td>AYT01032GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK05020GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK05012GO0</td><td>Fiberhome</td><td>AN6000-2</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK05021GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK05014GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK06017GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06013GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK06019GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06011GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK06024GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06010GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK06025GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06023GO0</td><td>Huawei</td><td>MA5800-X2</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK06026GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06012GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK06027GO0</td><td>Fiberhome</td><td>AN5516-04</td><td>BKK06007GO0</td><td>Fiberhome</td><td>AN5516-04</td><td><span class="badge-10g">10 Gbps</span></td></tr>
+                        <tr><td>BKK15007GO0</td><td>Huawei</td><td>MA5800-X2</td><td>BKK15006GO0</td><td>Huawei</td><td>MA5800-X2</td><td><span class="badge-10g">10 Gbps</span></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -450,11 +429,11 @@
 
             // Data map for speed breakdown by vendor
                         const dataMap = {
-                'ALL': { '10G': 136, '1G': 29, title: 'สัดส่วนความเร็วลิงก์ Cascade ทั้งหมด' },
-                'Fiberhome': { '10G': 65, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Fiberhome)' },
+                'ALL': { '10G': 139, '1G': 29, title: 'สัดส่วนความเร็วลิงก์ Cascade ทั้งหมด' },
+                'Fiberhome': { '10G': 67, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Fiberhome)' },
                 'Dasan': { '10G': 26, '1G': 27, title: 'สัดส่วนความเร็วลิงก์ Cascade (Dasan)' },
                 'Huawei': { '10G': 39, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Huawei)' },
-                'Raisecom': { '10G': 5, '1G': 2, title: 'สัดส่วนความเร็วลิงก์ Cascade (Raisecom)' },
+                'Raisecom': { '10G': 6, '1G': 2, title: 'สัดส่วนความเร็วลิงก์ Cascade (Raisecom)' },
                 'ZTE': { '10G': 1, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (ZTE)' }
             };
 
