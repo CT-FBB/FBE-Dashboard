@@ -567,7 +567,7 @@
 
     async function init() {
       try {
-        const response = await fetch('inventory_movement_data.json');
+        const response = await fetch('inventory_movement_data.json?v=' + Date.now());
         dbData = await response.json();
         
         // Setup dates range badge and KPI values
