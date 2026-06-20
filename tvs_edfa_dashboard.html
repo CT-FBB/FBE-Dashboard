@@ -224,7 +224,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
     <a href="DVB_Subscribers_List.csv" download class="badge" style="background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.4);color:#06b6d4;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:6px 12px;cursor:pointer">
       📡 Export DVB List (CSV)
     </a>
-    <span class="badge b-src" id="srcBadge">Device-20260611.xlsx</span>
+    <span class="badge b-src" id="srcBadge">Loading...</span>
     <span class="badge b-edfa">⚡ EDFA PON</span>
     <span class="badge b-dvb">📡 DVB = EDFA-Critical</span>
   </div>
@@ -335,7 +335,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
 <script>
 let G=null, oltEdfaFilter='ALL', oltSortKey='DVB';
 
-fetch('tvs_edfa_analysis.json')
+fetch('tvs_edfa_analysis.json?v=' + new Date().getTime())
   .then(r=>{if(!r.ok)throw r.status;return r.json()})
   .then(d=>{G=d;init(d)})
   .catch(e=>{
@@ -369,7 +369,7 @@ function renderKPIs(k){
     {lbl:'OLTs มี EDFA ONU',       val:k.olts_with_edfa_onu.toLocaleString(), sub:`${k.edfa_onu_pct}% ของ Master`, c:'#22d3ee', ico:'⚡'},
     {lbl:'OLTs ไม่มี EDFA ONU',    val:k.olts_no_edfa_onu.toLocaleString(),   sub:'ไม่ใน Data_Splitter',  c:'#475569', ico:'○'},
     {lbl:'Total ONUs (True)',      val:(k.total_onus_true||0).toLocaleString(),sub:'จาก OLT MaxSpeed',         c:'#10b981', ico:'🌐'},
-    {lbl:'DVB (EDFA-Critical)',    val:k.total_dvb.toLocaleString(),           sub:`${k.dvb_pct}% ของ True ONU`,   c:'#06b6d4', ico:'📺'},
+    {lbl:'DVB (EDFA-Critical)',    val:k.total_dvb.toLocaleString(),           sub:`${k.dvb_pct}% ของ True ONU | <span style="color:#ef4444">เทียบ 11/06: ${k.dvb_diff ? k.dvb_diff.toLocaleString() : '0'} ราย</span>`,   c:'#06b6d4', ico:'📺'},
     {lbl:'STB (IPTV)',             val:k.total_stb.toLocaleString(),           sub:'',                     c:'#f59e0b', ico:'🟡'},
     {lbl:'OTT',                    val:k.total_ott.toLocaleString(),           sub:'',                     c:'#10b981', ico:'🟢'},
     {lbl:'OLTs มี DVB',            val:k.olts_with_dvb.toLocaleString(),       sub:'มี DVB subscriber',    c:'#a855f7', ico:'📡'},
