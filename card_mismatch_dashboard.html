@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLT Card Mismatch Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f1123;
+            --glass-bg: rgba(25, 28, 58, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-huawei: #ef4444; /* Red */
+            --accent-zte: #3b82f6;    /* Blue */
+            --accent-fiberhome: #10b981; /* Green */
+        }
+        
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1123 0%, #1a1b4b 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #a78bfa, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-box {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f8fafc;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        .vendor-logic {
+            margin-top: 2rem;
+        }
+
+        .vendor-logic h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .vendor-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .vendor-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-top: 5px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .vendor-desc h4 {
+            margin: 0 0 0.2rem 0;
+            font-size: 1rem;
+            color: #e2e8f0;
+        }
+
+        .vendor-desc p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-height: 500px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background: rgba(25, 28, 58, 0.9);
+            color: #a78bfa;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 0.9rem;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>OLT Card Mismatch Analysis</h1>
+    <div class="subtitle">
+        Inventory Management (Designer) vs Physical Network Hardware (PMS)<br>
+        <span id="updateDate" style="font-size: 0.85em; opacity: 0.8;">Last Updated: Loading...</span>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <!-- Left Column: Summary & Chart -->
+        <div class="glass-card">
+            <div class="stat-box">
+                <div class="stat-value" id="totalMismatches">0</div>
+                <div class="stat-label">Total Mismatches Found</div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="vendorChart"></canvas>
+            </div>
+
+            <div class="vendor-logic">
+                <h3>Detection Logic</h3>
+                
+                <div class="vendor-item">
+                    <div class="vendor-color" style="background: var(--accent-huawei)"></div>
+                    <div class="vendor-desc">
+                        <h4>Huawei</h4>
+                        <p>GPON vs Combo conflicts (e.g., H901GPHF vs H905FLHF)</p>
+                    </div>
+                </div>
+
+                <div class="vendor-item">
+                    <div class="vendor-color" style="background: var(--accent-zte)"></div>
+                    <div class="vendor-desc">
+                        <h4>ZTE</h4>
+                        <p>GPON vs Combo conflicts (e.g., GFGL vs HFTL)</p>
+                    </div>
+                </div>
+
+                <div class="vendor-item">
+                    <div class="vendor-color" style="background: var(--accent-fiberhome)"></div>
+                    <div class="vendor-desc">
+                        <h4>Fiberhome</h4>
+                        <p>GPON vs Combo conflicts (e.g., GC8B vs GPOP)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Details Table -->
+        <div class="glass-card" style="display: flex; flex-direction: column;">
+            <h3 style="margin-top: 0; margin-bottom: 1.5rem; color: #a78bfa;">Recent Mismatch Details</h3>
+            <div class="table-container">
+                <table id="detailsTable">
+                    <thead>
+                        <tr>
+                            <th>OLT Name</th>
+                            <th>Slot</th>
+                            <th>Vendor</th>
+                            <th>IM Expected</th>
+                            <th>PMS Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Cache buster for local development
+        const cacheBuster = '?v=' + new Date().getTime();
+
+        fetch('card_mismatch_data.json' + cacheBuster)
+            .then(response => response.json())
+            .then(data => {
+                // Update stats
+                document.getElementById('totalMismatches').textContent = data.total_mismatches.toLocaleString();
+                if(data.update_date) {
+                    document.getElementById('updateDate').textContent = 'Last Updated: ' + data.update_date;
+                } else {
+                    document.getElementById('updateDate').textContent = '';
+                }
+
+                // Prepare Chart Data
+                const vendors = Object.keys(data.vendor_summary);
+                const counts = Object.values(data.vendor_summary);
+                
+                const bgColors = vendors.map(v => {
+                    if(v === 'Huawei') return 'rgba(239, 68, 68, 0.8)'; // Red
+                    if(v === 'ZTE') return 'rgba(59, 130, 246, 0.8)';    // Blue
+                    if(v === 'Fiberhome') return 'rgba(16, 185, 129, 0.8)'; // Green
+                    return 'rgba(148, 163, 184, 0.8)';
+                });
+
+                const borderColors = vendors.map(v => {
+                    if(v === 'Huawei') return '#ef4444';
+                    if(v === 'ZTE') return '#3b82f6';
+                    if(v === 'Fiberhome') return '#10b981';
+                    return '#94a3b8';
+                });
+
+                // Render Chart
+                const ctx = document.getElementById('vendorChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: vendors,
+                        datasets: [{
+                            data: counts,
+                            backgroundColor: bgColors,
+                            borderColor: borderColors,
+                            borderWidth: 2,
+                            hoverOffset: 10
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: '#e2e8f0',
+                                    padding: 20,
+                                    font: { family: 'Inter', size: 12 }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Populate Table (limit to 100 for performance if large)
+                const tbody = document.querySelector('#detailsTable tbody');
+                const displayLimit = Math.min(data.details.length, 100);
+                
+                for(let i=0; i<displayLimit; i++) {
+                    const row = data.details[i];
+                    const tr = document.createElement('tr');
+                    
+                    let vendorColor = '#94a3b8';
+                    if(row.Vendor === 'Huawei') vendorColor = '#ef4444';
+                    if(row.Vendor === 'ZTE') vendorColor = '#3b82f6';
+                    if(row.Vendor === 'Fiberhome') vendorColor = '#10b981';
+
+                    tr.innerHTML = `
+                        <td><strong>${row.OLT_Name}</strong></td>
+                        <td>${row.PMS_Slot}</td>
+                        <td style="color: ${vendorColor}; font-weight: 600;">${row.Vendor}</td>
+                        <td><span style="opacity: 0.8">${row.IM_Type_Designer}</span></td>
+                        <td><span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px;">${row.PMS_Real_Hardware}</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                }
+            })
+            .catch(err => {
+                console.error("Error loading data:", err);
+                document.getElementById('totalMismatches').textContent = "Error";
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5068 @@
+{
+    "update_date": "2026-06-20 10:07",
+    "total_checked": 13195,
+    "total_mismatches": 632,
+    "vendor_summary": {
+        "Huawei": 251,
+        "Fiberhome": 229,
+        "ZTE": 152
+    },
+    "details": [
+        {
+            "OLT_Name": "NKT07011GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT07011GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02005GO1",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT06019GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT06019GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMK02026GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT03035GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK46013GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK46013GO0",
+            "IM_Card_Name": "1-1-2-3",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMP03052G00",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB06005GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB06005GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PKT03003GO1",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PKT03003GO1",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT06052GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38019GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38019GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01039GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01039GO0",
+            "IM_Card_Name": "1-1-2-10",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01033GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01033GO0",
+            "IM_Card_Name": "1-1-2-10",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01034GO0",
+            "IM_Card_Name": "1-1-2-6",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01034GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01035GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01035GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01040GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01040GO0",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT06051GO0",
+            "IM_Card_Name": "1-1-2-4",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT06051GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT06052GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT06052GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK17029GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45028GO0",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45028GO0",
+            "IM_Card_Name": "1-1-2-14",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02053GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02053GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02052GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45026GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45026GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT07015GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT07015GO0",
+            "IM_Card_Name": "1-1-2-14",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK26019GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK29019GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK17036GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02059GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45030GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK14011GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45029GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38018GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK14006GO0",
+            "IM_Card_Name": "1-1-2-4",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK14006GO0",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT04008GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK26019GO0",
+            "IM_Card_Name": "1-1-2-3",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT04006GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02005GO1",
+            "IM_Card_Name": "1-1-2-2",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMP03052G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK03041GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK03041GO0",
+            "IM_Card_Name": "1-1-2-14",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB01029GO0",
+            "IM_Card_Name": "1-1-2-15",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB01029GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02052GO0",
+            "IM_Card_Name": "1-1-2-10",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRN01042GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "MHR01030GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01041GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01041GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "RET04012GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "RET01023GO0",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT03024GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45026GO0",
+            "IM_Card_Name": "1-1-2-11",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45026GO0",
+            "IM_Card_Name": "1-1-2-11",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT02059GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK26020GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK29019GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45030GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK14011GO0",
+            "IM_Card_Name": "1-1-2-13",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45029GO0",
+            "IM_Card_Name": "1-1-2-15",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38018GO0",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT04008GO0",
+            "IM_Card_Name": "1-1-2-2",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT04006GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38022GO0",
+            "IM_Card_Name": "1-1-2-11",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38022GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT04007GO0",
+            "IM_Card_Name": "1-1-2-11",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38023GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38023GO0",
+            "IM_Card_Name": "1-1-2-1",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38021GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38021GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38025GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK38025GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMK01045GO0",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK17029GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05012GO0",
+            "IM_Card_Name": "1-1-2-11",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05012GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT07017GO0",
+            "IM_Card_Name": "1-1-2-15",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT07017GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05010GO0",
+            "IM_Card_Name": "1-1-2-13",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05010GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05009GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKR01116GO0",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKR01116GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKR01115GO0",
+            "IM_Card_Name": "1-1-2-6",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKR01115GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT03024GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01002G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SRT01002G00",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT03023GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT03023GO0",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT03025GO0",
+            "IM_Card_Name": "1-1-2-15",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT03025GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK17036GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT04007GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36015GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36015GO0",
+            "IM_Card_Name": "1-1-2-6",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05007GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45025GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05007GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB05009GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45027GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36017GO0",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36017GO0",
+            "IM_Card_Name": "1-1-2-14",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36018GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36018GO0",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK36016GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK45027GO0",
+            "IM_Card_Name": "1-1-2-10",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "RYG06003G00",
+            "IM_Card_Name": "0-0-11-2",
+            "PMS_Slot": "0-11",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33001G00",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31001G00",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37001G00",
+            "IM_Card_Name": "0-0-12-2",
+            "PMS_Slot": "0-12",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33002G00",
+            "IM_Card_Name": "0-0-11-7",
+            "PMS_Slot": "0-11",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK04001G00",
+            "IM_Card_Name": "0-0-17-13",
+            "PMS_Slot": "0-17",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK04001G01",
+            "IM_Card_Name": "0-0-18-13",
+            "PMS_Slot": "0-18",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK11003G02",
+            "IM_Card_Name": "0-0-4-6",
+            "PMS_Slot": "0-4",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33001G03",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB02004GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB02004GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS01042GO0",
+            "IM_Card_Name": "0-0-1-7",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS01042GO0",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS01002GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS01002GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44036GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44036GO0",
+            "IM_Card_Name": "0-0-2-11",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44034GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44034GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33019GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06048GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06048GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23019GO0",
+            "IM_Card_Name": "0-0-1-11",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23019GO0",
+            "IM_Card_Name": "0-0-2-9",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK25030GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK25030GO0",
+            "IM_Card_Name": "0-0-2-1",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06049GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01077GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01077GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK35018GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CRI01073GO0",
+            "IM_Card_Name": "0-0-1-8",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CRI01073GO0",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40022GO0",
+            "IM_Card_Name": "0-0-1-8",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40022GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19008GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19008GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21031GO0",
+            "IM_Card_Name": "0-0-2-8",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK35018GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK35017GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK35017GO0",
+            "IM_Card_Name": "0-0-2-4",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06050GO0",
+            "IM_Card_Name": "0-0-1-2",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21030GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04115GO0",
+            "IM_Card_Name": "0-0-1-11",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04114GO0",
+            "IM_Card_Name": "0-0-1-15",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04114GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01032GO0",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01042G00",
+            "IM_Card_Name": "0-0-1-2",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01042G00",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39072GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39072GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39073GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK15011GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK15011GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40004GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40006GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40006GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40007GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40007GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK22004GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK22004GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK25004GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK25004GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21006GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21006GO0",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21008GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21008GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19005GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19005GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21004GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21004GO0",
+            "IM_Card_Name": "0-0-2-1",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21007GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21007GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19003GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39071GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR09042GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31017GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31017GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR09044GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR09044GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR06024GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK15010GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK15010GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37001G01",
+            "IM_Card_Name": "0-0-8-4",
+            "PMS_Slot": "0-8",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33002G02",
+            "IM_Card_Name": "0-0-3-10",
+            "PMS_Slot": "0-3",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK18001G01",
+            "IM_Card_Name": "0-0-3-8",
+            "PMS_Slot": "0-3",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK40004GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19003GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK50003GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK50003GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23004GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23004GO0",
+            "IM_Card_Name": "0-0-2-8",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK50004GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK50004GO0",
+            "IM_Card_Name": "0-0-2-9",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB01010GO1",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB01013GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB01011GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB01011GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21005GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21005GO0",
+            "IM_Card_Name": "0-0-2-7",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "SMP01058GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "SMP01058GO0",
+            "IM_Card_Name": "0-0-2-1",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK50002GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK50002GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "PTT06014GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB02003GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB02003GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19004GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK19004GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39060GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39060GO0",
+            "IM_Card_Name": "0-0-1-7",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23006GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23006GO0",
+            "IM_Card_Name": "0-0-2-4",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04115GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01032GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR06024GO0",
+            "IM_Card_Name": "0-0-2-1",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01055GO1",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "UBR07036GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "UBR07036GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK08007GO0",
+            "IM_Card_Name": "0-0-1-2",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK08007GO0",
+            "IM_Card_Name": "0-0-2-7",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44033GO0",
+            "IM_Card_Name": "0-0-1-11",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44033GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44031GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44031GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK08010GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33025GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33025GO0",
+            "IM_Card_Name": "0-0-2-3",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK28032GO0",
+            "IM_Card_Name": "0-0-1-15",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK28032GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44028GO0",
+            "IM_Card_Name": "0-0-1-2",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44028GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK18021GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK18021GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG08019GO0",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33029GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01076GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01076GO0",
+            "IM_Card_Name": "0-0-2-11",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS01045GO0",
+            "IM_Card_Name": "0-0-2-9",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK28034GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK28034GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG02005GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG02005GO0",
+            "IM_Card_Name": "0-0-2-1",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK17032GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK17032GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23003GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK23003GO0",
+            "IM_Card_Name": "0-0-2-4",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK17033GO0",
+            "IM_Card_Name": "0-0-1-12",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK17033GO0",
+            "IM_Card_Name": "0-0-2-7",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33031GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33031GO0",
+            "IM_Card_Name": "0-0-2-11",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37019GO0",
+            "IM_Card_Name": "0-0-1-15",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37019GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37017GO0",
+            "IM_Card_Name": "0-0-2-3",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33035GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33035GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39069GO0",
+            "IM_Card_Name": "0-0-2-1",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39069GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01028GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01030GO0",
+            "IM_Card_Name": "0-0-2-9",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01028GO0",
+            "IM_Card_Name": "0-0-2-8",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01024GO0",
+            "IM_Card_Name": "0-0-1-1",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01024GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01040GO0",
+            "IM_Card_Name": "0-0-1-7",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01040GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR02017GO0",
+            "IM_Card_Name": "0-0-1-8",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR02017GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39070GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39070GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33023GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37021GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37020GO0",
+            "IM_Card_Name": "0-0-1-15",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37020GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31013GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31013GO0",
+            "IM_Card_Name": "0-0-2-3",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB01010GO1",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "NTB01013GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07029G00",
+            "IM_Card_Name": "0-0-1-8",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07029G00",
+            "IM_Card_Name": "0-0-2-11",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33005GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33005GO0",
+            "IM_Card_Name": "0-0-1-11",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07089GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07089GO0",
+            "IM_Card_Name": "0-0-2-5",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07089GO1",
+            "IM_Card_Name": "0-0-1-11",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "PTT02018GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "PTT02018GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07088GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07088GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01084GO0",
+            "IM_Card_Name": "0-0-2-9",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "LPG01055GO0",
+            "IM_Card_Name": "0-0-1-8",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07087GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04104GO0",
+            "IM_Card_Name": "0-0-1-2",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04104GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04105GO0",
+            "IM_Card_Name": "0-0-1-15",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07089GO1",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01084GO0",
+            "IM_Card_Name": "0-0-1-1",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07087GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21031GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK21030GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK39073GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37017GO0",
+            "IM_Card_Name": "0-0-1-1",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01030GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06046GO0",
+            "IM_Card_Name": "0-0-1-1",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06046GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR09043GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR09043GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33023GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK37021GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK08010GO0",
+            "IM_Card_Name": "0-0-2-13",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44029GO0",
+            "IM_Card_Name": "0-0-1-8",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01075GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01075GO0",
+            "IM_Card_Name": "0-0-2-4",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44026GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44026GO0",
+            "IM_Card_Name": "0-0-2-7",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44027GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44027GO0",
+            "IM_Card_Name": "0-0-2-6",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01074GO0",
+            "IM_Card_Name": "0-0-2-8",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG08019GO0",
+            "IM_Card_Name": "0-0-1-4",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33029GO0",
+            "IM_Card_Name": "0-0-2-14",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS01045GO0",
+            "IM_Card_Name": "0-0-1-14",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06047GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK06047GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK17030GO0",
+            "IM_Card_Name": "0-0-2-8",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31016GO0",
+            "IM_Card_Name": "0-0-1-13",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31016GO0",
+            "IM_Card_Name": "0-0-2-10",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK44029GO0",
+            "IM_Card_Name": "0-0-2-4",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "RYG01074GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31014GO0",
+            "IM_Card_Name": "0-0-1-15",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31014GO0",
+            "IM_Card_Name": "0-0-2-12",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31011GO0",
+            "IM_Card_Name": "0-0-1-5",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK31011GO0",
+            "IM_Card_Name": "0-0-2-2",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07093GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR07093GO0",
+            "IM_Card_Name": "0-0-2-7",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01086GO0",
+            "IM_Card_Name": "0-0-2-11",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR01086GO0",
+            "IM_Card_Name": "0-0-1-11",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK17030GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H905FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33002G02",
+            "IM_Card_Name": "0-0-4-4",
+            "PMS_Slot": "0-4",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "H901CSHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK30031GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PTT01034GO1",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB02012GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NTB04035GO1",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "HFTL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "CCS08005GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "V921FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS08005GO0",
+            "IM_Card_Name": "0-0-1-0",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "V921FLHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "SKA11041GO0",
+            "IM_Card_Name": "1-1-2-6",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGPON-Combo",
+            "PMS_Real_Hardware": "GC8B",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKW01064GO0",
+            "IM_Card_Name": "0-0-2-15",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "AYT14011GO0",
+            "IM_Card_Name": "0-0-1-7",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H805GPFD",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "UTT01010GO0",
+            "IM_Card_Name": "0-0-1-3",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H805GPFD",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33020GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H901GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33020GO0",
+            "IM_Card_Name": "0-0-2-0",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H901GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33021GO0",
+            "IM_Card_Name": "0-0-1-7",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "BKK33021GO0",
+            "IM_Card_Name": "0-0-2-9",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "SPB04009GO0",
+            "IM_Card_Name": "0-0-1-9",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CCS09002GO1",
+            "IM_Card_Name": "0-0-2-3",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CMI14029GO0",
+            "IM_Card_Name": "0-0-1-10",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CMI14028GO0",
+            "IM_Card_Name": "0-0-1-6",
+            "PMS_Slot": "0-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CMI15026GO0",
+            "IM_Card_Name": "0-0-2-11",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H903GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "CBR04105GO0",
+            "IM_Card_Name": "0-0-2-7",
+            "PMS_Slot": "0-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "H901GPHF",
+            "Vendor": "Huawei"
+        },
+        {
+            "OLT_Name": "PTT06031GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGPON-Combo",
+            "PMS_Real_Hardware": "GTGOG",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKS06005GO0",
+            "IM_Card_Name": "1-1-2-1",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGPON-Combo",
+            "PMS_Real_Hardware": "GTGOG",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "CMI23005G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI22004G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI20005G00",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI03007G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI23002G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI12010G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI12011G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI20004G00",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI24003G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PSN04020G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI04008G00",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI22007G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI22013G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI22005G00",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI12012G00",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI04004G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI06010G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI23006G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI23007G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI05013G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI24002G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI03010G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "LPG08021G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PSN03005G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PSN04018G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PSN08023G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI03011G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI17003G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "LPG08004G00",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI24004G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI22012G00",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI23004G00",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI08001G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK44021GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK44021GO0",
+            "IM_Card_Name": "1-1-2-4",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKT01047G00",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS01001GO1",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK12019GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK24008GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTT05017GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK35009GO0",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK38009GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK21014GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK10015GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK10018GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK40009GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RET18003G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS14005G00",
+            "IM_Card_Name": "1-1-1-19",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS08016G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS13008G00",
+            "IM_Card_Name": "1-1-1-22",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SSK01014G00",
+            "IM_Card_Name": "1-1-1-18",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP01011G00",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS01012G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS02003G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SRT18010G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS14010G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS14004G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CPN01018G00",
+            "IM_Card_Name": "1-1-1-18",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTL08003G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS20007G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS03007G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP02002G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PBR04028G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SPB07020G00",
+            "IM_Card_Name": "1-1-1-21",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS03005G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS01005G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMK02017G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMK01009G00",
+            "IM_Card_Name": "1-1-1-22",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKA10016G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB05015G00",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS02003G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS01007G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP02007G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP10003G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP03013G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP05014G00",
+            "IM_Card_Name": "1-1-1-19",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "YST01019G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "YST05003G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS08006G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK01013G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB01028G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PNA05008G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK05005G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "TRG02004G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMK01035G00",
+            "IM_Card_Name": "1-1-1-17",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PBR04023G00",
+            "IM_Card_Name": "1-1-1-22",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB05031G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK04012G00",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB04015G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK07021G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK07020G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS20005G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP01013G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB08008G00",
+            "IM_Card_Name": "1-1-1-21",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB01022G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB07021G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB10001G00",
+            "IM_Card_Name": "1-1-1-19",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB10002G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP05009G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP02004G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RET01015G00",
+            "IM_Card_Name": "1-1-1-19",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP05012G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RNG04007G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS02004G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB08011G00",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK04016G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB04010G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMK01011G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KCN01017G00",
+            "IM_Card_Name": "1-1-1-21",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KBI03005G00",
+            "IM_Card_Name": "1-1-1-19",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01042GO0",
+            "IM_Card_Name": "1-1-1-18",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS05008G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS10008G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTL04002G00",
+            "IM_Card_Name": "1-1-1-19",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS03007G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SSK09009G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SSK20006G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SSK16003G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SSK10014G00",
+            "IM_Card_Name": "1-1-1-18",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SRT06015G00",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SRT06010G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN18001G00",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN13007G00",
+            "IM_Card_Name": "1-1-1-17",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN12020G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN12007G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN04012G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RET17004G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RET11011G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RET08008G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS02006G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP08011G00",
+            "IM_Card_Name": "1-1-1-20",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP05011G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP05010G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP03007G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP02003G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "MHR03020G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "MHR03019G00",
+            "IM_Card_Name": "1-1-1-22",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "MDH02010G00",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "TAK09009GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "YST05004G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS01008G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN15007GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS18004G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS17002G00",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS15003G00",
+            "IM_Card_Name": "1-1-1-21",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS07018G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KLS03010G00",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "KBI05005G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CPN07008G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CPN03009G00",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "ANC03012G00",
+            "IM_Card_Name": "1-1-1-22",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "ANC03009G00",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "ANC01024G00",
+            "IM_Card_Name": "1-1-1-18",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "ANC01019G00",
+            "IM_Card_Name": "1-1-1-21",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKT03037GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKT05023GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKS04013G00",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS03002G00",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN18002G00",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "LPN01029GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI14006GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI01064GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PCK07018G00",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS01008G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "YST08011G00",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKP09004G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS03004G00",
+            "IM_Card_Name": "1-1-1-17",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CBR04110GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "AYT07014GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTT02055GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI01065GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKT01095GO0",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTT07018GO0",
+            "IM_Card_Name": "1-1-1-10",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GPOP",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI01054GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK39059G00",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK39059G00",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKA01038GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI14032GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI01069GO0",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI01069GO0",
+            "IM_Card_Name": "1-1-2-15",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01045GO0",
+            "IM_Card_Name": "1-1-2-4",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01045GO0",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK25024GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK15009GO0",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PKT02013GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKT01089GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK20013GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01040GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01040GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01024GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB01024GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI01055GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI01055GO0",
+            "IM_Card_Name": "1-1-2-2",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK42017GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK35014GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB02014GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK38017GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK31009GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTT02045GO0",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI01054GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI14033GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKR01118GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTT02057GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RYG06019GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RYG06019GO0",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK30020GO0",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK30020GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK38017GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKR01118GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK43025G00",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB01053GO0",
+            "IM_Card_Name": "1-1-2-9",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RCB01053GO0",
+            "IM_Card_Name": "1-1-1-9",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "GPON-Single",
+            "PMS_Real_Hardware": "GFOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PBR04035GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT02039GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PCK06011GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "KLS13014GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMK01041GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMK01041GO0",
+            "IM_Card_Name": "1-1-2-8",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT06055GO0",
+            "IM_Card_Name": "1-1-1-12",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SPB09018GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PCK07031GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "UDT09011GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SPB01040GO0",
+            "IM_Card_Name": "1-1-1-5",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PCK07032GO0",
+            "IM_Card_Name": "1-1-1-6",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PBR05026GO0",
+            "IM_Card_Name": "1-1-1-4",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SPB09019GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT07004GO0",
+            "IM_Card_Name": "1-1-1-7",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PCK07030GO0",
+            "IM_Card_Name": "1-1-1-16",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PKT02014GO0",
+            "IM_Card_Name": "1-1-2-6",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "PKT02014GO0",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "SMK01044GO0",
+            "IM_Card_Name": "1-1-1-2",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKS09023GO0",
+            "IM_Card_Name": "1-1-1-13",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "BKK30033GO0",
+            "IM_Card_Name": "1-1-1-8",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "KCN01033GO0",
+            "IM_Card_Name": "1-1-1-14",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "NKT06058GO0",
+            "IM_Card_Name": "1-1-1-11",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GFGL",
+            "Vendor": "ZTE"
+        },
+        {
+            "OLT_Name": "QCENGFHAN02",
+            "IM_Card_Name": "1-1-2-3",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SKN01026GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "PTT02042GO1",
+            "IM_Card_Name": "1-1-2-12",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "SMS01013GO0",
+            "IM_Card_Name": "1-1-1-3",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NKN03012GO0",
+            "IM_Card_Name": "1-1-1-15",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB06027GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK37013GO0",
+            "IM_Card_Name": "1-1-2-6",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CRI09014GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI01039GO0",
+            "IM_Card_Name": "1-1-2-5",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI15024GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "CMI15021GO0",
+            "IM_Card_Name": "1-1-2-16",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RYG08010GO0",
+            "IM_Card_Name": "1-1-2-11",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK06043GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "NTB06019GO0",
+            "IM_Card_Name": "1-1-2-7",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "BKK41010GO0",
+            "IM_Card_Name": "1-1-2-13",
+            "PMS_Slot": "1-2",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        },
+        {
+            "OLT_Name": "RYG08009G00",
+            "IM_Card_Name": "1-1-1-1",
+            "PMS_Slot": "1-1",
+            "IM_Type_Designer": "xGSPON-Combo",
+            "PMS_Real_Hardware": "GPOA",
+            "Vendor": "Fiberhome"
+        }
+    ]
+}
