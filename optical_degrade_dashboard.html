@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Optical Power Degrade Dashboard</title>
+  <style>
+    :root { --bg: #0f172a; --card: rgba(30,41,59,0.7); --text: #f8fafc; --crit: #ef4444; --warn: #f59e0b; --border: rgba(255,255,255,0.1); }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-weight: 800; font-size: 2.2rem; margin-bottom: 2rem; background: -webkit-linear-gradient(#60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .kpi-row { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+    .kpi-card { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(10px); display: flex; flex-direction: column; }
+    .kpi-title { font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .kpi-val { font-size: 3rem; font-weight: 800; margin-top: 0.5rem; }
+    .val-crit { color: var(--crit); }
+    .val-warn { color: var(--warn); }
+    .main-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(10px); }
+    .card h3 { margin-top: 0; font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-weight: 600; color: #94a3b8; font-size: 0.85rem; text-transform: uppercase; }
+    tr:hover { background: rgba(255,255,255,0.05); }
+    .btn { display: inline-block; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; margin-top: 1rem; transition: opacity 0.2s; }
+    .btn:hover { opacity: 0.8; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Optical Uplink Degradation Dashboard</h1>
+    
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-title">Total Degraded Links</div>
+        <div class="kpi-val">35</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Critical (>15dB / LOS)</div>
+        <div class="kpi-val val-crit">13</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Warning (3-15dB)</div>
+        <div class="kpi-val val-warn">22</div>
+      </div>
+    </div>
+    
+    <div class="main-grid">
+      <div class="card">
+        <h3>Severity Distribution</h3>
+        <div style="height: 300px; display: flex; justify-content: center; align-items: center;">
+          <canvas id="sevChart"></canvas>
+        </div>
+        <div style="text-align:center; margin-top:1rem;">
+          <a href="optical_power_significant_changes.xlsx" class="btn" download>📥 Export Significant Changes</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>Top 10 Worst Degraded Links</h3>
+        <table>
+          <thead>
+            <tr><th>OLT Name</th><th>Vendor</th><th>Interface</th><th>Prev Rx</th><th>Curr Rx</th><th>Drop (dB)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CBR10009G00</td><td>HW</td><td>ethernet0/2/0</td><td>-1.72</td><td>-50.00</td><td style='color:#ef4444;font-weight:bold'>-48.28</td></tr>
+<tr><td>NKR01011G00</td><td>ZTE</td><td>xgei_1/10/1</td><td>-12.76</td><td>-53.69</td><td style='color:#ef4444;font-weight:bold'>-40.93</td></tr>
+<tr><td>SPB09001GO0</td><td>HW</td><td>ethernet0/2/2</td><td>-5.71</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-34.29</td></tr>
+<tr><td>KBI05005G00</td><td>FBH</td><td>SFP 19/4</td><td>-7.11</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-32.89</td></tr>
+<tr><td>NKW01065GO0</td><td>FBH</td><td>SFP+ 3/1</td><td>-3.27</td><td>-33.61</td><td style='color:#ef4444;font-weight:bold'>-30.34</td></tr>
+<tr><td>KBI05005G00</td><td>FBH</td><td>SFP 19/3</td><td>-11.07</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-28.93</td></tr>
+<tr><td>NKR01008GO0</td><td>HW</td><td>ethernet0/2/2</td><td>-11.59</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-28.41</td></tr>
+<tr><td>PTT01029GO0</td><td>ZTE</td><td>xgei-1/4/1</td><td>-5.90</td><td>-29.62</td><td style='color:#ef4444;font-weight:bold'>-23.72</td></tr>
+<tr><td>PTT06053GO0</td><td>ZTE</td><td>xxvgei-1/1/2</td><td>-7.19</td><td>-27.30</td><td style='color:#ef4444;font-weight:bold'>-20.11</td></tr>
+<tr><td>CRI09002G00</td><td>HW</td><td>ethernet0/10/0</td><td>-13.56</td><td>-33.15</td><td style='color:#ef4444;font-weight:bold'>-19.59</td></tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Chart(document.getElementById('sevChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Critical (>15dB)', 'Warning (3-15dB)'],
+        datasets: [{
+          data: [13, 22],
+          backgroundColor: ['#ef4444', '#f59e0b'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: '75%',
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#f8fafc' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

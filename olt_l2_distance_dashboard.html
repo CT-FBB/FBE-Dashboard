@@ -100,7 +100,7 @@
     
     .header button:hover { background-color: #059669 !important; }
     
-        /* ── Global Nav Styles ── */
+    /* ── Global Nav Styles ── */
     .global-nav {
         position: fixed; top: 0; left: 0; right: 0; height: 70px;
         background-color: rgba(15, 23, 42, 0.95);
@@ -108,42 +108,109 @@
         display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
         box-sizing: border-box;
     }
-    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
     .nav-logo span { color: #38bdf8; }
-    .nav-links { display: flex; gap: 2rem; overflow-x: auto; white-space: nowrap; -ms-overflow-style: none; scrollbar-width: none; flex-grow: 1; align-items: center; }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
     .nav-links a:hover, .nav-links a.active { color: #fff; }
-    
-    @media (max-width: 768px) {
-        .global-nav { padding: 0 1rem; }
-        .nav-logo { font-size: 1.2rem; margin-right: 1.5rem; }
-        .nav-links { gap: 1.2rem; padding-right: 1rem; }
-        .nav-links a { font-size: 0.9rem; }
-    }
 
 </style>
 </head>
 <body>
-    <!-- Sticky Global Navigation Bar -->
-    <nav class="global-nav">
-    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
-    <div class="nav-links">
-        <a href="index.html" id="nav-main" class="">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">Mismatch</a>
-        <a href="onu_model_dashboard.html" id="nav-onumodel" class="">ONU Model</a>
-        <a href="olt_executive_dashboard.html" id="nav-executive" class="">XGS-PON</a>
-        <a href="olt_cascade_dashboard.html" id="nav-cascade" class="">Cascade</a>
+
+<!-- SIDEBAR STYLES -->
+<style>
+body {
+    padding-top: 20px !important;
+    padding-left: 270px !important;
+}
+.sidebar {
+    width: 250px;
+    background: rgba(13, 18, 34, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+</style>
+<nav class="sidebar">
+    <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="sidebar-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="active">L2 Distance</a>
-        <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
-        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
-            <a href="optical_dashboard.html" id="nav-optical" class="">Optical</a>
-        <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
-        <a href="inventory_movement_dashboard.html" id="nav-inventory" class="">Inventory</a>
-        <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>
-        <a href="swap_olt_dashboard.html" id="nav-swap" class="">SwapOLT</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
     </div>
 </nav>
+
+
+
+
+    <!-- Sticky Global Navigation Bar -->
+    
 
 
         <div class="header" style="display: flex; justify-content: space-between; align-items: flex-end;">

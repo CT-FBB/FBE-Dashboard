@@ -189,25 +189,100 @@ tr:hover td{background:rgba(255,255,255,.025)}
 </head>
 <body>
 
-<!-- Sticky Global Navigation Bar -->
-<nav class="global-nav">
-  <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
-  <div class="nav-links">
-        <a href="index.html" id="nav-main" class="">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">Mismatch</a>
-        <a href="onu_model_dashboard.html" id="nav-onumodel" class="">ONU Model</a>
-        <a href="olt_executive_dashboard.html" id="nav-executive" class="">XGS-PON</a>
-        <a href="olt_cascade_dashboard.html" id="nav-cascade" class="">Cascade</a>
-        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="">L2 Distance</a>
-        <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
-        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
-            <a href="optical_dashboard.html" id="nav-optical" class="">Optical</a>
-        <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
-        <a href="inventory_movement_dashboard.html" id="nav-inventory" class="">Inventory</a>
+<!-- SIDEBAR STYLES -->
+<style>
+body {
+    padding-top: 20px !important;
+    padding-left: 270px !important;
+}
+.sidebar {
+    width: 250px;
+    background: rgba(13, 18, 34, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+</style>
+<nav class="sidebar">
+    <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="sidebar-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
         <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="active">EDFA</a>
-        <a href="swap_olt_dashboard.html" id="nav-swap" class="">SwapOLT</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
     </div>
 </nav>
+
+
+
+
+
+<!-- Sticky Global Navigation Bar -->
+
 
 <div class="hdr">
   <div class="hdr-left">
@@ -224,7 +299,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
     <a href="DVB_Subscribers_List.csv" download class="badge" style="background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.4);color:#06b6d4;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:6px 12px;cursor:pointer">
       📡 Export DVB List (CSV)
     </a>
-    <span class="badge b-src" id="srcBadge">Loading...</span>
+    <span class="badge b-src" id="srcBadge">Device-20260611.xlsx</span>
     <span class="badge b-edfa">⚡ EDFA PON</span>
     <span class="badge b-dvb">📡 DVB = EDFA-Critical</span>
   </div>
@@ -335,7 +410,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
 <script>
 let G=null, oltEdfaFilter='ALL', oltSortKey='DVB';
 
-fetch('tvs_edfa_analysis.json?v=' + new Date().getTime())
+fetch('tvs_edfa_analysis.json')
   .then(r=>{if(!r.ok)throw r.status;return r.json()})
   .then(d=>{G=d;init(d)})
   .catch(e=>{
@@ -369,7 +444,7 @@ function renderKPIs(k){
     {lbl:'OLTs มี EDFA ONU',       val:k.olts_with_edfa_onu.toLocaleString(), sub:`${k.edfa_onu_pct}% ของ Master`, c:'#22d3ee', ico:'⚡'},
     {lbl:'OLTs ไม่มี EDFA ONU',    val:k.olts_no_edfa_onu.toLocaleString(),   sub:'ไม่ใน Data_Splitter',  c:'#475569', ico:'○'},
     {lbl:'Total ONUs (True)',      val:(k.total_onus_true||0).toLocaleString(),sub:'จาก OLT MaxSpeed',         c:'#10b981', ico:'🌐'},
-    {lbl:'DVB (EDFA-Critical)',    val:k.total_dvb.toLocaleString(),           sub:`${k.dvb_pct}% ของ True ONU | <span style="color:#ef4444">เทียบ 11/06: ${k.dvb_diff ? k.dvb_diff.toLocaleString() : '0'} ราย</span>`,   c:'#06b6d4', ico:'📺'},
+    {lbl:'DVB (EDFA-Critical)',    val:k.total_dvb.toLocaleString(),           sub:`${k.dvb_pct}% ของ True ONU`,   c:'#06b6d4', ico:'📺'},
     {lbl:'STB (IPTV)',             val:k.total_stb.toLocaleString(),           sub:'',                     c:'#f59e0b', ico:'🟡'},
     {lbl:'OTT',                    val:k.total_ott.toLocaleString(),           sub:'',                     c:'#10b981', ico:'🟢'},
     {lbl:'OLTs มี DVB',            val:k.olts_with_dvb.toLocaleString(),       sub:'มี DVB subscriber',    c:'#a855f7', ico:'📡'},

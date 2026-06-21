@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Chart.js CDN for interactive charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
   
   <style>
     /* CSS Variables for Premium Boardroom Dark Theme */
@@ -352,17 +351,6 @@
       gap: 24px;
     }
 
-    .panel-row-thirds {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.3fr;
-      gap: 24px;
-    }
-    @media (max-width: 1200px) {
-      .panel-row-thirds {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 1100px) {
       .panel-row-half, .panel-row-split {
         grid-template-columns: 1fr;
@@ -548,7 +536,7 @@
 
     
   
-        /* ── Global Nav Styles ── */
+    /* ── Global Nav Styles ── */
     .global-nav {
         position: fixed; top: 0; left: 0; right: 0; height: 70px;
         background-color: rgba(15, 23, 42, 0.95);
@@ -556,44 +544,111 @@
         display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
         box-sizing: border-box;
     }
-    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
+    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
     .nav-logo span { color: #38bdf8; }
-    .nav-links { display: flex; gap: 2rem; overflow-x: auto; white-space: nowrap; -ms-overflow-style: none; scrollbar-width: none; flex-grow: 1; align-items: center; }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
     .nav-links a:hover, .nav-links a.active { color: #fff; }
-    
-    @media (max-width: 768px) {
-        .global-nav { padding: 0 1rem; }
-        .nav-logo { font-size: 1.2rem; margin-right: 1.5rem; }
-        .nav-links { gap: 1.2rem; padding-right: 1rem; }
-        .nav-links a { font-size: 0.9rem; }
-    }
 
 </style>
 </head>
 <body>
 
-
-
-    <nav class="global-nav">
-    <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
-    <div class="nav-links">
-        <a href="index.html" id="nav-main" class="">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">Mismatch</a>
-        <a href="onu_model_dashboard.html" id="nav-onumodel" class="">ONU Model</a>
+<!-- SIDEBAR STYLES -->
+<style>
+body {
+    padding-top: 20px !important;
+    padding-left: 270px !important;
+}
+.sidebar {
+    width: 250px;
+    background: rgba(13, 18, 34, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+</style>
+<nav class="sidebar">
+    <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="sidebar-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
         <a href="olt_executive_dashboard.html" id="nav-executive" class="active">XGS-PON</a>
-        <a href="olt_cascade_dashboard.html" id="nav-cascade" class="">Cascade</a>
-        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="">L2 Distance</a>
-        <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
-        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
-            <a href="optical_dashboard.html" id="nav-optical" class="">Optical</a>
-        <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
-        <a href="inventory_movement_dashboard.html" id="nav-inventory" class="">Inventory</a>
-        <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>
-        <a href="swap_olt_dashboard.html" id="nav-swap" class="">SwapOLT</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
     </div>
 </nav>
+
+
+
+
+
+
+
+    
 
   <!-- SVG POOL -->
   <svg style="display: none;">
@@ -657,40 +712,27 @@
           <span class="kpi-title">อัปเกรดตู้เปิดใช้งานพอร์ต XGS-PON</span>
           <div class="kpi-icon"><svg><use href="#icon-activity"></use></svg></div>
         </div>
-        <div class="kpi-value">1,608 เครื่อง</div>
+        <div class="kpi-value">1,038 เครื่อง</div>
         <div class="kpi-subtext">
-          <span class="kpi-trend-up">12.77% ของขนาดโครงข่ายรวม</span>
-          <span style="color: var(--color-primary);">ตรวจสอบจาก Physical Board XGS/Combo 10G</span>
+          <span class="kpi-trend-up">8.14% ของขนาดโครงข่ายรวม</span>
+          <span style="color: var(--color-primary);">ตรวจสอบจาก L1 Link Speed 10G</span>
         </div>
       </div>
     </div>
 
     <!-- TAB CONTAINER 1: VENDOR OVERVIEW -->
     <div id="section-overview" class="always-visible-panel">
-      <div class="panel-row-thirds">
+      <div class="panel-row-split">
         <!-- Brand OLT Distribution Doughnut Chart -->
         <div class="glass-panel">
           <div class="panel-title-bar">
             <h3 class="panel-title">
               <svg><use href="#icon-chart"></use></svg>
-              สัดส่วนแบรนด์ตู้ OLT ที่รองรับ XGS-PON (Verified Physical Cards)
+              ส่วนแบ่งสัดส่วนแบรนด์ OLT ในโครงข่ายรวมปี 2026 (OLT Brands share - กรองตู้ LAB ออกแล้ว)
             </h3>
           </div>
           <div class="chart-container-box">
             <canvas id="vendorDistributionChart"></canvas>
-          </div>
-        </div>
-
-        <!-- Mismatch Pie Chart -->
-        <div class="glass-panel">
-          <div class="panel-title-bar">
-            <h3 class="panel-title">
-              <svg><use href="#icon-alert"></use></svg>
-              จำนวนที่ Designer กำหนดผิดพลาด (Mismatch vs PMS)
-            </h3>
-          </div>
-          <div class="chart-container-box">
-            <canvas id="mismatchChart"></canvas>
           </div>
         </div>
 
@@ -707,7 +749,7 @@
             <div class="insight-item success">
               <div class="insight-status-indicator">📡</div>
               <div class="insight-text">
-                <strong>เกณฑ์วิเคราะห์ XGS-PON ระดับ Physical Board (1,608 ตู้):</strong> ทำการตรวจสอบเจาะลึกไปยังอุปกรณ์หน้างานจริงผ่านไฟล์ Network Hardware (PMS) <b>"Board-20260612.xlsx"</b> เพื่อยืนยันว่าตู้ OLT มีการเสียบแผงวงจร (Card) ชนิด XGS-PON หรือ Combo Board จริง และมีสถานะ Active ซึ่งถือเป็นเกณฑ์ความพร้อมโครงข่ายระดับฮาร์ดแวร์ที่แม่นยำที่สุด
+                <strong>เกณฑ์วิเคราะห์ XGS-PON ระดับพอร์ต (1,038 ตู้):</strong> เนื่องจากในระดับฐานข้อมูลหลักไม่ได้บันทึกระดับ Card Name ของ XGS-PON ไว้โดยตรง ทางทีมวิศวกรรมจึงทำการวิเคราะห์ผ่านลิงก์ประวัติของพอร์ตในไฟล์ **"PonPort-20260602.xlsx"** คอลัมน์ **"L1_DL_Max_Bw"** ที่มีความเร็วการดาวน์โหลดระดับ **10G (10240.0 Mbps)** เพื่อระบุว่า OLT ตัวใดที่มีการเชื่อมต่อ Splitter ขยายสัญญาณออกจากแผงวงจรรวม (Card) ที่รองรับ XGS-PON แล้วจริง ซึ่งเป็นเกณฑ์อ้างอิงที่แม่นยำที่สุด
               </div>
             </div>
             
@@ -749,8 +791,8 @@
                 <td><span class="vendor-badge badge-fiberhome">Fiberhome</span></td>
                 <td>1,574</td>
                 <td><strong>2,005</strong></td>
-                <td>727 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">727 เครื่อง</td>
+                <td>455 เครื่อง</td>
+                <td style="color:var(--color-success); font-weight:600;">455 เครื่อง</td>
                 <td>70 เครื่อง</td>
                 <td>0 เครื่อง</td>
               </tr>
@@ -758,8 +800,8 @@
                 <td><span class="vendor-badge badge-huawei">Huawei</span></td>
                 <td>1,973</td>
                 <td><strong>2,272</strong></td>
-                <td>570 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">570 เครื่อง</td>
+                <td>380 เครื่อง</td>
+                <td style="color:var(--color-success); font-weight:600;">380 เครื่อง</td>
                 <td>121 เครื่อง</td>
                 <td>3 เครื่อง</td>
               </tr>
@@ -767,8 +809,8 @@
                 <td><span class="vendor-badge badge-zte">ZTE</span></td>
                 <td>1,836</td>
                 <td><strong>2,065</strong></td>
-                <td>310 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">310 เครื่อง</td>
+                <td>203 เครื่อง</td>
+                <td style="color:var(--color-success); font-weight:600;">203 เครื่อง</td>
                 <td>50 เครื่อง</td>
                 <td>3 เครื่อง</td>
               </tr>
@@ -820,8 +862,6 @@
     <!-- CHART GENERATING LOGICS AND TAB INTERACTIVITY -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      Chart.register(ChartDataLabels);
-      
       const fontColor = '#f3f4f6';
       const fontFamily = "'Prompt', 'Inter', sans-serif";
       Chart.defaults.color = fontColor;
@@ -832,13 +872,17 @@
       new Chart(distCtx, {
         type: 'doughnut',
         data: {
-          labels: ['Fiberhome', 'Huawei', 'ZTE'],
+          labels: ['Huawei', 'GCOM', 'Dasan', 'ZTE', 'Fiberhome', 'Raisecom', 'Nokia'],
           datasets: [{
-            data: [727, 570, 310],
+            data: [2272, 2309, 2114, 2065, 2005, 1880, 91],
             backgroundColor: [
-              '#f59e0b', // Fiberhome - Amber
-              '#ef4444', // Huawei - Red
-              '#3b82f6'  // ZTE - Blue
+              '#ef4444', // Red
+              '#3b82f6', // Blue
+              '#10b981', // Emerald Green
+              '#818cf8', // Indigo
+              '#f59e0b', // Amber
+              '#ec4899', // Pink
+              '#00f2fe'  // Cyan
             ],
             borderWidth: 1.5,
             borderColor: '#0d1222'
@@ -848,22 +892,22 @@
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            datalabels: {
-              color: '#ffffff',
-              font: { weight: 'bold', size: 14 },
-              formatter: (value) => value + ' ตู้',
-              textStrokeColor: '#000',
-              textStrokeWidth: 2
-            },
             legend: {
               position: 'right',
-              labels: { padding: 20, color: fontColor, font: { size: 13, weight: '500' } }
+              labels: {
+                padding: 20,
+                color: fontColor,
+                font: { size: 13, weight: '500' }
+              }
             },
             tooltip: {
               callbacks: {
                 label: function(context) {
-                  let percentage = ((context.raw / context.dataset.data.reduce((a, b) => a + b, 0)) * 100).toFixed(2);
-                  return ` ${context.label}: ${context.raw.toLocaleString()} เครื่อง (${percentage}%)`;
+                  let label = context.label || '';
+                  let value = context.raw || 0;
+                  let total = context.dataset.data.reduce((a, b) => a + b, 0);
+                  let percentage = ((value / total) * 100).toFixed(2);
+                  return ` ${label}: ${value.toLocaleString()} เครื่อง (${percentage}%)`;
                 }
               }
             }
@@ -872,49 +916,6 @@
         }
       });
 
-      const misCtx = document.getElementById('mismatchChart').getContext('2d');
-      new Chart(misCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Huawei', 'Fiberhome', 'ZTE'],
-          datasets: [{
-            data: [138, 124, 72],
-            backgroundColor: [
-              '#ef4444', // Huawei - Red
-              '#f59e0b', // Fiberhome - Amber
-              '#3b82f6'  // ZTE - Blue
-            ],
-            borderWidth: 1.5,
-            borderColor: '#0d1222'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            datalabels: {
-              color: '#ffffff',
-              font: { weight: 'bold', size: 14 },
-              formatter: (value) => value + ' ตู้',
-              textStrokeColor: '#000',
-              textStrokeWidth: 2
-            },
-            legend: {
-              position: 'right',
-              labels: { padding: 20, color: fontColor, font: { size: 13, weight: '500' } }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  let percentage = ((context.raw / context.dataset.data.reduce((a, b) => a + b, 0)) * 100).toFixed(2);
-                  return ` ${context.label}: ${context.raw.toLocaleString()} เครื่อง (${percentage}%)`;
-                }
-              }
-            }
-          },
-          cutout: '65%'
-        }
-      });
       
     });
     

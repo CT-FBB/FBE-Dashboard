@@ -223,33 +223,111 @@
     }
     
 </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
 
-    <nav class=global-nav>
-    <div class=nav-logo>⚡ <span>FBE-PMS-Monitor</span></div>
-    <div class=nav-links>
-        <a href="index.html" id="nav-main" class="">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">Mismatch</a>
-        <a href="onu_model_dashboard.html" id="nav-onumodel" class="">ONU Model</a>
-        <a href="olt_executive_dashboard.html" id="nav-executive" class="">XGS-PON</a>
-        <a href="olt_cascade_dashboard.html" id="nav-cascade" class="">Cascade</a>
-        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance" class="">L2 Distance</a>
-        <a href="l1_rehome_dashboard.html" id="nav-l1rehome" class="">L1 Rehome</a>
-        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="">Uplink Traffic</a>
-            <a href="optical_dashboard.html" id="nav-optical" class="">Optical</a>
-        <a href="pon_traffic_dashboard.html" id="nav-pontraffic" class="">PON Traffic</a>
-        <a href="inventory_movement_dashboard.html" id="nav-inventory" class="">Inventory</a>
-        <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>
+<!-- SIDEBAR STYLES -->
+<style>
+body {
+    padding-top: 20px !important;
+    padding-left: 270px !important;
+}
+.sidebar {
+    width: 250px;
+    background: rgba(13, 18, 34, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+</style>
+<nav class="sidebar">
+    <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="sidebar-links">
+        <a href="index.html" id="nav-main">Main</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
         <a href="swap_olt_dashboard.html" id="nav-swap" class="active">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
     </div>
 </nav>
+
+
+
+
+
+
+
+    
 
     <div class="container">
         <div class="header">
             <h1>OLT Swap Executive Dashboard</h1>
             <p>สัดส่วนและรายละเอียดการเปลี่ยนแปลงยี่ห้ออุปกรณ์ OLT</p>
-            <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-06-14 13:19:32</p>
+            <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-06-21 12:36:44</p>
         </div>
         
         <div class="dashboard-grid">
@@ -257,7 +335,7 @@
             <div class="stats-col">
                 <div class="stat-card">
                     <h3>Total OLT Swaps</h3>
-                    <p class="value">1022</p>
+                    <p class="value">1110</p>
                 </div>
                 
                 <div class="stat-card" style="text-align: left;">
@@ -327,25 +405,25 @@
             </div>
         </div>
 
-                                                                                        <!-- 3 Target Brands Swap Breakdown -->
+                                                                                                                                <!-- 3 Target Brands Swap Breakdown -->
         <h2 style="font-size: 1.5rem; color: #cbd5e1; margin: 40px 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">📋 สรุปการโยกย้ายเข้าสู่ 4 แบรนด์หลัก (Target Brands Breakdown)</h2>
         <div class="brand-swap-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
             <!-- HUAWEI Card -->
             <div class="stat-card" style="text-align: left; border-top: 4px solid var(--danger-color);">
                 <h3 style="text-align: center; color: #ef4444;">🔴 HUAWEI Swaps</h3>
-                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>343 ไซต์</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>361 ไซต์</strong></p>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก GCOM</span>
-                        <span style="font-weight: bold; color: #ef4444;">131 ไซต์</span>
+                        <span style="font-weight: bold; color: #ef4444;">139 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก DASAN</span>
-                        <span style="font-weight: bold; color: #ef4444;">107 ไซต์</span>
+                        <span style="font-weight: bold; color: #ef4444;">116 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก HUAWEI (Self-swap)</span>
-                        <span style="font-weight: bold; color: #38bdf8;">79 ไซต์</span>
+                        <span style="font-weight: bold; color: #38bdf8;">80 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก RAISECOM</span>
@@ -360,15 +438,15 @@
             <!-- FIBERHOME Card -->
             <div class="stat-card" style="text-align: left; border-top: 4px solid #f9a8d4;">
                 <h3 style="text-align: center; color: #f9a8d4;">🌸 FIBERHOME Swaps</h3>
-                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>433 ไซต์</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>470 ไซต์</strong></p>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก DASAN</span>
-                        <span style="font-weight: bold; color: #f9a8d4;">227 ไซต์</span>
+                        <span style="font-weight: bold; color: #f9a8d4;">260 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก FIBERHOME (Self-swap)</span>
-                        <span style="font-weight: bold; color: #38bdf8;">189 ไซต์</span>
+                        <span style="font-weight: bold; color: #38bdf8;">193 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก RAISECOM</span>
@@ -383,15 +461,15 @@
             <!-- ZTE Card -->
             <div class="stat-card" style="text-align: left; border-top: 4px solid var(--accent-color);">
                 <h3 style="text-align: center; color: #3b82f6;">🔵 ZTE Swaps</h3>
-                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>155 ไซต์</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>173 ไซต์</strong></p>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก RAISECOM</span>
-                        <span style="font-weight: bold; color: #3b82f6;">108 ไซต์</span>
+                        <span style="font-weight: bold; color: #3b82f6;">111 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก ZTE (Self-swap)</span>
-                        <span style="font-weight: bold; color: #38bdf8;">35 ไซต์</span>
+                        <span style="font-weight: bold; color: #38bdf8;">50 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก GCOM</span>
@@ -406,11 +484,11 @@
             <!-- NOKIA Card -->
             <div class="stat-card" style="text-align: left; border-top: 4px solid #10b981;">
                 <h3 style="text-align: center; color: #10b981;">🟢 NOKIA Swaps</h3>
-                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>91 ไซต์</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>106 ไซต์</strong></p>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก RAISECOM</span>
-                        <span style="font-weight: bold; color: #10b981;">91 ไซต์</span>
+                        <span style="font-weight: bold; color: #10b981;">106 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก NOKIA (Self-swap)</span>
@@ -420,6 +498,10 @@
             </div>
         </div>
 
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <input type="text" id="searchInput" placeholder="Search Device or Vendor..." style="padding: 10px 15px; width: 300px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(30,41,59,0.7); color: white; font-family: 'Outfit', sans-serif;">
+            <button onclick="exportToExcel()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; transition: opacity 0.2s;"><span style="font-size: 1.2rem;">📥</span> Export to Excel</button>
+        </div>
         <div class="table-container">
             <div class="table-inner">
                 <table>
@@ -475,6 +557,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6000-2</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK03034GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK03038GO0</div></td>
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -506,6 +594,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK05032GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK05033GO0</div></td>
                             <td><span class="vendor-badge vendor-other">ZTE</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">C610</td>
@@ -589,7 +683,19 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6000-2</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK10015GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK10017GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK10018GO0</div></td>
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -1057,6 +1163,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6000-2</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK38009GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK38010GO0</div></td>
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -1135,6 +1247,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6000-2</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK41014GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK42008GO0</div></td>
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -1145,6 +1263,12 @@
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK42010GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK42013GO0</div></td>
@@ -1175,6 +1299,12 @@
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BKK43013GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BKK43015GO0</div></td>
@@ -1403,6 +1533,12 @@
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>BRR10012GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>BRR11004G00</div></td>
@@ -1651,6 +1787,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CBR05013G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CBR06006G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
@@ -1658,6 +1800,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CBR06007G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CBR06008G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -2239,6 +2387,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CCS08005GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">HUAWEI</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CCS08006G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -2413,13 +2567,43 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI03007G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI03010G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI03011G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI03014G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI04004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI04006G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI04008G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -2467,6 +2651,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI06010G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI06012G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -2486,6 +2676,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI07010G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI08001G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -2576,6 +2772,24 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI12008G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI12010G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI12011G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI12012G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -2719,6 +2933,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI17003G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI18010G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -2726,6 +2946,18 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI19012G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI20004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI20005G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -2743,7 +2975,25 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI22004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI22005G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI22006G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI22007G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -2755,7 +3005,67 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI22012G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI22013G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI23002G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CMI23003G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI23004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI23005G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI23006G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI23007G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI24002G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI24003G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CMI24004G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -2777,6 +3087,12 @@
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CPN01005G00</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CRI01017G00</div></td>
@@ -2911,10 +3227,28 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CRI05013G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CTB01003G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CTB03004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>CTB03008G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>CYP01028G00</div></td>
@@ -2960,6 +3294,18 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>LPG05019G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>LPG08004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>LPG08021G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -3289,10 +3635,22 @@
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NKR07009GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NKR07010G00</div></td>
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NKR07013GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NKR08006G00</div></td>
@@ -3347,6 +3705,12 @@
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NKR14005GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NKR14011G00</div></td>
@@ -3505,6 +3869,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NKR22008GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NKR22009G00</div></td>
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
@@ -3533,6 +3903,12 @@
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NKR27004GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NKR28001G00</div></td>
@@ -3673,6 +4049,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NKS03004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NKS07003G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
@@ -3781,6 +4163,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6000-2</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NTB01019GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NTB01024GO0</div></td>
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
@@ -3833,6 +4221,12 @@
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6000-2</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NTB04039GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>NTB06019GO0</div></td>
@@ -3931,6 +4325,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">C620</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>PNA03002GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>PNA07003G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
@@ -3941,6 +4341,12 @@
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>PSN03005G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>PSN03006G00</div></td>
@@ -4045,7 +4451,19 @@
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>PSN04018G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>PSN04019G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>PSN04020G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -4184,6 +4602,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>PSN08021G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>PSN08023G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
@@ -4421,6 +4845,12 @@
                             <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
                             <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>PTT01021GO0</div></td>
+                            <td><span class="vendor-badge vendor-other">ZTE</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>PTT01023GO0</div></td>
@@ -4729,6 +5159,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>RET17004G00</div></td>
+                            <td><span class="vendor-badge vendor-other">FIBERHOME</span></td>
+                            <td><span class="vendor-badge vendor-FIBERHOME">FIBERHOME</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>RNG01004G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
@@ -4784,6 +5220,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>RYG01040G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>RYG01041G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -4975,6 +5417,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>RYG06017G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>RYG06024G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
@@ -5018,6 +5466,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>RYG08012G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>RYG08014G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -5497,6 +5951,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">C610</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>SRT11009G00</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">C610</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>SRT16014G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
@@ -5719,6 +6179,12 @@
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>TRT01006G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>TRT01009G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
@@ -5726,6 +6192,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>TRT01010G00</div></td>
+                            <td><span class="vendor-badge vendor-other">DASAN</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>TRT01014G00</div></td>
                             <td><span class="vendor-badge vendor-other">DASAN</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -5773,7 +6245,37 @@
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
                         </tr>
                         <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR05007G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR05009G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>UBR05010G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR05017G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR05018G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR05019G00</div></td>
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -5810,6 +6312,18 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>UBR11007G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR12002G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR12005G00</div></td>
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -5888,6 +6402,12 @@
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>UBR30003G00</div></td>
+                            <td><span class="vendor-badge vendor-other">GCOM</span></td>
+                            <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>UBR30006G00</div></td>
                             <td><span class="vendor-badge vendor-other">GCOM</span></td>
                             <td><span class="vendor-badge vendor-HUAWEI">HUAWEI</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">MA5801-FL16</td>
@@ -6564,6 +7084,96 @@
                             <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-1</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-2</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-3</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-4</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-5</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-6</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-7</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-8</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-9</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-10</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-11</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-12</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-13</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-14</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><div class="device-name"><div class="device-icon"></div>NOKIA-PENDING-SYNC-15</div></td>
+                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
+                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
+                            <td style="color: #cbd5e1; font-weight: 300;">UNKNOWN</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -6577,7 +7187,7 @@
             data: {
                 labels: ["FIBERHOME", "HUAWEI", "ZTE", "NOKIA"],
                 datasets: [{
-                    data: [433, 343, 155, 91],
+                    data: [470, 361, 173, 106],
                     backgroundColor: [
                         'rgba(244, 114, 182, 0.7)',  // FIBERHOME: Pink
                         'rgba(239, 68, 68, 0.7)',    // HUAWEI: Red
@@ -6615,5 +7225,24 @@
             }
         });
     </script>
+
+    <script>
+        function exportToExcel() {
+            var table = document.querySelector("table");
+            // Clone table to strip out icons and internal html if needed
+            var wb = XLSX.utils.table_to_book(table, {sheet:"Swaps"});
+            XLSX.writeFile(wb, "OLT_Swap_Report.xlsx");
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll("tbody tr");
+            rows.forEach(row => {
+                var text = row.textContent.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        });
+    </script>
 </body>
+
 </html>
