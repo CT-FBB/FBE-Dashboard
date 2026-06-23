@@ -263,6 +263,7 @@ body {
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability" class="active">Flapping</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
+        <a href="index_.html" id="nav-impact">Impact 26</a>
     </div>
 </nav>
 
@@ -276,6 +277,7 @@ body {
     <div>
       <h1>Uplink Instability Dashboard</h1>
       <p>Analysis of Flapping Ports & Interface Revisions (Rev Count > 1)</p>
+      <p id="lastUpdated" style="color: #10b981; font-weight: 600; font-size: 0.95rem; margin-top: 8px;"></p>
     </div>
   </div>
 
@@ -355,6 +357,10 @@ body {
       try {
         const response = await fetch('uplink_instability_data.json?v=' + new Date().getTime());
         globalData = await response.json();
+        
+        if (globalData.last_updated) {
+            document.getElementById('lastUpdated').innerText = 'Last Updated: ' + globalData.last_updated;
+        }
         
         // Initial render
         renderDashboard('uplink');
