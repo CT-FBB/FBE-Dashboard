@@ -23,10 +23,58 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            padding-top: 20px !important;
-            padding-left: 270px !important;
+            padding-top: 80px;
         }
-        .sidebar {
+        .global-nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 70px;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        }
+        .nav-logo { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; }
+        .nav-logo span { color: var(--accent-blue); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
+        .header h1 { font-size: 1.8rem; margin: 0 0 0.5rem 0; }
+        .header p { color: var(--text-muted); margin: 0; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-title { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; display:flex; align-items:center; gap:0.5rem;}
+        .stat-value { font-size: 2.2rem; font-weight: 700; }
+        
+        .text-red { color: var(--accent-red); }
+        .text-orange { color: var(--accent-orange); }
+        .text-yellow { color: var(--accent-yellow); }
+        .text-green { color: var(--accent-green); }
+        .text-blue { color: var(--accent-blue); }
+        
+        .charts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .chart-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); min-height: 400px; }
+        .chart-card h3 { margin: 0 0 1rem 0; font-size: 1.1rem; color: #fff; }
+        .canvas-wrapper { position: relative; height: 350px; width: 100%; }
+        
+        .table-container { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); overflow-x: auto; height: 500px; overflow-y: auto;}
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; background: var(--card-bg); z-index: 10;}
+        .badge { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        .badge-critical { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-high { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .badge-mod { background: rgba(234, 179, 8, 0.2); color: var(--accent-yellow); }
+    </style>
+
+<!-- SIDEBAR STYLES -->
+<style>
+body {
+    padding-top: 20px !important;
+    padding-left: 270px !important;
+}
+.sidebar {
     width: 250px;
     background: rgba(13, 18, 34, 0.85);
     backdrop-filter: blur(12px);
@@ -71,42 +119,14 @@
     color: #f8fafc; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
     border-left-color: #06b6d4; font-weight: 600;
 }
-        
-        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-        .header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
-        .header h1 { font-size: 1.8rem; margin: 0 0 0.5rem 0; }
-        .header p { color: var(--text-muted); margin: 0; }
-        
-        .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
-        .stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-        .stat-title { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; display:flex; align-items:center; gap:0.5rem;}
-        .stat-value { font-size: 2.2rem; font-weight: 700; }
-        
-        .text-red { color: var(--accent-red); }
-        .text-orange { color: var(--accent-orange); }
-        .text-yellow { color: var(--accent-yellow); }
-        .text-green { color: var(--accent-green); }
-        .text-blue { color: var(--accent-blue); }
-        
-        .charts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .chart-card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); min-height: 400px; }
-        .chart-card h3 { margin: 0 0 1rem 0; font-size: 1.1rem; color: #fff; }
-        .canvas-wrapper { position: relative; height: 350px; width: 100%; }
-        
-        .table-container { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); overflow-x: auto; height: 500px; overflow-y: auto;}
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        th { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; background: var(--card-bg); z-index: 10;}
-        .badge { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-        .badge-critical { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
-        .badge-high { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
-        .badge-mod { background: rgba(234, 179, 8, 0.2); color: var(--accent-yellow); }
-        .export-btn { background: var(--accent-blue); color: #fff; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
-        .export-btn:hover { background: #2563eb; }
-    </style>
+.global-nav {
+    display: none !important;
+}
+</style>
+
 </head>
 <body>
-    <nav class="sidebar">
+<nav class="sidebar">
     <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
     <div class="sidebar-links">
         <a href="index.html" id="nav-main">Main</a>
@@ -124,10 +144,12 @@
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
-        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">pon-sfp</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
+        <a href="single_board_dashboard.html" id="nav-singleboard">Single Board</a>
     </div>
 </nav>
+    
 
     <div class="container">
         <div class="header">
@@ -158,13 +180,6 @@
                 <div class="stat-title">✅ Healthy (<50%)</div>
                 <div class="stat-value text-green" id="statHealth">0</div>
             </div>
-        </div>
-
-        <div class="header" style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0;">⚠️ Single Active Uplink (FTTH Only) by Vendor</h2>
-            <a href="single_uplink_olt_report.xlsx" download class="export-btn">📥 Export Excel</a>
-        </div>
-        <div class="stats-grid" id="vendorGrid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 2rem;">
         </div>
 
         <div class="charts-container">
@@ -1279,15 +1294,7 @@
       "in_rate": 5006.26,
       "out_rate": 499.44
     }
-  ],
-  "single_uplink_vendors": {
-    "Raisecom": 212,
-    "GCOM": 152,
-    "Dasan": 142,
-    "Huawei": 52,
-    "Fiberhome": 27,
-    "ZTE": 16
-  }
+  ]
 };
 
         function initDashboard() {
@@ -1307,30 +1314,6 @@
             const highData = regions.map(r => dashboardData.region_stats[r].high);
             const modData = regions.map(r => dashboardData.region_stats[r].mod);
             const healthData = regions.map(r => dashboardData.region_stats[r].healthy);
-            // Populate Single Uplink Vendor Cards
-            const vendorGrid = document.getElementById('vendorGrid');
-            if (vendorGrid && dashboardData.single_uplink_vendors) {
-                let totalSingle = 0;
-                Object.entries(dashboardData.single_uplink_vendors).forEach(([vendor, count]) => {
-                    totalSingle += count;
-                    vendorGrid.innerHTML += `
-                        <div class="stat-card" style="border-top: 4px solid var(--accent-blue); padding: 1rem;">
-                            <div class="stat-title" style="font-size: 0.75rem;">${vendor}</div>
-                            <div class="stat-value text-blue" style="font-size: 1.5rem;">${count}</div>
-                        </div>
-                    `;
-                });
-                if (totalSingle > 0) {
-                    vendorGrid.innerHTML = `
-                        <div class="stat-card" style="border-top: 4px solid var(--accent-red); padding: 1rem;">
-                            <div class="stat-title" style="font-size: 0.75rem;">🚨 TOTAL</div>
-                            <div class="stat-value text-red" style="font-size: 1.5rem;">${totalSingle}</div>
-                        </div>
-                    ` + vendorGrid.innerHTML;
-                } else {
-                    vendorGrid.innerHTML = '<div style="color: var(--text-muted);">No single uplink OLTs found.</div>';
-                }
-            }
 
             // Chart 1: Total Devices
             new Chart(document.getElementById('regionTotalChart'), {

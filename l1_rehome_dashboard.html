@@ -261,7 +261,7 @@
         display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
         box-sizing: border-box;
     }
-    .nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-logo { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Outfit', sans-serif; }
     .nav-logo span { color: #38bdf8; }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
@@ -340,7 +340,7 @@ body {
 </style>
 <nav class="sidebar">
     <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
-                    <div class="sidebar-links">
+    <div class="sidebar-links">
         <a href="index.html" id="nav-main">Main</a>
         <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
         <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
@@ -356,8 +356,9 @@ body {
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
-            <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">pon-sfp</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
+        <a href="single_board_dashboard.html" id="nav-singleboard">Single Board</a>
     </div>
 </nav>
 
@@ -421,10 +422,9 @@ body {
 
         <h2 class="section-title">Rehomed Splitters & ONU Detail</h2>
         <div class="report-section">
-            <div class="table-controls" style="display: flex; gap: 1rem; align-items: center;">
+            <div class="table-controls">
                 <input type="text" id="searchBox" class="search-box" placeholder="Search L1 Name, Device, or Port..." onkeyup="onSearch()">
-                <button onclick="exportToExcel()" style="background: var(--accent-success); color: #000; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: bold; font-family: 'Inter', sans-serif;">📥 Export to Excel</button>
-                <div style="color: var(--text-muted); font-size: 0.9rem; margin-left: auto;">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">
                     Click a row to view ONUs under that L1 Splitter
                 </div>
             </div>
