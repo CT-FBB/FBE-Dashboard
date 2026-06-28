@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLT Uplink Optical Power Dashboard | May→Jun</title>
-    <meta name="description" content="Executive dashboard for OLT uplink optical power degradation analysis. Monitoring 30,507 links across May to Jun.">
+    <title>OLT Uplink Optical Power Dashboard | 14/06/26→26/06/26</title>
+    <meta name="description" content="Executive dashboard for OLT uplink optical power degradation analysis. Monitoring 30,507 links across 14/06/26 to 26/06/26.">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -41,69 +41,54 @@
                 radial-gradient(ellipse at 50% 50%, rgba(0,229,160,0.05) 0%, transparent 60%);
             color: var(--text-main);
             min-height: 100vh;
-            padding: 100px 20px 60px;
+            padding: 20px 20px 60px 270px;
         }
 
-        /* Global Navigation Bar Styles */
-        .global-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: rgba(11, 15, 25, 0.85);
+        /* ── Sidebar Styles ── */
+        .sidebar {
+            width: 250px;
+            background: rgba(13, 18, 34, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            z-index: 999;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 3rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            box-sizing: border-box;
+            flex-direction: column;
+            position: fixed;
+            top: 0; bottom: 0; left: 0;
+            z-index: 9999;
         }
-        .nav-logo {
+        .sidebar-logo {
             font-family: 'Outfit', sans-serif;
             font-size: 1.25rem;
+            color: #f8fafc;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .sidebar-logo span {
+            background: linear-gradient(135deg, #06b6d4, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            height: 100%;
+        .sidebar-links {
+            flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
         }
-        .nav-tab {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            border: 1px solid transparent;
-            cursor: pointer;
+        .sidebar-links::-webkit-scrollbar { width: 4px; }
+        .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .sidebar-links a {
+            display: flex; align-items: center; padding: 12px 24px;
+            color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500;
+            transition: all 0.2s ease; border-left: 3px solid transparent; box-sizing: border-box;
         }
-        .nav-tab:hover {
-            color: #f8fafc;
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.05);
+        .sidebar-links a:hover {
+            color: #f8fafc; background: rgba(255,255,255,0.03); border-left-color: rgba(6, 182, 212, 0.3);
         }
-        .nav-tab.active {
-            color: #06b6d4;
-            background: rgba(6, 182, 212, 0.1);
-            border-color: rgba(6, 182, 212, 0.2);
-            box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+        .sidebar-links a.active {
+            color: #f8fafc; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+            border-left-color: #06b6d4; font-weight: 600;
         }
 
         .container { max-width: 1280px; margin: 0 auto; }
@@ -480,90 +465,32 @@
         .meta-item { color: var(--text-muted); }
         .meta-item strong { color: var(--text-main); }
     </style>
-
-<!-- SIDEBAR STYLES -->
-<style>
-body {
-    padding-top: 20px !important;
-    padding-left: 270px !important;
-}
-.sidebar {
-    width: 250px;
-    background: rgba(13, 18, 34, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0; bottom: 0; left: 0;
-    z-index: 9999;
-}
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
-}
-.sidebar-links::-webkit-scrollbar { width: 4px; }
-.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-.sidebar-links a {
-    display: flex; align-items: center; padding: 12px 24px;
-    color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500;
-    transition: all 0.2s ease; border-left: 3px solid transparent; box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc; background: rgba(255,255,255,0.03); border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4; font-weight: 600;
-}
-.global-nav {
-    display: none !important;
-}
-</style>
-
 </head>
 <body>
-<nav class="sidebar">
-    <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
-    <div class="sidebar-links">
-        <a href="index.html" id="nav-main">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
-        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
-        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
-        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
-        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
-        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
-        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
-        <a href="optical_dashboard.html" id="nav-optical" class="active">Optical</a>
-        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
-        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
-        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
-        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
-        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
-        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
-        <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
-        <a href="single_board_dashboard.html" id="nav-singleboard">Single Board</a>
-    </div>
-</nav>
 
-    
+    <!-- SIDEBAR NAVIGATION -->
+    <nav class="sidebar">
+        <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+        <div class="sidebar-links">
+            <a href="index.html" id="nav-main">Main</a>
+            <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
+            <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+            <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+            <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+            <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+            <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+            <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+            <a href="optical_dashboard.html" id="nav-optical" class="active">Optical</a>
+            <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+            <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+            <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+            <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+            <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+            <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
+            <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
+            <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
+        </div>
+    </nav>
 
 <div class="container">
 
@@ -572,15 +499,16 @@ body {
         <div class="header-tag">⚡ Network Intelligence · Optical Monitoring</div>
         <h1>OLT Uplink Optical Power<br>Degradation Dashboard</h1>
         <p class="subtitle">
-            Signal quality analysis across 4 months
-            <span class="period-badge">Mar → Apr → May → Jun</span>
+            Signal quality analysis across comparison periods
+            <span class="period-badge">14/06/26 → 26/06/26</span>
+            <span style="font-size: 1rem; color: #fbbf24; font-weight: bold; margin-left: 12px; background: rgba(251, 191, 36, 0.1); padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(251, 191, 36, 0.3);">AS OF: 26/06/26</span>
         </p>
     </header>
 
     <!-- Meta Bar -->
     <div class="meta-bar">
         <div class="meta-item">📡 Total Links Monitored: <strong>30,507</strong></div>
-        <div class="meta-item">📅 Analysis Period: <strong>May → Jun</strong></div>
+        <div class="meta-item">📅 Analysis Period: <strong>14/06/26 → 26/06/26</strong></div>
         <div class="meta-item">⚠️ Degradation Threshold: <strong>≥ 3.0 dBm drop</strong></div>
         <div class="meta-item">🔴 Critical Threshold: <strong>> 15 dBm drop (LOS risk)</strong></div>
     </div>
@@ -592,27 +520,28 @@ body {
             <span class="kpi-icon">📊</span>
             <div class="kpi-value">20</div>
             <div class="kpi-label">Total Degraded</div>
-            <div class="kpi-sub">May → Jun · ≥ 3 dB drop</div>
+            <div class="kpi-sub">14/06/26 → 26/06/26 · ≥ 3 dB drop</div>
         </div>
         <div class="kpi-card critical">
             <div class="kpi-pulse"></div>
             <span class="kpi-icon">🔴</span>
             <div class="kpi-value">5</div>
-            <div class="kpi-label">Critical / LOS</div>
-            <div class="kpi-sub">Rx drop > 15 dB · Immediate action</div>
+            <div class="kpi-label">Critical (>15dB/LOS)</div>
+            <div class="kpi-sub">High operational risk</div>
         </div>
         <div class="kpi-card warning">
             <div class="kpi-pulse"></div>
-            <span class="kpi-icon">⚠️</span>
+            <span class="kpi-icon">🟧</span>
             <div class="kpi-value">15</div>
-            <div class="kpi-label">Warning (3–15 dB)</div>
-            <div class="kpi-sub">Monitoring recommended</div>
+            <div class="kpi-label">Warning (3-15dB)</div>
+            <div class="kpi-sub">Moderate degradation</div>
         </div>
-        <div class="kpi-card improved">
-            <span class="kpi-icon">✅</span>
+        <div class="kpi-card success">
+            <div class="kpi-pulse"></div>
+            <span class="kpi-icon">🟢</span>
             <div class="kpi-value">23</div>
             <div class="kpi-label">Improved Links</div>
-            <div class="kpi-sub">Signal gain ≥ 3 dB · May → Jun</div>
+            <div class="kpi-sub">Signal gain ≥ 3 dB · 14/06/26 → 26/06/26</div>
         </div>
     </div>
 
@@ -621,7 +550,10 @@ body {
 
         <!-- Top 10 Table -->
         <div class="glass-panel">
-            <div class="section-title">🏆 Top 10 Worst Degraded Links (May → Jun)</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <div class="section-title" style="margin-bottom:0;">🏆 Top Degraded Links (14/06/26 → 26/06/26)</div>
+                <button onclick="exportOpticalCSV()" class="btn-export" style="padding: 8px 16px; font-size: 0.8rem; background: linear-gradient(135deg, #059669, #10b981);">📥 Export CSV</button>
+            </div>
             <div class="table-scroll">
                 <table>
                     <thead>
@@ -629,8 +561,8 @@ body {
                             <th>OLT Name</th>
                             <th>Vendor</th>
                             <th>Interface</th>
-                            <th>May Rx (dBm)</th>
-                            <th>Jun Rx (dBm)</th>
+                            <th>14/06/26 Rx (dBm)</th>
+                            <th>26/06/26 Rx (dBm)</th>
                             <th>Drop / Severity</th>
                         </tr>
                     </thead>
@@ -747,11 +679,38 @@ body {
     </div>
 
     <footer>
-        <p>Generated 2026-06-26 21:17 · OLT Optical Power Analysis · Threshold: ≥ 3 dBm | Critical: > 15 dBm</p>
+        <p>Generated 2026-06-28 19:58 · OLT Optical Power Analysis · Threshold: ≥ 3 dBm | Critical: > 15 dBm</p>
     </footer>
 </div>
 
 <script>
+const topDegradedData = [{"name": "BKK26006G00", "vendor": "ZTE", "interface": "xgei_1/4/2", "prev_rx": -10.96, "curr_rx": -32.41, "drop": -21.45, "severity": "critical"}, {"name": "BKK03034GO0", "vendor": "ZTE", "interface": "xgei_1/3/2", "prev_rx": -5.71, "curr_rx": -25.15, "drop": -19.45, "severity": "critical"}, {"name": "BKK03011GO0", "vendor": "ZTE", "interface": "xgei_1/4/2", "prev_rx": -4.02, "curr_rx": -20.58, "drop": -16.56, "severity": "critical"}, {"name": "BKK03028GO0", "vendor": "ZTE", "interface": "xgei_1/4/2", "prev_rx": -5.96, "curr_rx": -22.12, "drop": -16.16, "severity": "critical"}, {"name": "BKK18005GO0", "vendor": "HW", "interface": "ethernet0/3/0", "prev_rx": -14.79, "curr_rx": -30.2, "drop": -15.4, "severity": "critical"}, {"name": "PTT04005GO0", "vendor": "FBH", "interface": "SFP28 19/1", "prev_rx": -12.35, "curr_rx": -26.14, "drop": -13.79, "severity": "warning"}, {"name": "PTT06023GO0", "vendor": "ZTE", "interface": "xgei_1/4/2", "prev_rx": -12.64, "curr_rx": -24.32, "drop": -11.68, "severity": "warning"}, {"name": "BKK26013GO0", "vendor": "N/A", "interface": "xgei-1/5/1", "prev_rx": -11.06, "curr_rx": -21.09, "drop": -10.02, "severity": "warning"}, {"name": "SMP03020GO1", "vendor": "HW", "interface": "ethernet0/3/0", "prev_rx": -9.09, "curr_rx": -17.67, "drop": -8.58, "severity": "warning"}, {"name": "SMP03007GO0", "vendor": "HW", "interface": "ethernet0/2/2", "prev_rx": -7.18, "curr_rx": -14.36, "drop": -7.18, "severity": "warning"}, {"name": "SMP03006GO0", "vendor": "HW", "interface": "ethernet0/3/2", "prev_rx": -9.78, "curr_rx": -16.65, "drop": -6.86, "severity": "warning"}, {"name": "NTB03010GO0", "vendor": "FBH", "interface": "SFP+ 3/1", "prev_rx": -14.54, "curr_rx": -21.18, "drop": -6.64, "severity": "warning"}, {"name": "PCB06010GO0", "vendor": "HW", "interface": "ethernet0/3/2", "prev_rx": -8.32, "curr_rx": -13.84, "drop": -5.51, "severity": "warning"}, {"name": "SMP03019GO0", "vendor": "HW", "interface": "ethernet0/3/2", "prev_rx": -9.98, "curr_rx": -14.67, "drop": -4.69, "severity": "warning"}, {"name": "SMP03021GO0", "vendor": "HW", "interface": "ethernet0/2/2", "prev_rx": -7.38, "curr_rx": -11.7, "drop": -4.32, "severity": "warning"}, {"name": "CMI15021GO0", "vendor": "FBH", "interface": "SFP+ 3/1", "prev_rx": -5.87, "curr_rx": -10.18, "drop": -4.31, "severity": "warning"}, {"name": "SMP03020GO0", "vendor": "HW", "interface": "ethernet0/3/0", "prev_rx": -9.23, "curr_rx": -13.41, "drop": -4.18, "severity": "warning"}, {"name": "SMP03021GO1", "vendor": "HW", "interface": "ethernet0/3/2", "prev_rx": -9.23, "curr_rx": -13.35, "drop": -4.12, "severity": "warning"}, {"name": "SMP03015GO0", "vendor": "HW", "interface": "ethernet0/3/2", "prev_rx": -9.42, "curr_rx": -13.47, "drop": -4.06, "severity": "warning"}, {"name": "MHS01003G00", "vendor": "DZ", "interface": "port14-XE-FX", "prev_rx": -3.92, "curr_rx": -7.44, "drop": -3.52, "severity": "warning"}];
+
+function exportOpticalCSV() {
+    if (!topDegradedData || topDegradedData.length === 0) {
+        alert('No data to export!');
+        return;
+    }
+    let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+    csvContent += "OLT Name,Vendor,Interface,Previous Rx (dBm),Current Rx (dBm),Drop (dB),Severity\n";
+    topDegradedData.forEach(row => {
+        let name = '"' + (row.name || '') + '"';
+        let vendor = '"' + (row.vendor || '') + '"';
+        let iface = '"' + (row.interface || '') + '"';
+        let prevRx = row.prev_rx !== null ? row.prev_rx.toFixed(2) : 'N/A';
+        let currRx = row.curr_rx !== null ? row.curr_rx.toFixed(2) : 'N/A';
+        let drop = row.drop !== null ? Math.abs(row.drop).toFixed(2) : '0';
+        let sev = '"' + (row.severity || '') + '"';
+        csvContent += name + ',' + vendor + ',' + iface + ',' + prevRx + ',' + currRx + ',' + drop + ',' + sev + '\n';
+    });
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "Optical_Power_Degradation_Report.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 // ── Vendor Doughnut Chart ────────────────────────────────────────────────────
 const vendorLabels = ["ZTE", "HW", "N/A", "FBH", "DZ"];
 const vendorValues = [5, 10, 1, 3, 1];
