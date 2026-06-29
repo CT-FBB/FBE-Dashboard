@@ -384,8 +384,8 @@ body {
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
-        <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
 </nav>
 
@@ -401,6 +401,7 @@ body {
             <div class="header-info">
                 <h1>รายงานวิเคราะห์โครงสร้างพ่วงต่อ OLT Cascade (Uplink to OLT)</h1>
                 <p>การวิเคราะห์ความสามารถของ OLT ที่มีสายเชื่อมโยง Uplink ไปพ่วงต่อกับ OLT ด้วยกันเอง แทนระบบ CPE IP RAN ปกติ</p>
+                <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 29/06/2026</span></div>
             </div>
             <div style="display: flex; gap: 10px;">
                 <button class="btn-export" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: var(--color-success); color: var(--color-success);" onclick="window.open('olt_cascade_report.xlsx', '_blank')">
@@ -414,23 +415,23 @@ body {
         <section class="kpi-grid">
             <div class="kpi-card kpi-total">
                 <div class="kpi-title">🔗 OLT Cascade ทั้งหมด</div>
-                <div class="kpi-value">165 เครื่อง</div>
+                <div class="kpi-value">163 เครื่อง</div>
                 <div class="kpi-desc">อัปเดตจากไฟล์ล่าสุด</div>
             </div>
             <div class="kpi-card kpi-10g">
                 <div class="kpi-title">⚡ ลิงก์พ่วงความเร็ว 10G</div>
-                <div class="kpi-value">136 ลิงก์</div>
-                <div class="kpi-desc">82.4% รองรับการขยายตัวความเร็วพอร์ต FTTx</div>
+                <div class="kpi-value">134 ลิงก์</div>
+                <div class="kpi-desc">82.2% รองรับการขยายตัวความเร็วพอร์ต FTTx</div>
             </div>
             <div class="kpi-card kpi-1g">
                 <div class="kpi-title">🐢 ลิงก์พ่วงความเร็ว 1G</div>
                 <div class="kpi-value">29 ลิงก์</div>
-                <div class="kpi-desc">17.6% อัตราส่วนสายพ่วงแบบดั้งเดิม</div>
+                <div class="kpi-desc">17.8% อัตราส่วนสายพ่วงแบบดั้งเดิม</div>
             </div>
             <div class="kpi-card kpi-top-vendor">
                 <div class="kpi-title">🏢 แบรนด์ Cascade หลัก</div>
                 <div class="kpi-value">Fiberhome</div>
-                <div class="kpi-desc">65 เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)</div>
+                <div class="kpi-desc">63 เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)</div>
             </div>
         </section>
 
@@ -438,7 +439,7 @@ body {
         <section class="kpi-grid" style="margin-top: 16px;">
             <div class="kpi-card kpi-hops-1">
                 <div class="kpi-title">📍 Cascade 1 Hop</div>
-                <div class="kpi-value">161 เครื่อง</div>
+                <div class="kpi-value">159 เครื่อง</div>
                 <div class="kpi-desc">ต่อตรงเข้าแม่ OLT ตัวหลัก</div>
             </div>
             <div class="kpi-card kpi-hops-2plus">
@@ -448,12 +449,12 @@ body {
             </div>
             <div class="kpi-card kpi-links-design">
                 <div class="kpi-title">✅ ตรงตามแบบ (2 ลิงก์)</div>
-                <div class="kpi-value">61 เครื่อง</div>
+                <div class="kpi-value">62 เครื่อง</div>
                 <div class="kpi-desc">มีลิงก์สำรองตรงตามเกณฑ์มาตรฐาน</div>
             </div>
             <div class="kpi-card kpi-links-single">
                 <div class="kpi-title">🚨 ผิดแบบ/ไม่มีสำรอง (1 ลิงก์)</div>
-                <div class="kpi-value">20 เครื่อง</div>
+                <div class="kpi-value">19 เครื่อง</div>
                 <div class="kpi-desc">พบความเสี่ยงลิงก์เดี่ยวไม่มีสำรอง</div>
             </div>
         </section>
@@ -528,8 +529,8 @@ body {
 
             // Data map for speed breakdown by vendor
                         const dataMap = {
-                'ALL': { '10G': 136, '1G': 29, title: 'สัดส่วนความเร็วลิงก์ Cascade ทั้งหมด' },
-                'Fiberhome': { '10G': 65, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Fiberhome)' },
+                'ALL': { '10G': 134, '1G': 29, title: 'สัดส่วนความเร็วลิงก์ Cascade ทั้งหมด' },
+                'Fiberhome': { '10G': 63, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Fiberhome)' },
                 'Dasan': { '10G': 26, '1G': 27, title: 'สัดส่วนความเร็วลิงก์ Cascade (Dasan)' },
                 'Huawei': { '10G': 39, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Huawei)' },
                 'Raisecom': { '10G': 5, '1G': 2, title: 'สัดส่วนความเร็วลิงก์ Cascade (Raisecom)' },
