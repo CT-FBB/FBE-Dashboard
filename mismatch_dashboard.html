@@ -373,7 +373,6 @@ body {
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
         <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
-        <a href="single_board_dashboard.html" id="nav-singleboard">Single Board</a>
     </div>
 </nav>
     
@@ -382,34 +381,34 @@ body {
         <header class="dashboard-header">
             <div style="flex-grow: 1; text-align: left;">
                 <h1 style="font-size: 2rem; margin: 0; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OLT Card Mismatch Tracking</h1>
-                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard</p>
+                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard <span style="color: #eab308; font-weight: bold; margin-left: 8px;">(as of 29/06/26)</span></p>
             </div>
             <div style="display: flex; gap: 10px;">
-                <button class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981;" onclick="window.open('mismatch_im_vs_pms.xlsx', '_blank')">
+                <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="download-mismatch-excel-top">
                     <svg style="width:16px;height:16px;vertical-align:middle;margin-right:4px;" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
                     </svg>
                     ดาวน์โหลด Excel (Full)
-                </button>
+                </a>
             </div>
         </header>
 
         <div class="kpi-grid">
             <div class="glass-panel kpi-card kpi-total">
                 <div class="kpi-title">Total Mismatches</div>
-                <div class="kpi-value" id="kpi-total">455</div>
+                <div class="kpi-value" id="kpi-total">536</div>
             </div>
             <div class="glass-panel kpi-card kpi-huawei">
                 <div class="kpi-title">Huawei</div>
-                <div class="kpi-value" id="kpi-huawei">245</div>
+                <div class="kpi-value" id="kpi-huawei">213</div>
             </div>
             <div class="glass-panel kpi-card kpi-zte">
                 <div class="kpi-title">ZTE</div>
-                <div class="kpi-value" id="kpi-zte">151</div>
+                <div class="kpi-value" id="kpi-zte">149</div>
             </div>
             <div class="glass-panel kpi-card kpi-fiberhome">
                 <div class="kpi-title">Fiberhome</div>
-                <div class="kpi-value" id="kpi-fiberhome">59</div>
+                <div class="kpi-value" id="kpi-fiberhome">174</div>
             </div>
         </div>
 
@@ -426,7 +425,7 @@ body {
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-huawei);"></div>
-                            Huawei (Total: 245)
+                            Huawei (Total: 213)
                         </div>
                         <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
                             GPON vs XGS-PON config errors
@@ -435,7 +434,7 @@ body {
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-zte);"></div>
-                            ZTE (Total: 151)
+                            ZTE (Total: 149)
                         </div>
                         <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
                             GPON vs Combo (e.g., GFGL, HFTL)
@@ -444,7 +443,7 @@ body {
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-fiberhome);"></div>
-                            Fiberhome (Total: 59)
+                            Fiberhome (Total: 174)
                         </div>
                         <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
                             GPON vs Combo conflicts (e.g., GC8B, GPOP)
@@ -452,12 +451,12 @@ body {
                     </li>
                 </ul>
                 <div style="margin-top: 30px; text-align: center;">
-                    <button class="action-btn" onclick="window.open('mismatch_im_vs_pms.xlsx', '_blank')">
+                    <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="download-mismatch-excel-bottom">
                         <svg style="width:16px;height:16px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
                         </svg>
                         Download Full Report (.xlsx)
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -474,7 +473,7 @@ body {
             const data = {
                 labels: ['Huawei', 'ZTE', 'Fiberhome'],
                 datasets: [{
-                    data: [245, 151, 59],
+                    data: [213, 149, 174],
                     backgroundColor: [
                         '#ff4757', // Huawei Red
                         '#2ed573', // ZTE Green
