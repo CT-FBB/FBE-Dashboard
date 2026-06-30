@@ -6,110 +6,51 @@
     <title>OLT L2 Distance Analysis Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
+            <style>
         :root {
-            --bg-color: #030712;
-            --card-bg: rgba(17, 24, 39, 0.6);
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.05);
+            --border-color: #334155;
             --accent-blue: #3b82f6;
             --accent-green: #10b981;
             --accent-purple: #8b5cf6;
             --accent-red: #ef4444;
-            --accent-cyan: #06b6d4;
-            --accent-yellow: #f59e0b;
         }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: radial-gradient(circle at top right, #111827, #030712);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 20px;
-            padding-left: 270px;
-            min-height: 100vh;
+            padding-top: 80px; /* For global nav */
         }
         .header {
             margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid var(--border-color);
         }
-        .header h1 {
-            font-family: 'Outfit', sans-serif;
-            margin: 0 0 0.5rem 0;
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #06b6d4, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .header p {
-            margin: 0.25rem 0;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .header h1 { margin: 0; font-size: 1.5rem; }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
             margin-bottom: 2rem;
         }
         .stat-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
         }
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--accent-blue);
-            opacity: 0.8;
-        }
-        .stat-card.total-l2::before { background: var(--accent-cyan); }
-        .stat-card.dist-5::before { background: var(--accent-blue); }
-        .stat-card.dist-9::before { background: var(--accent-green); }
-        .stat-card.dist-gt::before { background: var(--accent-purple); }
-        .stat-card.anomalies::before { background: var(--accent-red); }
-        .stat-card.empty::before { background: var(--text-muted); }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.15);
-        }
-        .stat-card h3 {
-            margin: 0 0 0.75rem 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .stat-card .value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-        .stat-card .sub-value {
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .stat-card h3 { margin: 0 0 0.5rem 0; font-size: 0.9rem; color: var(--text-muted); font-weight: normal; }
+        .stat-card .value { font-size: 1.8rem; font-weight: bold; }
         .charts-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -117,125 +58,67 @@
             margin-bottom: 2rem;
         }
         .chart-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.75rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 8px;
+            padding: 1.5rem;
             min-height: 380px;
         }
-        .chart-card:hover {
-            border-color: rgba(6, 182, 212, 0.2);
-            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.1);
+        .chart-card h3 { margin: 0 0 1rem 0; font-size: 1rem; font-weight: normal; }
+        .chart-wrapper { position: relative; height: 300px; width: 100%; }
+        .table-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
         }
-        .chart-card h3 {
-            font-family: 'Outfit', sans-serif;
-            margin: 0 0 1.25rem 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-            letter-spacing: 0.25px;
-        }
-        .chart-wrapper {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
+        th { color: var(--text-muted); font-weight: normal; }
         .vendor-badge {
-            display: inline-block;
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.25px;
-            text-transform: uppercase;
+            display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold;
         }
-        .vendor-huawei { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-        .vendor-zte { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .vendor-fiberhome { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-        .vendor-nokia { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
-        .vendor-dasan { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
-        .vendor-raisecom { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
-        .vendor-gcom { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .vendor-huawei { background: #3b82f6; color: #fff; }
+        .vendor-zte { background: #10b981; color: #fff; }
+        .vendor-fiberhome { background: #f59e0b; color: #fff; }
+        .vendor-nokia { background: #8b5cf6; color: #fff; }
+        .vendor-dasan { background: #ec4899; color: #fff; }
+        .vendor-raisecom { background: #06b6d4; color: #fff; }
+        .vendor-gcom { background: #ef4444; color: #fff; }
+    
 
-        /* ── Sidebar Styles ── */
-        .sidebar {
-            width: 250px;
-            background: rgba(17, 24, 39, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 9999;
-        }
-        .sidebar-logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
-            color: #f8fafc;
-            font-weight: 800;
-            padding: 24px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .sidebar-logo span {
-            background: linear-gradient(135deg, #06b6d4, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .sidebar-links {
-            flex-grow: 1;
-            padding: 20px 0;
-            overflow-y: auto;
-            scrollbar-width: thin;
-        }
-        .sidebar-links::-webkit-scrollbar { width: 4px; }
-        .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-        .sidebar-links a {
-            display: flex;
-            align-items: center;
-            padding: 12px 24px;
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.25s ease;
-            border-left: 3px solid transparent;
-        }
-        .sidebar-links a:hover {
-            color: #f8fafc;
-            background: rgba(255,255,255,0.03);
-            border-left-color: rgba(6, 182, 212, 0.3);
-        }
-        .sidebar-links a.active {
-            color: #f8fafc;
-            background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-            border-left-color: #06b6d4;
-            font-weight: 600;
-        }
 
-        /* Pulse animation for active dot */
-        .pulse-dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: var(--accent-red);
-            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
-            animation: pulse 1.6s infinite;
-            display: inline-block;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-        }
-    </style>
+    
+
+    
+
+    
+
+    
+
+    
+    .header button:hover { background-color: #059669 !important; }
+    
+    /* ── Global Nav Styles ── */
+    .global-nav {
+        position: fixed; top: 0; left: 0; right: 0; height: 70px;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
+        box-sizing: border-box;
+    }
+    .nav-logo { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Outfit', sans-serif; }
+    .nav-logo span { color: #38bdf8; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } } .blink { animation: blink 1s infinite; }
+</style>
+</head>
+<body>
 
 <!-- SIDEBAR STYLES -->
 <style>
@@ -252,7 +135,9 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0; bottom: 0; left: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
     z-index: 9999;
 }
 .sidebar-logo {
@@ -272,30 +157,36 @@ body {
     -webkit-text-fill-color: transparent;
 }
 .sidebar-links {
-    flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 .sidebar-links::-webkit-scrollbar { width: 4px; }
 .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 .sidebar-links a {
-    display: flex; align-items: center; padding: 12px 24px;
-    color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500;
-    transition: all 0.2s ease; border-left: 3px solid transparent; box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
 }
 .sidebar-links a:hover {
-    color: #f8fafc; background: rgba(255,255,255,0.03); border-left-color: rgba(6, 182, 212, 0.3);
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
 }
 .sidebar-links a.active {
-    color: #f8fafc; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4; font-weight: 600;
-}
-.global-nav {
-    display: none !important;
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
 }
 </style>
-
-</head>
-<body>
-
 <nav class="sidebar">
     <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
     <div class="sidebar-links">
@@ -317,54 +208,58 @@ body {
         <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
-</nav>
+    </nav>
 
-<div class="header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
-    <div>
-        <h1>📊 OLT L2 Distance Analysis Dashboard</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 29/06/2026</span></div>
-        <p>รายงานจำนวน L2 Splitter ที่มี ONU ใช้งาน และระยะทางจาก OLT ไปยัง ONU</p>
-        <p style="font-size: 0.9rem; color: #34d399;">* Status: Ranging อ่านจาก OLT-->ONU</p>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">อัปเดตล่าสุด ณ 27 มิ.ย. 2569 18:30 น.</p>
-    </div>
-    <a href="OLT_L2_Distance_Detailed_Report.xlsx" download="OLT_L2_Distance_Detailed_Report.xlsx" style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: all 0.2s; text-decoration: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
-        📥 Export Detailed Report (Excel)
-    </a>
-</div>
 
-<div class="stats-grid">
-    <div class="stat-card total-l2">
-        <h3>Total Active L2 Splitters</h3>
-        <div class="value" id="statTotalL2" style="color: var(--accent-cyan);">-</div>
-        <div class="sub-value">มี ONU ใช้งานในระบบ</div>
+
+
+    <!-- Sticky Global Navigation Bar -->
+    
+
+
+        <div class="header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+            <h1>📊 OLT L2 Distance Analysis Dashboard</h1>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 30/06/2026</span></div>
+            <p>รายงานจำนวน L2 Splitter ที่มี ONU ใช้งาน และระยะทางจาก OLT ไปยัง ONU</p>
+            <p style="font-size: 0.9rem; color: #fbbf24;">* Assumption: ระยะสาย Drop Wire (DW) จาก L2 ถึง ONU ปกติเฉลี่ยที่ 200 - 500 เมตร</p>
+        </div>
+        <a href="OLT_L2_Distance_Detailed_Report.xlsx" download="OLT_L2_Distance_Detailed_Report.xlsx" style="padding: 0.6rem 1.2rem; background-color: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s; text-decoration: none;">
+            📥 Export Detailed Report (Excel)
+        </a>
     </div>
-    <div class="stat-card dist-5">
-        <h3>ONUs within 5 Km</h3>
-        <div class="value" id="stat0_5" style="color: var(--accent-blue);">-</div>
-        <div class="sub-value">ระยะใกล้ (0 - 5 Km)</div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Total Active L2 Splitters</h3>
+            <div class="value" id="statTotalL2">-</div>
+            <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.9rem;">มี ONU ใช้งาน</p>
+        </div>
+        <div class="stat-card">
+            <h3>ONUs within 5 Km</h3>
+            <div class="value" id="stat0_5" style="color: var(--accent-blue);">-</div>
+        </div>
+        <div class="stat-card">
+            <h3>ONUs between 5 - 9 Km</h3>
+            <div class="value" id="stat5_9" style="color: var(--accent-green);">-</div>
+        </div>
+        <div class="stat-card">
+            <h3>ONUs beyond 9 Km</h3>
+            <div class="value" id="statGt9" style="color: var(--accent-purple);">-</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--accent-red);">
+            <h3 style="color: var(--accent-red);">Distance Anomalies</h3>
+            <div class="value" id="statAnomalies" style="color: var(--accent-red);">-</div>
+            <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.8rem;">L2 ที่มี ONU ระยะต่างกัน >4Km</p>
+        </div>
+            <div class="stat-card" style="border-color: var(--text-muted);">
+            <h3 style="color: var(--text-muted);">Empty L2 Splitters</h3>
+            <div class="value" id="statEmpty" style="color: var(--text-muted);">-</div>
+            <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.8rem;">L2 ที่ไม่มี ONU เกาะอยู่</p>
+        </div>
     </div>
-    <div class="stat-card dist-9">
-        <h3>ONUs between 5 - 9 Km</h3>
-        <div class="value" id="stat5_9" style="color: var(--accent-green);">-</div>
-        <div class="sub-value">ระยะกลาง (5 - 9 Km)</div>
-    </div>
-    <div class="stat-card dist-gt">
-        <h3>ONUs beyond 9 Km</h3>
-        <div class="value" id="statGt9" style="color: var(--accent-purple);">-</div>
-        <div class="sub-value">ระยะไกลมาก (> 9 Km)</div>
-    </div>
-    <div class="stat-card anomalies">
-        <h3>Distance Anomalies</h3>
-        <div class="value" id="statAnomalies" style="color: var(--accent-red);">-</div>
-        <div class="sub-value"><span class="pulse-dot"></span> ONU ต่างกัน >4Km ใน L2 เดียวกัน</div>
-    </div>
-    <div class="stat-card empty">
-        <h3>Empty L2 Splitters</h3>
-        <div class="value" id="statEmpty" style="color: var(--text-muted);">-</div>
-        <div class="sub-value">ตู้ L2 ไม่มีผู้ใช้งานเกาะ</div>
-    </div>
-</div>
-<div class="charts-container">
+
+    <div class="charts-container">
         <div class="chart-card">
             <h3>Total ONUs by Vendor (Overall)</h3>
             <div class="chart-wrapper">
@@ -264711,7 +264606,27 @@ body {
         }
 
         document.addEventListener('DOMContentLoaded', initDashboard);
-    
-            </script>
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        </script>
 </body>
 </html>

@@ -474,14 +474,16 @@
             color: #06b6d4;
             border: 1px solid rgba(6, 182, 212, 0.3);
         }
-    </style>
+    
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } } .blink { animation: blink 1s infinite; }
+</style>
 </head>
 <body>
     <nav class="global-nav">
     <div class="nav-logo">⚡ <span>FBE-PMS-Monitor</span></div>
     <div class="nav-links">
-        <a href="index.html" id="nav-main" class="">Main</a>
-        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">Mismatch</a>
+        <a href="index.html" id="nav-main" class="">OLT temperature</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch" class="">XGS mismatch</a>
         <a href="onu_model_dashboard.html" id="nav-onumodel" class="">ONU Model</a>
         <a href="olt_executive_dashboard.html" id="nav-executive" class="">XGS-PON</a>
         <a href="olt_cascade_dashboard.html" id="nav-cascade" class="">Cascade</a>
@@ -494,7 +496,7 @@
         <a href="tvs_edfa_dashboard.html" id="nav-edfa" class="">EDFA</a>
         <a href="swap_olt_dashboard.html" id="nav-swap" class="">SwapOLT</a>
     </div>
-</nav>
+    </nav>
 
   <div class="dashboard-container">
   
@@ -502,10 +504,11 @@
     <header class="dashboard-header">
       <div class="header-info">
         <h1>รายงานผลงานและประวัติ Uplink Timeline & Installation Fault Analysis (v2)</h1>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 30/06/2026</span></div>
         <p>วิเคราะห์ข้อมูลประวัติสถานะพอร์ต Uplink ย้อนหลัง 12 เดือนเชื่อมโยงกับฐานข้อมูลจัดจ้างและวันติดตั้งใหม่ (MANE.xlsx)</p>
       </div>
       <div style="display: flex; gap: 10px;">
-        <button class="btn-export" onclick="window.print()">
+<button class="btn-export" onclick="window.print()">
           <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24">
             <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
           </svg>
@@ -2644,7 +2647,28 @@
         }
       }
     });
-  </script>
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        </script>
 
 </body>
 </html>

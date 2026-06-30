@@ -295,6 +295,8 @@
     .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; }
     .nav-links a:hover, .nav-links a.active { color: #fff; }
 
+
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } } .blink { animation: blink 1s infinite; }
 </style>
 </head>
 <body>
@@ -387,7 +389,7 @@ body {
         <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
-</nav>
+    </nav>
 
 
 
@@ -401,10 +403,10 @@ body {
             <div class="header-info">
                 <h1>รายงานวิเคราะห์โครงสร้างพ่วงต่อ OLT Cascade (Uplink to OLT)</h1>
                 <p>การวิเคราะห์ความสามารถของ OLT ที่มีสายเชื่อมโยง Uplink ไปพ่วงต่อกับ OLT ด้วยกันเอง แทนระบบ CPE IP RAN ปกติ</p>
-                <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 29/06/2026</span></div>
+                <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 30/06/2026</span></div>
             </div>
             <div style="display: flex; gap: 10px;">
-                <button class="btn-export" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: var(--color-success); color: var(--color-success);" onclick="window.open('olt_cascade_report.xlsx', '_blank')">
+<button class="btn-export" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: var(--color-success); color: var(--color-success);" onclick="window.open('olt_cascade_report.xlsx', '_blank')">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 4px; vertical-align: middle;"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" /></svg>
                     ดาวน์โหลด Excel (Full)
                 </button>
@@ -640,6 +642,27 @@ body {
                 document.getElementById('speedChartTitle').textContent = selected.title;
             }
         });
-    </script>
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        </script>
 </body>
 </html>
