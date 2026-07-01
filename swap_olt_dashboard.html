@@ -355,13 +355,15 @@ body {
     <div class="tab-bar">
         <button class="tab-btn active" onclick="switchTab('tab-swapoverview', this)" id="tabBtn1">📊 Swap Overview</button>
         <button class="tab-btn" onclick="switchTab('tab-modelswap', this)" id="tabBtn2">🔄 OLT Model Swap Detail (GCOM/Raisecom/Dasan)</button>
+        <button class="tab-btn" onclick="switchTab('tab-yearlytimeline', this)" id="tabBtn3">📅 Yearly Brand Swaps (YoY)</button>
+        <button class="tab-btn" onclick="switchTab('tab-cumulativeswaps', this)" id="tabBtn4">📈 Cumulative Swaps (Since 2022)</button>
     </div>
     <div id="tab-swapoverview" class="tab-pane active">
         <div class="header">
             <h1>OLT Swap Executive Dashboard</h1>
             <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
             <p>สัดส่วนและรายละเอียดการเปลี่ยนแปลงยี่ห้ออุปกรณ์ OLT</p>
-            <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-07-01 23:03:55</p>
+            <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-07-01 23:18:58</p>
         </div>
         
         <div class="dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; align-items: stretch;">
@@ -433,7 +435,7 @@ body {
             <!-- END Swap Summary -->
         </div>
 
-                                                                                                                                                                                                                                <!-- 3 Target Brands Swap Breakdown -->
+                                                                                                                                                                                                                                        <!-- 3 Target Brands Swap Breakdown -->
         <h2 style="font-size: 1.5rem; color: #cbd5e1; margin: 40px 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">📋 สรุปการโยกย้ายเข้าสู่ 4 แบรนด์หลัก (Target Brands Breakdown)</h2>
         <div class="brand-swap-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
             <!-- HUAWEI Card -->
@@ -15465,6 +15467,256 @@ body {
         <div id="modelRowCount" style="text-align:right;color:#64748b;font-size:0.82rem;margin-top:8px;font-family:'Outfit',sans-serif;">แสดง 793 รายการ</div>
 
     </div><!-- end tab-modelswap -->
+
+    <!-- BEGIN Tab 3 and 4 -->
+    <!-- TAB 3: OLT Swap Timeline (Yearly Breakdown) -->
+    <div id="tab-yearlytimeline" class="tab-pane">
+        <h2 style="font-size:1.4rem;color:#cbd5e1;margin:0 0 12px 0;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;">
+            📅 OLT Brand Swaps (Year-over-Year Breakdown)
+        </h2>
+        <p style="color:var(--text-muted);margin-bottom:20px;">สถิติการย้ายเปลี่ยนแบรนด์ OLT (DASAN / GCOM / RAISECOM) รายปี (YoY Period)</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; margin-bottom: 30px;">
+            <!-- YoY Chart Card -->
+            <div class="stat-card" style="padding: 24px; min-height: 380px;">
+                <h3 style="text-align: center; margin-bottom: 16px;">YoY OLT Swaps Count</h3>
+                <div style="width: 100%; height: 280px; position: relative;">
+                    <canvas id="yoyBarChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- YoY Table Card -->
+            <div class="stat-card" style="padding: 24px; min-height: 380px; display: flex; flex-direction: column;">
+                <h3 style="text-align: center; margin-bottom: 16px;">YoY Summary Table</h3>
+                <div class="table-container" style="flex-grow: 1; overflow-y: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
+                                <th style="padding: 10px; color: #a78bfa;">ช่วงเวลา</th>
+                                <th style="padding: 10px; color: #f87171; text-align: center;">DASAN</th>
+                                <th style="padding: 10px; color: #60a5fa; text-align: center;">GCOM</th>
+                                <th style="padding: 10px; color: #f472b6; text-align: center;">RAISECOM</th>
+                                <th style="padding: 10px; color: #22d3ee; text-align: center; font-weight: bold;">รวมทั้งหมด</th>
+                            </tr>
+                        </thead>
+                        <tbody id="yoyTableBody">
+
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2022 ➔ 2023</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">1</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">1</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2023 ➔ 2024</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">11</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">11</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2024 ➔ 2025</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">110</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">110</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2025 ➔ 2026</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">398</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">159</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">162</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">719</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- end tab-yearlytimeline -->
+
+    <!-- TAB 4: Cumulative Swaps (Since 2022) -->
+    <div id="tab-cumulativeswaps" class="tab-pane">
+        <h2 style="font-size:1.4rem;color:#cbd5e1;margin:0 0 12px 0;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;">
+            📈 Cumulative OLT Swaps (Since 2022 Baseline)
+        </h2>
+        <p style="color:var(--text-muted);margin-bottom:20px;">จำนวนยอดรวมการเปลี่ยนแบรนด์ OLT สะสมตั้งแต่ปีฐาน 2022 ถึงปีปัจจุบัน</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; margin-bottom: 30px;">
+            <!-- Cumulative Chart Card -->
+            <div class="stat-card" style="padding: 24px; min-height: 380px;">
+                <h3 style="text-align: center; margin-bottom: 16px;">Cumulative OLT Swaps</h3>
+                <div style="width: 100%; height: 280px; position: relative;">
+                    <canvas id="cumulativeLineChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Cumulative Table Card -->
+            <div class="stat-card" style="padding: 24px; min-height: 380px; display: flex; flex-direction: column;">
+                <h3 style="text-align: center; margin-bottom: 16px;">Cumulative Summary Table</h3>
+                <div class="table-container" style="flex-grow: 1; overflow-y: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
+                                <th style="padding: 10px; color: #a78bfa;">ปีฐาน 2022 ➔ ปี</th>
+                                <th style="padding: 10px; color: #f87171; text-align: center;">DASAN</th>
+                                <th style="padding: 10px; color: #60a5fa; text-align: center;">GCOM</th>
+                                <th style="padding: 10px; color: #f472b6; text-align: center;">RAISECOM</th>
+                                <th style="padding: 10px; color: #22d3ee; text-align: center; font-weight: bold;">สะสมรวม</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cumTableBody">
+
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2022 ➔ 2023</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">1</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">1</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2022 ➔ 2024</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">12</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">12</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2022 ➔ 2025</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">0</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">122</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">122</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 10px; font-weight: 500; color: #e2e8f0;">2022 ➔ 2026</td>
+                                <td style="padding: 12px 10px; color: #f87171; text-align: center;">398</td>
+                                <td style="padding: 12px 10px; color: #60a5fa; text-align: center;">159</td>
+                                <td style="padding: 12px 10px; color: #f472b6; text-align: center;">283</td>
+                                <td style="padding: 12px 10px; color: #22d3ee; text-align: center; font-weight: bold;">840</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- end tab-cumulativeswaps -->
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // YoY Bar Chart
+        const yoyCtx = document.getElementById('yoyBarChart').getContext('2d');
+        new Chart(yoyCtx, {
+            type: 'bar',
+            data: {
+                labels: ["2022 \u2794 2023", "2023 \u2794 2024", "2024 \u2794 2025", "2025 \u2794 2026"],
+                datasets: [
+                    {
+                        label: 'DASAN',
+                        data: [0, 0, 0, 398],
+                        backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                        borderColor: '#ef4444',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'GCOM',
+                        data: [0, 0, 0, 159],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'RAISECOM',
+                        data: [1, 11, 110, 162],
+                        backgroundColor: 'rgba(244, 114, 182, 0.7)',
+                        borderColor: '#f472b8',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#cbd5e1', font: { family: 'Outfit' } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#cbd5e1', font: { family: 'Outfit' } }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: '#cbd5e1', font: { family: 'Outfit' } }
+                    }
+                }
+            }
+        });
+
+        // Cumulative Line Chart
+        const cumCtx = document.getElementById('cumulativeLineChart').getContext('2d');
+        new Chart(cumCtx, {
+            type: 'line',
+            data: {
+                labels: ["2023", "2024", "2025", "2026"],
+                datasets: [
+                    {
+                        label: 'DASAN',
+                        data: [0, 0, 0, 398],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'GCOM',
+                        data: [0, 0, 0, 159],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'RAISECOM',
+                        data: [1, 12, 122, 283],
+                        borderColor: '#f472b8',
+                        backgroundColor: 'rgba(244, 114, 182, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#cbd5e1', font: { family: 'Outfit' } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#cbd5e1', font: { family: 'Outfit' } }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: '#cbd5e1', font: { family: 'Outfit' } }
+                    }
+                }
+            }
+        });
+    });
+    </script>
+    <!-- END Tab 3 and 4 -->
 
     <script>
         const ctx = document.getElementById('swapPieChart').getContext('2d');
