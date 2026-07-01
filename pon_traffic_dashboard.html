@@ -250,6 +250,7 @@ body {
         <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
         <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
         <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
         <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
         <a href="optical_dashboard.html" id="nav-optical">Optical</a>
@@ -262,7 +263,8 @@ body {
         <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
-    </nav>
+    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
+</nav>
 
 
 
@@ -273,7 +275,7 @@ body {
         <div class="header">
             <div>
                 <h1>🔌 OLT PON Traffic Monitor</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 30/06/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
                 <p id="reportDateSubtitle">รายงานความหนาแน่นและสถานะการทำงานของพอร์ต PON</p>
             </div>
         </div>
@@ -808,6 +810,70 @@ body {
 
         
         
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
+        function checkLocalEnv() {
+            const btn = document.getElementById('runCheckBtn');
+            if (btn) {
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                btn.style.display = isLocal ? 'inline-block' : 'none';
+            }
+        }
+
+        async function triggerRunCheck() {
+            const btn = document.getElementById('runCheckBtn');
+            if (!btn) return;
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Processing... Please wait';
+            btn.style.background = 'rgba(239,68,68,0.2)';
+            btn.style.borderColor = 'rgba(239,68,68,0.4)';
+            btn.style.color = '#ef4444';
+            btn.style.cursor = 'not-allowed';
+            try {
+                const resp = await fetch('http://127.0.0.1:5050/api/run-check/nav-pontraffic', { method: 'POST' });
+                const data = await resp.json();
+                if (resp.ok) {
+                    alert(data.message || 'สแกนและประมวลผลเสร็จสิ้น!');
+                    window.location.reload();
+                } else {
+                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
+                }
+            } catch (e) {
+                alert('ไม่สามารถเชื่อมต่อ Local API Server ได้\n(รัน python3 /Users/bbae/GPTCodex/scrip/api_server.py ก่อน)');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+                btn.style.background = 'rgba(245,158,11,0.15)';
+                btn.style.borderColor = 'rgba(245,158,11,0.35)';
+                btn.style.color = '#f59e0b';
+                btn.style.cursor = 'pointer';
+            }
+        }
+        setTimeout(checkLocalEnv, 300);
+        // --- END RUN CHECK LOGIC ---
 
         </script>
 </body>

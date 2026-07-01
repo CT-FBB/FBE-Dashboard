@@ -632,6 +632,7 @@ body {
         <a href="olt_executive_dashboard.html" id="nav-executive" class="active">XGS-PON</a>
         <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
         <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
         <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
         <a href="optical_dashboard.html" id="nav-optical">Optical</a>
@@ -644,7 +645,8 @@ body {
         <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
-    </nav>
+    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
+</nav>
 
 
 
@@ -675,7 +677,7 @@ body {
         </div>
         <div class="title-area">
           <h1>XGS-PON network readiness</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 30/06/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
 
         </div>
       </div>
@@ -704,10 +706,10 @@ body {
           <span class="kpi-title">ขนาดโครงข่ายรวม (Total OLT)</span>
           <div class="kpi-icon"><svg><use href="#icon-server"></use></svg></div>
         </div>
-        <div class="kpi-value">12,590 เครื่อง</div>
+        <div class="kpi-value" id="kpi-total-olt">— เครื่อง</div>
         <div class="kpi-subtext">
-          <span class="kpi-trend-up">↑ +322 เครื่อง (+2.62%)</span>
-          <span>ยอดสุทธิหลัง Exclude DSLAM (137), LAB (32) & ZTE C320 EDFA (157) จากยอดรวมระบบ PMS 12,915 เครื่อง</span>
+          <span class="kpi-trend-up" id="kpi-total-trend">กำลังโหลด...</span>
+          <span>ยอดสุทธิหลัง Exclude DSLAM, LAB & ZTE C320 EDFA จากยอดรวมระบบ PMS</span>
         </div>
       </div>
 
@@ -717,9 +719,9 @@ body {
           <span class="kpi-title">อัปเกรดตู้เปิดใช้งานพอร์ต XGS-PON</span>
           <div class="kpi-icon"><svg><use href="#icon-activity"></use></svg></div>
         </div>
-        <div class="kpi-value">1,038 เครื่อง</div>
+        <div class="kpi-value" id="kpi-total-xgs">— เครื่อง</div>
         <div class="kpi-subtext">
-          <span class="kpi-trend-up">8.14% ของขนาดโครงข่ายรวม</span>
+          <span class="kpi-trend-up" id="kpi-xgs-pct">กำลังโหลด...</span>
           <span style="color: var(--color-primary);">ตรวจสอบจาก L1 Link Speed 10G</span>
         </div>
       </div>
@@ -750,21 +752,11 @@ body {
             </h3>
           </div>
           
-          <div class="insight-list">
-            <div class="insight-item success">
-              <div class="insight-status-indicator">📡</div>
-              <div class="insight-text">
-                <strong>เกณฑ์วิเคราะห์ XGS-PON ระดับพอร์ต (1,038 ตู้):</strong> เนื่องจากในระดับฐานข้อมูลหลักไม่ได้บันทึกระดับ Card Name ของ XGS-PON ไว้โดยตรง ทางทีมวิศวกรรมจึงทำการวิเคราะห์ผ่านลิงก์ประวัติของพอร์ตในไฟล์ **"PonPort-20260602.xlsx"** คอลัมน์ **"L1_DL_Max_Bw"** ที่มีความเร็วการดาวน์โหลดระดับ **10G (10240.0 Mbps)** เพื่อระบุว่า OLT ตัวใดที่มีการเชื่อมต่อ Splitter ขยายสัญญาณออกจากแผงวงจรรวม (Card) ที่รองรับ XGS-PON แล้วจริง ซึ่งเป็นเกณฑ์อ้างอิงที่แม่นยำที่สุด
-              </div>
+          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 1.3rem; font-family: 'Outfit', sans-serif; color: #f8fafc; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+              <span style="font-size: 3rem; filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.45));">📡</span>
+              <span>นับจาก OLT ที่มี Card XGS รองรับแล้ว</span>
             </div>
-            
-            <div class="insight-item info">
-              <div class="insight-status-indicator">✅</div>
-              <div class="insight-text">
-                <strong>ถอนอุปกรณ์การเรียนรู้ใน LAB:</strong> ดำเนินการลบรายชื่อ OLT ที่นำหน้าด้วยคำว่า **"QCENG"** ออกจากทุกตารางและแผนภูมิรวม 32 เครื่อง ซึ่งช่วยให้ผู้บริหารได้รับชมยอดโครงข่ายที่สร้างทราฟฟิกและรองรับลูกค้าทั่วไปที่ใช้งานอินเทอร์เน็ตจริง
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
@@ -791,70 +783,8 @@ body {
                 <th>อัปเกรดความเร็วพอร์ต Up เพื่อขาย Speed 2Gbps</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><span class="vendor-badge badge-fiberhome">Fiberhome</span></td>
-                <td>1,574</td>
-                <td><strong>2,005</strong></td>
-                <td>455 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">455 เครื่อง</td>
-                <td>70 เครื่อง</td>
-                <td>0 เครื่อง</td>
-              </tr>
-              <tr>
-                <td><span class="vendor-badge badge-huawei">Huawei</span></td>
-                <td>1,973</td>
-                <td><strong>2,272</strong></td>
-                <td>380 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">380 เครื่อง</td>
-                <td>121 เครื่อง</td>
-                <td>3 เครื่อง</td>
-              </tr>
-              <tr>
-                <td><span class="vendor-badge badge-zte">ZTE</span></td>
-                <td>1,836</td>
-                <td><strong>2,065</strong></td>
-                <td>203 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">203 เครื่อง</td>
-                <td>50 เครื่อง</td>
-                <td>3 เครื่อง</td>
-              </tr>
-              <tr>
-                <td><span class="vendor-badge badge-dasan">Dasan</span></td>
-                <td>2,437</td>
-                <td><strong>2,114</strong></td>
-                <td>0 เครื่อง</td>
-                <td style="color:var(--color-success); font-weight:600;">0 เครื่อง</td>
-                <td>51 เครื่อง</td>
-                <td style="color:var(--color-primary); font-weight:600;">8 เครื่อง</td>
-              </tr>
-              <tr>
-                <td><span class="vendor-badge badge-gcom">GCOM</span></td>
-                <td>2,455</td>
-                <td><strong>2,309</strong></td>
-                <td>0 เครื่อง</td>
-                <td>0 เครื่อง</td>
-                <td>46 เครื่อง</td>
-                <td>4 เครื่อง</td>
-              </tr>
-              <tr>
-                <td><span class="vendor-badge badge-raisecom">Raisecom</span></td>
-                <td>2,017</td>
-                <td><strong>1,880</strong></td>
-                <td>0 เครื่อง</td>
-                <td>0 เครื่อง</td>
-                <td>33 เครื่อง</td>
-                <td style="color:var(--color-primary); font-weight:600;">16 เครื่อง</td>
-              </tr>
-              <tr>
-                <td><span class="vendor-badge badge-nokia">Nokia</span></td>
-                <td>93</td>
-                <td><strong>91</strong></td>
-                <td>0 เครื่อง</td>
-                <td>0 เครื่อง</td>
-                <td>0 เครื่อง</td>
-                <td>0 เครื่อง</td>
-              </tr>
+            <tbody id="vendor-table-body">
+              <tr><td colspan="7" style="text-align:center; color:#94a3b8;">กำลังโหลดข้อมูล...</td></tr>
             </tbody>
           </table>
         </div>
@@ -873,55 +803,105 @@ body {
       Chart.defaults.font.family = fontFamily;
       Chart.defaults.font.size = 12;
 
-      const distCtx = document.getElementById('vendorDistributionChart').getContext('2d');
-      new Chart(distCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Huawei', 'GCOM', 'Dasan', 'ZTE', 'Fiberhome', 'Raisecom', 'Nokia'],
-          datasets: [{
-            data: [2272, 2309, 2114, 2065, 2005, 1880, 91],
-            backgroundColor: [
-              '#ef4444', // Red
-              '#3b82f6', // Blue
-              '#10b981', // Emerald Green
-              '#818cf8', // Indigo
-              '#f59e0b', // Amber
-              '#ec4899', // Pink
-              '#00f2fe'  // Cyan
-            ],
-            borderWidth: 1.5,
-            borderColor: '#0d1222'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'right',
-              labels: {
-                padding: 20,
-                color: fontColor,
-                font: { size: 13, weight: '500' }
-              }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  let label = context.label || '';
-                  let value = context.raw || 0;
-                  let total = context.dataset.data.reduce((a, b) => a + b, 0);
-                  let percentage = ((value / total) * 100).toFixed(2);
-                  return ` ${label}: ${value.toLocaleString()} เครื่อง (${percentage}%)`;
-                }
-              }
-            }
-          },
-          cutout: '65%'
-        }
-      });
+      // ============================================================
+      // DYNAMIC DATA LOADING FROM exec_stats_output.json
+      // ============================================================
+      const VENDOR_CONFIG = [
+        { key: 'HUAWEI',    label: 'Huawei',    badge: 'badge-huawei',    color: '#ef4444' },
+        { key: 'ZTE',       label: 'ZTE',        badge: 'badge-zte',       color: '#818cf8' },
+        { key: 'FIBERHOME', label: 'Fiberhome',  badge: 'badge-fiberhome', color: '#f59e0b' },
+        { key: 'NOKIA',     label: 'Nokia',      badge: 'badge-nokia',     color: '#00f2fe' },
+        { key: 'GCOM',      label: 'GCOM',       badge: 'badge-gcom',      color: '#22d3ee' },
+        { key: 'DASAN',     label: 'Dasan',      badge: 'badge-dasan',     color: '#a78bfa' },
+        { key: 'RAISECOM',  label: 'Raisecom',   badge: 'badge-raisecom',  color: '#34d399' },
+      ];
+      const XGS_VENDORS = ['HUAWEI','ZTE','FIBERHOME','NOKIA'];
 
-      
+      let distChart = null;
+
+      async function loadDashboardData() {
+        try {
+          const cacheBust = '?t=' + Date.now();
+          const resp = await fetch('exec_stats_output.json' + cacheBust);
+          if (!resp.ok) throw new Error('JSON not found');
+          const s = await resp.json();
+
+          // --- KPI Cards ---
+          const total2026 = s.total_2026 || 0;
+          const totalXgs  = s.total_xgs  || 0;
+          document.getElementById('kpi-total-olt').textContent = total2026.toLocaleString() + ' เครื่อง';
+          document.getElementById('kpi-total-xgs').textContent = totalXgs.toLocaleString() + ' เครื่อง';
+          const pct = total2026 > 0 ? ((totalXgs / total2026) * 100).toFixed(2) : '0.00';
+          document.getElementById('kpi-xgs-pct').textContent = pct + '% ของขนาดโครงข่ายรวม';
+
+          // --- Vendor Table ---
+          const tbody = document.getElementById('vendor-table-body');
+          tbody.innerHTML = '';
+          VENDOR_CONFIG.forEach(v => {
+            const v25  = (s.vendor_2025 || {})[v.key] || 0;
+            const v26  = (s.vendor_2026 || {})[v.key] || 0;
+            const xgs  = (s.xgs        || {})[v.key] || 0;
+            const impr = (s.improvement|| {})[v.key] || 0;
+            const mkt  = (s.marketing_10g||{})[v.key]|| 0;
+            const isXgsVendor = XGS_VENDORS.includes(v.key);
+            const xgsStyle = isXgsVendor && xgs > 0 ? 'color:var(--color-success); font-weight:600;' : 'color:#94a3b8;';
+            tbody.innerHTML += `
+              <tr>
+                <td><span class="vendor-badge ${v.badge}">${v.label}</span></td>
+                <td>${v25.toLocaleString()}</td>
+                <td><strong>${v26.toLocaleString()}</strong></td>
+                <td>${xgs.toLocaleString()} เครื่อง</td>
+                <td style="${xgsStyle}">${xgs.toLocaleString()} เครื่อง</td>
+                <td>${impr.toLocaleString()} เครื่อง</td>
+                <td>${mkt.toLocaleString()} เครื่อง</td>
+              </tr>`;
+          });
+
+          // --- Doughnut Chart (XGS Vendors only) ---
+          const chartLabels = [];
+          const chartData   = [];
+          const chartColors = [];
+          VENDOR_CONFIG.filter(v => XGS_VENDORS.includes(v.key)).forEach(v => {
+            chartLabels.push(v.label);
+            chartData.push((s.vendor_2026 || {})[v.key] || 0);
+            chartColors.push(v.color);
+          });
+
+          const distCtx = document.getElementById('vendorDistributionChart').getContext('2d');
+          if (distChart) distChart.destroy();
+          distChart = new Chart(distCtx, {
+            type: 'doughnut',
+            data: {
+              labels: chartLabels,
+              datasets: [{ data: chartData, backgroundColor: chartColors, borderWidth: 1.5, borderColor: '#0d1222' }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { position: 'right', labels: { padding: 20, color: fontColor, font: { size: 13, weight: '500' } } },
+                tooltip: { callbacks: { label: function(ctx) {
+                  let total = ctx.dataset.data.reduce((a,b) => a+b, 0);
+                  return ` ${ctx.label}: ${ctx.raw.toLocaleString()} เครื่อง (${((ctx.raw/total)*100).toFixed(2)}%)`;
+                }}}
+              },
+              cutout: '65%'
+            }
+          });
+
+          // Update AS-OF date badge
+          const dateBadge = document.querySelector('.date-badge span:last-child');
+          if (dateBadge) {
+            const now = new Date();
+            dateBadge.textContent = 'ข้อมูลปรับปรุงล่าสุด: ' + now.toLocaleDateString('th-TH', {day:'2-digit', month:'long', year:'numeric'});
+          }
+
+        } catch(e) {
+          console.warn('exec_stats_output.json not found, using cached display.', e);
+        }
+      }
+
+      loadDashboardData();
     });
     
     function triggerPrint() {
@@ -947,6 +927,70 @@ body {
 
         
         
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
+        function checkLocalEnv() {
+            const btn = document.getElementById('runCheckBtn');
+            if (btn) {
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                btn.style.display = isLocal ? 'inline-block' : 'none';
+            }
+        }
+
+        async function triggerRunCheck() {
+            const btn = document.getElementById('runCheckBtn');
+            if (!btn) return;
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Processing... Please wait';
+            btn.style.background = 'rgba(239,68,68,0.2)';
+            btn.style.borderColor = 'rgba(239,68,68,0.4)';
+            btn.style.color = '#ef4444';
+            btn.style.cursor = 'not-allowed';
+            try {
+                const resp = await fetch('http://127.0.0.1:5050/api/run-check/nav-executive', { method: 'POST' });
+                const data = await resp.json();
+                if (resp.ok) {
+                    alert(data.message || 'สแกนและประมวลผลเสร็จสิ้น!');
+                    window.location.reload();
+                } else {
+                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
+                }
+            } catch (e) {
+                alert('ไม่สามารถเชื่อมต่อ Local API Server ได้\n(รัน python3 /Users/bbae/GPTCodex/scrip/api_server.py ก่อน)');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+                btn.style.background = 'rgba(245,158,11,0.15)';
+                btn.style.borderColor = 'rgba(245,158,11,0.35)';
+                btn.style.color = '#f59e0b';
+                btn.style.cursor = 'pointer';
+            }
+        }
+        setTimeout(checkLocalEnv, 300);
+        // --- END RUN CHECK LOGIC ---
 
         </script>
 </body>
