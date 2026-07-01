@@ -361,85 +361,79 @@ body {
             <h1>OLT Swap Executive Dashboard</h1>
             <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
             <p>สัดส่วนและรายละเอียดการเปลี่ยนแปลงยี่ห้ออุปกรณ์ OLT</p>
-            <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-07-01 22:38:56</p>
+            <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-07-01 23:03:55</p>
         </div>
         
-        <div class="dashboard-grid">
-            <!-- Left: Stat Cards -->
-            <div class="stats-col">
-                <div class="stat-card">
-                    <h3>Total OLT Swaps</h3>
-                    <p class="value">1159</p>
+        <div class="dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; align-items: stretch;">
+            <!-- Left: Total OLT Swaps -->
+            <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; min-height: 280px;">
+                <h3>Total OLT Swaps</h3>
+                <p class="value">1149</p>
+            </div>
+            
+            <!-- Pie Chart inline -->
+            <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 280px;">
+                <h3 style="text-align: center; margin-bottom: 12px;">Swap Proportion</h3>
+                <div style="width: 100%; max-width: 220px; margin: 0 auto;">
+                    <canvas id="swapPieChart"></canvas>
                 </div>
-                
-                <div class="stat-card" style="text-align: left;">
-                    <h3 style="text-align: center;">Swap Summary</h3>
-                    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+            </div>
+
+            <!-- BEGIN Swap Summary -->
+            <div class="stat-card" style="text-align: left; min-height: 280px;">
+                <h3 style="text-align: center;">Swap Summary</h3>
+                <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem; max-height: 180px; overflow-y: auto; padding-right: 5px;">
 
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">DASAN ➔ FIBERHOME</span>
-                            <span style="font-weight: bold; color: #38bdf8;">227 sites</span>
+                            <span style="font-weight: bold; color: #38bdf8;">281 sites</span>
                         </div>
-    
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">GCOM ➔ HUAWEI</span>
-                            <span style="font-weight: bold; color: #38bdf8;">126 sites</span>
+                            <span style="font-weight: bold; color: #38bdf8;">144 sites</span>
                         </div>
-    
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">DASAN ➔ HUAWEI</span>
-                            <span style="font-weight: bold; color: #38bdf8;">107 sites</span>
+                            <span style="font-weight: bold; color: #38bdf8;">132 sites</span>
                         </div>
-    
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">RAISECOM ➔ ZTE</span>
-                            <span style="font-weight: bold; color: #38bdf8;">103 sites</span>
+                            <span style="font-weight: bold; color: #38bdf8;">120 sites</span>
                         </div>
-    
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
+                            <span style="color: #cbd5e1;">RAISECOM ➔ NOKIA</span>
+                            <span style="font-weight: bold; color: #38bdf8;">78 sites</span>
+                        </div>
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">RAISECOM ➔ HUAWEI</span>
                             <span style="font-weight: bold; color: #38bdf8;">25 sites</span>
                         </div>
-    
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
+                            <span style="color: #cbd5e1;">RAISECOM ➔ FIBERHOME</span>
+                            <span style="font-weight: bold; color: #38bdf8;">12 sites</span>
+                        </div>
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">GCOM ➔ ZTE</span>
                             <span style="font-weight: bold; color: #38bdf8;">10 sites</span>
                         </div>
-    
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
-                            <span style="color: #cbd5e1;">RAISECOM ➔ FIBERHOME</span>
-                            <span style="font-weight: bold; color: #38bdf8;">6 sites</span>
-                        </div>
-    
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">GCOM ➔ FIBERHOME</span>
                             <span style="font-weight: bold; color: #38bdf8;">5 sites</span>
                         </div>
-    
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">FIBERHOME ➔ ZTE</span>
                             <span style="font-weight: bold; color: #38bdf8;">2 sites</span>
                         </div>
-    
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                             <span style="color: #cbd5e1;">FIBERHOME ➔ HUAWEI</span>
                             <span style="font-weight: bold; color: #38bdf8;">1 sites</span>
                         </div>
-    
-                    </div>
                 </div>
             </div>
-
-            <!-- Right: Pie Chart -->
-            <div class="chart-card">
-                <h3>Swap Proportion (Brand Transition)</h3>
-                <div class="chart-wrapper">
-                    <canvas id="swapPieChart"></canvas>
-                </div>
-            </div>
+            <!-- END Swap Summary -->
         </div>
 
-                                                                                                                                                                <!-- 3 Target Brands Swap Breakdown -->
+                                                                                                                                                                                                                                <!-- 3 Target Brands Swap Breakdown -->
         <h2 style="font-size: 1.5rem; color: #cbd5e1; margin: 40px 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">📋 สรุปการโยกย้ายเข้าสู่ 4 แบรนด์หลัก (Target Brands Breakdown)</h2>
         <div class="brand-swap-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
             <!-- HUAWEI Card -->
@@ -518,11 +512,11 @@ body {
             <!-- NOKIA Card -->
             <div class="stat-card" style="text-align: left; border-top: 4px solid #10b981;">
                 <h3 style="text-align: center; color: #10b981;">🟢 NOKIA Swaps</h3>
-                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>88 ไซต์</strong></p>
+                <p style="text-align: center; font-size: 1.1rem; color: #94a3b8; margin: 5px 0 15px 0;">ได้รับโอนย้าย OLT รวม: <strong>78 ไซต์</strong></p>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก RAISECOM</span>
-                        <span style="font-weight: bold; color: #10b981;">88 ไซต์</span>
+                        <span style="font-weight: bold; color: #10b981;">78 ไซต์</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
                         <span>จาก NOKIA (Self-swap)</span>
@@ -3525,12 +3519,6 @@ body {
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
                         <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS01010G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>KLS01011G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
@@ -3574,12 +3562,6 @@ body {
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>KLS07011G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS07016G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
@@ -3639,18 +3621,6 @@ body {
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
                         <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS12006G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS12007G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>KLS12009G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
@@ -3663,31 +3633,13 @@ body {
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
                         <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS12011G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>KLS13012G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
                         <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS14003G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>KLS14005G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>KLS16004G00</div></td>
                             <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
                             <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
@@ -6507,12 +6459,6 @@ body {
                             <td style="color: #cbd5e1; font-weight: 300;">AN6001-GF16</td>
                         </tr>
                         <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>SMK01008G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>SMK01010G00</div></td>
                             <td><span class="vendor-badge vendor-other">ZTE</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
@@ -6531,22 +6477,10 @@ body {
                             <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
                         <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>SMK01024G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
-                        </tr>
-                        <tr>
                             <td><div class="device-name"><div class="device-icon"></div>SMK01030GO0</div></td>
                             <td><span class="vendor-badge vendor-other">ZTE</span></td>
                             <td><span class="vendor-badge vendor-ZTE">ZTE</span></td>
                             <td style="color: #cbd5e1; font-weight: 300;">C620</td>
-                        </tr>
-                        <tr>
-                            <td><div class="device-name"><div class="device-icon"></div>SMK01033G00</div></td>
-                            <td><span class="vendor-badge vendor-other">RAISECOM</span></td>
-                            <td><span class="vendor-badge vendor-NOKIA">NOKIA</span></td>
-                            <td style="color: #cbd5e1; font-weight: 300;">7362 ISAM DF-8G</td>
                         </tr>
                         <tr>
                             <td><div class="device-name"><div class="device-icon"></div>SMK02018G00</div></td>
@@ -7506,7 +7440,6 @@ body {
                 </table>
             </div>
         </div>
-    </div>
     </div><!-- end tab-swapoverview -->
 
     <!-- TAB 2: OLT Model Swap Detail -->
@@ -7556,182 +7489,6 @@ body {
                 <div style="font-size:0.8rem;color:#64748b;margin-bottom:6px;">รวมทั้งสิ้น</div>
                 <div style="font-size:2rem;font-weight:800;color:#38bdf8;">793</div>
                 <div style="font-size:0.75rem;color:#94a3b8;">ไซต์</div>
-            </div>
-        </div>
-
-        <!-- Summary breakdown cards -->
-        <div class="brand-swap-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:30px;">
-            <div class="stat-card" style="text-align:left;border-top:4px solid #a78bfa;">
-                <h3 style="text-align:center;color:#a78bfa;">🟣 DASAN → เปลี่ยนเป็น</h3>
-                <p style="text-align:center;font-size:1.1rem;color:#94a3b8;margin:5px 0 15px 0;">รวมทั้งหมด: <strong style="color:#a78bfa;">448 ไซต์</strong></p>
-                <div style="display:flex;flex-direction:column;gap:2px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6001-GF16</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">291</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">MA5801-FL16</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">112</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6000-2</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">18</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">MA5800-X2</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">15</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6000-2</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">7</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">MA5608T</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">4</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN5516-04</span>
-                            </div>
-                            <span style="font-weight:700;color:#a78bfa;min-width:40px;text-align:right;">1</span>
-                        </div>
-                </div>
-            </div>
-            <div class="stat-card" style="text-align:left;border-top:4px solid #60a5fa;">
-                <h3 style="text-align:center;color:#60a5fa;">🔵 GCOM → เปลี่ยนเป็น</h3>
-                <p style="text-align:center;font-size:1.1rem;color:#94a3b8;margin:5px 0 15px 0;">รวมทั้งหมด: <strong style="color:#60a5fa;">173 ไซต์</strong></p>
-                <div style="display:flex;flex-direction:column;gap:2px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">MA5801-FL16</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">143</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-ZTE" style="font-size:0.75rem;padding:2px 8px;">ZTE</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">C610</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">9</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN5516-04</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">8</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6000-2</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">6</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6001-GF16</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">5</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN5516-04</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">1</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-ZTE" style="font-size:0.75rem;padding:2px 8px;">ZTE</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6000-2</span>
-                            </div>
-                            <span style="font-weight:700;color:#60a5fa;min-width:40px;text-align:right;">1</span>
-                        </div>
-                </div>
-            </div>
-            <div class="stat-card" style="text-align:left;border-top:4px solid #f472b6;">
-                <h3 style="text-align:center;color:#f472b6;">🩷 RAISECOM → เปลี่ยนเป็น</h3>
-                <p style="text-align:center;font-size:1.1rem;color:#94a3b8;margin:5px 0 15px 0;">รวมทั้งหมด: <strong style="color:#f472b6;">172 ไซต์</strong></p>
-                <div style="display:flex;flex-direction:column;gap:2px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-ZTE" style="font-size:0.75rem;padding:2px 8px;">ZTE</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">C610</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">109</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">MA5801-FL16</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">25</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-NOKIA" style="font-size:0.75rem;padding:2px 8px;">NOKIA</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">LS-DF-CFXR-F</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">20</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6001-GF16</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">9</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-FIBERHOME" style="font-size:0.75rem;padding:2px 8px;">FIBERHOME</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">AN6000-2</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">3</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-ZTE" style="font-size:0.75rem;padding:2px 8px;">ZTE</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">C620</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">3</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-ZTE" style="font-size:0.75rem;padding:2px 8px;">ZTE</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">C320</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">2</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding:6px 0;">
-                            <div style="display:flex;gap:8px;align-items:center;">
-                                <span class="vendor-badge vendor-HUAWEI" style="font-size:0.75rem;padding:2px 8px;">HUAWEI</span>
-                                <span style="color:#94a3b8;font-size:0.85rem;">MA5800-X2</span>
-                            </div>
-                            <span style="font-weight:700;color:#f472b6;min-width:40px;text-align:right;">1</span>
-                        </div>
-                </div>
             </div>
         </div>
 
@@ -15716,7 +15473,7 @@ body {
             data: {
                 labels: ["FIBERHOME", "HUAWEI", "ZTE", "NOKIA"],
                 datasets: [{
-                    data: [494, 382, 195, 88],
+                    data: [494, 382, 195, 78],
                     backgroundColor: [
                         'rgba(244, 114, 182, 0.7)',  // FIBERHOME: Pink
                         'rgba(239, 68, 68, 0.7)',    // HUAWEI: Red
