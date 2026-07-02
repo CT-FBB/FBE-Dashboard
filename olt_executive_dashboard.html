@@ -745,7 +745,7 @@ body {
           <div class="panel-title-bar">
             <h3 class="panel-title" style="color:var(--color-primary);">
               <svg style="fill: var(--color-primary);"><use href="#icon-activity"></use></svg>
-              วิเคราะห์เชิงลึกระดับแผงพอร์ต (Port-Level Business Insights)
+              วิเคราะห์เชิงลึกระดับแผงการ์ด OLT (OLT Card-Level Insights)
             </h3>
           </div>
           
@@ -753,17 +753,9 @@ body {
             <div class="insight-item success">
               <div class="insight-status-indicator">📡</div>
               <div class="insight-text">
-                <strong>เกณฑ์วิเคราะห์ XGS-PON ระดับพอร์ต (1,283 ตู้):</strong> เนื่องจากในระดับฐานข้อมูลหลักไม่ได้บันทึกระดับ Card Name ของ XGS-PON ไว้โดยตรง ทางทีมวิศวกรรมจึงทำการวิเคราะห์ผ่านลิงก์ประวัติของพอร์ตในไฟล์ **"PonPort-20260629.xlsx"** คอลัมน์ **"L1_DL_Max_Bw"** ที่มีความเร็วการดาวน์โหลดระดับ **10G (10240.0 Mbps)** เพื่อระบุว่า OLT ตัวใดที่มีการเชื่อมต่อ Splitter ขยายสัญญาณออกจากแผงวงจรรวม (Card) ที่รองรับ XGS-PON แล้วจริง ซึ่งเป็นเกณฑ์อ้างอิงที่แม่นยำที่สุด
+                <strong>เกณฑ์วิเคราะห์ XGS-PON:</strong> นับเฉพาะเครื่อง OLT ที่มีการติดตั้ง Card XGS-PON จริงในระบบโครงข่าย
               </div>
             </div>
-            
-            <div class="insight-item info">
-              <div class="insight-status-indicator">✅</div>
-              <div class="insight-text">
-                <strong>ถอนอุปกรณ์การเรียนรู้ใน LAB:</strong> ดำเนินการลบรายชื่อ OLT ที่นำหน้าด้วยคำว่า **"QCENG"** ออกจากทุกตารางและแผนภูมิรวม 32 เครื่อง ซึ่งช่วยให้ผู้บริหารได้รับชมยอดโครงข่ายที่สร้างทราฟฟิกและรองรับลูกค้าทั่วไปที่ใช้งานอินเทอร์เน็ตจริง
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
