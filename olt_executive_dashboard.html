@@ -172,11 +172,17 @@
     /* KPI Summary Cards Grid */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 750px) {
       .kpi-grid {
         grid-template-columns: 1fr;
       }
@@ -623,7 +629,7 @@ body {
 </style>
 <nav class="sidebar">
     <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
-            <div class="sidebar-links">
+    <div class="sidebar-links">
         <a href="index.html" id="nav-main">OLT temperature</a>
         <a href="mismatch_dashboard.html" id="nav-mismatch">XGS mismatch</a>
         <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
@@ -639,11 +645,12 @@ body {
         <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
         <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
-</nav>
+    </nav>
 
 
 
@@ -674,7 +681,7 @@ body {
         </div>
         <div class="title-area">
           <h1>XGS-PON network readiness</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 05/07/2026</span></div>
 
         </div>
       </div>
@@ -682,7 +689,7 @@ body {
       <div class="header-controls" style="display: flex; gap: 10px;">
         <div class="date-badge">
           <span class="date-badge-dot"></span>
-          <span>ข้อมูลปรับปรุงล่าสุด: 02 มิถุนายน 2026</span>
+          <span>ข้อมูลปรับปรุงล่าสุด: 5 กรกฎาคม 2569</span>
         </div>
         <button class="btn-export" onclick="triggerPrint()">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
@@ -722,6 +729,19 @@ body {
           <span style="color: var(--color-primary);">ตรวจสอบจาก L1 Link Speed 10G</span>
         </div>
       </div>
+
+      <!-- KPI 3: XGS Ready without EDFA / DVB -->
+      <div class="kpi-card accent-warning" style="cursor: pointer;" onclick="window.location.href='tvs_edfa_dashboard.html'">
+        <div class="kpi-header">
+          <span class="kpi-title">ตู้ XGS-PON ที่ไม่มี EDFA / ลูกค้า DVB</span>
+          <div class="kpi-icon"><svg><use href="#icon-warning"></use></svg></div>
+        </div>
+        <div class="kpi-value" id="kpi-xgs-no-edfa">103 เครื่อง</div>
+        <div class="kpi-subtext">
+          <span class="kpi-trend-down" style="color: var(--color-warning);">No-Customer-TVS</span>
+          <span style="color: #cbd5e1;">คลิกเพื่อไปที่หน้า TVS EDFA Dashboard</span>
+        </div>
+      </div>
     </div>
 
     <!-- TAB CONTAINER 1: VENDOR OVERVIEW -->
@@ -741,18 +761,18 @@ body {
         </div>
 
         <!-- Executive Summary Insights Box -->
-        <div class="glass-panel" style="display:flex; flex-direction:column; justify-content:space-between;">
-          <div class="panel-title-bar">
-            <h3 class="panel-title" style="color:var(--color-primary);">
-              <svg style="fill: var(--color-primary);"><use href="#icon-activity"></use></svg>
+        <div class="glass-panel" style="display:flex; flex-direction:column; justify-content:flex-start; min-height: 200px;">
+          <div class="panel-title-bar" style="margin-bottom: 25px;">
+            <h3 class="panel-title" style="color:var(--color-primary); display: flex; align-items: center; gap: 8px; font-size: 1.15rem; font-weight: 700;">
+              <svg style="fill: var(--color-primary); width: 20px; height: 20px;"><use href="#icon-activity"></use></svg>
               วิเคราะห์เชิงลึกระดับแผงการ์ด OLT (OLT Card-Level Insights)
             </h3>
           </div>
           
-          <div class="insight-list">
-            <div class="insight-item success">
-              <div class="insight-status-indicator">📡</div>
-              <div class="insight-text">
+          <div class="insight-list" style="width: 100%; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+            <div class="insight-item success" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 24px; max-width: 90%; margin-bottom: 20px;">
+              <div class="insight-status-indicator" style="font-size: 1.5rem; line-height: 1;">📡</div>
+              <div class="insight-text" style="text-align: left; font-size: 0.95rem;">
                 <strong>เกณฑ์วิเคราะห์ XGS-PON:</strong> นับเฉพาะเครื่อง OLT ที่มีการติดตั้ง Card XGS-PON จริงในระบบโครงข่าย
               </div>
             </div>
@@ -888,6 +908,66 @@ body {
     function triggerPrint() {
       window.print();
     }
-    </script>
+    
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        </script>
 </body>
 </html>

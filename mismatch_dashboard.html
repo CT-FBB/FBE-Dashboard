@@ -215,17 +215,71 @@
         }
 
         /* Global Navigation Bar Styles */
-        
+        .global-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+        }
 
-        
+        .nav-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            height: 100%;
+        }
 
-        
+        .nav-tab {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
 
-        
+        .nav-tab:hover {
+            color: #f8fafc;
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
 
-        
+        .nav-tab.active {
+            color: #06b6d4;
+            background: rgba(6, 182, 212, 0.15);
+            border-color: rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+        }
 
         .dashboard-header {
             display: flex;
@@ -239,34 +293,7 @@
             backdrop-filter: blur(16px);
             box-sizing: border-box;
         }
-    
-        /* ── Global Nav Styles ── */
-    .global-nav {
-        position: fixed; top: 0; left: 0; right: 0; height: 70px;
-        background-color: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
-        display: flex; align-items: center; padding: 0 3rem; z-index: 1000;
-        box-sizing: border-box;
-    }
-    .nav-logo { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-right: 3rem; display: flex; align-items: center; gap: 0.75rem; font-family: 'Outfit', sans-serif; flex-shrink: 0; }
-    .nav-logo span { color: #38bdf8; }
-    .nav-links { display: flex; gap: 2rem; overflow-x: auto; white-space: nowrap; -ms-overflow-style: none; scrollbar-width: none; flex-grow: 1; align-items: center; }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; font-family: 'Inter', system-ui, sans-serif; flex-shrink: 0; }
-    .nav-links a:hover, .nav-links a.active { color: #fff; }
-    
-    @media (max-width: 768px) {
-        .global-nav { padding: 0 1rem; }
-        .nav-logo { font-size: 1.2rem; margin-right: 1.5rem; }
-        .nav-links { gap: 1.2rem; padding-right: 1rem; }
-        .nav-links a { font-size: 0.9rem; }
-    }
-
-
-@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } } .blink { animation: blink 1s infinite; }
-</style>
-</head>
-<body>
+    </style>
 
 <!-- SIDEBAR STYLES -->
 <style>
@@ -283,9 +310,7 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    top: 0; bottom: 0; left: 0;
     z-index: 9999;
 }
 .sidebar-logo {
@@ -305,36 +330,29 @@ body {
     -webkit-text-fill-color: transparent;
 }
 .sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
+    flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
 }
 .sidebar-links::-webkit-scrollbar { width: 4px; }
 .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 .sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
+    display: flex; align-items: center; padding: 12px 24px;
+    color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500;
+    transition: all 0.2s ease; border-left: 3px solid transparent; box-sizing: border-box;
 }
 .sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
+    color: #f8fafc; background: rgba(255,255,255,0.03); border-left-color: rgba(6, 182, 212, 0.3);
 }
 .sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
+    color: #f8fafc; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4; font-weight: 600;
+}
+.global-nav {
+    display: none !important;
 }
 </style>
+
+</head>
+<body>
 <nav class="sidebar">
     <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
     <div class="sidebar-links">
@@ -353,49 +371,46 @@ body {
         <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
         <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
     </nav>
-
-
-
-
     
 
     <div class="container">
         <header class="dashboard-header">
             <div style="flex-grow: 1; text-align: left;">
                 <h1 style="font-size: 2rem; margin: 0; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OLT Card Mismatch Tracking</h1>
-                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard</p>
+                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard <span style="color: #eab308; font-weight: bold; margin-left: 8px;">(as of 04/07/26)</span></p>
             </div>
             <div style="display: flex; gap: 10px;">
-<button class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981;" onclick="window.open('mismatch_im_vs_pms.xlsx', '_blank')">
+                <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="download-mismatch-excel-top">
                     <svg style="width:16px;height:16px;vertical-align:middle;margin-right:4px;" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
                     </svg>
                     ดาวน์โหลด Excel (Full)
-                </button>
+                </a>
             </div>
         </header>
 
         <div class="kpi-grid">
             <div class="glass-panel kpi-card kpi-total">
                 <div class="kpi-title">Total Mismatches</div>
-                <div class="kpi-value" id="kpi-total">574</div>
+                <div class="kpi-value" id="kpi-total">403</div>
             </div>
             <div class="glass-panel kpi-card kpi-huawei">
                 <div class="kpi-title">Huawei</div>
-                <div class="kpi-value" id="kpi-huawei">248</div>
+                <div class="kpi-value" id="kpi-huawei">193</div>
             </div>
             <div class="glass-panel kpi-card kpi-zte">
                 <div class="kpi-title">ZTE</div>
-                <div class="kpi-value" id="kpi-zte">154</div>
+                <div class="kpi-value" id="kpi-zte">149</div>
             </div>
             <div class="glass-panel kpi-card kpi-fiberhome">
                 <div class="kpi-title">Fiberhome</div>
-                <div class="kpi-value" id="kpi-fiberhome">172</div>
+                <div class="kpi-value" id="kpi-fiberhome">61</div>
             </div>
         </div>
 
@@ -412,7 +427,7 @@ body {
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-huawei);"></div>
-                            Huawei (Total: 248)
+                            Huawei (Total: 193)
                         </div>
                         <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
                             GPON vs XGS-PON config errors
@@ -421,7 +436,7 @@ body {
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-zte);"></div>
-                            ZTE (Total: 154)
+                            ZTE (Total: 149)
                         </div>
                         <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
                             GPON vs Combo (e.g., GFGL, HFTL)
@@ -430,7 +445,7 @@ body {
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-fiberhome);"></div>
-                            Fiberhome (Total: 172)
+                            Fiberhome (Total: 61)
                         </div>
                         <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
                             GPON vs Combo conflicts (e.g., GC8B, GPOP)
@@ -438,12 +453,12 @@ body {
                     </li>
                 </ul>
                 <div style="margin-top: 30px; text-align: center;">
-                    <button class="action-btn" onclick="window.open('mismatch_im_vs_pms.xlsx', '_blank')">
+                    <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="download-mismatch-excel-bottom">
                         <svg style="width:16px;height:16px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
                         </svg>
                         Download Full Report (.xlsx)
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -460,7 +475,7 @@ body {
             const data = {
                 labels: ['Huawei', 'ZTE', 'Fiberhome'],
                 datasets: [{
-                    data: [248, 154, 172],
+                    data: [193, 149, 61],
                     backgroundColor: [
                         '#ff4757', // Huawei Red
                         '#2ed573', // ZTE Green
@@ -523,31 +538,7 @@ body {
             
             new Chart(ctx, config);
         });
-
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
+    
         
 
         
