@@ -1859,7 +1859,13 @@
             });
 
             // Chart 2: Alerts Stacked (Only Critical, High, Mod)
-            const alertRegions = regions.filter(r => (dashboardData.region_stats[r].critical + dashboardData.region_stats[r].high + dashboardData.region_stats[r].mod) > 0);
+            const alertRegions = Object.keys(dashboardData.region_stats)
+                .filter(r => (dashboardData.region_stats[r].critical + dashboardData.region_stats[r].high + dashboardData.region_stats[r].mod) > 0)
+                .sort((a, b) => {
+                    const sumA = dashboardData.region_stats[a].critical + dashboardData.region_stats[a].high + dashboardData.region_stats[a].mod;
+                    const sumB = dashboardData.region_stats[b].critical + dashboardData.region_stats[b].high + dashboardData.region_stats[b].mod;
+                    return sumB - sumA;
+                });
             const aCrit = alertRegions.map(r => dashboardData.region_stats[r].critical);
             const aHigh = alertRegions.map(r => dashboardData.region_stats[r].high);
             const aMod = alertRegions.map(r => dashboardData.region_stats[r].mod);
