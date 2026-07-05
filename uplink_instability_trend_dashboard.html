@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uplink Flapping Trend Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #070a13;
+      --card-bg: rgba(13, 18, 34, 0.7);
+      --card-border: rgba(255, 255, 255, 0.05);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-danger: #ef4444;
+      --accent-warn: #f59e0b;
+      --accent-info: #3b82f6;
+      --accent-success: #10b981;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      background: var(--bg-color);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    body {
+        padding-top: 20px !important;
+        padding-left: 270px !important;
+    }
+    .sidebar {
+        width: 250px;
+        background: rgba(13, 18, 34, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+    }
+    .sidebar-logo {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.25rem;
+        color: #f8fafc;
+        font-weight: 800;
+        padding: 24px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .sidebar-logo span {
+        background: linear-gradient(135deg, #06b6d4, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .sidebar-links {
+        flex-grow: 1;
+        padding: 20px 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+    .sidebar-links::-webkit-scrollbar { width: 4px; }
+    .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+    .sidebar-links a {
+        display: flex;
+        align-items: center;
+        padding: 12px 24px;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-left: 3px solid transparent;
+    }
+    .sidebar-links a:hover {
+        color: #f8fafc;
+        background: rgba(255,255,255,0.03);
+        border-left-color: rgba(6, 182, 212, 0.3);
+    }
+    .sidebar-links a.active {
+        color: #f8fafc;
+        background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+        border-left-color: #06b6d4;
+        font-weight: 600;
+    }
+    .sidebar-links a.sub-link {
+        padding-left: 40px;
+        font-size: 0.88rem;
+    }
+
+    .header {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header p {
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-secondary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .tab-btn.active {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-info);
+      border-color: var(--accent-info);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .chart-card {
+      grid-column: span 1;
+      height: 350px;
+    }
+    .chart-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+    .month-selector-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 1rem;
+    }
+    .month-selector-container h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .select-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .select-box:focus {
+      border-color: var(--accent-info);
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .kpi-title {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .kpi-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+    }
+    .table-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .search-input {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      width: 250px;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent-info);
+    }
+    .export-btn {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-success);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .export-btn:hover {
+      background: rgba(16, 185, 129, 0.25);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+    td {
+      font-size: 0.9rem;
+    }
+    .badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-down { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+    .badge-up { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+  </style>
+</head>
+<body>
+
+<nav class="sidebar">
+    <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
+    <div class="sidebar-links">
+        <a href="index.html" id="nav-main">OLT temperature</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">XGS mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="active" class="sub-link">&#128300; Flapping Trends</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
+    </div>
+</nav>
+
+<div class="header">
+  <div>
+    <h1>Uplink Flapping Trend Dashboard</h1>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 05/07/2026</span></div>
+    <div style="margin-top: 8px;"><span style="background: rgba(59, 130, 246, 0.18); border: 1px solid rgba(59, 130, 246, 0.35); color: #93c5fd; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📊 MONTHLY TRENDS (JAN - JUN 2026)</span></div>
+    <p>Historical trend analysis of flapping ports, total flaps, and auto-stabilized ports.</p>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" id="tab-uplink" onclick="switchCategory('uplink')">OLT Uplink Ports (1G / 10G / 25G)</button>
+  <button class="tab-btn" id="tab-edfa" onclick="switchCategory('edfa')">EDFA Management Ports (100M)</button>
+</div>
+
+<div class="grid-3">
+  <div class="card chart-card" style="grid-column: span 2;">
+    <div class="chart-container">
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+  <div class="card chart-card">
+    <div class="chart-container">
+      <canvas id="stableChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="month-selector-container">
+  <h2 id="monthly-detail-title">Monthly Detailed Analysis</h2>
+  <select class="select-box" id="monthSelect" onchange="loadMonthDetails()"></select>
+</div>
+
+<div class="kpi-grid">
+  <div class="card">
+    <div class="kpi-title">Total Unstable Ports</div>
+    <div class="kpi-value" id="kpi-unstable" style="color: var(--accent-danger);">0</div>
+  </div>
+  <div class="card">
+    <div class="kpi-title">Total Flapping Events</div>
+    <div class="kpi-value" id="kpi-flaps" style="color: var(--accent-warn);">0</div>
+  </div>
+  <div class="card">
+    <div class="kpi-title">Max Flaps on Single Port</div>
+    <div class="kpi-value" id="kpi-max-flaps" style="color: var(--accent-info);">0</div>
+  </div>
+  <div class="card">
+    <div class="kpi-title">Stable Ports (>=15 Days)</div>
+    <div class="kpi-value" id="kpi-stable" style="color: var(--accent-success);">0</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="table-header-row">
+    <h3>Top 10 Most Unstable Ports</h3>
+    <div style="display: flex; gap: 1rem;">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search devices, ports..." onkeyup="filterTable()">
+      <button class="export-btn" onclick="exportCSV()">📥 Export CSV</button>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Device</th>
+        <th>Vendor</th>
+        <th>Interface</th>
+        <th>Speed</th>
+        <th>Flap Count</th>
+        <th>Last Flap Date</th>
+        <th>Polling Query</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<script>
+  // --- EMBEDDED DATA START ---
+  let trendData = {"months": ["January", "February", "March", "April", "May", "June"], "uplink": {"unstable_trend": [204, 259, 272, 162, 357, 261], "flaps_trend": [475, 583, 621, 409, 845, 593], "stable_trend": [197, 247, 255, 151, 330, 192], "max_flaps_trend": [9, 11, 14, 18, 15, 11], "monthly_details": {"January": {"total_unstable": 204, "total_flaps": 475, "max_flaps": 9, "most_unstable": "NKP06002G00 (ten-gigabitethernet1/6)", "stable_ports": 197, "top_10": [{"device": "NKP06002G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 9, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "BKN03014GO0", "vendor": "Fiberhome", "ifname": "XFP 10/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-05-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-01", "ref_dt": "2026-07-02", "days_since_last": 62}, {"device": "LPG04005GO0", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASELR", "dsttype": "", "dstsite": "LPG6783", "dstport": "GigabitEthernet0/3/0", "count": 7, "last": "2026-02-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-01", "ref_dt": "2026-07-02", "days_since_last": 151}, {"device": "CCS06008GO0", "vendor": "Fiberhome", "ifname": "SFP+ 4/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-01-25", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-25", "ref_dt": "2026-07-02", "days_since_last": 158}, {"device": "CCS04034GO0", "vendor": "Fiberhome", "ifname": "SFP+ 4/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-01-27", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-27", "ref_dt": "2026-07-02", "days_since_last": 156}, {"device": "CTB01005G00", "vendor": "Dasan", "ifname": "port13-XE-FX", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-05-08", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-08", "ref_dt": "2026-07-02", "days_since_last": 55}, {"device": "AYT01032GO0", "vendor": "Fiberhome", "ifname": "XFP 10/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "DN-AYT1308-1_AYAAYA2100M", "dstport": "xgei-0/1/1/20", "count": 6, "last": "2026-05-10", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-10", "ref_dt": "2026-07-02", "days_since_last": 53}, {"device": "BKK28004GO0", "vendor": "Fiberhome", "ifname": "XFP 9/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "", "dstsite": "", "dstport": "", "count": 5, "last": "2026-01-22", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-01-22", "ref_dt": "2026-07-02", "days_since_last": 161}, {"device": "NTB02006GO0", "vendor": "Fiberhome", "ifname": "XFP 10/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "", "dstsite": "AN-BGT08-2_BKK19001S01", "dstport": "GigabitEthernet8/0/5", "count": 4, "last": "2026-01-29", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-29", "ref_dt": "2026-07-02", "days_since_last": 154}, {"device": "CBR04089GO0", "vendor": "Fiberhome", "ifname": "XFP 10/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ZR/ZW", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-05", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-05", "ref_dt": "2026-07-02", "days_since_last": 27}]}, "February": {"total_unstable": 259, "total_flaps": 583, "max_flaps": 11, "most_unstable": "NKP06002G00 (ten-gigabitethernet1/6)", "stable_ports": 247, "top_10": [{"device": "NKP06002G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 11, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "CBR03005G00", "vendor": "Dasan", "ifname": "port14-XE-FX", "ifspeed": "1 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "CPE-CBR6715", "dstport": "xgei-1/1/0/14", "count": 8, "last": "2026-06-10", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-10", "ref_dt": "2026-07-02", "days_since_last": 22}, {"device": "SKA10016G00", "vendor": "Fiberhome", "ifname": "SFP 19/4", "ifspeed": "1 Gbps", "moduleclass": "1000BASE-EX", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-02-18", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-18", "ref_dt": "2026-07-02", "days_since_last": 134}, {"device": "BKK17032GO0", "vendor": "Huawei", "ifname": "ethernet0/4/0", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "AN", "dstsite": "AN-HAM04-2_BKK34AGNS05", "dstport": "GigabitEthernet2/1/20", "count": 5, "last": "2026-02-19", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-19", "ref_dt": "2026-07-02", "days_since_last": 133}, {"device": "BKK17033GO0", "vendor": "Huawei", "ifname": "ethernet0/4/0", "ifspeed": "10 Gbps", "moduleclass": "en10GBASELR", "dsttype": "AN", "dstsite": "AN-HAM04-2_BKK34AGNS05", "dstport": "GigabitEthernet2/1/21", "count": 5, "last": "2026-02-19", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-19", "ref_dt": "2026-07-02", "days_since_last": 133}, {"device": "SRB11027G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "1 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 5, "last": "2026-06-23", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-23", "ref_dt": "2026-07-02", "days_since_last": 9}, {"device": "SKO05014G00", "vendor": "Dasan", "ifname": "port14-XE-FX", "ifspeed": "1 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 5, "last": "2026-04-27", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-04-27", "ref_dt": "2026-07-02", "days_since_last": 66}, {"device": "CBR05004GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "CBR07072GO0", "vendor": "Huawei", "ifname": "ethernet0/3/0", "ifspeed": "10 Gbps", "moduleclass": "en10GBASELR", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-02-27", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-27", "ref_dt": "2026-07-02", "days_since_last": 125}, {"device": "CNT01025GO0", "vendor": "Fiberhome", "ifname": "XFP 9/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ZR/ZW", "dsttype": "", "dstsite": "DN1-CNT1902", "dstport": "GigabitEthernet0/3/0", "count": 4, "last": "2026-02-27", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-27", "ref_dt": "2026-07-02", "days_since_last": 125}]}, "March": {"total_unstable": 272, "total_flaps": 621, "max_flaps": 14, "most_unstable": "NKP06002G00 (ten-gigabitethernet1/6)", "stable_ports": 255, "top_10": [{"device": "NKP06002G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 14, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "PTL01017GO0", "vendor": "ZTE", "ifname": "xgei-1/4/4", "ifspeed": "1 Gbps", "moduleclass": "1000BASE_LX", "dsttype": "", "dstsite": "", "dstport": "", "count": 10, "last": "2026-03-31", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-31", "ref_dt": "2026-07-02", "days_since_last": 93}, {"device": "CMI06012G00", "vendor": "Fiberhome", "ifname": "SFP28 19/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "CPE", "dstsite": "CPE-CMI1622", "dstport": "GigabitEthernet0/5/0", "count": 9, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "CMI01001G01", "vendor": "Huawei", "ifname": "ethernet0/4/0", "ifspeed": "10 Gbps", "moduleclass": "en10GBASELR", "dsttype": "", "dstsite": "PN-CMI1000-2_CMICMI5410W", "dstport": "GigabitEthernet16/0/18", "count": 8, "last": "2026-03-27", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-27", "ref_dt": "2026-07-02", "days_since_last": 97}, {"device": "CYP03011GO0", "vendor": "Fiberhome", "ifname": "XFP 10/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ZR/ZW", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-03-22", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-22", "ref_dt": "2026-07-02", "days_since_last": 102}, {"device": "CBR04090GO0", "vendor": "Fiberhome", "ifname": "XFP 10/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "CBR04091GO0", "dstport": "10:1", "count": 4, "last": "2026-03-23", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-23", "ref_dt": "2026-07-02", "days_since_last": 101}, {"device": "BKK21013GO0", "vendor": "Fiberhome", "ifname": "SFP+ 3/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "", "dstsite": "AN-EKC08-2_BKK21001S01", "dstport": "GigabitEthernet2/0/9", "count": 4, "last": "2026-03-12", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-12", "ref_dt": "2026-07-02", "days_since_last": 112}, {"device": "BKK39060GO0", "vendor": "Huawei", "ifname": "ethernet0/3/0", "ifspeed": "10 Gbps", "moduleclass": "en10GBASELR", "dsttype": "", "dstsite": "AN-SKW09-1_BKK33001S00", "dstport": "GigabitEthernet7/1/5", "count": 4, "last": "2026-03-27", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-27", "ref_dt": "2026-07-02", "days_since_last": 97}, {"device": "CMI01031GO0", "vendor": "Fiberhome", "ifname": "SFP+ 4/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "DN1-CMI1507", "dstport": "GigabitEthernet1/1/7", "count": 4, "last": "2026-03-21", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-21", "ref_dt": "2026-07-02", "days_since_last": 103}, {"device": "SKT08001GO0", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-03-18", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-18", "ref_dt": "2026-07-02", "days_since_last": 106}]}, "April": {"total_unstable": 162, "total_flaps": 409, "max_flaps": 18, "most_unstable": "CMI06012G00 (SFP28 19/2)", "stable_ports": 151, "top_10": [{"device": "CMI06012G00", "vendor": "Fiberhome", "ifname": "SFP28 19/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "CPE", "dstsite": "CPE-CMI1622", "dstport": "GigabitEthernet0/5/0", "count": 18, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "NKP06002G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 13, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "ANC03005G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-05-07", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-07", "ref_dt": "2026-07-02", "days_since_last": 56}, {"device": "UBR19009G00", "vendor": "GCOM", "ifname": "e1/2", "ifspeed": "1 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-05-30", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-05-30", "ref_dt": "2026-07-02", "days_since_last": 33}, {"device": "MHR01006G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/5", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-07-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-01", "ref_dt": "2026-07-02", "days_since_last": 1}, {"device": "UBR09020GO0", "vendor": "Fiberhome", "ifname": "SFP+ 4/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ZR/ZW", "dsttype": "", "dstsite": "", "dstport": "", "count": 5, "last": "2026-04-08", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-04-08", "ref_dt": "2026-07-02", "days_since_last": 85}, {"device": "PHE01011G00", "vendor": "Dasan", "ifname": "port16-XE-FX", "ifspeed": "1 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "PHE01016G00", "dstport": "eth13", "count": 4, "last": "2026-04-25", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-04-25", "ref_dt": "2026-07-02", "days_since_last": 68}, {"device": "BKN05003GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "10 Gbps", "moduleclass": "invalid", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-08", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-08", "ref_dt": "2026-07-02", "days_since_last": 24}, {"device": "KKN01060GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-05-18", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-18", "ref_dt": "2026-07-02", "days_since_last": 45}, {"device": "LPN01013G00", "vendor": "Dasan", "ifname": "port14-XE-FX", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "CPE-LPN6736", "dstport": "GigabitEthernet0/5/0", "count": 4, "last": "2026-05-05", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-05", "ref_dt": "2026-07-02", "days_since_last": 58}]}, "May": {"total_unstable": 357, "total_flaps": 845, "max_flaps": 15, "most_unstable": "NKP06002G00 (ten-gigabitethernet1/6)", "stable_ports": 330, "top_10": [{"device": "NKP06002G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 15, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "CMI06012G00", "vendor": "Fiberhome", "ifname": "SFP28 19/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "CPE", "dstsite": "CPE-CMI1622", "dstport": "GigabitEthernet0/5/0", "count": 14, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "BKK05015GO0", "vendor": "ZTE", "ifname": "xgei-1/4/4", "ifspeed": "1 Gbps", "moduleclass": "1000BASE_LX", "dsttype": "", "dstsite": "", "dstport": "", "count": 12, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "PTT07007GO0", "vendor": "ZTE", "ifname": "xgei_1/4/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-05-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-24", "ref_dt": "2026-07-02", "days_since_last": 39}, {"device": "MHR01006G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/5", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-07-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-01", "ref_dt": "2026-07-02", "days_since_last": 1}, {"device": "PCB02012GO0", "vendor": "Fiberhome", "ifname": "SFP+ 4/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ZR/ZW", "dsttype": "", "dstsite": "PCT0800100W_PCT1125", "dstport": "GigabitEthernet1/0/2", "count": 6, "last": "2026-05-28", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-28", "ref_dt": "2026-07-02", "days_since_last": 35}, {"device": "PTT05018GO0", "vendor": "Fiberhome", "ifname": "SFP28 19/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "AN", "dstsite": "AN-PTT19-1_PTT05002S00", "dstport": "GigabitEthernet2/1/6", "count": 5, "last": "2026-05-28", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-28", "ref_dt": "2026-07-02", "days_since_last": 35}, {"device": "LOI01034GO0", "vendor": "Huawei", "ifname": "ethernet0/2/0", "ifspeed": "10 Gbps", "moduleclass": "en10GBASELR", "dsttype": "CPE", "dstsite": "CPE-LOI7280", "dstport": "xgei-1/1/0/14", "count": 4, "last": "2026-05-29", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-29", "ref_dt": "2026-07-02", "days_since_last": 34}, {"device": "LPG13015G00", "vendor": "Dasan", "ifname": "port12-XE-FX", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "LPG13014G00", "dstport": "eth13", "count": 4, "last": "2026-06-14", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-14", "ref_dt": "2026-07-02", "days_since_last": 18}, {"device": "LPG13015G00", "vendor": "Dasan", "ifname": "port11-XE-FX", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "LPG13014G00", "dstport": "eth14", "count": 4, "last": "2026-06-14", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-14", "ref_dt": "2026-07-02", "days_since_last": 18}]}, "June": {"total_unstable": 261, "total_flaps": 593, "max_flaps": 11, "most_unstable": "CMI06012G00 (SFP28 19/2)", "stable_ports": 192, "top_10": [{"device": "CMI06012G00", "vendor": "Fiberhome", "ifname": "SFP28 19/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-LR/LW", "dsttype": "CPE", "dstsite": "CPE-CMI1622", "dstport": "GigabitEthernet0/5/0", "count": 11, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "SMP03021GO1", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "AN-BPL08-2_SMP06AGNS05", "dstport": "GigabitEthernet2/0/13", "count": 10, "last": "2026-06-23", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-23", "ref_dt": "2026-07-02", "days_since_last": 9}, {"device": "BKK05015GO0", "vendor": "ZTE", "ifname": "xgei-1/4/4", "ifspeed": "1 Gbps", "moduleclass": "1000BASE_LX", "dsttype": "", "dstsite": "", "dstport": "", "count": 9, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "NKP06002G00", "vendor": "Raisecom", "ifname": "ten-gigabitethernet1/6", "ifspeed": "10 Gbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "UDT03001GO0", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-15", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-07-02", "days_since_last": 17}, {"device": "RCB05016GO0", "vendor": "ZTE", "ifname": "xgei_1/3/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER", "dsttype": "", "dstsite": "DN-RCB0007-1_RBR0500100W", "dstport": "xgei-0/3/1/17(xgei_1/3/2)", "count": 4, "last": "2026-06-08", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-08", "ref_dt": "2026-07-02", "days_since_last": 24}, {"device": "SRT01003GO0", "vendor": "ZTE", "ifname": "xgei_1/4/2", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER", "dsttype": "", "dstsite": "DN-SRT1022-1_SNISNI2201M", "dstport": "GigabitEthernet8/1/4(xgei_1/4/2)", "count": 4, "last": "2026-06-16", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-16", "ref_dt": "2026-07-02", "days_since_last": 16}, {"device": "CBR04097GO0", "vendor": "Huawei", "ifname": "ethernet0/4/1", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "CBR04099GO0", "dstport": "ethernet0/4/0", "count": 4, "last": "2026-06-23", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-23", "ref_dt": "2026-07-02", "days_since_last": 9}, {"device": "CCS08001GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "10 Gbps", "moduleclass": "en10GBASEER", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-15", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-07-02", "days_since_last": 17}, {"device": "PTT02045GO0", "vendor": "Fiberhome", "ifname": "SFP+ 4/1", "ifspeed": "10 Gbps", "moduleclass": "10GBASE-ER/EW", "dsttype": "", "dstsite": "AN-RST02-2_PTT02001S01", "dstport": "GigabitEthernet2/1/15", "count": 4, "last": "2026-06-10", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-10", "ref_dt": "2026-07-02", "days_since_last": 22}]}}}, "edfa": {"unstable_trend": [15, 21, 32, 32, 35, 27], "flaps_trend": [37, 73, 108, 118, 136, 85], "stable_trend": [13, 19, 30, 27, 29, 11], "max_flaps_trend": [7, 12, 13, 15, 22, 11], "monthly_details": {"January": {"total_unstable": 15, "total_flaps": 37, "max_flaps": 7, "most_unstable": "NKR01083GO0 (ethernet0/2/0)", "stable_ports": 13, "top_10": [{"device": "NKR01083GO0", "vendor": "Huawei", "ifname": "ethernet0/2/0", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-02-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-24", "ref_dt": "2026-07-02", "days_since_last": 128}, {"device": "AYT10002G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-05-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-24", "ref_dt": "2026-07-02", "days_since_last": 39}, {"device": "BKK44033GO0", "vendor": "Huawei", "ifname": "ethernet0/4/3", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-01-30", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-30", "ref_dt": "2026-07-02", "days_since_last": 153}, {"device": "BKK08010GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-01-20", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-20", "ref_dt": "2026-07-02", "days_since_last": 163}, {"device": "BKK08010GO0", "vendor": "Huawei", "ifname": "ethernet0/4/3", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-01-20", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-20", "ref_dt": "2026-07-02", "days_since_last": 163}, {"device": "BKK33025GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-01-28", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-28", "ref_dt": "2026-07-02", "days_since_last": 155}, {"device": "BKK33025GO0", "vendor": "Huawei", "ifname": "ethernet0/4/3", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-01-28", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-28", "ref_dt": "2026-07-02", "days_since_last": 155}, {"device": "CBR01022G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-05-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-01", "ref_dt": "2026-07-02", "days_since_last": 62}, {"device": "CBR04099GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-03-21", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-21", "ref_dt": "2026-07-02", "days_since_last": 103}, {"device": "CCS04004GO0", "vendor": "Huawei", "ifname": "ethernet0/2/0", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-01-22", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-01-22", "ref_dt": "2026-07-02", "days_since_last": 161}]}, "February": {"total_unstable": 21, "total_flaps": 73, "max_flaps": 12, "most_unstable": "AYT10002G00 (e1/4)", "stable_ports": 19, "top_10": [{"device": "AYT10002G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 12, "last": "2026-05-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-24", "ref_dt": "2026-07-02", "days_since_last": 39}, {"device": "CBR01043G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 12, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "BKK45007G00", "vendor": "ZTE", "ifname": "gei_1/3/3", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-02-22", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-22", "ref_dt": "2026-07-02", "days_since_last": 130}, {"device": "CBR01022G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 5, "last": "2026-05-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-01", "ref_dt": "2026-07-02", "days_since_last": 62}, {"device": "UDT02005G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-06-11", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-11", "ref_dt": "2026-07-02", "days_since_last": 21}, {"device": "BKK17032GO0", "vendor": "Huawei", "ifname": "ethernet0/3/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-02-05", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-05", "ref_dt": "2026-07-02", "days_since_last": 147}, {"device": "CMI18007G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-06-15", "lastseen": "2026-06-23", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-06-23", "days_since_last": 8}, {"device": "RYG01073GO0", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-02-23", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-23", "ref_dt": "2026-07-02", "days_since_last": 129}, {"device": "PSN02011G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-02-06", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-06", "ref_dt": "2026-07-02", "days_since_last": 146}, {"device": "NKW10014G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-02-15", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-02-15", "ref_dt": "2026-07-02", "days_since_last": 137}]}, "March": {"total_unstable": 32, "total_flaps": 108, "max_flaps": 13, "most_unstable": "AYT10002G00 (e1/4)", "stable_ports": 30, "top_10": [{"device": "AYT10002G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 13, "last": "2026-05-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-24", "ref_dt": "2026-07-02", "days_since_last": 39}, {"device": "UDT02005G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 9, "last": "2026-06-11", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-11", "ref_dt": "2026-07-02", "days_since_last": 21}, {"device": "CBR01043G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 9, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "CBR01025G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-03-30", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-30", "ref_dt": "2026-07-02", "days_since_last": 94}, {"device": "CBR01022G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-05-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-01", "ref_dt": "2026-07-02", "days_since_last": 62}, {"device": "CMI18007G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-06-15", "lastseen": "2026-06-23", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-06-23", "days_since_last": 8}, {"device": "NKR19003G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-05-03", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-03", "ref_dt": "2026-07-02", "days_since_last": 60}, {"device": "KKN03001GO0", "vendor": "Huawei", "ifname": "ethernet0/2/0", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-03-31", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-31", "ref_dt": "2026-07-02", "days_since_last": 93}, {"device": "PTT04004GO0", "vendor": "Fiberhome", "ifname": "SFP+ 19/5", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-03-12", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-12", "ref_dt": "2026-07-02", "days_since_last": 112}, {"device": "PTT04004GO0", "vendor": "Fiberhome", "ifname": "SFP+ 19/6", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-03-12", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-03-12", "ref_dt": "2026-07-02", "days_since_last": 112}]}, "April": {"total_unstable": 32, "total_flaps": 118, "max_flaps": 15, "most_unstable": "CBR01043G00 (ethernet0/2/2)", "stable_ports": 27, "top_10": [{"device": "CBR01043G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 15, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "CMI18007G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 12, "last": "2026-06-15", "lastseen": "2026-06-23", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-06-23", "days_since_last": 8}, {"device": "AYT10002G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 11, "last": "2026-05-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-24", "ref_dt": "2026-07-02", "days_since_last": 39}, {"device": "NAN02007G00", "vendor": "Dasan", "ifname": "port5-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-06-03", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-03", "ref_dt": "2026-07-02", "days_since_last": 29}, {"device": "UDT02005G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-06-11", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-11", "ref_dt": "2026-07-02", "days_since_last": 21}, {"device": "CPN02008G00", "vendor": "Raisecom", "ifname": "gigabitethernet1/1", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "NKR01072G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-04-15", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-04-15", "ref_dt": "2026-07-02", "days_since_last": 78}, {"device": "NKR19003G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-05-03", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-03", "ref_dt": "2026-07-02", "days_since_last": 60}, {"device": "CBR01022G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-05-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-01", "ref_dt": "2026-07-02", "days_since_last": 62}, {"device": "NKR08025G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-04-17", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-04-17", "ref_dt": "2026-07-02", "days_since_last": 76}]}, "May": {"total_unstable": 35, "total_flaps": 136, "max_flaps": 22, "most_unstable": "CPN02008G00 (gigabitethernet1/1)", "stable_ports": 29, "top_10": [{"device": "CPN02008G00", "vendor": "Raisecom", "ifname": "gigabitethernet1/1", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 22, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "AYT10002G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 13, "last": "2026-05-24", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-24", "ref_dt": "2026-07-02", "days_since_last": 39}, {"device": "CBR01043G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 12, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "NAN02007G00", "vendor": "Dasan", "ifname": "port5-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-06-03", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-03", "ref_dt": "2026-07-02", "days_since_last": 29}, {"device": "LPN08001G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 7, "last": "2026-05-31", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-31", "ref_dt": "2026-07-02", "days_since_last": 32}, {"device": "NKR21014G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-06-01", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-01", "ref_dt": "2026-07-02", "days_since_last": 31}, {"device": "CMI18007G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-06-15", "lastseen": "2026-06-23", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-06-23", "days_since_last": 8}, {"device": "UBR01048GO0", "vendor": "Fiberhome", "ifname": "SFP+ 3/3", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-16", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-16", "ref_dt": "2026-07-02", "days_since_last": 16}, {"device": "BKK25010G00", "vendor": "ZTE", "ifname": "gei_1/3/3", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-05-25", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-25", "ref_dt": "2026-07-02", "days_since_last": 38}, {"device": "CRI15002G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-05-29", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-05-29", "ref_dt": "2026-07-02", "days_since_last": 34}]}, "June": {"total_unstable": 27, "total_flaps": 85, "max_flaps": 11, "most_unstable": "KKN25002G00 (e1/4)", "stable_ports": 11, "top_10": [{"device": "KKN25002G00", "vendor": "GCOM", "ifname": "e1/4", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 11, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "UBR01048GO0", "vendor": "Fiberhome", "ifname": "SFP+ 3/3", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 9, "last": "2026-06-16", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-16", "ref_dt": "2026-07-02", "days_since_last": 16}, {"device": "CPN02008G00", "vendor": "Raisecom", "ifname": "gigabitethernet1/1", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 8, "last": "2026-07-02", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-07-02", "ref_dt": "2026-07-02", "days_since_last": 0}, {"device": "CBR01043G00", "vendor": "Huawei", "ifname": "ethernet0/2/2", "ifspeed": "100 Mbps", "moduleclass": "en1000BASET", "dsttype": "", "dstsite": "", "dstport": "", "count": 6, "last": "2026-06-29", "lastseen": "2026-07-02", "ifoper": "down", "rxpwr": "", "inerr": "", "last_dt": "2026-06-29", "ref_dt": "2026-07-02", "days_since_last": 3}, {"device": "BKK38016E01", "vendor": "ZTE", "ifname": "gei_1/3/3", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-07-01", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-07-01", "ref_dt": "2026-07-02", "days_since_last": 1}, {"device": "CMI18007G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 4, "last": "2026-06-15", "lastseen": "2026-06-23", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-15", "ref_dt": "2026-06-23", "days_since_last": 8}, {"device": "NAN02007G00", "vendor": "Dasan", "ifname": "port5-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 3, "last": "2026-06-03", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-03", "ref_dt": "2026-07-02", "days_since_last": 29}, {"device": "PYO01022E01", "vendor": "ZTE", "ifname": "gei_1/3/3", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-06-14", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-14", "ref_dt": "2026-07-02", "days_since_last": 18}, {"device": "TRT02001G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-06-13", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-13", "ref_dt": "2026-07-02", "days_since_last": 19}, {"device": "TAK05004G00", "vendor": "Dasan", "ifname": "port9-TX-10/100/1000", "ifspeed": "100 Mbps", "moduleclass": "", "dsttype": "", "dstsite": "", "dstport": "", "count": 2, "last": "2026-06-04", "lastseen": "2026-07-02", "ifoper": "up", "rxpwr": "", "inerr": "", "last_dt": "2026-06-04", "ref_dt": "2026-07-02", "days_since_last": 28}]}}}};
+  // --- EMBEDDED DATA END ---
+
+  let currentCategory = 'uplink';
+  let chart1 = null;
+  let chart2 = null;
+
+  function init() {
+    if (!trendData || !trendData.months) {
+      document.body.innerHTML = `<div style="padding:3rem; text-align:center; font-family:sans-serif; color:var(--text-secondary);">
+        <h2>No embedded data found</h2>
+        <p style="margin-top:1rem;">Please run python3 generate_instability_trend_json.py first.</p>
+      </div>`;
+      return;
+    }
+
+    // Populate month selector
+    const select = document.getElementById('monthSelect');
+    select.innerHTML = '';
+    trendData.months.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m;
+      opt.innerText = m;
+      select.appendChild(opt);
+    });
+    // Select last month by default
+    select.value = trendData.months[trendData.months.length - 1];
+
+    updateCharts();
+    loadMonthDetails();
+  }
+
+  function switchCategory(cat) {
+    currentCategory = cat;
+    document.getElementById('tab-uplink').classList.toggle('active', cat === 'uplink');
+    document.getElementById('tab-edfa').classList.toggle('active', cat === 'edfa');
+    
+    updateCharts();
+    loadMonthDetails();
+  }
+
+  function updateCharts() {
+    const months = trendData.months;
+    const catData = trendData[currentCategory];
+
+    // Trend chart (unstable + flaps)
+    const ctx1 = document.getElementById('trendChart').getContext('2d');
+    if (chart1) chart1.destroy();
+    chart1 = new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: months,
+        datasets: [
+          {
+            label: 'Unstable Ports',
+            data: catData.unstable_trend,
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            borderWidth: 3,
+            tension: 0.3,
+            yAxisID: 'y'
+          },
+          {
+            label: 'Total Flaps',
+            data: catData.flaps_trend,
+            borderColor: '#f59e0b',
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+            borderWidth: 3,
+            tension: 0.3,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: '#f8fafc', font: { family: 'Outfit', size: 12 } } },
+          title: { display: true, text: 'Instability & Flaps Trend', color: '#f8fafc', font: { family: 'Outfit', size: 16 } }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+          y: { 
+            position: 'left',
+            grid: { color: 'rgba(255,255,255,0.05)' }, 
+            ticks: { color: '#94a3b8' },
+            title: { display: true, text: 'Ports count', color: '#ef4444' }
+          },
+          y1: {
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            ticks: { color: '#94a3b8' },
+            title: { display: true, text: 'Flap count', color: '#f59e0b' }
+          }
+        }
+      }
+    });
+
+    // Stable chart (stable ports bar)
+    const ctx2 = document.getElementById('stableChart').getContext('2d');
+    if (chart2) chart2.destroy();
+    chart2 = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: months,
+        datasets: [{
+          label: 'Recovered & Stable Ports (>=15 Days)',
+          data: catData.stable_trend,
+          backgroundColor: 'rgba(16, 185, 129, 0.3)',
+          borderColor: '#10b981',
+          borderWidth: 2,
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Stable & Recovered Ports Trend', color: '#f8fafc', font: { family: 'Outfit', size: 16 } }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }
+        }
+      }
+    });
+  }
+
+  function loadMonthDetails() {
+    const month = document.getElementById('monthSelect').value;
+    const details = trendData[currentCategory].monthly_details[month];
+
+    document.getElementById('monthly-detail-title').innerText = `${month} Detailed Analysis`;
+    document.getElementById('kpi-unstable').innerText = details.total_unstable.toLocaleString();
+    document.getElementById('kpi-flaps').innerText = details.total_flaps.toLocaleString();
+    document.getElementById('kpi-max-flaps').innerText = details.max_flaps.toLocaleString();
+    document.getElementById('kpi-stable').innerText = details.stable_ports.toLocaleString();
+
+    // Load table
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = '';
+    
+    if (!details.top_10 || details.top_10.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:var(--text-secondary);">No records found for this month</td></tr>`;
+      return;
+    }
+
+    details.top_10.forEach(row => {
+      const tr = document.createElement('tr');
+      const stateBadge = row.ifoper === 'down' ? '<span class="badge badge-down">Down</span>' : '<span class="badge badge-up">Up</span>';
+      tr.innerHTML = `
+        <td style="font-weight:600;">${row.device}</td>
+        <td>${row.vendor}</td>
+        <td>${row.ifname}</td>
+        <td>${row.ifspeed}</td>
+        <td style="font-weight:bold; color:var(--accent-danger);">${row.count}</td>
+        <td>${row.last}</td>
+        <td>${row.lastseen}</td>
+        <td>${stateBadge}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function filterTable() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.getElementById('table-body').getElementsByTagName('tr');
+    for(let row of rows) {
+      row.style.display = row.innerText.toLowerCase().includes(query) ? '' : 'none';
+    }
+  }
+
+  function exportCSV() {
+    const month = document.getElementById('monthSelect').value;
+    const details = trendData[currentCategory].monthly_details[month];
+    if (!details || !details.top_10) return;
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Device,Vendor,Interface,Speed,Flap Count,Last Flap Date,Polling Query,State\n";
+
+    details.top_10.forEach(row => {
+      const line = [
+        row.device,
+        row.vendor,
+        row.ifname,
+        row.ifspeed,
+        row.count,
+        row.last,
+        row.lastseen,
+        row.ifoper
+      ].map(v => `"${v}"`).join(",");
+      csvContent += line + "\n";
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Uplink_Flapping_${currentCategory}_${month}_Top10.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  window.onload = init;
+</script>
+</body>
+</html>
