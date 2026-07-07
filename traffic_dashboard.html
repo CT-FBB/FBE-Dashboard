@@ -55,8 +55,21 @@
             -webkit-text-fill-color: transparent;
         }
         .sidebar-links {
-            flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
-        }
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
         .sidebar-links::-webkit-scrollbar { width: 4px; }
         .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
         .sidebar-links a {
@@ -112,33 +125,36 @@
     <nav class="sidebar">
         <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
         <div class="sidebar-links">
-            <a href="index.html" id="nav-main">Main</a>
-            <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
-            <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
-            <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
-            <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
-            <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
-            <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
-            <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="active">Uplink Traffic</a>
-            <a href="optical_dashboard.html" id="nav-optical">Optical</a>
-            <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
-            <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
-            <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
-            <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
-            <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
-            <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-            <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
-            <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
-        </div>
+        <a href="index.html" id="nav-main">OLT temperature</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">XGS mismatch</a>
+        <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="active">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
+        <a href="single_board_dashboard.html" id="nav-control-board">Control card</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">HiSpeedPack</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
+    </div>
     </nav>
 
         <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h1>🚦 OLT Uplink Traffic Monitor <span style="font-size: 1.1rem; color: #fbbf24; font-weight: bold; margin-left: 10px;">(as of 22/06/26)</span></h1>
+                <h1>🚦 OLT Uplink Traffic Monitor <span style="font-size: 1.1rem; color: #fbbf24; font-weight: bold; margin-left: 10px;">(as of 29/06/26)</span></h1>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 05/07/2026</span></div>
                 <p>รายงานตรวจสอบ Bandwidth Utilization ของ OLT แยกตาม Region (4 ระดับความเสี่ยง)</p>
             </div>
-            <button id="runCheckBtn" class="glass-btn" style="display: none; background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #f59e0b; font-weight: 600; cursor: pointer; padding: 10px 18px; border-radius: 8px; font-family: 'Outfit', sans-serif;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
-        </div>
+</div>
 
         <div class="stats-grid">
             <div class="stat-card">
@@ -164,7 +180,7 @@
         </div>
 
         <div class="header" style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0;">⚠️ Single Active Uplink (FTTH Only) by Vendor</h2>
+            <h2 style="margin: 0;">⚠️ Single Active Uplink (Incl. MA5603T) by Vendor</h2>
             <a href="single_uplink_olt_report.xlsx" download class="btn-export">📥 Export Excel</a>
         </div>
         <div class="stats-grid" id="vendorGrid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 2rem;">
@@ -216,18 +232,18 @@
 
     <script>
         const dashboardData = {
-  "total_devices": 12903,
+  "total_devices": 12895,
   "total_critical": 0,
   "total_high": 0,
-  "total_mod": 118,
-  "total_healthy": 12785,
+  "total_mod": 102,
+  "total_healthy": 12793,
   "region_stats": {
     "BMA": {
       "critical": 0,
       "high": 0,
-      "mod": 99,
-      "healthy": 1950,
-      "total": 2049
+      "mod": 85,
+      "healthy": 1967,
+      "total": 2052
     },
     "Central": {
       "critical": 0,
@@ -254,8 +270,8 @@
       "critical": 0,
       "high": 0,
       "mod": 0,
-      "healthy": 5,
-      "total": 5
+      "healthy": 4,
+      "total": 4
     },
     "Lower Northeast": {
       "critical": 0,
@@ -281,23 +297,23 @@
     "Northeast": {
       "critical": 0,
       "high": 0,
-      "mod": 5,
-      "healthy": 3898,
-      "total": 3903
+      "mod": 6,
+      "healthy": 3890,
+      "total": 3896
     },
     "South": {
       "critical": 0,
       "high": 0,
-      "mod": 5,
-      "healthy": 1251,
+      "mod": 4,
+      "healthy": 1252,
       "total": 1256
     },
     "Unknown": {
       "critical": 0,
       "high": 0,
       "mod": 0,
-      "healthy": 21,
-      "total": 21
+      "healthy": 17,
+      "total": 17
     },
     "Upper Nea": {
       "critical": 0,
@@ -310,8 +326,8 @@
       "critical": 0,
       "high": 0,
       "mod": 0,
-      "healthy": 25,
-      "total": 25
+      "healthy": 26,
+      "total": 26
     },
     "Upper Northeast": {
       "critical": 0,
@@ -330,1436 +346,1244 @@
     "West": {
       "critical": 0,
       "high": 0,
-      "mod": 2,
-      "healthy": 689,
+      "mod": 0,
+      "healthy": 691,
       "total": 691
     }
   },
   "anomalies": [
     {
-      "device": "BKK27001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 69.05,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 6905.43,
-      "out_rate": 700.91
-    },
-    {
-      "device": "BKK15002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 67.79,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 6778.88,
-      "out_rate": 759.7
-    },
-    {
-      "device": "SMK01001G01",
-      "region": "Central",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 67.73,
-      "severity": "Moderate",
-      "ifDescr": "0/9/1",
-      "speed": "10G",
-      "in_rate": 6773.01,
-      "out_rate": 638.65
-    },
-    {
-      "device": "SMP01002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 67.48,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 6748.06,
-      "out_rate": 561.94
-    },
-    {
-      "device": "LPG01001G00",
-      "region": "North",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8",
-      "utilization": 67.0,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 6700.01,
-      "out_rate": 692.09
-    },
-    {
       "device": "PSN01003G00",
       "region": "North",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X16A",
-      "utilization": 66.33,
+      "utilization": 68.34,
       "severity": "Moderate",
-      "ifDescr": "0/10/0",
+      "ifDescr": "0/9/0",
       "speed": "10G",
-      "in_rate": 6632.71,
-      "out_rate": 829.09
-    },
-    {
-      "device": "BKK27002G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 66.29,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 6628.89,
-      "out_rate": 680.15
-    },
-    {
-      "device": "UTR01001G00",
-      "region": "North",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 65.64,
-      "severity": "Moderate",
-      "ifDescr": "0/9/1",
-      "speed": "10G",
-      "in_rate": 6564.47,
-      "out_rate": 691.74
+      "in_rate": 6834.33,
+      "out_rate": 934.01
     },
     {
       "device": "SMP05005G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 65.52,
+      "utilization": 67.91,
       "severity": "Moderate",
       "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 6551.52,
-      "out_rate": 906.0
+      "in_rate": 6790.64,
+      "out_rate": 819.4
     },
     {
-      "device": "NKS01001G00",
-      "region": "South",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 64.97,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 6496.89,
-      "out_rate": 1068.13
-    },
-    {
-      "device": "BKK42002G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 64.9,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 6490.4,
-      "out_rate": 678.54
-    },
-    {
-      "device": "BKK26AGNG03",
-      "region": "BMA",
+      "device": "SMK01001G01",
+      "region": "Central",
       "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X16A",
-      "utilization": 64.75,
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 66.89,
       "severity": "Moderate",
-      "ifDescr": "0/10/0",
+      "ifDescr": "0/9/1",
       "speed": "10G",
-      "in_rate": 6475.06,
-      "out_rate": 1227.92
+      "in_rate": 6689.18,
+      "out_rate": 620.76
+    },
+    {
+      "device": "LPG01001G00",
+      "region": "North",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8",
+      "utilization": 66.57,
+      "severity": "Moderate",
+      "ifDescr": "0/9/0",
+      "speed": "10G",
+      "in_rate": 6657.19,
+      "out_rate": 811.37
+    },
+    {
+      "device": "BKK27002G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 65.91,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 6590.88,
+      "out_rate": 689.38
     },
     {
       "device": "NTB01006G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 64.74,
+      "utilization": 65.91,
       "severity": "Moderate",
       "ifDescr": "1/10/2",
       "speed": "10G",
-      "in_rate": 6473.57,
-      "out_rate": 574.22
+      "in_rate": 6591.49,
+      "out_rate": 509.17
     },
     {
-      "device": "SMP01007G00",
+      "device": "BKK15002G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 64.51,
+      "utilization": 65.42,
       "severity": "Moderate",
       "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 6450.76,
-      "out_rate": 692.07
+      "in_rate": 6541.9,
+      "out_rate": 679.78
+    },
+    {
+      "device": "BKK27001G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 64.55,
+      "severity": "Moderate",
+      "ifDescr": "0/10/1",
+      "speed": "10G",
+      "in_rate": 6454.64,
+      "out_rate": 668.16
+    },
+    {
+      "device": "SMP01002G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 64.42,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 6441.87,
+      "out_rate": 767.44
     },
     {
       "device": "BKK30AGNG00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X16A",
-      "utilization": 64.35,
+      "utilization": 63.9,
       "severity": "Moderate",
       "ifDescr": "1/11/2",
       "speed": "10G",
-      "in_rate": 6434.58,
-      "out_rate": 819.99
-    },
-    {
-      "device": "BKK29001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 64.26,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 6425.99,
-      "out_rate": 656.79
-    },
-    {
-      "device": "BKK43AGNG00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 64.11,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 6411.09,
-      "out_rate": 585.76
-    },
-    {
-      "device": "PTN01001G00",
-      "region": "South",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 63.59,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 6359.09,
-      "out_rate": 680.67
+      "in_rate": 6389.61,
+      "out_rate": 941.64
     },
     {
       "device": "BKK35002G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 63.31,
+      "utilization": 63.89,
       "severity": "Moderate",
-      "ifDescr": "0/10/0",
+      "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 6330.76,
-      "out_rate": 790.51
+      "in_rate": 6388.78,
+      "out_rate": 684.46
     },
     {
-      "device": "BKK02001G00",
+      "device": "BKK29001G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 63.18,
+      "utilization": 63.73,
       "severity": "Moderate",
-      "ifDescr": "1/11/1",
+      "ifDescr": "1/11/2",
       "speed": "10G",
-      "in_rate": 6318.3,
-      "out_rate": 599.76
+      "in_rate": 6372.66,
+      "out_rate": 631.27
     },
     {
       "device": "BKK49002G01",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 63.17,
+      "utilization": 63.58,
       "severity": "Moderate",
-      "ifDescr": "0/10/0",
+      "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 6317.4,
-      "out_rate": 626.28
-    },
-    {
-      "device": "NTB01004G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 62.87,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 6287.0,
-      "out_rate": 603.54
-    },
-    {
-      "device": "BKK15006GO0",
-      "region": "BMA",
-      "olt_model": "MA5800-X2",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 62.64,
-      "severity": "Moderate",
-      "ifDescr": "0/3/0",
-      "speed": "10G",
-      "in_rate": 6263.57,
-      "out_rate": 749.67
-    },
-    {
-      "device": "BKK44007GO0",
-      "region": "BMA",
-      "olt_model": "AN6000-2",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 62.27,
-      "severity": "Moderate",
-      "ifDescr": "3/1",
-      "speed": "10G",
-      "in_rate": 6226.63,
-      "out_rate": 592.35
-    },
-    {
-      "device": "BKK11003G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 62.21,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 6220.71,
-      "out_rate": 669.16
+      "in_rate": 6358.42,
+      "out_rate": 632.18
     },
     {
       "device": "SRN16002G00",
       "region": "Northeast",
       "olt_model": "GL5610-08P(V2)",
       "uplink_model": "ZTE ZXCTN 6120H-SC",
-      "utilization": 61.83,
+      "utilization": 63.38,
       "severity": "Moderate",
       "ifDescr": "1/1",
       "speed": "1G",
-      "in_rate": 618.31,
-      "out_rate": 32.42
+      "in_rate": 633.85,
+      "out_rate": 23.35
+    },
+    {
+      "device": "BKK02001G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 63.36,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 6335.59,
+      "out_rate": 579.13
+    },
+    {
+      "device": "NKS01001G00",
+      "region": "South",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 63.27,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 6327.44,
+      "out_rate": 794.25
+    },
+    {
+      "device": "SMP01007G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 62.85,
+      "severity": "Moderate",
+      "ifDescr": "0/10/1",
+      "speed": "10G",
+      "in_rate": 6285.28,
+      "out_rate": 713.26
+    },
+    {
+      "device": "UTR01001G00",
+      "region": "North",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 62.79,
+      "severity": "Moderate",
+      "ifDescr": "0/9/0",
+      "speed": "10G",
+      "in_rate": 6279.32,
+      "out_rate": 679.43
+    },
+    {
+      "device": "BKK43AGNG00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 62.77,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 6276.94,
+      "out_rate": 598.02
+    },
+    {
+      "device": "BKK42002G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 62.05,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 6205.01,
+      "out_rate": 618.79
+    },
+    {
+      "device": "PTN01001G00",
+      "region": "South",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 62.03,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 6203.03,
+      "out_rate": 659.66
+    },
+    {
+      "device": "NTB01004G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 61.85,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 6185.06,
+      "out_rate": 702.69
     },
     {
       "device": "BKK35002G01",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 61.73,
+      "utilization": 61.78,
       "severity": "Moderate",
       "ifDescr": "0/9/0",
       "speed": "10G",
-      "in_rate": 6172.8,
-      "out_rate": 835.49
+      "in_rate": 6177.54,
+      "out_rate": 877.05
     },
     {
-      "device": "BKK32002G01",
+      "device": "BKK26AGNG03",
       "region": "BMA",
       "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 61.64,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 6164.25,
-      "out_rate": 650.6
-    },
-    {
-      "device": "BKK32001G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 61.63,
-      "severity": "Moderate",
-      "ifDescr": "0/9/1",
-      "speed": "10G",
-      "in_rate": 6163.32,
-      "out_rate": 1415.7
-    },
-    {
-      "device": "NTB03AGNG00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 61.58,
-      "severity": "Moderate",
-      "ifDescr": "1/10/2",
-      "speed": "10G",
-      "in_rate": 6158.07,
-      "out_rate": 619.33
-    },
-    {
-      "device": "SMP04002G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 61.42,
+      "uplink_model": "Huawei CX600-X16A",
+      "utilization": 61.54,
       "severity": "Moderate",
       "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 6142.14,
-      "out_rate": 533.01
-    },
-    {
-      "device": "NTB01003G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 61.33,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 6133.04,
-      "out_rate": 750.85
-    },
-    {
-      "device": "NTB04002G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 60.92,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 6091.59,
-      "out_rate": 872.87
-    },
-    {
-      "device": "NTB03001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 60.77,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 6077.29,
-      "out_rate": 786.2
+      "in_rate": 6153.68,
+      "out_rate": 1061.33
     },
     {
       "device": "SMP02001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 60.42,
+      "utilization": 61.46,
       "severity": "Moderate",
       "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 6042.21,
-      "out_rate": 637.54
+      "in_rate": 6145.5,
+      "out_rate": 551.58
     },
     {
-      "device": "PTT06AGNG00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 60.25,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 6024.79,
-      "out_rate": 634.61
-    },
-    {
-      "device": "BKK46001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 60.18,
-      "severity": "Moderate",
-      "ifDescr": "1/10/2",
-      "speed": "10G",
-      "in_rate": 6017.78,
-      "out_rate": 606.35
-    },
-    {
-      "device": "SMP05008GO1",
+      "device": "BKK15006GO0",
       "region": "BMA",
       "olt_model": "MA5800-X2",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.98,
+      "utilization": 61.43,
       "severity": "Moderate",
-      "ifDescr": "0/4/0",
+      "ifDescr": "0/3/0",
       "speed": "10G",
-      "in_rate": 5997.75,
-      "out_rate": 598.37
+      "in_rate": 6142.59,
+      "out_rate": 577.08
+    },
+    {
+      "device": "NTB04002G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 61.28,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 6128.45,
+      "out_rate": 903.7
+    },
+    {
+      "device": "BKK32002G01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 60.81,
+      "severity": "Moderate",
+      "ifDescr": "0/9/0",
+      "speed": "10G",
+      "in_rate": 6080.77,
+      "out_rate": 547.71
+    },
+    {
+      "device": "NTB03001G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 60.45,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 6044.89,
+      "out_rate": 596.29
     },
     {
       "device": "BKK32001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.66,
+      "utilization": 60.28,
       "severity": "Moderate",
       "ifDescr": "0/10/2",
       "speed": "10G",
-      "in_rate": 5965.69,
-      "out_rate": 1043.73
+      "in_rate": 6027.61,
+      "out_rate": 912.66
     },
     {
-      "device": "BKK48001G00",
+      "device": "BKK44007GO0",
       "region": "BMA",
-      "olt_model": "MA5800-X17",
+      "olt_model": "AN6000-2",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.37,
+      "utilization": 60.14,
       "severity": "Moderate",
-      "ifDescr": "0/9/1",
+      "ifDescr": "3/1",
       "speed": "10G",
-      "in_rate": 5936.89,
-      "out_rate": 561.14
+      "in_rate": 6014.2,
+      "out_rate": 612.96
     },
     {
-      "device": "BKK40003G00",
+      "device": "NTB01003G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.36,
+      "utilization": 60.09,
       "severity": "Moderate",
       "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 5935.65,
-      "out_rate": 557.16
+      "in_rate": 6009.41,
+      "out_rate": 686.67
     },
     {
-      "device": "BKK42001G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.36,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 5936.07,
-      "out_rate": 786.75
-    },
-    {
-      "device": "PTT03001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.13,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5913.44,
-      "out_rate": 655.26
-    },
-    {
-      "device": "BKK35002G02",
+      "device": "BKK11003G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 59.04,
+      "utilization": 59.84,
       "severity": "Moderate",
-      "ifDescr": "0/10/1",
+      "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 5903.62,
-      "out_rate": 683.28
-    },
-    {
-      "device": "NTB04003G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 58.95,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5895.38,
-      "out_rate": 676.62
-    },
-    {
-      "device": "NTB04004G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 58.9,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 5890.25,
-      "out_rate": 648.55
-    },
-    {
-      "device": "PTT03003G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 58.82,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 5881.91,
-      "out_rate": 579.95
+      "in_rate": 5984.09,
+      "out_rate": 794.6
     },
     {
       "device": "BKK47001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 58.73,
+      "utilization": 59.82,
       "severity": "Moderate",
       "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 5872.94,
-      "out_rate": 634.59
+      "in_rate": 5982.06,
+      "out_rate": 594.38
+    },
+    {
+      "device": "BKK42001G01",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 59.45,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 5945.03,
+      "out_rate": 560.37
     },
     {
       "device": "BKK41002G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 58.65,
+      "utilization": 59.21,
       "severity": "Moderate",
       "ifDescr": "1/10/1",
       "speed": "10G",
-      "in_rate": 5865.14,
-      "out_rate": 609.7
+      "in_rate": 5920.87,
+      "out_rate": 516.28
     },
     {
-      "device": "SMP03001G00",
+      "device": "NTB03AGNG00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 59.14,
+      "severity": "Moderate",
+      "ifDescr": "1/10/2",
+      "speed": "10G",
+      "in_rate": 5914.49,
+      "out_rate": 632.71
+    },
+    {
+      "device": "SMP04002G01",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 58.44,
+      "utilization": 58.94,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5894.38,
+      "out_rate": 632.19
+    },
+    {
+      "device": "NTB04003G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 58.91,
+      "severity": "Moderate",
+      "ifDescr": "1/10/1",
+      "speed": "10G",
+      "in_rate": 5891.07,
+      "out_rate": 576.25
+    },
+    {
+      "device": "BKK40003G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 58.79,
       "severity": "Moderate",
       "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 5843.69,
-      "out_rate": 625.21
+      "in_rate": 5878.67,
+      "out_rate": 505.03
     },
     {
-      "device": "BKK23001G01",
+      "device": "PTT03003G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 58.79,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 5879.1,
+      "out_rate": 520.41
+    },
+    {
+      "device": "BKK32001G01",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 57.79,
+      "utilization": 58.73,
+      "severity": "Moderate",
+      "ifDescr": "0/9/0",
+      "speed": "10G",
+      "in_rate": 5872.62,
+      "out_rate": 550.67
+    },
+    {
+      "device": "BKK48001G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 58.54,
       "severity": "Moderate",
       "ifDescr": "0/9/1",
       "speed": "10G",
-      "in_rate": 5778.59,
-      "out_rate": 770.01
+      "in_rate": 5854.22,
+      "out_rate": 564.71
     },
     {
-      "device": "BKK49002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 57.64,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5763.71,
-      "out_rate": 630.57
-    },
-    {
-      "device": "NTB01006G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 57.61,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 5761.17,
-      "out_rate": 595.44
-    },
-    {
-      "device": "PTT06002G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 57.36,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5736.45,
-      "out_rate": 643.66
-    },
-    {
-      "device": "NTB04001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 57.27,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 5726.5,
-      "out_rate": 973.55
-    },
-    {
-      "device": "BKK20010GO0",
+      "device": "SMP05008GO1",
       "region": "BMA",
       "olt_model": "MA5800-X2",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 57.11,
+      "utilization": 58.33,
       "severity": "Moderate",
       "ifDescr": "0/4/0",
       "speed": "10G",
-      "in_rate": 5711.11,
-      "out_rate": 571.71
-    },
-    {
-      "device": "BKK19001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.91,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5691.3,
-      "out_rate": 795.79
-    },
-    {
-      "device": "BKK35001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.86,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 5686.0,
-      "out_rate": 518.92
-    },
-    {
-      "device": "BKK40002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.48,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5648.18,
-      "out_rate": 553.54
-    },
-    {
-      "device": "BKK24001G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.25,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 5624.53,
-      "out_rate": 563.96
-    },
-    {
-      "device": "BKK42002G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.18,
-      "severity": "Moderate",
-      "ifDescr": "1/10/2",
-      "speed": "10G",
-      "in_rate": 5618.38,
-      "out_rate": 817.16
-    },
-    {
-      "device": "BKK23001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.17,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 5617.42,
-      "out_rate": 572.84
-    },
-    {
-      "device": "NTB03AGNG01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.15,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5614.53,
-      "out_rate": 682.15
-    },
-    {
-      "device": "BKK20001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 56.06,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5605.78,
-      "out_rate": 476.87
-    },
-    {
-      "device": "SMK02002G01",
-      "region": "Central",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 55.88,
-      "severity": "Moderate",
-      "ifDescr": "0/9/1",
-      "speed": "10G",
-      "in_rate": 5587.55,
-      "out_rate": 562.73
-    },
-    {
-      "device": "PTT01001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 55.77,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5576.78,
-      "out_rate": 707.83
-    },
-    {
-      "device": "BKK24001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 55.65,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5564.79,
-      "out_rate": 590.79
-    },
-    {
-      "device": "MHR09004G00",
-      "region": "Northeast",
-      "olt_model": "MA5801-FL16",
-      "uplink_model": "ZTE ZXCTN 6120H-SC",
-      "utilization": 55.52,
-      "severity": "Moderate",
-      "ifDescr": "0/2/0",
-      "speed": "1G",
-      "in_rate": 555.16,
-      "out_rate": 44.15
-    },
-    {
-      "device": "BKK23002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 55.42,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 5541.58,
-      "out_rate": 501.64
-    },
-    {
-      "device": "BKK04001G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 55.36,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 5536.15,
-      "out_rate": 1099.38
-    },
-    {
-      "device": "NTB06002G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 55.08,
-      "severity": "Moderate",
-      "ifDescr": "1/10/2",
-      "speed": "10G",
-      "in_rate": 5507.72,
-      "out_rate": 660.45
-    },
-    {
-      "device": "BKK26AGNG01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X16A",
-      "utilization": 54.95,
-      "severity": "Moderate",
-      "ifDescr": "0/9/1",
-      "speed": "10G",
-      "in_rate": 5495.03,
-      "out_rate": 835.44
-    },
-    {
-      "device": "BKK11003G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 54.79,
-      "severity": "Moderate",
-      "ifDescr": "0/9/1",
-      "speed": "10G",
-      "in_rate": 5478.68,
-      "out_rate": 647.26
+      "in_rate": 5832.67,
+      "out_rate": 621.75
     },
     {
       "device": "MHR01002GO0",
       "region": "Northeast",
       "olt_model": "MA5608T",
       "uplink_model": "Nokia 7750 SR",
-      "utilization": 54.59,
+      "utilization": 58.27,
       "severity": "Moderate",
       "ifDescr": "Huawei-MA5600-V800R018-ETHERNET",
       "speed": "1G",
-      "in_rate": 545.91,
-      "out_rate": 45.48
+      "in_rate": 582.68,
+      "out_rate": 43.41
     },
     {
-      "device": "BKK37002G00",
+      "device": "NTB03AGNG01",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 57.58,
+      "severity": "Moderate",
+      "ifDescr": "1/10/1",
+      "speed": "10G",
+      "in_rate": 5758.0,
+      "out_rate": 473.55
+    },
+    {
+      "device": "PTT03001G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 57.51,
+      "severity": "Moderate",
+      "ifDescr": "1/10/1",
+      "speed": "10G",
+      "in_rate": 5750.56,
+      "out_rate": 627.67
+    },
+    {
+      "device": "PTT06AGNG00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 57.45,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 5744.76,
+      "out_rate": 606.24
+    },
+    {
+      "device": "BKK35002G02",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 54.57,
+      "utilization": 57.22,
       "severity": "Moderate",
       "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 5457.36,
-      "out_rate": 734.85
+      "in_rate": 5721.73,
+      "out_rate": 565.47
+    },
+    {
+      "device": "BKK46001G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 57.22,
+      "severity": "Moderate",
+      "ifDescr": "1/10/2",
+      "speed": "10G",
+      "in_rate": 5722.46,
+      "out_rate": 624.91
+    },
+    {
+      "device": "NTB04004G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 57.07,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 5707.44,
+      "out_rate": 538.12
+    },
+    {
+      "device": "PTT06002G01",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 57.06,
+      "severity": "Moderate",
+      "ifDescr": "1/10/1",
+      "speed": "10G",
+      "in_rate": 5705.54,
+      "out_rate": 491.15
     },
     {
       "device": "SMP01AGNG00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X16A",
-      "utilization": 54.45,
+      "utilization": 56.6,
       "severity": "Moderate",
       "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 5444.55,
-      "out_rate": 477.36
+      "in_rate": 5660.1,
+      "out_rate": 537.05
     },
     {
-      "device": "NTB03001G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 54.08,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 5408.25,
-      "out_rate": 644.84
-    },
-    {
-      "device": "BKK40001G01",
+      "device": "SMP03001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 53.93,
+      "utilization": 56.53,
       "severity": "Moderate",
-      "ifDescr": "0/9/1",
+      "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 5392.67,
-      "out_rate": 737.06
+      "in_rate": 5653.4,
+      "out_rate": 546.99
+    },
+    {
+      "device": "BKK20010GO0",
+      "region": "BMA",
+      "olt_model": "MA5800-X2",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 56.41,
+      "severity": "Moderate",
+      "ifDescr": "0/4/0",
+      "speed": "10G",
+      "in_rate": 5641.24,
+      "out_rate": 630.99
     },
     {
       "device": "NKR21035GO0",
       "region": "Northeast",
       "olt_model": "C320",
       "uplink_model": "ZTE ZXCTN 9000-8EA",
-      "utilization": 53.87,
+      "utilization": 56.4,
       "severity": "Moderate",
-      "ifDescr": "1/3/1",
+      "ifDescr": "1/3/2",
       "speed": "1G",
-      "in_rate": 538.66,
-      "out_rate": 45.14
+      "in_rate": 564.04,
+      "out_rate": 52.22
     },
     {
-      "device": "NTB06AGNG01",
+      "device": "NTB01006G01",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 53.67,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5366.8,
-      "out_rate": 748.69
-    },
-    {
-      "device": "SRN09002G00",
-      "region": "Northeast",
-      "olt_model": "C610",
-      "uplink_model": "ZTE ZXCTN 6120H-SC",
-      "utilization": 53.54,
-      "severity": "Moderate",
-      "ifDescr": "1/1/0",
-      "speed": "1G",
-      "in_rate": 535.43,
-      "out_rate": 41.44
-    },
-    {
-      "device": "BKK03001G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 53.45,
+      "utilization": 56.3,
       "severity": "Moderate",
       "ifDescr": "1/11/2",
       "speed": "10G",
-      "in_rate": 5344.73,
-      "out_rate": 432.87
+      "in_rate": 5630.4,
+      "out_rate": 654.55
     },
     {
-      "device": "BKK48001G01",
+      "device": "BKK40002G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 53.31,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 5330.74,
-      "out_rate": 450.27
-    },
-    {
-      "device": "SMP03001G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 53.22,
+      "utilization": 56.19,
       "severity": "Moderate",
       "ifDescr": "0/9/0",
       "speed": "10G",
-      "in_rate": 5321.77,
-      "out_rate": 630.62
+      "in_rate": 5619.19,
+      "out_rate": 486.68
     },
     {
-      "device": "BKK32002G00",
+      "device": "BKK49002G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.57,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 5256.82,
-      "out_rate": 966.79
-    },
-    {
-      "device": "BKK19002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.5,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5249.53,
-      "out_rate": 590.31
-    },
-    {
-      "device": "SMP02002G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.48,
+      "utilization": 56.17,
       "severity": "Moderate",
       "ifDescr": "0/10/0",
       "speed": "10G",
-      "in_rate": 5247.86,
-      "out_rate": 542.12
+      "in_rate": 5617.27,
+      "out_rate": 532.56
     },
     {
-      "device": "SMK02002G00",
-      "region": "Central",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.45,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5245.46,
-      "out_rate": 478.49
-    },
-    {
-      "device": "BKK22001G00",
+      "device": "BKK24001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.37,
+      "utilization": 55.98,
       "severity": "Moderate",
       "ifDescr": "0/10/1",
       "speed": "10G",
-      "in_rate": 5236.84,
-      "out_rate": 564.34
+      "in_rate": 5597.67,
+      "out_rate": 500.86
     },
     {
-      "device": "SRT01001G00",
-      "region": "South",
-      "olt_model": "C300",
+      "device": "BKK23001G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.27,
+      "utilization": 55.9,
       "severity": "Moderate",
-      "ifDescr": "1/10/1",
+      "ifDescr": "0/9/1",
       "speed": "10G",
-      "in_rate": 5227.05,
-      "out_rate": 621.33
+      "in_rate": 5589.55,
+      "out_rate": 537.94
     },
     {
-      "device": "NTB01005G01",
+      "device": "NTB04001G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.24,
+      "utilization": 55.76,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 5575.75,
+      "out_rate": 591.99
+    },
+    {
+      "device": "BKK23001G01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 55.71,
+      "severity": "Moderate",
+      "ifDescr": "0/9/0",
+      "speed": "10G",
+      "in_rate": 5571.03,
+      "out_rate": 511.78
+    },
+    {
+      "device": "BKK42002G01",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 55.68,
       "severity": "Moderate",
       "ifDescr": "1/10/2",
       "speed": "10G",
-      "in_rate": 5224.44,
-      "out_rate": 512.18
+      "in_rate": 5568.23,
+      "out_rate": 600.3
     },
     {
-      "device": "NKT06001G00",
-      "region": "Central",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.13,
-      "severity": "Moderate",
-      "ifDescr": "0/10/0",
-      "speed": "10G",
-      "in_rate": 5212.69,
-      "out_rate": 647.24
-    },
-    {
-      "device": "NTB06003G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.12,
-      "severity": "Moderate",
-      "ifDescr": "1/11/2",
-      "speed": "10G",
-      "in_rate": 5212.48,
-      "out_rate": 657.02
-    },
-    {
-      "device": "BKK15001G00",
+      "device": "BKK24001G01",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 52.08,
+      "utilization": 55.51,
       "severity": "Moderate",
-      "ifDescr": "0/10/0",
+      "ifDescr": "0/9/0",
       "speed": "10G",
-      "in_rate": 5207.95,
-      "out_rate": 414.36
-    },
-    {
-      "device": "BKK10001G01",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.92,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5192.12,
-      "out_rate": 814.59
-    },
-    {
-      "device": "BKK04001G00",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.88,
-      "severity": "Moderate",
-      "ifDescr": "0/10/1",
-      "speed": "10G",
-      "in_rate": 5187.58,
-      "out_rate": 854.3
-    },
-    {
-      "device": "BKK34017GO0",
-      "region": "BMA",
-      "olt_model": "AN5516-04",
-      "uplink_model": "Huawei CX600-X16A",
-      "utilization": 51.66,
-      "severity": "Moderate",
-      "ifDescr": "10/1",
-      "speed": "10G",
-      "in_rate": 5165.52,
-      "out_rate": 789.83
+      "in_rate": 5550.92,
+      "out_rate": 600.98
     },
     {
       "device": "NTB06001G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.63,
+      "utilization": 55.39,
       "severity": "Moderate",
       "ifDescr": "1/11/1",
       "speed": "10G",
-      "in_rate": 5162.79,
-      "out_rate": 872.17
+      "in_rate": 5538.75,
+      "out_rate": 733.44
     },
     {
-      "device": "NTB01016GO0",
-      "region": "BMA",
-      "olt_model": "AN5516-04",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.55,
-      "severity": "Moderate",
-      "ifDescr": "10/1",
-      "speed": "10G",
-      "in_rate": 5154.62,
-      "out_rate": 596.6
-    },
-    {
-      "device": "BKK05002G00",
+      "device": "NTB06002G01",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.44,
+      "utilization": 55.36,
       "severity": "Moderate",
-      "ifDescr": "1/11/1",
+      "ifDescr": "1/10/1",
       "speed": "10G",
-      "in_rate": 5144.11,
-      "out_rate": 667.21
+      "in_rate": 5535.69,
+      "out_rate": 668.58
     },
     {
-      "device": "NTB03002G00",
-      "region": "BMA",
-      "olt_model": "C300",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.39,
-      "severity": "Moderate",
-      "ifDescr": "1/11/1",
-      "speed": "10G",
-      "in_rate": 5139.1,
-      "out_rate": 602.54
-    },
-    {
-      "device": "BKK09002G01",
+      "device": "BKK20001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.37,
+      "utilization": 54.97,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5497.49,
+      "out_rate": 552.68
+    },
+    {
+      "device": "SMK02002G01",
+      "region": "Central",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 54.77,
       "severity": "Moderate",
       "ifDescr": "0/9/1",
       "speed": "10G",
-      "in_rate": 5137.14,
-      "out_rate": 586.22
+      "in_rate": 5477.4,
+      "out_rate": 502.04
     },
     {
-      "device": "NTB04006G00",
+      "device": "BKK47019GO0",
+      "region": "BMA",
+      "olt_model": "AN5516-04",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 54.68,
+      "severity": "Moderate",
+      "ifDescr": "10/1",
+      "speed": "10G",
+      "in_rate": 5467.59,
+      "out_rate": 503.57
+    },
+    {
+      "device": "NTB06AGNG01",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.25,
+      "utilization": 54.49,
       "severity": "Moderate",
-      "ifDescr": "1/11/2",
+      "ifDescr": "1/10/2",
       "speed": "10G",
-      "in_rate": 5125.27,
-      "out_rate": 671.48
+      "in_rate": 5448.76,
+      "out_rate": 773.99
+    },
+    {
+      "device": "BKK19001G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 54.45,
+      "severity": "Moderate",
+      "ifDescr": "0/10/1",
+      "speed": "10G",
+      "in_rate": 5444.67,
+      "out_rate": 672.86
+    },
+    {
+      "device": "BKK37002G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 53.99,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5399.41,
+      "out_rate": 543.7
+    },
+    {
+      "device": "BKK23002G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 53.91,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5390.54,
+      "out_rate": 503.55
+    },
+    {
+      "device": "BKK35001G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 53.89,
+      "severity": "Moderate",
+      "ifDescr": "0/10/1",
+      "speed": "10G",
+      "in_rate": 5389.48,
+      "out_rate": 536.55
+    },
+    {
+      "device": "NKT06001G00",
+      "region": "Central",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 53.79,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5379.05,
+      "out_rate": 548.32
+    },
+    {
+      "device": "BKK19002G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 53.09,
+      "severity": "Moderate",
+      "ifDescr": "0/10/1",
+      "speed": "10G",
+      "in_rate": 5309.01,
+      "out_rate": 565.47
+    },
+    {
+      "device": "BKK26AGNG01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X16A",
+      "utilization": 52.97,
+      "severity": "Moderate",
+      "ifDescr": "0/9/1",
+      "speed": "10G",
+      "in_rate": 5297.47,
+      "out_rate": 617.19
     },
     {
       "device": "BKK11001G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.18,
+      "utilization": 52.91,
       "severity": "Moderate",
-      "ifDescr": "1/11/1",
+      "ifDescr": "1/11/2",
       "speed": "10G",
-      "in_rate": 5118.26,
-      "out_rate": 445.21
+      "in_rate": 5291.4,
+      "out_rate": 616.18
     },
     {
-      "device": "BKK39006GO1",
-      "region": "BMA",
-      "olt_model": "MA5800-X2",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 51.06,
-      "severity": "Moderate",
-      "ifDescr": "0/3/0",
-      "speed": "10G",
-      "in_rate": 5105.94,
-      "out_rate": 603.05
-    },
-    {
-      "device": "KBI01002G00",
-      "region": "South",
-      "olt_model": "C300",
-      "uplink_model": "Huawei ATN 950B",
-      "utilization": 50.93,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5092.95,
-      "out_rate": 497.46
-    },
-    {
-      "device": "BKK20005GO0",
-      "region": "BMA",
-      "olt_model": "AN5516-04",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.86,
-      "severity": "Moderate",
-      "ifDescr": "10/1",
-      "speed": "10G",
-      "in_rate": 5085.61,
-      "out_rate": 679.95
-    },
-    {
-      "device": "BKK08001G00",
+      "device": "BKK11003G01",
       "region": "BMA",
       "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.78,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 5077.55,
-      "out_rate": 939.72
-    },
-    {
-      "device": "TAK06001G00",
-      "region": "West",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.75,
-      "severity": "Moderate",
-      "ifDescr": "0/9/0",
-      "speed": "10G",
-      "in_rate": 5074.76,
-      "out_rate": 528.96
-    },
-    {
-      "device": "RCB07001G00",
-      "region": "West",
-      "olt_model": "C300",
-      "uplink_model": "ZTE ZXCTN 9000-8EA",
-      "utilization": 50.7,
-      "severity": "Moderate",
-      "ifDescr": "1/10/1",
-      "speed": "10G",
-      "in_rate": 5070.41,
-      "out_rate": 483.92
-    },
-    {
-      "device": "BKK19002G01",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.68,
+      "utilization": 52.82,
       "severity": "Moderate",
       "ifDescr": "0/9/1",
       "speed": "10G",
-      "in_rate": 5068.49,
-      "out_rate": 682.75
+      "in_rate": 5282.12,
+      "out_rate": 696.38
     },
     {
-      "device": "BKK37002G02",
-      "region": "BMA",
-      "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.59,
+      "device": "KKNKKN1VGW0",
+      "region": "Northeast",
+      "olt_model": "MA5603T",
+      "uplink_model": "Nokia 7750 SR",
+      "utilization": 52.72,
       "severity": "Moderate",
-      "ifDescr": "0/10/1",
+      "ifDescr": "Huawei-MA5600-V800R011-ETHERNET",
+      "speed": "1G",
+      "in_rate": 527.2,
+      "out_rate": 53.31
+    },
+    {
+      "device": "SRT01001G00",
+      "region": "South",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 52.71,
+      "severity": "Moderate",
+      "ifDescr": "1/10/1",
       "speed": "10G",
-      "in_rate": 5058.66,
-      "out_rate": 742.37
+      "in_rate": 5271.47,
+      "out_rate": 493.85
     },
     {
       "device": "NTB04002G01",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.58,
+      "utilization": 52.34,
       "severity": "Moderate",
       "ifDescr": "1/10/2",
       "speed": "10G",
-      "in_rate": 5058.22,
-      "out_rate": 460.11
+      "in_rate": 5233.75,
+      "out_rate": 469.38
     },
     {
-      "device": "SMP01AGNG01",
+      "device": "BKK04001G00",
       "region": "BMA",
       "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X16A",
-      "utilization": 50.57,
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 52.22,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5222.09,
+      "out_rate": 931.45
+    },
+    {
+      "device": "BKK04001G01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 52.21,
       "severity": "Moderate",
       "ifDescr": "0/9/0",
       "speed": "10G",
-      "in_rate": 5057.42,
-      "out_rate": 572.0
+      "in_rate": 5221.44,
+      "out_rate": 1089.3
     },
     {
-      "device": "NTB01017GO0",
+      "device": "BKK40001G01",
       "region": "BMA",
-      "olt_model": "AN6000-2",
+      "olt_model": "MA5800-X17",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.5,
+      "utilization": 52.08,
       "severity": "Moderate",
-      "ifDescr": "3/1",
+      "ifDescr": "0/9/1",
       "speed": "10G",
-      "in_rate": 5050.43,
-      "out_rate": 705.44
+      "in_rate": 5207.64,
+      "out_rate": 582.19
+    },
+    {
+      "device": "PTT01001G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 52.04,
+      "severity": "Moderate",
+      "ifDescr": "1/10/1",
+      "speed": "10G",
+      "in_rate": 5203.79,
+      "out_rate": 516.58
+    },
+    {
+      "device": "SRN09002G00",
+      "region": "Northeast",
+      "olt_model": "C610",
+      "uplink_model": "ZTE ZXCTN 6120H-SC",
+      "utilization": 51.95,
+      "severity": "Moderate",
+      "ifDescr": "1/1/0",
+      "speed": "1G",
+      "in_rate": 519.51,
+      "out_rate": 41.82
+    },
+    {
+      "device": "SMK02002G00",
+      "region": "Central",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 51.93,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5192.92,
+      "out_rate": 479.5
+    },
+    {
+      "device": "SMP03001G01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 51.91,
+      "severity": "Moderate",
+      "ifDescr": "0/9/0",
+      "speed": "10G",
+      "in_rate": 5191.36,
+      "out_rate": 633.72
+    },
+    {
+      "device": "BKK22001G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 51.85,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5184.54,
+      "out_rate": 488.26
+    },
+    {
+      "device": "BRR01042GO0",
+      "region": "Northeast",
+      "olt_model": "AN5516-04",
+      "uplink_model": "Nokia 7750 SR",
+      "utilization": 51.7,
+      "severity": "Moderate",
+      "ifDescr": "10/1",
+      "speed": "10G",
+      "in_rate": 5170.32,
+      "out_rate": 358.86
+    },
+    {
+      "device": "NTB03001G01",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 51.69,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 5168.51,
+      "out_rate": 662.04
+    },
+    {
+      "device": "BKK19002G01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 51.57,
+      "severity": "Moderate",
+      "ifDescr": "0/9/1",
+      "speed": "10G",
+      "in_rate": 5156.64,
+      "out_rate": 575.08
+    },
+    {
+      "device": "NTB03002G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 51.43,
+      "severity": "Moderate",
+      "ifDescr": "1/11/1",
+      "speed": "10G",
+      "in_rate": 5142.91,
+      "out_rate": 430.45
+    },
+    {
+      "device": "NTB01016GO0",
+      "region": "BMA",
+      "olt_model": "AN5516-04",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 50.95,
+      "severity": "Moderate",
+      "ifDescr": "10/1",
+      "speed": "10G",
+      "in_rate": 5095.41,
+      "out_rate": 516.88
+    },
+    {
+      "device": "SMP02002G00",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 50.93,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5093.43,
+      "out_rate": 607.97
+    },
+    {
+      "device": "BKK03001G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 50.6,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 5059.7,
+      "out_rate": 419.6
+    },
+    {
+      "device": "BKK48001G01",
+      "region": "BMA",
+      "olt_model": "MA5800-X17",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 50.48,
+      "severity": "Moderate",
+      "ifDescr": "0/10/0",
+      "speed": "10G",
+      "in_rate": 5047.89,
+      "out_rate": 480.69
     },
     {
       "device": "NTB05001G00",
       "region": "BMA",
       "olt_model": "C300",
       "uplink_model": "Huawei CX600-X8A",
-      "utilization": 50.49,
+      "utilization": 50.25,
       "severity": "Moderate",
-      "ifDescr": "1/10/2",
+      "ifDescr": "1/10/1",
       "speed": "10G",
-      "in_rate": 5048.9,
-      "out_rate": 606.01
+      "in_rate": 5025.38,
+      "out_rate": 447.35
     },
     {
-      "device": "TRG01002G00",
+      "device": "KBI01002G00",
       "region": "South",
-      "olt_model": "C320",
-      "uplink_model": "Huawei ATN 950D",
-      "utilization": 50.38,
-      "severity": "Moderate",
-      "ifDescr": "1/4/2",
-      "speed": "1G",
-      "in_rate": 503.82,
-      "out_rate": 39.95
-    },
-    {
-      "device": "BKK23007GO0",
-      "region": "BMA",
-      "olt_model": "AN5516-04",
-      "uplink_model": "Huawei CX600-X8A",
+      "olt_model": "C300",
+      "uplink_model": "Huawei ATN 950B",
       "utilization": 50.21,
       "severity": "Moderate",
-      "ifDescr": "10/1",
+      "ifDescr": "1/10/1",
       "speed": "10G",
-      "in_rate": 5020.59,
-      "out_rate": 692.85
+      "in_rate": 5021.21,
+      "out_rate": 490.31
+    },
+    {
+      "device": "NTB04006G00",
+      "region": "BMA",
+      "olt_model": "C300",
+      "uplink_model": "Huawei CX600-X8A",
+      "utilization": 50.02,
+      "severity": "Moderate",
+      "ifDescr": "1/11/2",
+      "speed": "10G",
+      "in_rate": 5002.04,
+      "out_rate": 485.66
     }
   ],
   "single_uplink_vendors": {
-    "Raisecom": 199,
     "GCOM": 148,
-    "Dasan": 132,
-    "Huawei": 40,
-    "ZTE": 18,
-    "Fiberhome": 14
+    "Raisecom": 195,
+    "Dasan": 127,
+    "Fiberhome": 13,
+    "Huawei": 141,
+    "ZTE": 13
   }
 };
 
@@ -1828,19 +1652,23 @@
                 }
             }
 
-            const regions = Object.keys(dashboardData.region_stats).sort((a, b) => dashboardData.region_stats[b].total - dashboardData.region_stats[a].total);
+            // Filter regions to only those with alerts (>=50% utilization)
+            const alertRegionsBase = Object.keys(dashboardData.region_stats)
+                .filter(r => (dashboardData.region_stats[r].critical + dashboardData.region_stats[r].high + dashboardData.region_stats[r].mod) > 0);
             
-            const totalData = regions.map(r => dashboardData.region_stats[r].total);
-            const critData = regions.map(r => dashboardData.region_stats[r].critical);
-            const highData = regions.map(r => dashboardData.region_stats[r].high);
-            const modData = regions.map(r => dashboardData.region_stats[r].mod);
-            const healthData = regions.map(r => dashboardData.region_stats[r].healthy);
+            // Sort by Total OLTs descending for Chart 1 and Chart 3
+            const totalRegions = [...alertRegionsBase].sort((a, b) => dashboardData.region_stats[b].total - dashboardData.region_stats[a].total);
+            const totalData = totalRegions.map(r => dashboardData.region_stats[r].total);
+            const critData = totalRegions.map(r => dashboardData.region_stats[r].critical);
+            const highData = totalRegions.map(r => dashboardData.region_stats[r].high);
+            const modData = totalRegions.map(r => dashboardData.region_stats[r].mod);
+            const healthData = totalRegions.map(r => dashboardData.region_stats[r].healthy);
 
             // Chart 1: Total Devices
             new Chart(document.getElementById('regionTotalChart'), {
                 type: 'bar',
                 data: {
-                    labels: regions,
+                    labels: totalRegions,
                     datasets: [{
                         label: 'Total OLTs',
                         data: totalData,
@@ -1858,14 +1686,12 @@
                 }
             });
 
-            // Chart 2: Alerts Stacked (Only Critical, High, Mod)
-            const alertRegions = Object.keys(dashboardData.region_stats)
-                .filter(r => (dashboardData.region_stats[r].critical + dashboardData.region_stats[r].high + dashboardData.region_stats[r].mod) > 0)
-                .sort((a, b) => {
-                    const sumA = dashboardData.region_stats[a].critical + dashboardData.region_stats[a].high + dashboardData.region_stats[a].mod;
-                    const sumB = dashboardData.region_stats[b].critical + dashboardData.region_stats[b].high + dashboardData.region_stats[b].mod;
-                    return sumB - sumA;
-                });
+            // Sort by Total Alerts descending for Chart 2
+            const alertRegions = [...alertRegionsBase].sort((a, b) => {
+                const sumA = dashboardData.region_stats[a].critical + dashboardData.region_stats[a].high + dashboardData.region_stats[a].mod;
+                const sumB = dashboardData.region_stats[b].critical + dashboardData.region_stats[b].high + dashboardData.region_stats[b].mod;
+                return sumB - sumA;
+            });
             const aCrit = alertRegions.map(r => dashboardData.region_stats[r].critical);
             const aHigh = alertRegions.map(r => dashboardData.region_stats[r].high);
             const aMod = alertRegions.map(r => dashboardData.region_stats[r].mod);
@@ -1894,7 +1720,7 @@
             new Chart(document.getElementById('regionStackedChart'), {
                 type: 'bar',
                 data: {
-                    labels: regions,
+                    labels: totalRegions,
                     datasets: [
                         { label: '🔴 Critical (>80%)', data: critData, backgroundColor: 'rgba(239, 68, 68, 0.85)' },
                         { label: '🟧 High (70-80%)', data: highData, backgroundColor: 'rgba(245, 158, 11, 0.85)' },
@@ -1941,60 +1767,21 @@
         }
 
         
-        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
-        function checkLocalEnv() {
-            const btn = document.getElementById('runCheckBtn');
-            if (btn) {
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    btn.style.display = 'inline-flex';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-        }
+        
+        
 
-        async function triggerRunCheck() {
-            const btn = document.getElementById('runCheckBtn');
-            if (!btn) return;
-            const originalText = btn.innerHTML;
-            
-            btn.disabled = true;
-            btn.innerHTML = '⚡ Processing update... Please wait';
-            btn.style.background = 'rgba(239, 68, 68, 0.2)';
-            btn.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-            btn.style.color = '#ef4444';
-            btn.style.cursor = 'not-allowed';
-            btn.classList.add('blink');
-
-            try {
-                const response = await fetch('http://127.0.0.1:5050/api/run-check/nav-uplinktraffic', {
-                    method: 'POST'
-                });
-                const data = await response.json();
-                
-                if (response.ok) {
-                    alert(data.message || 'สแกนและประมวลผลแท็บนี้เสร็จสิ้น!');
-                    window.location.reload();
-                } else {
-                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
-                }
-            } catch (err) {
-                alert('ไม่สามารถเชื่อมต่อไปยัง Local API Server ได้ (กรุณารัน python3 /Users/bbae/GPTCodex/scrip/api_server.py ก่อน)');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-                btn.style.background = 'rgba(245, 158, 11, 0.15)';
-                btn.style.borderColor = 'rgba(245, 158, 11, 0.35)';
-                btn.style.color = '#f59e0b';
-                btn.style.cursor = 'pointer';
-                btn.classList.remove('blink');
-            }
-        }
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             initDashboard();
-            setTimeout(checkLocalEnv, 150);
+            
         });
-    </script>
+    
+        
+
+        
+        
+
+        </script>
 </body>
 </html>

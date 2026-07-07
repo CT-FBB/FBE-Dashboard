@@ -174,6 +174,7 @@ body {
     font-weight: 500;
     transition: all 0.2s ease;
     border-left: 3px solid transparent;
+    box-sizing: border-box;
 }
 .sidebar-links a:hover {
     color: #f8fafc;
@@ -194,7 +195,7 @@ body {
     position: relative;
 }
 .sidebar-links a.sub-link::before {
-    content: '└';
+    content: '\2514';
     position: absolute;
     left: 24px;
     color: rgba(6,182,212,0.35);
@@ -232,11 +233,11 @@ body {
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
         <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">XGS Upgrade</a>
+        <a href="single_board_dashboard.html" id="nav-control-board">Control card</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">HiSpeedPack</a>
         <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
     </div>
-    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
-</nav>
+    </nav>
 
 
 
@@ -248,7 +249,7 @@ body {
         <div class="header" style="display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
             <h1>📊 OLT L2 Distance Analysis Dashboard</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 05/07/2026</span></div>
             <p>รายงานจำนวน L2 Splitter ที่มี ONU ใช้งาน และระยะทางจาก OLT ไปยัง ONU (ข้อมูลจาก onu_range)</p>
             </div>
         <a href="OLT_L2_Distance_Detailed_Report.xlsx" download="OLT_L2_Distance_Detailed_Report.xlsx" style="padding: 0.6rem 1.2rem; background-color: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s; text-decoration: none;">
@@ -269909,47 +269910,55 @@ body {
         
 
         
-        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
-        function checkLocalEnv() {
-            const btn = document.getElementById('runCheckBtn');
-            if (btn) {
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-                btn.style.display = isLocal ? 'inline-block' : 'none';
-            }
-        }
+        
 
-        async function triggerRunCheck() {
-            const btn = document.getElementById('runCheckBtn');
-            if (!btn) return;
-            const originalHTML = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = '⏳ Processing... Please wait';
-            btn.style.background = 'rgba(239,68,68,0.2)';
-            btn.style.borderColor = 'rgba(239,68,68,0.4)';
-            btn.style.color = '#ef4444';
-            btn.style.cursor = 'not-allowed';
-            try {
-                const resp = await fetch('http://127.0.0.1:5050/api/run-check/nav-l2distance', { method: 'POST' });
-                const data = await resp.json();
-                if (resp.ok) {
-                    alert(data.message || 'สแกนและประมวลผลเสร็จสิ้น!');
-                    window.location.reload();
-                } else {
-                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
-                }
-            } catch (e) {
-                alert('ไม่สามารถเชื่อมต่อ Local API Server ได้\n(รัน python3 /Users/bbae/GPTCodex/scrip/api_server.py ก่อน)');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalHTML;
-                btn.style.background = 'rgba(245,158,11,0.15)';
-                btn.style.borderColor = 'rgba(245,158,11,0.35)';
-                btn.style.color = '#f59e0b';
-                btn.style.cursor = 'pointer';
-            }
-        }
-        setTimeout(checkLocalEnv, 300);
-        // --- END RUN CHECK LOGIC ---
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
 
         </script>
 </body>
