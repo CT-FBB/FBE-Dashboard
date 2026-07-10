@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+    /* Prevent layout shift from scrollbar appear/disappear */
+    html { scrollbar-gutter: stable; overflow-y: scroll; }
+
         :root {
             --bg-color: #030712;
             --card-bg: rgba(17, 24, 39, 0.6);
@@ -29,10 +32,10 @@
             background: radial-gradient(circle at top right, #111827, #030712);
             color: var(--text-main);
             margin: 0;
-            padding: 20px;
-            padding-left: 270px;
             min-height: 100vh;
-        }
+        padding: 20px 2rem 2rem 270px !important;
+        overflow-x: hidden;
+    }
         .header {
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
@@ -576,6 +579,24 @@
 .sidebar-links::-webkit-scrollbar { width: 4px; }
 
 .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+</style>
+
+<style>
+/* === FORCE LAYOUT LOCK — ห้ามแก้ไข === */
+html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
+body { 
+    margin: 0 !important;
+    padding: 20px 2rem 2rem 270px !important;
+    overflow-x: hidden !important;
+}
+.sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 250px !important;
+    z-index: 9999 !important;
+}
 </style>
 </head>
 <body>

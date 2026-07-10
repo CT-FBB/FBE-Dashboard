@@ -7,6 +7,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <style>
+    /* Prevent layout shift from scrollbar appear/disappear */
+    html { scrollbar-gutter: stable; overflow-y: scroll; }
+
         :root {
             --bg-color: #0f172a;
             --card-bg: #1e293b;
@@ -24,9 +27,9 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 0;
-            padding-top: 80px;
-        }
+        padding: 20px 2rem 2rem 270px !important;
+        overflow-x: hidden;
+    }
         
         /* Sticky Global Nav */
         
@@ -36,7 +39,7 @@
         
         
         
-        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .container { max-width: none; margin: 0; padding: 2rem; }
         .header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
         .header h1 { font-size: 1.8rem; margin: 0 0 0.5rem 0; }
         .header p { color: var(--text-muted); margin: 0; }
@@ -336,6 +339,24 @@
 .sidebar-links::-webkit-scrollbar { width: 4px; }
 
 .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+</style>
+
+<style>
+/* === FORCE LAYOUT LOCK — ห้ามแก้ไข === */
+html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
+body { 
+    margin: 0 !important;
+    padding: 20px 2rem 2rem 270px !important;
+    overflow-x: hidden !important;
+}
+.sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 250px !important;
+    z-index: 9999 !important;
+}
 </style>
 </head>
 <body>

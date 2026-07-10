@@ -5,6 +5,9 @@
     <title>Simplex Uplink Risk Analysis</title>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+    /* Prevent layout shift from scrollbar appear/disappear */
+    html { scrollbar-gutter: stable; overflow-y: scroll; }
+
     :root {
       --bg-color: #070a13;
       --card-bg: rgba(13, 18, 34, 0.7);
@@ -18,10 +21,11 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg-color); color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      padding-top: 20px !important; padding-left: 270px !important; padding-right: 2rem; padding-bottom: 2rem;
+      font-family: 'Inter', sans-serif;;;
       background-image: radial-gradient(circle at 15% 50%, rgba(239, 68, 68, 0.03) 0%, transparent 50%),
                         radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+        padding: 20px 2rem 2rem 270px !important;
+        overflow-x: hidden;
     }
     h1, h2, h3 { font-family: 'Outfit', sans-serif; }
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
@@ -269,6 +273,24 @@
 .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<style>
+/* === FORCE LAYOUT LOCK — ห้ามแก้ไข === */
+html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
+body { 
+    margin: 0 !important;
+    padding: 20px 2rem 2rem 270px !important;
+    overflow-x: hidden !important;
+}
+.sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 250px !important;
+    z-index: 9999 !important;
+}
+</style>
 </head>
 <body>
     <nav class="sidebar">
