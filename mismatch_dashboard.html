@@ -7,9 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-    /* Prevent layout shift from scrollbar appear/disappear */
-    html { scrollbar-gutter: stable; overflow-y: scroll; }
-
         :root {
             --bg-color: #070a13;
             --panel-bg: rgba(13, 18, 34, 0.7);
@@ -29,15 +26,15 @@
                 radial-gradient(circle at 85% 30%, rgba(30, 144, 255, 0.15), transparent 25%);
             color: var(--text-main);
             margin: 0;
+            padding: 40px 20px;
+            padding-top: 80px;
             min-height: 100vh;
             box-sizing: border-box;
-        padding: 20px 2rem 2rem 270px !important;
-        overflow-x: hidden;
-    }
+        }
         
         .container {
             max-width: 1200px;
-            margin: 0;
+            margin: 0 auto;
         }
         
         header {
@@ -210,94 +207,8 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-.sidebar {
-    width: 250px;
-    background: rgba(13, 18, 34, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9999;
-}
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-.sidebar-links::-webkit-scrollbar { width: 4px; }
-.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-@media (max-width: 900px) {
+        
+        @media (max-width: 900px) {
             .dashboard-main {
                 grid-template-columns: 1fr;
             }
@@ -324,8 +235,8 @@
         }
 
         .nav-logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
             -webkit-background-clip: text;
@@ -382,774 +293,7 @@
             backdrop-filter: blur(16px);
             box-sizing: border-box;
         }
-    
-
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-
-
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-
-
-
-
-
-
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-
-
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-
-
-
-
-
-
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-
-
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-
-.sidebar-links::-webkit-scrollbar { width: 4px; }
-
-.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-
-
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-.sidebar-links::-webkit-scrollbar { width: 4px; }
-.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  .sidebar-links::-webkit-scrollbar { display: none !important; }
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-
-
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-.sidebar-links::-webkit-scrollbar { width: 4px; }
-.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  .sidebar-links::-webkit-scrollbar { display: none !important; }
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100% !important;
-    height: 60px !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: auto !important;
-    flex-direction: row !important;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-    background: #0d1222 !important;
-    z-index: 10000 !important;
-  }
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  .sidebar-links::-webkit-scrollbar { display: none !important; }
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-</style>
+    </style>
 
 <!-- SIDEBAR STYLES -->
 <style>
@@ -1186,61 +330,10 @@ body {
     -webkit-text-fill-color: transparent;
 }
 .sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
+    flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 .sidebar-links a {
     display: flex; align-items: center; padding: 12px 24px;
     color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500;
@@ -1256,26 +349,59 @@ body {
 .global-nav {
     display: none !important;
 }
+@media (max-width: 768px) {
+    body {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        padding-top: 70px !important;
+        margin-left: 0 !important;
+    }
+    .sidebar {
+        width: 100% !important;
+        height: 56px !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        flex-direction: row !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+        z-index: 10000 !important;
+    }
+    .sidebar-logo {
+        display: none !important;
+    }
+    .sidebar-links {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        padding: 0 !important;
+        width: 100% !important;
+        scrollbar-width: none !important;
+    }
+    .sidebar-links::-webkit-scrollbar { display: none !important; }
+    .sidebar-links a {
+        display: inline-flex !important;
+        flex-shrink: 0 !important;
+        padding: 18px 14px !important;
+        font-size: 0.78rem !important;
+        border-left: none !important;
+        border-bottom: 3px solid transparent !important;
+        white-space: nowrap !important;
+    }
+    .sidebar-links a.active {
+        border-bottom-color: #06b6d4 !important;
+        background: rgba(6,182,212,0.12) !important;
+        border-left-color: transparent !important;
+    }
+    .sidebar-links a.sub-link {
+        display: none !important;
+    }
+}
 </style>
 
-
-<style>
-/* === FORCE LAYOUT LOCK — ห้ามแก้ไข === */
-html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
-body { 
-    margin: 0 !important;
-    padding: 20px 2rem 2rem 270px !important;
-    overflow-x: hidden !important;
-}
-.sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    width: 250px !important;
-    z-index: 9999 !important;
-}
-</style>
 </head>
 <body>
 <nav class="sidebar">
@@ -1287,7 +413,6 @@ body {
         <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
         <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
-        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
         <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
         <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
         <a href="optical_dashboard.html" id="nav-optical">Optical</a>
@@ -1296,22 +421,18 @@ body {
         <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
-        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="single_board_dashboard.html" id="nav-control-board">Control card</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">HiSpeedPack</a>
-        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
-        <a href="huawei_battery_dashboard.html" id="nav-battery">Huawei Battery</a>
-        <a href="onu_flapping_dashboard.html" id="nav-onu-flapping">ONU Link Flap</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
     </div>
-    </nav>
+</nav>
     
 
     <div class="container">
         <header class="dashboard-header">
             <div style="flex-grow: 1; text-align: left;">
                 <h1 style="font-size: 2rem; margin: 0; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OLT Card Mismatch Tracking</h1>
-                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard <span style="color: #eab308; font-weight: bold; margin-left: 8px;">(as of 04/07/26)</span></p>
+                <p class="subtitle" style="margin-top: 4px; margin-bottom: 0;">IM (Designer) vs PMS (Network) Validation Dashboard <span style="color: #eab308; font-weight: bold; margin-left: 8px;">(as of 09/07/26)</span></p>
             </div>
             <div style="display: flex; gap: 10px;">
                 <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="download-mismatch-excel-top">
@@ -1326,67 +447,76 @@ body {
         <div class="kpi-grid">
             <div class="glass-panel kpi-card kpi-total">
                 <div class="kpi-title">Total Mismatches</div>
-                <div class="kpi-value" id="kpi-total">403</div>
+                <div class="kpi-value" id="kpi-total">373</div>
             </div>
             <div class="glass-panel kpi-card kpi-huawei">
                 <div class="kpi-title">Huawei</div>
-                <div class="kpi-value" id="kpi-huawei">193</div>
+                <div class="kpi-value" id="kpi-huawei">164</div>
             </div>
             <div class="glass-panel kpi-card kpi-zte">
                 <div class="kpi-title">ZTE</div>
-                <div class="kpi-value" id="kpi-zte">149</div>
+                <div class="kpi-value" id="kpi-zte">147</div>
             </div>
             <div class="glass-panel kpi-card kpi-fiberhome">
                 <div class="kpi-title">Fiberhome</div>
-                <div class="kpi-value" id="kpi-fiberhome">61</div>
+                <div class="kpi-value" id="kpi-fiberhome">62</div>
             </div>
         </div>
 
         <div class="dashboard-main">
-            <div class="glass-panel">
-                <div class="chart-container">
+            <!-- Left Column: Pie Chart + List Info -->
+            <div class="glass-panel" style="display: flex; flex-direction: column; gap: 20px;">
+                <h2 style="margin: 0; font-size: 1.3rem;">📊 Mismatch Share & Details</h2>
+                <div class="chart-container" style="height: 180px;">
                     <canvas id="mismatchPieChart"></canvas>
                 </div>
-            </div>
-            
-            <div class="glass-panel info-panel">
-                <h2>Mismatch Overview by Vendor</h2>
                 <ul class="info-list">
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-huawei);"></div>
-                            Huawei (Total: 193)
+                            Huawei (Total: 164)
                         </div>
-                        <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
-                            GPON vs XGS-PON config errors
+                        <div style="text-align: right; color: var(--text-muted); font-size: 0.82rem;">
+                            GPON vs XGS-PON config
                         </div>
                     </li>
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-zte);"></div>
-                            ZTE (Total: 149)
+                            ZTE (Total: 147)
                         </div>
-                        <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
-                            GPON vs Combo (e.g., GFGL, HFTL)
+                        <div style="text-align: right; color: var(--text-muted); font-size: 0.82rem;">
+                            GPON vs Combo
                         </div>
                     </li>
                     <li>
                         <div class="vendor-name">
                             <div class="dot" style="background: var(--accent-fiberhome);"></div>
-                            Fiberhome (Total: 61)
+                            Fiberhome (Total: 62)
                         </div>
-                        <div style="text-align: right; color: var(--text-muted); font-size: 0.9rem;">
-                            GPON vs Combo conflicts (e.g., GC8B, GPOP)
+                        <div style="text-align: right; color: var(--text-muted); font-size: 0.82rem;">
+                            GPON vs Combo conflicts
                         </div>
                     </li>
                 </ul>
-                <div style="margin-top: 30px; text-align: center;">
-                    <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;" id="download-mismatch-excel-bottom">
+                <div style="margin-top: 15px; text-align: center;">
+                    <a href="mismatch_im_vs_pms.xlsx" download class="action-btn" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: #10b981; color: #10b981; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box;" id="download-mismatch-excel-bottom">
                         <svg style="width:16px;height:16px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M15.8,20H14L12,16.6L10,20H8.2L11.1,15.5L8.2,11H10L12,14.4L14,11H15.8L12.9,15.5L15.8,20M13,9V3.5L18.5,9H13Z" />
                         </svg>
                         Download Full Report (.xlsx)
                     </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Historical Line Chart Trend -->
+            <div class="glass-panel" style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                    <h2 style="margin: 0; font-size: 1.3rem;">📈 Historical Optimization Trend</h2>
+                    <span style="font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #34d399; font-weight:600;">📉 Decreasing</span>
+                </div>
+                <div class="chart-container" style="height: 320px;">
+                    <canvas id="mismatchTrendChart"></canvas>
                 </div>
             </div>
         </div>
@@ -1403,7 +533,7 @@ body {
             const data = {
                 labels: ['Huawei', 'ZTE', 'Fiberhome'],
                 datasets: [{
-                    data: [193, 149, 61],
+                    data: [164, 147, 62],
                     backgroundColor: [
                         '#ff4757', // Huawei Red
                         '#2ed573', // ZTE Green
@@ -1465,79 +595,93 @@ body {
             };
             
             new Chart(ctx, config);
+
+            // Trend Line Chart
+            const trendCtx = document.getElementById('mismatchTrendChart').getContext('2d');
+            
+            const trendData = {
+                labels: ["2026-06-02", "2026-06-06", "2026-06-12", "2026-06-20", "2026-06-25", "2026-06-29", "2026-07-04", "2026-07-09"],
+                datasets: [
+                    {
+                        label: 'Total Mismatch',
+                        data: [547, 549, 553, 607, 596, 445, 405, 373],
+                        borderColor: '#a29bfe',
+                        backgroundColor: 'rgba(162, 155, 254, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#a29bfe',
+                        pointRadius: 4,
+                        fill: true,
+                        tension: 0.35
+                    },
+                    {
+                        label: 'Huawei',
+                        data: [246, 249, 251, 262, 262, 213, 193, 164],
+                        borderColor: '#ff4757',
+                        borderWidth: 1.5,
+                        pointBackgroundColor: '#ff4757',
+                        pointRadius: 2.5,
+                        fill: false,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'ZTE',
+                        data: [202, 209, 220, 221, 203, 164, 149, 147],
+                        borderColor: '#2ed573',
+                        borderWidth: 1.5,
+                        pointBackgroundColor: '#2ed573',
+                        pointRadius: 2.5,
+                        fill: false,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Fiberhome',
+                        data: [99, 91, 82, 123, 131, 68, 63, 62],
+                        borderColor: '#1e90ff',
+                        borderWidth: 1.5,
+                        pointBackgroundColor: '#1e90ff',
+                        pointRadius: 2.5,
+                        fill: false,
+                        tension: 0.3
+                    }
+                ]
+            };
+            
+            const trendConfig = {
+                type: 'line',
+                data: trendData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            beginAtZero: false
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                boxWidth: 12,
+                                usePointStyle: true,
+                                padding: 10
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(13, 18, 34, 0.95)',
+                            padding: 12,
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1
+                        }
+                    }
+                }
+            };
+            
+            new Chart(trendCtx, trendConfig);
         });
-    
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        </script>
+    </script>
 </body>
 </html>
