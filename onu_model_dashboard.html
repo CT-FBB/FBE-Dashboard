@@ -1290,6 +1290,7 @@ body {
         <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
         <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
         <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
         <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
         <a href="traffic_dashboard.html" id="nav-uplinktraffic">Uplink Traffic</a>
         <a href="optical_dashboard.html" id="nav-optical">Optical</a>
@@ -1298,9 +1299,13 @@ body {
         <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
         <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
         <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
         <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-        <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
-        <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
+        <a href="single_board_dashboard.html" id="nav-control-board">Control card</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">HiSpeedPack</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
+        <a href="huawei_battery_dashboard.html" id="nav-battery">Huawei Battery</a>
+        <a href="onu_flapping_dashboard.html" id="nav-onu-flapping">ONU Link Flap</a>
     </div>
 </nav>
 
@@ -2718,61 +2723,7 @@ loadData();
         
 
         
-        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
-        function checkLocalEnv() {
-            const btn = document.getElementById('runCheckBtn');
-            if (btn) {
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-                btn.style.display = isLocal ? 'inline-block' : 'none';
-            }
-        }
-
-        async function triggerRunCheck() {
-            const btn = document.getElementById('runCheckBtn');
-            if (!btn) return;
-            const originalHTML = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = '⏳ Processing... Please wait';
-            btn.style.background = 'rgba(239,68,68,0.2)';
-            btn.style.borderColor = 'rgba(239,68,68,0.4)';
-            btn.style.color = '#ef4444';
-            btn.style.cursor = 'not-allowed';
-            
-            // Set 10 minutes timeout for fetch
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 600000); 
-
-            try {
-                const resp = await fetch('http://127.0.0.1:5050/api/run-check/nav-onumodel', { 
-                    method: 'POST',
-                    signal: controller.signal
-                });
-                clearTimeout(timeoutId);
-                const data = await resp.json();
-                if (resp.ok) {
-                    alert(data.message || 'สแกนและประมวลผลเสร็จสิ้น!');
-                    window.location.reload();
-                } else {
-                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
-                }
-            } catch (e) {
-                clearTimeout(timeoutId);
-                if (e.name === 'AbortError') {
-                    alert('การเชื่อมต่อหมดเวลา (Timeout) เนื่องจากใช้เวลาประมวลผลข้อมูลขนาดใหญ่นานเกินไป');
-                } else {
-                    alert('ไม่สามารถเชื่อมต่อ Local API Server ได้\n1. ตรวจสอบว่าเปิดเว็บผ่าน http://localhost:9000 หรือ http://127.0.0.1:9000 เท่านั้น (ห้ามเปิดผ่าน file://)\n2. หากยังไม่ได้ผล ให้ลองรัน: python3 /Users/bbae/GPTCodex/scrip/finalize_dashboard.py อีกครั้ง');
-                }
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalHTML;
-                btn.style.background = 'rgba(245,158,11,0.15)';
-                btn.style.borderColor = 'rgba(245,158,11,0.35)';
-                btn.style.color = '#f59e0b';
-                btn.style.cursor = 'pointer';
-            }
-        }
-        setTimeout(checkLocalEnv, 300);
-        // --- END RUN CHECK LOGIC ---
+        
 
         </script>
 </body>
