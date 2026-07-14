@@ -1487,7 +1487,6 @@ body {
       <button class="tab-btn tab-hw" onclick="switchVendor('HW', this)">HW</button>
       <button class="tab-btn tab-zte" onclick="switchVendor('ZTE', this)">ZTE</button>
       <button class="tab-btn tab-fbh" onclick="switchVendor('FBH', this)">FBH</button>
-      <button class="tab-btn tab-aci" onclick="switchVendor('ACI', this)">ACI</button>
     </div>
 
     <!-- Charts Section -->
@@ -1549,6 +1548,47 @@ body {
     let selectedVendor = 'All';
     let trendChartInstance = null;
     let movementChartInstance = null;
+
+    function formatDateToWeek(dateStr) {
+      const months = {
+        Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+        Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+      };
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) return dateStr;
+      const day = parseInt(parts[0], 10);
+      const month = months[parts[1]];
+      let year = parseInt(parts[2], 10);
+      if (year < 100) year += 2000;
+      
+      const d = new Date(year, month, day);
+      
+      // Find the first Monday of the year
+      let firstMonday = new Date(year, 0, 1);
+      while (firstMonday.getDay() !== 1) { // 1 is Monday
+        firstMonday.setDate(firstMonday.getDate() + 1);
+      }
+      
+      // If the date is before the first Monday, it's Week 0
+      if (d < firstMonday) {
+        return 'wk0';
+      }
+      
+      // Calculate difference in weeks
+      const timeDiff = d.getTime() - firstMonday.getTime();
+      const dayDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+      const weekNo = Math.floor(dayDiff / 7) + 1;
+      return `wk${weekNo}`;
+    }
+
+    function formatPeriodToWeeks(periodStr) {
+      // periodStr is like "05-Jan-26 to 16-Feb-26"
+      const parts = periodStr.split(' to ');
+      if (parts.length === 2) {
+        return `${formatDateToWeek(parts[0])}-${formatDateToWeek(parts[1])}`;
+      }
+      return periodStr;
+    }
 
     function formatNumber(num) {
       if (num === null || num === undefined) return '-';
@@ -1615,8 +1655,8 @@ body {
       const container = document.getElementById('vendor-cards-container');
       container.innerHTML = '';
       
-      const vendors = ['HW', 'ZTE', 'FBH', 'ACI'];
-      const badges = { HW: 'badge-hw', ZTE: 'badge-zte', FBH: 'badge-fbh', ACI: 'badge-aci' };
+      const vendors = ['HW', 'ZTE', 'FBH'];
+      const badges = { HW: 'badge-hw', ZTE: 'badge-zte', FBH: 'badge-fbh' };
       
       vendors.forEach(v => {
         const history = dbData.vendor_timeline_summary[v] || [];
@@ -1819,7 +1859,7 @@ body {
       if (selectedVendor === 'All') {
         document.getElementById('trend-chart-title').innerText = "All Vendors Inventory Balance Trend";
         // Show line for each vendor
-        ['HW', 'ZTE', 'FBH', 'ACI'].forEach(v => {
+        ['HW', 'ZTE', 'FBH'].forEach(v => {
           const history = dbData.vendor_timeline_summary[v] || [];
           if (history.length === 0) return;
           
@@ -1862,7 +1902,7 @@ body {
       trendChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: dates,
+          labels: dates.map(formatDateToWeek),
           datasets: datasets
         },
         options: {
@@ -1899,7 +1939,7 @@ body {
         document.getElementById('movement-chart-title').innerText = "All Vendors In / Out Movement Timeline";
         // Sum across all vendors for each period
         const tempSummary = {};
-        ['HW', 'ZTE', 'FBH', 'ACI'].forEach(v => {
+        ['HW', 'ZTE', 'FBH'].forEach(v => {
           const history = dbData.vendor_timeline_summary[v] || [];
           history.forEach(item => {
             if (!tempSummary[item.period]) {
@@ -1928,7 +1968,7 @@ body {
       movementChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: periods,
+          labels: periods.map(formatPeriodToWeeks),
           datasets: [
             {
               label: 'Stock In (+)',
