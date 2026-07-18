@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-07-11",
+    "total_olts": 2012,
+    "responded": 2006,
+    "offline": 6,
+    "total_battery_groups": 1616,
+    "loop_on": 1376,
+    "loop_off": 115,
+    "loop_invalid": 125,
+    "smart_lithium": 88,
+    "standard_lead_acid": 1528,
+    "avg_voltage": 52.997,
+    "min_voltage": 50.05,
+    "max_voltage": 56.59,
+    "low_voltage_count": 0
+  },
+  {
+    "date": "2026-07-18",
+    "total_olts": 2037,
+    "responded": 2028,
+    "offline": 9,
+    "total_battery_groups": 1614,
+    "loop_on": 1373,
+    "loop_off": 116,
+    "loop_invalid": 125,
+    "smart_lithium": 88,
+    "standard_lead_acid": 1526,
+    "avg_voltage": 52.84,
+    "low_voltage_count": 0
+  }
+]

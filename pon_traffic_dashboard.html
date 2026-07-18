@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLT PON Traffic Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    
     <style>
     /* Prevent layout shift from scrollbar appear/disappear */
     html { scrollbar-gutter: stable; overflow-y: scroll; }
@@ -512,7 +512,7 @@ body {
         <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h1>🔌 OLT PON Traffic Monitor <span id="reportDateBadge" style="font-size: 1.1rem; color: #fbbf24; font-weight: bold; margin-left: 10px;">(as of -)</span></h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 14/07/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 18/07/2026</span></div>
                 <p>รายงานตรวจสอบความหนาแน่นและปริมาณทราฟฟิกของพอร์ต PON (ระดับ L1 Splitter)</p>
             </div>
         </div>
@@ -1087,17 +1087,21 @@ body {
 
         function exportToExcel() {
             let listData = [];
-            let fileName = "PON_Traffic_Report.xlsx";
+            let fileName = "PON_Traffic_Report.xls";
+            let sheetName = "Details";
             
             if (currentTab === 'overload') {
                 listData = dashboardData.overloaded_ports;
-                fileName = "Top_Overloaded_PON_Ports_" + dashboardData.report_date + ".xlsx";
+                fileName = "Top_Overloaded_PON_Ports_" + (dashboardData.report_date || "") + ".xls";
+                sheetName = "Overloaded Ports";
             } else if (currentTab === 'bandwidth') {
                 listData = dashboardData.bw_ports;
-                fileName = "Top_Bandwidth_Utilization_PON_Ports_" + dashboardData.report_date + ".xlsx";
+                fileName = "Top_Bandwidth_Utilization_PON_Ports_" + (dashboardData.report_date || "") + ".xls";
+                sheetName = "Bandwidth Util";
             } else {
                 listData = dashboardData.error_ports;
-                fileName = "Top_BIP_Errors_PON_Ports_" + dashboardData.report_date + ".xlsx";
+                fileName = "Top_BIP_Errors_PON_Ports_" + (dashboardData.report_date || "") + ".xls";
+                sheetName = "BIP Errors";
             }
             
             if (!listData || listData.length === 0) {
@@ -1105,25 +1109,85 @@ body {
                 return;
             }
             
-            const formattedData = listData.map(item => ({
-                "Device Name": item.device,
-                "Vendor": item.vendor,
-                "Model": item.model,
-                "PON Port": item.pon_port,
-                "L1 Splitter (PON Port Name)": item.l1_name,
-                "Capacity (Split Ratio)": `1:${item.split_ratio}`,
-                "Active Customers (ONUs)": item.active_cust,
-                "DL Bandwidth Util %": (item.dl_util || 0).toFixed(2) + "%",
-                "UL Bandwidth Util %": (item.ul_util || 0).toFixed(2) + "%",
-                "Max Bandwidth Util %": (item.max_bw_util || 0).toFixed(2) + "%",
-                "BIP Errors": item.in_bip_err,
-                "Temperature (°C)": item.temp
-            }));
+            let rowsHtml = "";
+            listData.forEach(item => {
+                rowsHtml += `
+                <tr>
+                    <td>${item.device || ''}</td>
+                    <td>${item.vendor || ''}</td>
+                    <td>${item.model || ''}</td>
+                    <td>${item.pon_port || ''}</td>
+                    <td>${item.l1_name || ''}</td>
+                    <td>1:${item.split_ratio || ''}</td>
+                    <td>${item.active_cust || 0}</td>
+                    <td>${((item.dl_util || 0)).toFixed(2)}%</td>
+                    <td>${((item.ul_util || 0)).toFixed(2)}%</td>
+                    <td>${((item.max_bw_util || 0)).toFixed(2)}%</td>
+                    <td>${item.in_bip_err || 0}</td>
+                    <td>${item.temp || ''}</td>
+                </tr>
+                `;
+            });
             
-            const worksheet = XLSX.utils.json_to_sheet(formattedData);
-            const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, "PON Traffic Details");
-            XLSX.writeFile(workbook, fileName);
+            let html = `
+            <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+            <head>
+              <meta charset="utf-8">
+              <!--[if gte mso 9]>
+              <xml>
+                <x:ExcelWorkbook>
+                  <x:ExcelWorksheets>
+                    <x:ExcelWorksheet>
+                      <x:Name>${sheetName}</x:Name>
+                      <x:WorksheetOptions>
+                        <x:DisplayGridlines/>
+                      </x:WorksheetOptions>
+                    </x:ExcelWorksheet>
+                  </x:ExcelWorksheets>
+                </x:ExcelWorkbook>
+              </xml>
+              <![endif]-->
+              <style>
+                table { border-collapse: collapse; }
+                th, td { border: 0.5pt solid #cbd5e1; padding: 6px; font-family: sans-serif; font-size: 10pt; }
+                th { background-color: #0f172a; color: white; font-weight: bold; }
+              </style>
+            </head>
+            <body>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Device Name</th>
+                    <th>Vendor</th>
+                    <th>Model</th>
+                    <th>PON Port</th>
+                    <th>L1 Splitter (PON Port Name)</th>
+                    <th>Capacity (Split Ratio)</th>
+                    <th>Active Customers (ONUs)</th>
+                    <th>DL Bandwidth Util %</th>
+                    <th>UL Bandwidth Util %</th>
+                    <th>Max Bandwidth Util %</th>
+                    <th>BIP Errors</th>
+                    <th>Temperature (°C)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rowsHtml}
+                </tbody>
+              </table>
+            </body>
+            </html>
+            `;
+            
+            const blob = new Blob([html], { type: 'application/vnd.ms-excel' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
         
@@ -1131,6 +1195,33 @@ body {
 
         window.onload = loadData;
     
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
         
 
         

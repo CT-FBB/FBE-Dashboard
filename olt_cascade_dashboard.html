@@ -465,6 +465,37 @@
 .sidebar-links::-webkit-scrollbar { width: 4px; }
 
 .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+/* Tab Navigation Styles */
+.tab-navigation {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+.tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+}
+.tab-btn.active {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(127, 0, 255, 0.15));
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+    font-weight: 600;
+}
 </style>
 
 <style>
@@ -601,6 +632,37 @@ body {
     border-left-color: #06b6d4;
     font-weight: 600;
 }
+
+/* Tab Navigation Styles */
+.tab-navigation {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+.tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+}
+.tab-btn.active {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(127, 0, 255, 0.15));
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+    font-weight: 600;
+}
 </style>
 <nav class="sidebar">
     <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
@@ -641,7 +703,7 @@ body {
             <div class="header-info">
                 <h1>รายงานวิเคราะห์โครงสร้างพ่วงต่อ OLT Cascade (Uplink to OLT)</h1>
                 <p>การวิเคราะห์ความสามารถของ OLT ที่มีสายเชื่อมโยง Uplink ไปพ่วงต่อกับ OLT ด้วยกันเอง แทนระบบ CPE IP RAN ปกติ</p>
-                <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 14/07/2026</span></div>
+                <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 18/07/2026</span></div>
             </div>
             <div style="display: flex; gap: 10px;">
 <button class="btn-export" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border-color: var(--color-success); color: var(--color-success);" onclick="window.open('olt_cascade_report.xlsx', '_blank')">
@@ -651,27 +713,33 @@ body {
             </div>
         </header>
 
+        <!-- Tab Selector -->
+        <div class="tab-navigation" style="margin-top: 15px; margin-bottom: 25px;">
+            <button class="tab-btn active" id="btn-nationwide" onclick="switchView('nationwide')">Nationwide</button>
+            <button class="tab-btn" id="btn-bma-eec" onclick="switchView('bma_eec')">BMA & EEC Focus</button>
+        </div>
+
         <!-- KPI Grid -->
         <section class="kpi-grid">
             <div class="kpi-card kpi-total">
                 <div class="kpi-title">🔗 OLT Cascade ทั้งหมด</div>
-                <div class="kpi-value">163 เครื่อง</div>
-                <div class="kpi-desc">อัปเดตจากไฟล์ล่าสุด</div>
+                <div class="kpi-value" id="kpi-total-val">163 เครื่อง</div>
+                <div class="kpi-desc" id="kpi-total-desc">อัปเดตจากไฟล์ล่าสุด</div>
             </div>
             <div class="kpi-card kpi-10g">
                 <div class="kpi-title">⚡ ลิงก์พ่วงความเร็ว 10G</div>
-                <div class="kpi-value">134 ลิงก์</div>
-                <div class="kpi-desc">82.2% รองรับการขยายตัวความเร็วพอร์ต FTTx</div>
+                <div class="kpi-value" id="kpi-10g-val">134 ลิงก์</div>
+                <div class="kpi-desc" id="kpi-10g-desc">82.2% รองรับการขยายตัวความเร็วพอร์ต FTTx</div>
             </div>
             <div class="kpi-card kpi-1g">
                 <div class="kpi-title">🐢 ลิงก์พ่วงความเร็ว 1G</div>
-                <div class="kpi-value">29 ลิงก์</div>
-                <div class="kpi-desc">17.8% อัตราส่วนสายพ่วงแบบดั้งเดิม</div>
+                <div class="kpi-value" id="kpi-1g-val">29 ลิงก์</div>
+                <div class="kpi-desc" id="kpi-1g-desc">17.8% อัตราส่วนสายพ่วงแบบดั้งเดิม</div>
             </div>
             <div class="kpi-card kpi-top-vendor">
                 <div class="kpi-title">🏢 แบรนด์ Cascade หลัก</div>
-                <div class="kpi-value">Fiberhome</div>
-                <div class="kpi-desc">63 เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)</div>
+                <div class="kpi-value" id="kpi-top-vendor-val">Fiberhome</div>
+                <div class="kpi-desc" id="kpi-top-vendor-desc">63 เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)</div>
             </div>
         </section>
 
@@ -679,23 +747,23 @@ body {
         <section class="kpi-grid" style="margin-top: 16px;">
             <div class="kpi-card kpi-hops-1">
                 <div class="kpi-title">📍 Cascade 1 Hop</div>
-                <div class="kpi-value">159 เครื่อง</div>
-                <div class="kpi-desc">ต่อตรงเข้าแม่ OLT ตัวหลัก</div>
+                <div class="kpi-value" id="kpi-hops-1-val">159 เครื่อง</div>
+                <div class="kpi-desc" id="kpi-hops-1-desc">ต่อตรงเข้าแม่ OLT ตัวหลัก</div>
             </div>
             <div class="kpi-card kpi-hops-2plus">
                 <div class="kpi-title">⚠️ Cascade >= 2 Hops</div>
-                <div class="kpi-value">4 เครื่อง</div>
-                <div class="kpi-desc">ต่อผ่าน OLT ตัวลูกอื่น (มีความเสี่ยงสูง)</div>
+                <div class="kpi-value" id="kpi-hops-2plus-val">4 เครื่อง</div>
+                <div class="kpi-desc" id="kpi-hops-2plus-desc">ต่อผ่าน OLT ตัวลูกอื่น (มีความเสี่ยงสูง)</div>
             </div>
             <div class="kpi-card kpi-links-design">
                 <div class="kpi-title">✅ ตรงตามแบบ (2 ลิงก์)</div>
-                <div class="kpi-value">63 เครื่อง</div>
-                <div class="kpi-desc">มีลิงก์สำรองตรงตามเกณฑ์มาตรฐาน</div>
+                <div class="kpi-value" id="kpi-links-design-val">63 เครื่อง</div>
+                <div class="kpi-desc" id="kpi-links-design-desc">มีลิงก์สำรองตรงตามเกณฑ์มาตรฐาน</div>
             </div>
             <div class="kpi-card kpi-links-single">
                 <div class="kpi-title">🚨 ผิดแบบ/ไม่มีสำรอง (1 ลิงก์)</div>
-                <div class="kpi-value">18 เครื่อง</div>
-                <div class="kpi-desc">พบความเสี่ยงลิงก์เดี่ยวไม่มีสำรอง</div>
+                <div class="kpi-value" id="kpi-links-single-val">18 เครื่อง</div>
+                <div class="kpi-desc" id="kpi-links-single-desc">พบความเสี่ยงลิงก์เดี่ยวไม่มีสำรอง</div>
             </div>
         </section>
 
@@ -762,44 +830,199 @@ body {
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Chart.js configuration for dark theme
+        const cascadeRawData = {"asOfDate": "18/07/2026", "records": [{"Device": "AYT11002GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "AYT01032GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "BKK05020GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK05012GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK05021GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK05014GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK06017GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK06013GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK06019GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK06011GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK06024GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK06010GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK06025GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK06023GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK06026GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK06012GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK06027GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK06007GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK15007GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK15006GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK20009GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK20005GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK20012GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK20010GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK21020GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK21019GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK21022GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK21013GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK21026GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "BKK21023GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK23014GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK23007GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK27006GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK27003GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK27007GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK43006GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK28006GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK31004GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK29016GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK29011GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK30012GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK30012GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK32013GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK32014GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK32015GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK32008GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK32020GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK32020GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK32021GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK32019GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK32033GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK32018GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK32034GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK32028GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK33008GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK33009GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK33014GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK33011GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK33015GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK33006GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34006GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34003GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34007GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34009GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34011GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34010GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34012GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34008GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34013GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK06009GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK34014GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34014GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34015GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34015GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK34016GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK34004GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK38008GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK38003GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK38014GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK38006GO1", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK39036GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK39032GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK39038GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK39006GO1", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK39040GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK39037GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK39042GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK39023GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK40017GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK40014GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK41013GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK41012GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK43011GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK43007GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK44004GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK44011GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK44020GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK44007GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK44023GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK44006GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK46023GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK10016GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK47012GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK47008GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK47017GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK47004GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK47020GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "BKK47009GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "BKK47021GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK47016GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "BKK47024GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "BKK47019GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR01054GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR01056GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR01057GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR01053GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR01058GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR01055GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR01061GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR01059GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR01064GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR01063GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR01076GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR01072G00", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR01081GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR01074GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04079GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04061GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR04081GO1", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04081GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR04082GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04060GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR04083GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04075GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 5, "IsBmaEec": true}, {"Device": "CBR04084GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04078GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04086GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04085GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04087G00", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04080G00", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR04088GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR04088GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04091GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR04090GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04092GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR04095GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04093GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR04089GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR04098G00", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04094G00", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR04099GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR04097GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR07029G00", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR07029G00", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 2, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CBR09037GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CBR09036GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CBR09039GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CBR09032GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CCS01041GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CCS01040GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "CCS01042GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CCS01002GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "CCS03012G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "CCS03016G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": true}, {"Device": "CMI01032GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "CMI01032GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "CMI16008GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "CMI16003G00", "DstVendor": "Fiberhome", "DstModel": "AN6001-GF16", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "CNT01001GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "CNT01023GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "CNT04001GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "CNT01025GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "CNT04002GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "CNT01024GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "CRI14005GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "CRI14002G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "CRI15014GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "CRI15002G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": false}, {"Device": "KCN05006G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "KCN06016GO0", "DstVendor": "ZTE", "DstModel": "C320", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 5, "IsBmaEec": false}, {"Device": "LPG01038G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG01034G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG01040G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG01041G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG01044GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG01044GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG02009G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG02012G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "LPG02010G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG02007G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "LPG02011G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG02004G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG03003G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "LPG03010G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG04002G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG04004G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG05017G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG05008G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG06007G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG06005G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "LPG06008G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG07010G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "LPG07014G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG07006G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG08018G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG08008G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG10016G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG10017G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG13013G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "LPG13011G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "LPG13014G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "LPG13015G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "NAN07023GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "NAN07023GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "NAN09008GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "NAN09008GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "NAN14009GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "NAN14009GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "NKN03008G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "NKN03009G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "NRT06007G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "NRT07003G00", "DstVendor": "Raisecom", "DstModel": "ISCOM5508", "MaxSpeedDescr": "1 Gbps", "Hops": 3, "LinkCount": 5, "IsBmaEec": false}, {"Device": "NRT07003G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "NRT06007G00", "DstVendor": "Raisecom", "DstModel": "ISCOM5508", "MaxSpeedDescr": "10 Gbps", "Hops": 3, "LinkCount": 5, "IsBmaEec": false}, {"Device": "NTB01025GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "NTB01021GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "NTB01033GO0", "Vendor": "ZTE", "Model": "C620", "DstSite": "NTB02002GO1", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 8, "IsBmaEec": true}, {"Device": "NTB02009GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "NTB02009GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "NTB06031GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "NTB06025GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "PBR04020G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "PBR04034GO0", "DstVendor": "Fiberhome", "DstModel": "AN6000-2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 5, "IsBmaEec": false}, {"Device": "PCB05019G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PCB10023G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PCR02026G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCR02017G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PCT01021G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT02007G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PCT01022GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT01022GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PCT03009G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PCT03007G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PCT04009G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PCT05004G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PCT05009G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT11003G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PCT05010G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT05006G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PCT05011GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT05011GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PCT08008G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT05007G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PCT12004G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PCT12002G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PCT12007G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PCT12003G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PHE01013G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PHE01015G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PHE01016G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PHE01011G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PHE01022GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PHE01022GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PHE01023GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PHE01023GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PHE03016G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PHE03018G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PHE04010GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PHE04010GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PHE04011GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PHE04011GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PTT03009GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "PTT03009GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "PTT03013GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "PTT03012GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "PTT03016GO1", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "PTT03016GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "PYO04006G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PYO04003G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "PYO08008G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "PYO08001G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "PYO09003G00", "Vendor": "Dasan", "Model": "V5808", "DstSite": "PYO05005G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "RCB07016G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "RCB01040GO0", "DstVendor": "ZTE", "DstModel": "C320", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 5, "IsBmaEec": false}, {"Device": "SBR03002GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "SBR01017GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "SKA10019G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "SKA10016G00", "DstVendor": "Fiberhome", "DstModel": "AN6001-G16", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 5, "IsBmaEec": false}, {"Device": "SKO02009G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKO02001G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "SKO03010G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKO03006G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "SKO04007G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKO09006G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "SKO06014G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKO06012G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "SKO06015G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKO08002G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 1, "IsBmaEec": false}, {"Device": "SKO08011G00", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKO08006G00", "DstVendor": "Dasan", "DstModel": "V5808", "MaxSpeedDescr": "1 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "SKT01018G01", "Vendor": "Dasan", "Model": "V5804", "DstSite": "SKT01018G00", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "SMP01040GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "SMP01038GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "SMP01045GO1", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "SMP01045GO0", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": true}, {"Device": "SMP01061GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "SMP01041GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "SMP03039GO0", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "SMP03026GO0", "DstVendor": "Fiberhome", "DstModel": "AN5516-04", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "SMP05011GO0", "Vendor": "Fiberhome", "Model": "AN5516-04", "DstSite": "SMP05008GO1", "DstVendor": "Huawei", "DstModel": "MA5800-X2", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": true}, {"Device": "SPB10001G00", "Vendor": "Raisecom", "Model": "ISCOM5508", "DstSite": "SPB10004GO0", "DstVendor": "ZTE", "DstModel": "C320", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 5, "IsBmaEec": false}, {"Device": "SRB11010GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "SRB11013G00", "DstVendor": "GCOM", "DstModel": "GL5610-08P(V2)", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "SRB11028GO0", "Vendor": "Huawei", "Model": "MA5608T", "DstSite": "SRB11022G00", "DstVendor": "GCOM", "DstModel": "GL5610-08P(V2)", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}, {"Device": "TRT01018GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "TRT01018GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 4, "IsBmaEec": false}, {"Device": "TRT01018GO2", "Vendor": "Huawei", "Model": "MA5800-X2", "DstSite": "TRT01018GO1", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 2, "LinkCount": 2, "IsBmaEec": false}, {"Device": "TRT05005GO1", "Vendor": "Dasan", "Model": "V5804", "DstSite": "TRT05005GO0", "DstVendor": "Dasan", "DstModel": "V5804", "MaxSpeedDescr": "10 Gbps", "Hops": 1, "LinkCount": 2, "IsBmaEec": false}]};
+        let vendorChartInstance = null;
+        let speedChartInstance = null;
+
+        function switchView(view) {
+            document.getElementById('btn-nationwide').classList.toggle('active', view === 'nationwide');
+            document.getElementById('btn-bma-eec').classList.toggle('active', view === 'bma_eec');
+
+            const records = view === 'nationwide' 
+                ? cascadeRawData.records 
+                : cascadeRawData.records.filter(r => r.IsBmaEec);
+
+            // Update AS OF Date
+            const dateSpan = document.querySelector('.header-info span');
+            if (dateSpan) {
+                dateSpan.textContent = `📅 AS OF ${cascadeRawData.asOfDate}`;
+            }
+
+            // Calculate KPIs
+            const totalCascade = records.length;
+            
+            let count_10g = 0;
+            let count_1g = 0;
+            let count_hops_1 = 0;
+            let count_hops_2plus = 0;
+            let count_links_design = 0;
+            let count_links_single = 0;
+
+            const vendorCounts = {};
+
+            records.forEach(r => {
+                // Speed
+                if (String(r.MaxSpeedDescr).includes('10')) {
+                    count_10g++;
+                } else {
+                    count_1g++;
+                }
+                // Hops
+                if (r.Hops === 1) {
+                    count_hops_1++;
+                } else {
+                    count_hops_2plus++;
+                }
+                // Links
+                if (r.LinkCount === 2) {
+                    count_links_design++;
+                } else {
+                    count_links_single++;
+                }
+                // Vendor Count
+                const v = stdVendor(r.Vendor);
+                vendorCounts[v] = (vendorCounts[v] || 0) + 1;
+            });
+
+            const pct_10g = totalCascade > 0 ? ((count_10g / totalCascade) * 100).toFixed(1) : '0.0';
+            const pct_1g = totalCascade > 0 ? ((count_1g / totalCascade) * 100).toFixed(1) : '0.0';
+
+            // Find top vendor
+            let topVendor = 'N/A';
+            let topVendorCount = 0;
+            for (const [v, c] of Object.entries(vendorCounts)) {
+                if (c > topVendorCount) {
+                    topVendorCount = c;
+                    topVendor = v;
+                }
+            }
+
+            // 1. Update KPI Values
+            document.getElementById('kpi-total-val').textContent = `${totalCascade.toLocaleString()} เครื่อง`;
+            document.getElementById('kpi-total-desc').textContent = view === 'nationwide' ? 'อัปเดตจากไฟล์ล่าสุด' : 'พื้นที่ BMA & EEC Focus';
+            
+            document.getElementById('kpi-10g-val').textContent = `${count_10g.toLocaleString()} ลิงก์`;
+            document.getElementById('kpi-10g-desc').textContent = `${pct_10g}% รองรับการขยายตัวความเร็วพอร์ต FTTx`;
+            
+            document.getElementById('kpi-1g-val').textContent = `${count_1g.toLocaleString()} ลิงก์`;
+            document.getElementById('kpi-1g-desc').textContent = `${pct_1g}% อัตราส่วนสายพ่วงแบบดั้งเดิม`;
+
+            document.getElementById('kpi-top-vendor-val').textContent = topVendor;
+            document.getElementById('kpi-top-vendor-desc').textContent = `${topVendorCount.toLocaleString()} เครื่อง (เป็นตัวลูกที่มีการพ่วงต่อสูงสุด)`;
+
+            document.getElementById('kpi-hops-1-val').textContent = `${count_hops_1.toLocaleString()} เครื่อง`;
+            document.getElementById('kpi-hops-2plus-val').textContent = `${count_hops_2plus.toLocaleString()} เครื่อง`;
+            document.getElementById('kpi-links-design-val').textContent = `${count_links_design.toLocaleString()} เครื่อง`;
+            document.getElementById('kpi-links-single-val').textContent = `${count_links_single.toLocaleString()} เครื่อง`;
+
+            // 2. Update Table Rows (Top 10 records)
+            const tbody = document.querySelector('tbody');
+            tbody.innerHTML = '';
+            const top10 = records.slice(0, 10);
+            top10.forEach(r => {
+                const spdBadge = String(r.MaxSpeedDescr).includes('10') 
+                    ? '<span class="badge-10g">10 Gbps</span>' 
+                    : '<span class="badge-1g">1 Gbps</span>';
+                
+                const hopsBadge = r.Hops === 1 
+                    ? '<span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">1 Hop</span>' 
+                    : `<span class="badge-1g" style="background: rgba(239, 68, 68, 0.15); color: var(--color-danger);">${r.Hops} Hops</span>`;
+                
+                const linkBadge = r.LinkCount === 2 
+                    ? '<span class="badge-10g" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">2 Links (OK)</span>' 
+                    : `<span class="badge-1g" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">${r.LinkCount} Link (Warning)</span>`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${r.Device}</td>
+                    <td>${r.Vendor}</td>
+                    <td>${r.Model}</td>
+                    <td>${r.DstSite}</td>
+                    <td>${r.DstVendor}</td>
+                    <td>${r.DstModel}</td>
+                    <td>${spdBadge}</td>
+                    <td>${hopsBadge}</td>
+                    <td>${linkBadge}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // 3. Build dataMap for dynamic speed updates
+            const sortedVendors = Object.entries(vendorCounts)
+                .sort((a, b) => b[1] - a[1])
+                .map(x => x[0]);
+
+            const dataMap = {
+                'ALL': { '10G': count_10g, '1G': count_1g, title: 'สัดส่วนความเร็วลิงก์ Cascade ทั้งหมด' }
+            };
+
+            sortedVendors.forEach(v => {
+                let v_10g = 0;
+                let v_1g = 0;
+                records.forEach(r => {
+                    if (stdVendor(r.Vendor) === v) {
+                        if (String(r.MaxSpeedDescr).includes('10')) {
+                            v_10g++;
+                        } else {
+                            v_1g++;
+                        }
+                    }
+                });
+                dataMap[v] = { '10G': v_10g, '1G': v_1g, title: `สัดส่วนความเร็วลิงก์ Cascade (${v})` };
+            });
+
+            const vendorData = sortedVendors.map(v => vendorCounts[v]);
+
+            // 4. Update Charts
+            updateCharts(sortedVendors, vendorData, dataMap, count_10g, count_1g);
+        }
+
+        function stdVendor(v) {
+            v = String(v).toUpperCase();
+            if (v.includes('FIBERHOME')) return 'Fiberhome';
+            if (v.includes('HUAWEI')) return 'Huawei';
+            if (v.includes('DASAN')) return 'Dasan';
+            if (v.includes('ZTE')) return 'ZTE';
+            if (v.includes('RAISECOM')) return 'Raisecom';
+            if (v.includes('GCOM')) return 'GCOM';
+            if (v.includes('NOKIA')) return 'Nokia';
+            return 'Other';
+        }
+
+        function updateCharts(vendorLabels, vendorData, dataMap, count_10g, count_1g) {
             Chart.defaults.color = '#8892b0';
             Chart.defaults.font.family = 'Prompt, Inter, sans-serif';
 
-            // Data map for speed breakdown by vendor
-                        const dataMap = {
-                'ALL': { '10G': 134, '1G': 29, title: 'สัดส่วนความเร็วลิงก์ Cascade ทั้งหมด' },
-                'Fiberhome': { '10G': 63, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Fiberhome)' },
-                'Dasan': { '10G': 26, '1G': 27, title: 'สัดส่วนความเร็วลิงก์ Cascade (Dasan)' },
-                'Huawei': { '10G': 39, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (Huawei)' },
-                'Raisecom': { '10G': 5, '1G': 2, title: 'สัดส่วนความเร็วลิงก์ Cascade (Raisecom)' },
-                'ZTE': { '10G': 1, '1G': 0, title: 'สัดส่วนความเร็วลิงก์ Cascade (ZTE)' }
-            };
+            if (vendorChartInstance) {
+                vendorChartInstance.destroy();
+            }
 
-            // 1. Vendor Chart
             const vCtx = document.getElementById('vendorChart').getContext('2d');
-            const vendorChartInstance = new Chart(vCtx, {
+            vendorChartInstance = new Chart(vCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Fiberhome', 'Dasan', 'Huawei', 'Raisecom', 'ZTE'],
+                    labels: vendorLabels,
                     datasets: [{
                         label: 'จำนวน OLT Cascade (เครื่อง)',
-                        data: [67, 53, 39, 8, 1],
+                        data: vendorData,
                         backgroundColor: [
                             'rgba(0, 242, 254, 0.65)',
                             'rgba(59, 130, 246, 0.65)',
                             'rgba(127, 0, 255, 0.65)',
                             'rgba(245, 158, 11, 0.65)',
-                            'rgba(239, 68, 68, 0.65)'
-                        ],
+                            'rgba(239, 68, 68, 0.65)',
+                            'rgba(16, 185, 129, 0.65)',
+                            'rgba(236, 72, 153, 0.65)'
+                        ].slice(0, vendorLabels.length),
                         borderColor: [
                             '#00f2fe',
                             '#3b82f6',
                             '#7f00ff',
                             '#f59e0b',
-                            '#ef4444'
-                        ],
+                            '#ef4444',
+                            '#10b981',
+                            '#ec4899'
+                        ].slice(0, vendorLabels.length),
                         borderWidth: 1.5,
                         borderRadius: 6
                     }]
@@ -819,7 +1042,6 @@ body {
                             grid: { display: false }
                         }
                     },
-                    // Add Click event to update speed chart dynamically
                     onClick: (event, activeElements) => {
                         if (activeElements.length > 0) {
                             const idx = activeElements[0].index;
@@ -832,14 +1054,17 @@ body {
                 }
             });
 
-            // 2. Speed Chart
+            if (speedChartInstance) {
+                speedChartInstance.destroy();
+            }
+
             const sCtx = document.getElementById('speedChart').getContext('2d');
-            const speedChartInstance = new Chart(sCtx, {
+            speedChartInstance = new Chart(sCtx, {
                 type: 'doughnut',
                 data: {
                     labels: ['10 Gbps', '1 Gbps'],
                     datasets: [{
-                        data: [139, 29],
+                        data: [count_10g, count_1g],
                         backgroundColor: [
                             'rgba(0, 242, 254, 0.7)',
                             'rgba(245, 158, 11, 0.6)'
@@ -868,19 +1093,42 @@ body {
                 }
             });
 
-            // Function to update the Speed Chart dynamically
-            function updateSpeedChart(vendor) {
+            window.updateSpeedChart = function(vendor) {
                 const selected = dataMap[vendor] || dataMap['ALL'];
-                
-                // Update datasets and reload doughnut chart
                 speedChartInstance.data.datasets[0].data = [selected['10G'], selected['1G']];
                 speedChartInstance.update();
-                
-                // Update Title
                 document.getElementById('speedChartTitle').textContent = selected.title;
-            }
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            switchView('nationwide');
         });
 
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
         
 
         

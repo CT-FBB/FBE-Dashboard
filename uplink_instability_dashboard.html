@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Uplink Instability Dashboard (Flapping Ports)</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
     function filterTable() {
       const query = document.getElementById('searchInput').value.toLowerCase();
       const rows = document.getElementById('table-body').getElementsByTagName('tr');
@@ -12,7 +13,6 @@
       }
     }
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* Prevent layout shift from scrollbar appear/disappear */
@@ -519,7 +519,7 @@ body {
   <div class="header">
     <div>
       <h1>Uplink Instability Dashboard</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 14/07/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 18/07/2026</span></div>
       <p>Analysis of Flapping Ports & Interface Revisions (Rev Count > 1)</p>
     </div>
   </div>
@@ -722,16 +722,86 @@ body {
 
     function exportToExcel() {
       const table = document.getElementById('instability-table');
-      const wb = XLSX.utils.table_to_book(table, {sheet: "Unstable_Interfaces"});
+      if (!table) return;
       
-      const activeTab = document.querySelector('.tab-btn.active').id.split('-')[1];
-      const filename = `instability_report_${activeTab}_${new Date().toISOString().slice(0,10)}.xlsx`;
+      const activeTabBtn = document.querySelector('.tab-btn.active');
+      const activeTab = activeTabBtn ? activeTabBtn.id.split('-')[1] : 'report';
+      const sheetName = activeTab === 'uplink' ? 'OLT Uplink Ports' : 'EDFA Ports';
+      const filename = `instability_report_${activeTab}_${new Date().toISOString().slice(0,10)}.xls`;
       
-      XLSX.writeFile(wb, filename);
+      const cloneTable = table.cloneNode(true);
+      
+      let html = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <meta charset="utf-8">
+        <!--[if gte mso 9]>
+        <xml>
+          <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+              <x:ExcelWorksheet>
+                <x:Name>${sheetName}</x:Name>
+                <x:WorksheetOptions>
+                  <x:DisplayGridlines/>
+                </x:WorksheetOptions>
+              </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+          </x:ExcelWorkbook>
+        </xml>
+        <![endif]-->
+        <style>
+          table { border-collapse: collapse; width: 100%; }
+          th, td { border: 0.5pt solid #cbd5e1; padding: 8px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 10pt; text-align: left; }
+          th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <h2>${sheetName} Instability Report (AS OF ${new Date().toLocaleDateString()})</h2>
+        ${cloneTable.outerHTML}
+      </body>
+      </html>
+      `;
+      
+      const blob = new Blob([html], { type: 'application/vnd.ms-excel' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     window.onload = loadData;
 
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
         
 
         

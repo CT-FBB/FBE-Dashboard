@@ -1104,7 +1104,7 @@
 }
 
 </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
 
 <style>
 /* === FORCE LAYOUT LOCK — ห้ามแก้ไข === */
@@ -1286,7 +1286,7 @@ body {
     <div id="tab-swapoverview" class="tab-pane active">
         <div class="header">
             <h1>OLT Swap Executive Dashboard</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 14/07/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 18/07/2026</span></div>
             <p>สัดส่วนและรายละเอียดการเปลี่ยนแปลงยี่ห้ออุปกรณ์ OLT</p>
             <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">Last Updated: 2026-07-14 19:35:53</p>
         </div>
@@ -22320,10 +22320,56 @@ body {
 
     <script>
         function exportToExcel() {
-            var table = document.querySelector("table");
-            // Clone table to strip out icons and internal html if needed
-            var wb = XLSX.utils.table_to_book(table, {sheet:"Swaps"});
-            XLSX.writeFile(wb, "OLT_Swap_Report.xlsx");
+            const activePane = document.querySelector('.tab-pane.active');
+            if (!activePane) return;
+            const table = activePane.querySelector('table');
+            if (!table) return;
+            
+            const activeTab = activePane.id;
+            const sheetName = activeTab.replace('tab-', '').toUpperCase();
+            const filename = `olt_swap_report_${sheetName.toLowerCase()}_${new Date().toISOString().slice(0,10)}.xls`;
+            
+            const cloneTable = table.cloneNode(true);
+            
+            let html = `
+            <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+            <head>
+              <meta charset="utf-8">
+              <!--[if gte mso 9]>
+              <xml>
+                <x:ExcelWorkbook>
+                  <x:ExcelWorksheets>
+                    <x:ExcelWorksheet>
+                      <x:Name>${sheetName}</x:Name>
+                      <x:WorksheetOptions>
+                        <x:DisplayGridlines/>
+                      </x:WorksheetOptions>
+                    </x:ExcelWorksheet>
+                  </x:ExcelWorksheets>
+                </x:ExcelWorkbook>
+              </xml>
+              <![endif]-->
+              <style>
+                table { border-collapse: collapse; }
+                th, td { border: 0.5pt solid #cbd5e1; padding: 6px; font-family: sans-serif; font-size: 10pt; }
+                th { background-color: #0f172a; color: white; font-weight: bold; }
+              </style>
+            </head>
+            <body>
+              ${cloneTable.outerHTML}
+            </body>
+            </html>
+            `;
+            
+            const blob = new Blob([html], { type: 'application/vnd.ms-excel' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
         document.getElementById('searchInput').addEventListener('keyup', function() {
@@ -22446,6 +22492,33 @@ body {
             a.click(); URL.revokeObjectURL(url);
         }
     
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
         
 
         
