@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-06-09",
+    "true_simplex": 53,
+    "by_design": 0,
+    "broken_dual": 47,
+    "simplex_check_sfp": 141,
+    "ma5603t": 8
+  },
+  {
+    "date": "2026-06-16",
+    "true_simplex": 41,
+    "by_design": 0,
+    "broken_dual": 22,
+    "simplex_check_sfp": 125,
+    "ma5603t": 3
+  },
+  {
+    "date": "2026-06-23",
+    "true_simplex": 31,
+    "by_design": 0,
+    "broken_dual": 1,
+    "simplex_check_sfp": 112,
+    "ma5603t": 0
+  },
+  {
+    "true_simplex": 90,
+    "by_design": 66,
+    "broken_dual": 164,
+    "simplex_check_sfp": 346,
+    "ma5603t": 100,
+    "date": "2026-07-05"
+  },
+  {
+    "true_simplex": 90,
+    "by_design": 66,
+    "broken_dual": 189,
+    "simplex_check_sfp": 321,
+    "ma5603t": 100,
+    "date": "2026-07-10"
+  },
+  {
+    "date": "2026-07-15",
+    "true_simplex": 89,
+    "by_design": 64,
+    "broken_dual": 178,
+    "simplex_check_sfp": 290,
+    "ma5603t": 100
+  },
+  {
+    "date": "2026-07-18",
+    "true_simplex": 88,
+    "by_design": 64,
+    "broken_dual": 143,
+    "simplex_check_sfp": 293,
+    "ma5603t": 100
+  }
+]

@@ -937,13 +937,6 @@
         "total_offline": 67,
         "overall_avg_temp": 51.47,
         "brands": {
-            "Huawei": {
-                "avg": 50.27,
-                "top20_avg": 60.8,
-                "top10_avg": 62.08,
-                "max": 78.0,
-                "over_50c": 1343
-            },
             "Fiberhome": {
                 "avg": 48.25,
                 "top20_avg": 68.74,
@@ -951,26 +944,12 @@
                 "max": 73.0,
                 "over_50c": 725
             },
-            "GCOM": {
-                "avg": 45.28,
-                "top20_avg": 54.9,
-                "top10_avg": 58.23,
-                "max": 75.0,
-                "over_50c": 469
-            },
-            "ZTE": {
-                "avg": 45.61,
-                "top20_avg": 63.86,
-                "top10_avg": 69.08,
-                "max": 86.85,
-                "over_50c": 638
-            },
-            "Raisecom": {
-                "avg": 49.13,
-                "top20_avg": 55.96,
-                "top10_avg": 58.12,
-                "max": 73.83,
-                "over_50c": 735
+            "Huawei": {
+                "avg": 50.27,
+                "top20_avg": 60.8,
+                "top10_avg": 62.08,
+                "max": 78.0,
+                "over_50c": 1343
             },
             "Dasan": {
                 "avg": 44.24,
@@ -985,6 +964,27 @@
                 "top10_avg": 89.22,
                 "max": 91.0,
                 "over_50c": 91
+            },
+            "Raisecom": {
+                "avg": 49.13,
+                "top20_avg": 55.96,
+                "top10_avg": 58.12,
+                "max": 73.83,
+                "over_50c": 735
+            },
+            "GCOM": {
+                "avg": 45.28,
+                "top20_avg": 54.9,
+                "top10_avg": 58.23,
+                "max": 75.0,
+                "over_50c": 469
+            },
+            "ZTE": {
+                "avg": 45.61,
+                "top20_avg": 63.86,
+                "top10_avg": 69.08,
+                "max": 86.85,
+                "over_50c": 638
             }
         }
     }
