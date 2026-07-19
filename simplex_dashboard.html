@@ -573,6 +573,99 @@
 
         
         
+
+        function renderTrendChart() {
+            const ctx = document.getElementById('trendChart').getContext('2d');
+            const dates = historyData.map(h => h.date);
+            const trueSimplex = historyData.map(h => h.true_simplex || 0);
+            const brokenDual = historyData.map(h => h.broken_dual || 0);
+            const checkSfp = historyData.map(h => h.simplex_check_sfp || 0);
+            const byDesign = historyData.map(h => h.by_design || 0);
+            const ma5603t = historyData.map(h => h.ma5603t || 0);
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [
+                        {
+                            label: '🔴 True Simplex',
+                            data: trueSimplex,
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.05)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '🟧 Broken Dual',
+                            data: brokenDual,
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.05)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '🟦 Simplex Check SFP',
+                            data: checkSfp,
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.3
+                        },
+                        {
+                            label: '🟩 By Design',
+                            data: byDesign,
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.3
+                        },
+                        {
+                            label: '🟨 MA5603T',
+                            data: ma5603t,
+                            borderColor: '#eab308',
+                            backgroundColor: 'rgba(234, 179, 8, 0.05)',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { color: '#94a3b8', font: { family: 'Inter', size: 12 } }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            titleColor: '#fff',
+                            bodyColor: '#94a3b8'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Init
         renderTable();
         renderTrendChart();
         setTimeout(checkLocalEnv, 150);
