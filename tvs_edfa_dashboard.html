@@ -93,6 +93,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-h
 
 /* GRIDS */
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.g4{display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;margin-bottom:16px}
 .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-bottom:16px}
 .g21{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
 
@@ -1236,7 +1237,10 @@ body {
       📥 Export OLT Summary
     </a>
     <a href="DVB_Subscribers_List.csv" download class="badge" style="background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.4);color:#06b6d4;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:6px 12px;cursor:pointer">
-      📡 Export DVB List (CSV)
+      ⬇️ Export DVB Subscribers (CSV)
+    </a>
+    <a href="L1_TVS_Ticket_Summary.csv" download class="badge" style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#ef4444;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:6px 12px;cursor:pointer">
+      ⬇️ Export L1 TVS Tickets (CSV)
     </a>
     <span class="badge b-src" id="srcBadge">Device-20260611.xlsx</span>
     <span class="badge b-edfa">⚡ EDFA PON</span>
@@ -1256,7 +1260,12 @@ body {
   </div>
 
   <!-- ROW 1: Charts -->
-  <div class="g3">
+  <div class="g4">
+    <div class="panel">
+      <div class="ptitle">EDFA OLTs w/ Tickets</div>
+      <div class="leg" id="ticketLeg"></div>
+      <div class="ch-wrap" style="height:190px"><canvas id="ticketDonutChart"></canvas></div>
+    </div>
     <div class="panel">
       <div class="ptitle">TVS Type — EDFA ONU</div>
       <div class="leg" id="typeLeg"></div>
@@ -1286,6 +1295,7 @@ body {
     <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
       <span style="font-size:10px;color:var(--dim)">Sort by:</span>
       <button class="ftab on" onclick="setSort('DVB',this)">DVB ▼</button>
+      <button class="ftab" onclick="setSort('TVS_TICKETS',this)">Tickets ⚠️ ▼</button>
       <button class="ftab" onclick="setSort('edfa_ports',this)">EDFA Ports ▼</button>
       <button class="ftab" onclick="setSort('l1_count',this)">L1 Count ▼</button>
       <button class="ftab" onclick="setSort('STB',this)">STB ▼</button>
@@ -1308,6 +1318,7 @@ body {
           <th class="r" style="color:var(--ott)">OTT</th>
           <th class="r" style="color:var(--muted)">HSI(No TVS)</th>
           <th class="r">True Total</th>
+          <th class="r" style="color:#ef4444" title="TVS Fault Tickets">Tickets ⚠️</th>
           <th class="r">DVB%</th>
           <th style="min-width:100px">Mix</th>
         </tr></thead>
@@ -1340,6 +1351,31 @@ body {
     <div style="font-size:10px;color:var(--muted);margin-top:8px" id="portCount"></div>
   </div>
 
+  <!-- NO TICKETS TABLE -->
+  <div class="panel" style="margin-bottom:16px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:10px">
+      <div class="ptitle" style="margin:0">✅ OLTs with EDFA but NO Tickets</div>
+      <input class="srch" id="noTicketSrch" placeholder="🔍 OLT / Province..." oninput="renderNoTicketOLT()">
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>#</th>
+          <th>OLT Name</th>
+          <th>Vendor</th>
+          <th>Province</th>
+          <th class="r">⚡ EDFA Ports</th>
+          <th class="r">L1</th>
+          <th class="r" style="color:var(--dvb)">DVB 📡</th>
+          <th class="r">Total ONU</th>
+          <th class="r">Tickets ⚠️</th>
+        </tr></thead>
+        <tbody id="noTicketTbody"></tbody>
+      </table>
+    </div>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px" id="noTicketCount"></div>
+  </div>
+
 </div>
 
 <div class="footer" id="footer">
@@ -1349,7 +1385,7 @@ body {
 <script>
 let G=null, oltEdfaFilter='ALL', oltSortKey='DVB';
 
-fetch('tvs_edfa_analysis.json')
+fetch('tvs_edfa_analysis.json?t=' + new Date().getTime())
   .then(r=>{if(!r.ok)throw r.status;return r.json()})
   .then(d=>{G=d;init(d)})
   .catch(e=>{
@@ -1368,8 +1404,10 @@ function init(d){
   renderDonut(d.kpis);
   renderVendor(d.by_vendor);
   renderProv(d.by_province);
+  renderTicketDonut();
   renderOLT();
   renderPort();
+  renderNoTicketOLT();
   // footer
   const m=d.meta||{};
   document.getElementById('footer').textContent =
@@ -1452,6 +1490,46 @@ function renderDonut(k){
     {l:'OTT',c:'#10b981'},{l:'HYBRID',c:'#ec4899'},{l:'HSI (No TVS)',c:'#1e293b'},
   ];
   document.getElementById('typeLeg').innerHTML=
+    defs.map(d=>`<div class="lpill"><div class="ldot" style="background:${d.c}"></div>${d.l}</div>`).join('');
+}
+
+// ── Ticket Donut ──────────────────────────────────────────────────────────────
+function renderTicketDonut(){
+  let withTickets = 0;
+  let noTickets = 0;
+  G.by_olt.forEach(r => {
+    if (r.has_edfa_onu) {
+      if ((r.TVS_TICKETS || 0) > 0) withTickets++;
+      else noTickets++;
+    }
+  });
+  const t = withTickets + noTickets;
+  
+  new Chart(document.getElementById('ticketDonutChart'),{
+    type:'doughnut',
+    data:{
+      labels:['With Tickets','NO Tickets'],
+      datasets:[{
+        data:[withTickets,noTickets],
+        backgroundColor:['#ef4444','#10b981'],
+        borderWidth:2,borderColor:'#080c18',hoverOffset:8
+      }]
+    },
+    options:{
+      cutout:'70%',responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>{
+          const p=(ctx.raw/t*100).toFixed(1);
+          return ` ${ctx.label}: ${ctx.raw.toLocaleString()} OLTs (${p}%)`;
+        }}}
+      }
+    }
+  });
+  const defs=[
+    {l:'With Tickets',c:'#ef4444'},{l:'NO Tickets',c:'#10b981'}
+  ];
+  document.getElementById('ticketLeg').innerHTML=
     defs.map(d=>`<div class="lpill"><div class="ldot" style="background:${d.c}"></div>${d.l}</div>`).join('');
 }
 
@@ -1561,6 +1639,7 @@ function renderOLT(){
       <td class="r" style="color:var(--ott)">${r.OTT.toLocaleString()}</td>
       <td class="r" style="color:var(--muted)">${r.NO_TVS.toLocaleString()}</td>
       <td class="r">${t.toLocaleString()}</td>
+      <td class="r" style="color:#ef4444;font-family:var(--mono);font-weight:${(r.TVS_TICKETS||0)>0?'700':'400'}">${(r.TVS_TICKETS||0).toLocaleString()}</td>
       <td class="r"><span class="${dvbCls}">${r.DVB_PCT}%</span></td>
       <td><div class="sbar">
         <span style="width:${dvbW}%;background:#06b6d4"></span>
@@ -1811,6 +1890,38 @@ function renderPort(){
         
         
 
+        
+        
+
+// ── No Ticket OLT Table ────────────────────────────────────────────────────────
+function renderNoTicketOLT(){
+  if(!G)return;
+  const q = document.getElementById('noTicketSrch').value.toLowerCase();
+  let rows = [...G.by_olt].filter(r => {
+    if (!r.has_edfa_onu) return false;
+    if ((r.TVS_TICKETS || 0) > 0) return false; // Only NO tickets
+    const sq = r.olt.toLowerCase().includes(q) || (r.province||'').toLowerCase().includes(q);
+    return sq;
+  });
+  
+  // Sort by DVB highest first
+  rows.sort((a,b) => b.DVB - a.DVB);
+  
+  document.getElementById('noTicketCount').textContent = `พบ ${rows.length} OLT ที่มี EDFA แต่ไม่มี Ticket แจ้งเสียเลย (sort by DVB)`;
+  document.getElementById('noTicketTbody').innerHTML = rows.map((r,i) => {
+    return `<tr>
+      <td style="color:var(--muted);font-family:var(--mono);font-size:10px">${i+1}</td>
+      <td><span class="olt-name">${r.olt}</span></td>
+      <td><span class="vbadge v-${r.vendor}">${r.vendor||'—'}</span></td>
+      <td style="color:var(--dim);font-size:10px">${r.province||'—'}</td>
+      <td class="r"><span class="cnt">${r.edfa_ports}</span></td>
+      <td class="r" style="color:#818cf8;font-family:var(--mono)">${r.l1_count}</td>
+      <td class="r" style="color:var(--dvb);font-weight:700">${r.DVB.toLocaleString()}</td>
+      <td class="r">${r.TOTAL.toLocaleString()}</td>
+      <td class="r" style="color:#10b981;font-weight:700">0</td>
+    </tr>`;
+  }).join('');
+}
         
         
 
