@@ -33,15 +33,15 @@
     <div class="kpi-row">
       <div class="kpi-card">
         <div class="kpi-title">Total Degraded Links</div>
-        <div class="kpi-val">35</div>
+        <div class="kpi-val">63</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-title">Critical (>15dB / LOS)</div>
-        <div class="kpi-val val-crit">13</div>
+        <div class="kpi-val val-crit">16</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-title">Warning (3-15dB)</div>
-        <div class="kpi-val val-warn">22</div>
+        <div class="kpi-val val-warn">47</div>
       </div>
     </div>
     
@@ -63,16 +63,16 @@
             <tr><th>OLT Name</th><th>Vendor</th><th>Interface</th><th>Prev Rx</th><th>Curr Rx</th><th>Drop (dB)</th></tr>
           </thead>
           <tbody>
-            <tr><td>CBR10009G00</td><td>HW</td><td>ethernet0/2/0</td><td>-1.72</td><td>-50.00</td><td style='color:#ef4444;font-weight:bold'>-48.28</td></tr>
-<tr><td>NKR01011G00</td><td>ZTE</td><td>xgei_1/10/1</td><td>-12.76</td><td>-53.69</td><td style='color:#ef4444;font-weight:bold'>-40.93</td></tr>
-<tr><td>SPB09001GO0</td><td>HW</td><td>ethernet0/2/2</td><td>-5.71</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-34.29</td></tr>
-<tr><td>KBI05005G00</td><td>FBH</td><td>SFP 19/4</td><td>-7.11</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-32.89</td></tr>
-<tr><td>NKW01065GO0</td><td>FBH</td><td>SFP+ 3/1</td><td>-3.27</td><td>-33.61</td><td style='color:#ef4444;font-weight:bold'>-30.34</td></tr>
-<tr><td>KBI05005G00</td><td>FBH</td><td>SFP 19/3</td><td>-11.07</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-28.93</td></tr>
-<tr><td>NKR01008GO0</td><td>HW</td><td>ethernet0/2/2</td><td>-11.59</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-28.41</td></tr>
-<tr><td>PTT01029GO0</td><td>ZTE</td><td>xgei-1/4/1</td><td>-5.90</td><td>-29.62</td><td style='color:#ef4444;font-weight:bold'>-23.72</td></tr>
-<tr><td>PTT06053GO0</td><td>ZTE</td><td>xxvgei-1/1/2</td><td>-7.19</td><td>-27.30</td><td style='color:#ef4444;font-weight:bold'>-20.11</td></tr>
-<tr><td>CRI09002G00</td><td>HW</td><td>ethernet0/10/0</td><td>-13.56</td><td>-33.15</td><td style='color:#ef4444;font-weight:bold'>-19.59</td></tr>
+            <tr><td>PTT06015GO0</td><td>ZTE</td><td>xgei_1/3/2</td><td>-14.82</td><td>-80.00</td><td style='color:#ef4444;font-weight:bold'>-65.18</td></tr>
+<tr><td>BKK39046GO0</td><td>FBH</td><td>XFP 10/1</td><td>-6.73</td><td>-38.57</td><td style='color:#ef4444;font-weight:bold'>-31.84</td></tr>
+<tr><td>CBR01082GO0</td><td>FBH</td><td>SFP+ 4/1</td><td>-12.92</td><td>-40.00</td><td style='color:#ef4444;font-weight:bold'>-27.08</td></tr>
+<tr><td>BKK39039GO1</td><td>ZTE</td><td>xgei-1/4/4</td><td>-11.17</td><td>-33.01</td><td style='color:#ef4444;font-weight:bold'>-21.84</td></tr>
+<tr><td>PTT06017GO0</td><td>ZTE</td><td>xgei_1/4/2</td><td>-10.45</td><td>-32.07</td><td style='color:#ef4444;font-weight:bold'>-21.62</td></tr>
+<tr><td>PTT06017GO1</td><td>ZTE</td><td>xgei_1/4/2</td><td>-14.92</td><td>-36.11</td><td style='color:#ef4444;font-weight:bold'>-21.19</td></tr>
+<tr><td>PTT06004GO1</td><td>ZTE</td><td>xgei_1/4/2</td><td>-4.23</td><td>-24.61</td><td style='color:#ef4444;font-weight:bold'>-20.38</td></tr>
+<tr><td>BKK43001G00</td><td>ZTE</td><td>xgei_1/10/4</td><td>-3.96</td><td>-24.03</td><td style='color:#ef4444;font-weight:bold'>-20.07</td></tr>
+<tr><td>SKN06006GO0</td><td>HW</td><td>ethernet0/2/0</td><td>-5.83</td><td>-25.77</td><td style='color:#ef4444;font-weight:bold'>-19.94</td></tr>
+<tr><td>PTT06016GO1</td><td>ZTE</td><td>xgei_1/4/2</td><td>-16.71</td><td>-36.13</td><td style='color:#ef4444;font-weight:bold'>-19.42</td></tr>
 
           </tbody>
         </table>
@@ -86,7 +86,7 @@
       data: {
         labels: ['Critical (>15dB)', 'Warning (3-15dB)'],
         datasets: [{
-          data: [13, 22],
+          data: [16, 47],
           backgroundColor: ['#ef4444', '#f59e0b'],
           borderWidth: 0
         }]

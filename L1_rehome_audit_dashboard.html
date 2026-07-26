@@ -1,0 +1,52 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>L1 Rehome Audit Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>body {font-family:Arial,Helvetica,sans-serif;padding:18px} table {border-collapse:collapse;width:100%} th,td {border:1px solid #ddd;padding:6px;text-align:left} .section {margin-bottom:28px} .row {display:flex;gap:24px;align-items:flex-start}</style>
+</head>
+<body>
+  <h1>L1 Rehome Audit Dashboard</h1>
+  <div class="section">
+    <h2>Summary</h2>
+    <p>Rows: 3846 &nbsp; Columns: 21</p>
+    <p>Columns: Vendor, L1_Name, L2_Name, Tracker_Source_OLT, Tracker_Target_OLT, Tracker_PW, Tracker_Status, Province, In_Baseline_Inventory, In_Current_Inventory, Inventory_Baseline_OLT, Inventory_Baseline_Port, Inventory_Baseline_Length, Inventory_Current_OLT, Inventory_Current_Port, Inventory_Current_Length, Length_Diff, OLT_Changed_In_Inventory, Port_Changed_In_Inventory, Actual_Rehomed_In_Inventory, Audit_Category</p>
+  </div>
+  <div class="section row">
+    <div style="flex:1;min-width:320px">
+      <h3>Audit Category (distribution)</h3>
+      <canvas id="auditPie" height="90" style="max-width:450px;max-height:90px;"></canvas>
+    </div>
+  </div>
+  <div class="section">
+    <h2>First 10 rows</h2>
+    <table>
+      <thead>
+        <tr><th>Vendor</th><th>L1_Name</th><th>L2_Name</th><th>Tracker_Source_OLT</th><th>Tracker_Target_OLT</th><th>Tracker_PW</th><th>Tracker_Status</th><th>Province</th><th>In_Baseline_Inventory</th><th>In_Current_Inventory</th><th>Inventory_Baseline_OLT</th><th>Inventory_Baseline_Port</th><th>Inventory_Baseline_Length</th><th>Inventory_Current_OLT</th><th>Inventory_Current_Port</th><th>Inventory_Current_Length</th><th>Length_Diff</th><th>OLT_Changed_In_Inventory</th><th>Port_Changed_In_Inventory</th><th>Actual_Rehomed_In_Inventory</th><th>Audit_Category</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fiberhome</td><td>CRI01X0000V</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-1-6</td><td>3990.0</td><td>CRI01068GO0</td><td>1-1-1-2</td><td>913.0</td><td>-3077.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X00010</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-1-7</td><td>4130.0</td><td>CRI01068GO0</td><td>1-1-1-3</td><td>1049.0</td><td>-3081.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X00015</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-1-8</td><td>4130.0</td><td>CRI01068GO0</td><td>1-1-1-4</td><td>1049.0</td><td>-3081.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X0001A</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-1-9</td><td>4300.0</td><td>CRI01068GO0</td><td>1-1-1-5</td><td>1218.0</td><td>-3082.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X0001F</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-1-10</td><td>4230.0</td><td>CRI01068GO0</td><td>1-1-1-7</td><td>1150.0</td><td>-3080.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X2R8U0</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-4-2</td><td>6730.0</td><td>CRI01068GO0</td><td>1-1-1-8</td><td>1699.0</td><td>-5031.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X312J9</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>-</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-5-7</td><td>6630.0</td><td>CRI01001G00</td><td>0-0-5-7</td><td>6632.0</td><td>2.0</td><td>False</td><td>False</td><td>False</td><td>Correct (Tracker: Ongoing, Inventory: Unchanged)</td></tr>
+<tr><td>Fiberhome</td><td>CRI01X32X58</td><td></td><td>CRI01001G00</td><td>CRI01068G00</td><td>CR202602100816</td><td>ยังไม่ทำ</td><td>CHIANG RAI</td><td>True</td><td>True</td><td>CRI01001G00</td><td>0-0-5-13</td><td>4890.0</td><td>CRI01068GO0</td><td>1-1-1-10</td><td>615.0</td><td>-4275.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CMI14O0002L</td><td></td><td>CMI01002G00</td><td>CMI14034G00</td><td>CR202602101488</td><td>ยังไม่ทำ</td><td>CHIANG MAI</td><td>True</td><td>True</td><td>CMI01002G00</td><td>0-0-2-13</td><td>8360.0</td><td>CMI14034GO0</td><td>1-1-1-4</td><td>196.0</td><td>-8164.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+<tr><td>Fiberhome</td><td>CMI14O0002Q</td><td></td><td>CMI01002G00</td><td>CMI14034G00</td><td>CR202602101488</td><td>ยังไม่ทำ</td><td>CHIANG MAI</td><td>True</td><td>True</td><td>CMI01002G00</td><td>0-0-2-14</td><td>8360.0</td><td>CMI14034GO0</td><td>1-1-1-5</td><td>196.0</td><td>-8164.0</td><td>True</td><td>True</td><td>True</td><td>Tracker Gap (Tracker: Ongoing, Inventory: Changed)</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+<script>
+// Compact Audit_Category pie (top 6 + Other)
+const auditLabels = ["Success (Tracker: Done, Inventory: Changed)", "Tracker Gap (Tracker: Ongoing, Inventory: Changed)", "Correct (Tracker: Ongoing, Inventory: Unchanged)", "Inventory Gap (Tracker: Done, Inventory: Unchanged)", "Ghost Splitter (NotFound in Inventory)", "Decommissioned (Found in Baseline, NotFound in Current)", "Other"];
+const auditCounts = [2235, 907, 403, 230, 29, 22, 20];
+const ctx = document.getElementById('auditPie').getContext('2d');
+new Chart(ctx, {type:'doughnut', data:{labels:auditLabels, datasets:[{data:auditCounts, backgroundColor:["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc949", "#af7aa1"]}]}, options:{responsive:true, maintainAspectRatio:true, aspectRatio:1.2, animation:false, plugins:{legend:{position:'right', labels:{boxWidth:12}}}}});
+</script>
+</body>
+</html>
