@@ -1,11 +1,16 @@
 {
-  "total_rehomed": 4212,
-  "same_olt": 2325,
-  "diff_olt": 1887,
-  "distance_saved": 5104.0,
-  "over_5k_to_under_5k": 0,
-  "insignificant_change": 116,
+  "total_planned": 3846,
+  "total_rehomed": 3441,
+  "same_olt": 46,
+  "diff_olt": 3395,
+  "inventory_gap": 99,
+  "distance_saved_m": 13652527.0,
+  "distance_saved_km": 13652.53,
+  "over_5k_to_under_5k": 1802,
+  "insignificant_change": 28,
   "threshold_5km": 5000,
   "threshold_30m": 30,
-  "total_affected_onus": 87292
+  "total_affected_onus": 66513,
+  "total_overloaded_l1": 18,
+  "as_of": "29/07/26"
 }
