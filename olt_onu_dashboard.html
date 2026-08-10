@@ -229,6 +229,7 @@
         <table id="matrixTable" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>BRAS Name</th>
                     <th>OLT Vendor</th>
                     <th>OLT Model</th>
                     <th>OLT Version</th>
@@ -281,12 +282,13 @@
                 return;
             }
             
-            const headers = ['OLT Vendor', 'OLT Model', 'OLT Version', 'ONU Vendor', 'ONU Model', 'ONU Version', 'Connections'];
+            const headers = ['BRAS Name', 'OLT Vendor', 'OLT Model', 'OLT Version', 'ONU Vendor', 'ONU Model', 'ONU Version', 'Connections'];
             let csvContent = "﻿"; // BOM for Excel UTF-8
             csvContent += headers.map(h => `"${h}"`).join(",") + "\r\n";
             
             globalRawData.forEach(row => {
                 const cols = [
+                    row.bras_name,
                     row.olt_vendor,
                     row.olt_model,
                     row.olt_version,
@@ -309,7 +311,7 @@
             document.body.removeChild(link);
         }
 
-        fetch('olt_onu_dashboard_data.json')
+        fetch('olt_onu_dashboard_data.json?v=' + new Date().getTime())
             .then(res => res.json())
             .then(data => {
                 globalRawData = data.all_data;
@@ -369,6 +371,7 @@
                 let dt = $('#matrixTable').DataTable({
                     data: data.all_data,
                     columns: [
+                        { data: 'bras_name' },
                         { data: 'olt_vendor', render: function(d) { return getVendorBadge(d); } },
                         { data: 'olt_model' },
                         { data: 'olt_version' },
@@ -377,7 +380,7 @@
                         { data: 'onu_version' },
                         { data: 'count', render: $.fn.dataTable.render.number(',', '.') }
                     ],
-                    order: [[ 6, 'desc' ]],
+                    order: [[ 7, 'desc' ]],
                     pageLength: 25,
                     lengthMenu: [10, 25, 50, 100, 500]
                 });
