@@ -26,18 +26,7 @@
         }
         
         /* SIDEBAR STYLES */
-        .sidebar {
-            width: 250px;
-            background: rgba(13, 18, 34, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 0; bottom: 0; left: 0;
-            z-index: 9999;
-        }
+        
         .sidebar-logo {
             font-family: 'Outfit', sans-serif;
             font-size: 1.25rem;
@@ -106,39 +95,206 @@
         .table-header-row h3 { margin: 0; font-size: 1.1rem; color: #fff; }
         .btn-export { background: linear-gradient(135deg, #059669, #10b981); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease; }
         .btn-export:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
-    </style>
+    
+.sidebar {
+    width: 250px;
+    background: rgba(13, 18, 34, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    height: 60px !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    flex-direction: row !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: #0d1222 !important;
+    z-index: 10000 !important;
+  }
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+</style>
 </head>
 <body>
     <nav class="sidebar">
         <div class="sidebar-logo">⚡ <span>FBE-PMS-Monitor</span></div>
         <div class="sidebar-links">
-            <a href="index.html" id="nav-main">Main</a>
-            <a href="mismatch_dashboard.html" id="nav-mismatch">Mismatch</a>
-            <a href="onu_model_dashboard.html" id="nav-onumodel">ONU Model</a>
-            <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
-            <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
-            <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
-            <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
-            <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="active">Uplink Traffic</a>
-            <a href="optical_dashboard.html" id="nav-optical">Optical</a>
-            <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
-            <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
-            <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
-            <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
-            <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
-            <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
-            <a href="xgs_upgrade_dashboard.html" id="nav-xgsupgrade">XGS Upgrade</a>
-            <a href="pon_sfp_audit_dashboard.html" id="nav-ponsfpaudit">PON SFP Audit</a>
-        </div>
+        <a href="index.html" id="nav-main">OLT temperature</a>
+        <a href="mismatch_dashboard.html" id="nav-mismatch">XGS mismatch</a>
+        <a href="olt_executive_dashboard.html" id="nav-executive">XGS-PON</a>
+        <a href="olt_cascade_dashboard.html" id="nav-cascade">Cascade</a>
+        <a href="olt_l2_distance_dashboard.html" id="nav-l2distance">L2 Distance</a>
+        <a href="dw_distance_dashboard.html" id="nav-dw-distance" class="sub-link">&#128300; DW Distance</a>
+        <a href="l1_rehome_dashboard.html" id="nav-l1rehome">L1 Rehome</a>
+        <a href="traffic_dashboard.html" id="nav-uplinktraffic" class="active">Uplink Traffic</a>
+        <a href="optical_dashboard.html" id="nav-optical">Optical</a>
+        <a href="pon_traffic_dashboard.html" id="nav-pontraffic">PON Traffic</a>
+        <a href="inventory_movement_dashboard.html" id="nav-inventory">Inventory</a>
+        <a href="tvs_edfa_dashboard.html" id="nav-edfa">EDFA</a>
+        <a href="swap_olt_dashboard.html" id="nav-swap">SwapOLT</a>
+        <a href="uplink_instability_dashboard.html" id="nav-instability">Flapping</a>
+        <a href="uplink_instability_trend_dashboard.html" id="nav-instability-trend" class="sub-link">&#128300; Flapping Trends</a>
+        <a href="simplex_dashboard.html" id="nav-simplex">Simplex</a>
+        <a href="single_board_dashboard.html" id="nav-control-board">Control card</a>
+        <a href="xgs_upgrade_dashboard.html" id="nav-xgs-upgrade">HiSpeedPack</a>
+        <a href="xgs_readiness_dashboard.html" id="nav-xgs-readiness" class="sub-link">&#128300; XGS Readiness</a>
+        <a href="pon_sfp_audit_dashboard.html" id="nav-pon-sfp">PON SFP Audit</a>
+        <a href="olt_onu_dashboard.html" id="nav-olt-onu">OLT-ONU</a>
+    </div>
     </nav>
 
+    <div class="container">
         <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h1>🚦 OLT Uplink Traffic Monitor <span style="font-size: 1.1rem; color: #fbbf24; font-weight: bold; margin-left: 10px;">(as of 03/08/26)</span></h1>
+                <h1>🚦 OLT Uplink Traffic Monitor <span style="font-size: 1.1rem; color: #fbbf24; font-weight: bold; margin-left: 10px;">(AS OF 03/08/26)</span></h1>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 23/08/2026</span></div>
                 <p>รายงานตรวจสอบ Bandwidth Utilization ของ OLT แยกตาม Region (4 ระดับความเสี่ยง)</p>
             </div>
-            <button id="runCheckBtn" class="glass-btn" style="display: none; background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #f59e0b; font-weight: 600; cursor: pointer; padding: 10px 18px; border-radius: 8px; font-family: 'Outfit', sans-serif;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
-        </div>
+</div>
 
         <div class="stats-grid">
             <div class="stat-card">
@@ -213,6 +369,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <script>
         const dashboardData = {
@@ -233,8 +390,8 @@
       "critical": 2,
       "high": 1,
       "mod": 7,
-      "healthy": 1503,
-      "total": 1513
+      "healthy": 1504,
+      "total": 1514
     },
     "East": {
       "critical": 0,
@@ -254,8 +411,8 @@
       "critical": 0,
       "high": 0,
       "mod": 0,
-      "healthy": 4,
-      "total": 4
+      "healthy": 3,
+      "total": 3
     },
     "Lower Northeast": {
       "critical": 0,
@@ -275,8 +432,8 @@
       "critical": 1,
       "high": 4,
       "mod": 2,
-      "healthy": 2124,
-      "total": 2131
+      "healthy": 2123,
+      "total": 2130
     },
     "Northeast": {
       "critical": 0,
@@ -310,8 +467,8 @@
       "critical": 0,
       "high": 0,
       "mod": 0,
-      "healthy": 20,
-      "total": 20
+      "healthy": 21,
+      "total": 21
     },
     "Upper Northeast": {
       "critical": 0,
@@ -400,7 +557,7 @@
       "device": "PSN01003G00",
       "region": "North",
       "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X16A",
+      "uplink_model": "Huawei CX600-X8",
       "utilization": 71.9,
       "severity": "High",
       "ifDescr": "0/10/0",
@@ -412,7 +569,7 @@
       "device": "LPG01001G00",
       "region": "North",
       "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8",
+      "uplink_model": "Huawei CX600-X8A",
       "utilization": 71.64,
       "severity": "High",
       "ifDescr": "0/9/0",
@@ -484,7 +641,7 @@
       "device": "UTR01001G00",
       "region": "North",
       "olt_model": "MA5800-X17",
-      "uplink_model": "Huawei CX600-X8",
+      "uplink_model": "Huawei CX600-X8A",
       "utilization": 68.17,
       "severity": "Moderate",
       "ifDescr": "0/9/0",
@@ -1898,12 +2055,12 @@
     }
   ],
   "single_uplink_vendors": {
-    "GCOM": 149,
-    "Raisecom": 195,
-    "Dasan": 70,
+    "GCOM": 150,
+    "Raisecom": 196,
+    "Dasan": 69,
     "Huawei": 137,
-    "Fiberhome": 9,
-    "ZTE": 15
+    "Fiberhome": 11,
+    "ZTE": 14
   }
 };
 
@@ -2087,60 +2244,21 @@
         }
 
         
-        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
-        function checkLocalEnv() {
-            const btn = document.getElementById('runCheckBtn');
-            if (btn) {
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    btn.style.display = 'inline-flex';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-        }
+        
+        
 
-        async function triggerRunCheck() {
-            const btn = document.getElementById('runCheckBtn');
-            if (!btn) return;
-            const originalText = btn.innerHTML;
-            
-            btn.disabled = true;
-            btn.innerHTML = '⚡ Processing update... Please wait';
-            btn.style.background = 'rgba(239, 68, 68, 0.2)';
-            btn.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-            btn.style.color = '#ef4444';
-            btn.style.cursor = 'not-allowed';
-            btn.classList.add('blink');
-
-            try {
-                const response = await fetch('http://127.0.0.1:5050/api/run-check/nav-uplinktraffic', {
-                    method: 'POST'
-                });
-                const data = await response.json();
-                
-                if (response.ok) {
-                    alert(data.message || 'สแกนและประมวลผลแท็บนี้เสร็จสิ้น!');
-                    window.location.reload();
-                } else {
-                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
-                }
-            } catch (err) {
-                alert('ไม่สามารถเชื่อมต่อไปยัง Local API Server ได้ (กรุณารัน python3 /Users/bbae/GPTCodex/scrip/api_server.py ก่อน)');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-                btn.style.background = 'rgba(245, 158, 11, 0.15)';
-                btn.style.borderColor = 'rgba(245, 158, 11, 0.35)';
-                btn.style.color = '#f59e0b';
-                btn.style.cursor = 'pointer';
-                btn.classList.remove('blink');
-            }
-        }
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             initDashboard();
-            setTimeout(checkLocalEnv, 150);
+            
         });
-    </script>
+    
+        
+
+        
+        
+
+        </script>
 </body>
 </html>

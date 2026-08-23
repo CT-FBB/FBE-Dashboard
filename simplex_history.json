@@ -62,5 +62,13 @@
     "broken_dual": 105,
     "simplex_check_sfp": 327,
     "ma5603t": 97
+  },
+  {
+    "date": "2026-08-23",
+    "true_simplex": 83,
+    "by_design": 63,
+    "broken_dual": 111,
+    "simplex_check_sfp": 320,
+    "ma5603t": 97
   }
 ]
