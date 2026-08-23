@@ -929,6 +929,12 @@ body {
     z-index: 9999 !important;
 }
 </style>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -1062,7 +1068,7 @@ body {
         <div class="header" style="display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
             <h1>📊 OLT L2 Distance Analysis Dashboard</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 01/07/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 09/08/2026</span></div>
             <p>รายงานจำนวน L2 Splitter ที่มี ONU ใช้งาน และระยะทางจาก OLT ไปยัง ONU (ข้อมูลจาก onu_range)</p>
             </div>
         <a href="OLT_L2_Distance_Detailed_Report.xlsx" download="OLT_L2_Distance_Detailed_Report.xlsx" style="padding: 0.6rem 1.2rem; background-color: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s; text-decoration: none;">
@@ -1102,11 +1108,7 @@ body {
             <h3>ONUs beyond 9 Km</h3>
             <div class="value" id="statGt9" style="color: var(--accent-purple);">-</div>
         </div>
-        <div class="stat-card" style="border-color: var(--accent-red);">
-            <h3 style="color: var(--accent-red);">Distance Anomalies</h3>
-            <div class="value" id="statAnomalies" style="color: var(--accent-red);">-</div>
-            <p style="color:var(--text-muted); margin-top:0.5rem; font-size:0.8rem;">L2 ที่มี ONU ระยะต่างกัน >4Km</p>
-        </div>
+
             <div class="stat-card" style="border-color: var(--text-muted);">
             <h3 style="color: var(--text-muted);">Empty L2 Splitters</h3>
             <div class="value" id="statEmpty" style="color: var(--text-muted);">-</div>
@@ -477894,7 +477896,7 @@ body {
             document.getElementById('stat0_5').textContent = dashboardData.distance_distribution['0-5Km'].toLocaleString();
             document.getElementById('stat5_9').textContent = dashboardData.distance_distribution['5-9Km'].toLocaleString();
             document.getElementById('statGt9').textContent = dashboardData.distance_distribution['>9Km'].toLocaleString();
-            document.getElementById('statAnomalies').textContent = dashboardData.anomalies.length.toLocaleString();
+
             const statEmpty = document.getElementById('statEmpty');
             if (statEmpty) statEmpty.textContent = dashboardData.total_empty_l2s.toLocaleString();
 
@@ -478296,6 +478298,45 @@ body {
         document.addEventListener('DOMContentLoaded', () => initDashboard(dashboardData));
 
 
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
         
 
         
