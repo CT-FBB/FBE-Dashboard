@@ -814,7 +814,7 @@ body {
         <div class="header">
             <div class="title-box">
                 <h1>Thermal Analytics</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 14/08/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 31/08/2026</span></div>
                 <p><span class="dot" style="display:inline-block;background:var(--accent-emerald)"></span> SYSTEM ONLINE &bull; SNMP-SERVER CORE</p>
             </div>
             <div class="controls">
@@ -847,13 +847,13 @@ body {
                     <table id="dataTable">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Device Name</th>
-                                <th>IP Address</th>
-                                <th>Vendor</th>
-                                <th>Model</th>
-                                <th>Temp (°C)</th>
-                                <th>Status</th>
+                                <th onclick="sortTable(0)" style="cursor:pointer; user-select:none"># <span id="sort-0">↕</span></th>
+                                <th onclick="sortTable(1)" style="cursor:pointer; user-select:none">Device Name <span id="sort-1">↕</span></th>
+                                <th onclick="sortTable(2)" style="cursor:pointer; user-select:none">IP Address <span id="sort-2">↕</span></th>
+                                <th onclick="sortTable(3)" style="cursor:pointer; user-select:none">Vendor <span id="sort-3">↕</span></th>
+                                <th onclick="sortTable(4)" style="cursor:pointer; user-select:none">Model <span id="sort-4">↕</span></th>
+                                <th onclick="sortTable(5)" style="cursor:pointer; user-select:none; color:var(--accent-cyan)">Temp (°C) <span id="sort-5">▼</span></th>
+                                <th onclick="sortTable(6)" style="cursor:pointer; user-select:none">Status <span id="sort-6">↕</span></th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -2222,376 +2222,431 @@ body {
                 "over_50c": 705
             }
         }
+    },
+    {
+        "date": "2026-08-31 22:52:09",
+        "total_online": 12457,
+        "total_offline": 147,
+        "overall_avg_temp": 50.63,
+        "brands": {
+            "Nokia": {
+                "avg": 77.52,
+                "top20_avg": 87.22,
+                "top10_avg": 88.67,
+                "max": 90.0,
+                "over_50c": 0
+            },
+            "GCOM": {
+                "avg": 43.87,
+                "top20_avg": 52.84,
+                "top10_avg": 55.95,
+                "max": 73.5,
+                "over_50c": 323
+            },
+            "Dasan": {
+                "avg": 43.37,
+                "top20_avg": 50.06,
+                "top10_avg": 52.29,
+                "max": 72.0,
+                "over_50c": 154
+            },
+            "ZTE": {
+                "avg": 45.36,
+                "top20_avg": 63.41,
+                "top10_avg": 68.71,
+                "max": 86.81,
+                "over_50c": 620
+            },
+            "Huawei": {
+                "avg": 49.09,
+                "top20_avg": 60.18,
+                "top10_avg": 61.8,
+                "max": 78.0,
+                "over_50c": 1194
+            },
+            "Raisecom": {
+                "avg": 48.41,
+                "top20_avg": 55.4,
+                "top10_avg": 57.54,
+                "max": 74.79,
+                "over_50c": 587
+            },
+            "Fiberhome": {
+                "avg": 46.78,
+                "top20_avg": 68.63,
+                "top10_avg": 69.91,
+                "max": 73.0,
+                "over_50c": 634
+            }
+        }
     }
 ];
         const dashboardData = {
     "brands": [
         {
-            "name": "Fiberhome",
-            "scanned": 2105,
-            "online": 2102,
-            "offline": 3,
-            "average_temp": 50.09,
-            "max_temp": 83.0,
-            "min_temp": 0.0,
+            "name": "Nokia",
+            "scanned": 161,
+            "online": 90,
+            "offline": 71,
+            "average_temp": 77.52,
+            "max_temp": 90.0,
+            "min_temp": 57.0,
             "temp_distribution": {
-                "< 30\u00b0C": 4,
-                "30 - 40\u00b0C": 352,
-                "40 - 50\u00b0C": 958,
-                "> 50\u00b0C": 788
+                "<= 70\u00b0C": 19,
+                "71 - 100\u00b0C": 71,
+                "101 - 104\u00b0C": 0,
+                ">= 105\u00b0C": 0
             },
             "top_hottest": [
                 {
-                    "ip": "10.237.175.2",
-                    "name": "MHR01019GO0",
-                    "model": "AN5516-04",
+                    "ip": "10.237.205.153",
+                    "name": "SMK02007G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 90.0
+                },
+                {
+                    "ip": "10.237.165.137",
+                    "name": "KLS07001G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 89.0
+                },
+                {
+                    "ip": "10.237.165.153",
+                    "name": "KLS18002G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 89.0
+                },
+                {
+                    "ip": "10.237.224.132",
+                    "name": "RET10015G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 89.0
+                },
+                {
+                    "ip": "10.237.205.161",
+                    "name": "SMK01008G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 89.0
+                },
+                {
+                    "ip": "10.237.178.132",
+                    "name": "SMK03021G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 89.0
+                },
+                {
+                    "ip": "10.237.205.148",
+                    "name": "SMK01029G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 88.0
+                },
+                {
+                    "ip": "10.237.205.136",
+                    "name": "SMK03019G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 88.0
+                },
+                {
+                    "ip": "10.237.165.165",
+                    "name": "KLS01011G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 87.0
+                },
+                {
+                    "ip": "10.237.205.151",
+                    "name": "SMK01033G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 87.0
+                },
+                {
+                    "ip": "10.237.205.132",
+                    "name": "SMK02018G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 87.0
+                },
+                {
+                    "ip": "10.237.165.163",
+                    "name": "KLS18001G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 86.0
+                },
+                {
+                    "ip": "10.237.205.157",
+                    "name": "SMK02012G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 86.0
+                },
+                {
+                    "ip": "10.237.205.144",
+                    "name": "SMK03015G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 86.0
+                },
+                {
+                    "ip": "10.237.165.151",
+                    "name": "KLS14004G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 85.0
+                },
+                {
+                    "ip": "10.237.205.159",
+                    "name": "SMK01021G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 85.0
+                },
+                {
+                    "ip": "10.237.205.152",
+                    "name": "SMK01025G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 85.0
+                },
+                {
+                    "ip": "10.237.205.156",
+                    "name": "SMK01037G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 85.0
+                },
+                {
+                    "ip": "10.237.205.137",
+                    "name": "SMK02021G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 85.0
+                },
+                {
+                    "ip": "10.237.165.149",
+                    "name": "KLS12011G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 84.0
+                },
+                {
+                    "ip": "10.237.202.132",
+                    "name": "RET14010G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 84.0
+                },
+                {
+                    "ip": "10.237.205.150",
+                    "name": "SMK01034G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 84.0
+                },
+                {
+                    "ip": "10.237.206.131",
+                    "name": "SMS01009G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 84.0
+                },
+                {
+                    "ip": "10.237.165.138",
+                    "name": "KLS07003G00",
+                    "model": "7362 ISAM DF-8G",
                     "temp": 83.0
                 },
                 {
-                    "ip": "10.237.151.19",
-                    "name": "AYT11036GO0",
-                    "model": "AN5516-04",
-                    "temp": 78.0
-                },
-                {
-                    "ip": "10.237.195.2",
-                    "name": "PHE04005GO0",
-                    "model": "AN5516-04",
-                    "temp": 75.0
-                },
-                {
-                    "ip": "10.237.124.6",
-                    "name": "BKK05014GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.237.19.3",
-                    "name": "BKK10016GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.237.141.6",
-                    "name": "BKK12013GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.237.65.5",
-                    "name": "BKK27003GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.237.121.3",
-                    "name": "BKK27007GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.237.140.2",
-                    "name": "BKK28006GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.237.34.4",
-                    "name": "BKK32015GO0",
-                    "model": "AN5516-04",
-                    "temp": 72.0
+                    "ip": "10.237.165.164",
+                    "name": "KLS07020G00",
+                    "model": "7362 ISAM DF-8G",
+                    "temp": 83.0
                 }
             ],
-            "top_20pct_avg_temp": 69.16,
-            "top_10pct_avg_temp": 70.46
+            "top_20pct_avg_temp": 87.22,
+            "top_10pct_avg_temp": 88.67
         },
         {
             "name": "GCOM",
-            "scanned": 2270,
-            "online": 2252,
-            "offline": 18,
-            "average_temp": 50.11,
-            "max_temp": 82.0,
-            "min_temp": -0.5,
+            "scanned": 2243,
+            "online": 2236,
+            "offline": 7,
+            "average_temp": 43.87,
+            "max_temp": 73.5,
+            "min_temp": 31.5,
             "temp_distribution": {
-                "< 30\u00b0C": 1,
-                "30 - 40\u00b0C": 39,
-                "40 - 50\u00b0C": 1199,
-                "> 50\u00b0C": 1013
+                "< 30\u00b0C": 0,
+                "30 - 40\u00b0C": 548,
+                "40 - 50\u00b0C": 1365,
+                "> 50\u00b0C": 323
             },
             "top_hottest": [
                 {
                     "ip": "10.179.173.93",
                     "name": "LBR04018G00",
                     "model": "GL5610-08P(V2)",
-                    "temp": 82.0
-                },
-                {
-                    "ip": "10.179.207.86",
-                    "name": "SRB03011G00",
-                    "model": "GL5610-08P(V2)",
-                    "temp": 81.5
-                },
-                {
-                    "ip": "10.179.207.74",
-                    "name": "SRB13009G00",
-                    "model": "GL5610-08P(V2)",
-                    "temp": 74.5
-                },
-                {
-                    "ip": "10.179.151.80",
-                    "name": "SRB09010G00",
-                    "model": "GL5610-08P(V2)",
                     "temp": 73.5
-                },
-                {
-                    "ip": "10.179.168.81",
-                    "name": "KKN19004G00",
-                    "model": "GL5610-08P(V2)",
-                    "temp": 72.0
                 },
                 {
                     "ip": "10.179.172.45",
                     "name": "LOI09012G00",
                     "model": "GL5610-08P(V2)",
-                    "temp": 71.5
+                    "temp": 68.0
                 },
                 {
-                    "ip": "10.179.173.99",
-                    "name": "LBR04024G00",
+                    "ip": "10.179.207.74",
+                    "name": "SRB13009G00",
                     "model": "GL5610-08P(V2)",
-                    "temp": 70.0
+                    "temp": 68.0
                 },
                 {
-                    "ip": "10.179.219.9",
-                    "name": "UBR07008G00",
+                    "ip": "10.179.168.81",
+                    "name": "KKN19004G00",
                     "model": "GL5610-08P(V2)",
-                    "temp": 69.5
+                    "temp": 66.0
                 },
                 {
-                    "ip": "10.179.220.164",
-                    "name": "UDT22007G00",
+                    "ip": "10.179.226.6",
+                    "name": "KKN19007G00",
                     "model": "GL5610-08P(V2)",
-                    "temp": 69.5
+                    "temp": 66.0
+                },
+                {
+                    "ip": "10.179.168.201",
+                    "name": "KKN08008G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 65.0
                 },
                 {
                     "ip": "10.179.173.147",
                     "name": "LBR11010G00",
                     "model": "GL5610-08P(V2)",
-                    "temp": 69.0
+                    "temp": 64.5
+                },
+                {
+                    "ip": "10.179.168.123",
+                    "name": "KKN06003G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 63.5
+                },
+                {
+                    "ip": "10.179.180.68",
+                    "name": "NKW13006G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 63.5
+                },
+                {
+                    "ip": "10.179.180.120",
+                    "name": "NKW11011G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.179.219.116",
+                    "name": "UBR08007G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.179.207.14",
+                    "name": "SRB13004G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 62.5
+                },
+                {
+                    "ip": "10.179.219.9",
+                    "name": "UBR07008G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 62.5
+                },
+                {
+                    "ip": "10.179.151.118",
+                    "name": "AYT11021G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 62.0
+                },
+                {
+                    "ip": "10.179.158.62",
+                    "name": "CYP07007G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 62.0
+                },
+                {
+                    "ip": "10.179.157.21",
+                    "name": "NKW07019G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 61.5
+                },
+                {
+                    "ip": "10.179.157.2",
+                    "name": "NKW12003G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 61.5
+                },
+                {
+                    "ip": "10.179.151.80",
+                    "name": "SRB09010G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 61.5
+                },
+                {
+                    "ip": "10.179.151.110",
+                    "name": "AYT14013G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 61.0
+                },
+                {
+                    "ip": "10.179.207.81",
+                    "name": "SRB03006G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 61.0
+                },
+                {
+                    "ip": "10.179.151.47",
+                    "name": "AYT08004G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 60.5
+                },
+                {
+                    "ip": "10.179.151.82",
+                    "name": "AYT09003G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 60.5
+                },
+                {
+                    "ip": "10.179.155.24",
+                    "name": "BRR19001G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 60.5
+                },
+                {
+                    "ip": "10.179.186.14",
+                    "name": "NBL01006G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 60.5
+                },
+                {
+                    "ip": "10.179.185.32",
+                    "name": "NKI01016G00",
+                    "model": "GL5610-08P(V2)",
+                    "temp": 60.5
                 }
             ],
-            "top_20pct_avg_temp": 59.39,
-            "top_10pct_avg_temp": 62.3
-        },
-        {
-            "name": "Nokia",
-            "scanned": 154,
-            "online": 91,
-            "offline": 63,
-            "average_temp": 81.25,
-            "max_temp": 93.0,
-            "min_temp": 63.0,
-            "temp_distribution": {
-                "< 30\u00b0C": 0,
-                "30 - 40\u00b0C": 0,
-                "40 - 50\u00b0C": 0,
-                "> 50\u00b0C": 91
-            },
-            "top_hottest": [
-                {
-                    "ip": "10.237.205.161",
-                    "name": "SMK01008G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 93.0
-                },
-                {
-                    "ip": "10.237.205.146",
-                    "name": "SMK01024G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 92.0
-                },
-                {
-                    "ip": "10.237.205.148",
-                    "name": "SMK01029G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 92.0
-                },
-                {
-                    "ip": "10.237.205.151",
-                    "name": "SMK01033G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 92.0
-                },
-                {
-                    "ip": "10.237.205.136",
-                    "name": "SMK03019G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 92.0
-                },
-                {
-                    "ip": "10.237.165.165",
-                    "name": "KLS01011G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 91.0
-                },
-                {
-                    "ip": "10.237.165.163",
-                    "name": "KLS18001G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 91.0
-                },
-                {
-                    "ip": "10.237.202.132",
-                    "name": "RET14010G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 91.0
-                },
-                {
-                    "ip": "10.237.205.132",
-                    "name": "SMK02018G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 91.0
-                },
-                {
-                    "ip": "10.237.165.143",
-                    "name": "KLS10006G00",
-                    "model": "7362 ISAM DF-8G",
-                    "temp": 90.0
-                }
-            ],
-            "top_20pct_avg_temp": 90.61,
-            "top_10pct_avg_temp": 91.67
-        },
-        {
-            "name": "Huawei",
-            "scanned": 2401,
-            "online": 2399,
-            "offline": 2,
-            "average_temp": 53.02,
-            "max_temp": 83.0,
-            "min_temp": 25.0,
-            "temp_distribution": {
-                "< 30\u00b0C": 13,
-                "30 - 40\u00b0C": 280,
-                "40 - 50\u00b0C": 282,
-                "> 50\u00b0C": 1824
-            },
-            "top_hottest": [
-                {
-                    "ip": "10.238.152.12",
-                    "name": "YST08001GO0",
-                    "model": "MA5608T",
-                    "temp": 83.0
-                },
-                {
-                    "ip": "10.238.219.16",
-                    "name": "UBR01002GO0",
-                    "model": "MA5608T",
-                    "temp": 78.0
-                },
-                {
-                    "ip": "10.238.152.13",
-                    "name": "YST08002GO0",
-                    "model": "MA5608T",
-                    "temp": 78.0
-                },
-                {
-                    "ip": "10.238.219.15",
-                    "name": "UBR01001GO0",
-                    "model": "MA5608T",
-                    "temp": 73.0
-                },
-                {
-                    "ip": "10.238.152.14",
-                    "name": "ANC07001GO0",
-                    "model": "MA5608T",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.238.8.2",
-                    "name": "NTB04002G02",
-                    "model": "MA5800-X2",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.238.219.17",
-                    "name": "UBR10001GO0",
-                    "model": "MA5608T",
-                    "temp": 72.0
-                },
-                {
-                    "ip": "10.238.152.11",
-                    "name": "ANC03001GO0",
-                    "model": "MA5608T",
-                    "temp": 69.0
-                },
-                {
-                    "ip": "10.238.160.6",
-                    "name": "LPN01003G00",
-                    "model": "MA5800-X17",
-                    "temp": 67.0
-                },
-                {
-                    "ip": "10.238.162.198",
-                    "name": "CBR04108GO0",
-                    "model": "MA5801-FL16",
-                    "temp": 66.0
-                }
-            ],
-            "top_20pct_avg_temp": 62.2,
-            "top_10pct_avg_temp": 63.38
+            "top_20pct_avg_temp": 52.84,
+            "top_10pct_avg_temp": 55.95
         },
         {
             "name": "Dasan",
-            "scanned": 1929,
-            "online": 1907,
-            "offline": 22,
-            "average_temp": 48.37,
-            "max_temp": 79.0,
-            "min_temp": 31.0,
+            "scanned": 1875,
+            "online": 1862,
+            "offline": 13,
+            "average_temp": 43.37,
+            "max_temp": 72.0,
+            "min_temp": 30.0,
             "temp_distribution": {
                 "< 30\u00b0C": 0,
-                "30 - 40\u00b0C": 60,
-                "40 - 50\u00b0C": 1135,
-                "> 50\u00b0C": 712
+                "30 - 40\u00b0C": 367,
+                "40 - 50\u00b0C": 1341,
+                "> 50\u00b0C": 154
             },
             "top_hottest": [
                 {
                     "ip": "10.178.177.13",
                     "name": "NKN04005G00",
                     "model": "V5808",
-                    "temp": 79.0
-                },
-                {
-                    "ip": "10.178.193.55",
-                    "name": "PCT01022GO0",
-                    "model": "V5804",
-                    "temp": 73.0
-                },
-                {
-                    "ip": "10.178.162.10",
-                    "name": "CBR04029G00",
-                    "model": "V5808",
-                    "temp": 71.0
+                    "temp": 72.0
                 },
                 {
                     "ip": "10.178.216.34",
                     "name": "TAK03006G00",
                     "model": "V5808",
-                    "temp": 70.0
-                },
-                {
-                    "ip": "10.178.191.82",
-                    "name": "PCB05018G00",
-                    "model": "V5808",
-                    "temp": 69.0
-                },
-                {
-                    "ip": "10.178.193.14",
-                    "name": "PCT06009G00",
-                    "model": "V5808",
-                    "temp": 69.0
+                    "temp": 71.0
                 },
                 {
                     "ip": "10.178.216.83",
@@ -2600,138 +2655,167 @@ body {
                     "temp": 69.0
                 },
                 {
+                    "ip": "10.178.183.17",
+                    "name": "NAN14002G00",
+                    "model": "V5804",
+                    "temp": 67.0
+                },
+                {
                     "ip": "10.178.163.51",
                     "name": "CBR01028G00",
                     "model": "V5808",
-                    "temp": 68.0
+                    "temp": 64.0
                 },
                 {
-                    "ip": "10.178.191.45",
-                    "name": "PCB06005G00",
+                    "ip": "10.178.174.30",
+                    "name": "CMI06004G00",
                     "model": "V5808",
-                    "temp": 68.0
+                    "temp": 62.0
+                },
+                {
+                    "ip": "10.178.221.23",
+                    "name": "UTT07003G00",
+                    "model": "V5804",
+                    "temp": 61.0
+                },
+                {
+                    "ip": "10.178.194.33",
+                    "name": "PSN05011G00",
+                    "model": "V5808",
+                    "temp": 60.0
+                },
+                {
+                    "ip": "10.178.203.81",
+                    "name": "SKO03012G00",
+                    "model": "V5808",
+                    "temp": 60.0
                 },
                 {
                     "ip": "10.178.162.63",
                     "name": "CBR04067G00",
                     "model": "V5808",
-                    "temp": 67.0
+                    "temp": 59.0
+                },
+                {
+                    "ip": "10.178.163.43",
+                    "name": "CBR06011G00",
+                    "model": "V5808",
+                    "temp": 58.0
+                },
+                {
+                    "ip": "10.178.191.45",
+                    "name": "PCB06005G00",
+                    "model": "V5808",
+                    "temp": 58.0
+                },
+                {
+                    "ip": "10.178.197.34",
+                    "name": "PCR08006G00",
+                    "model": "V5808",
+                    "temp": 58.0
+                },
+                {
+                    "ip": "10.178.212.64",
+                    "name": "SKT04009G00",
+                    "model": "V5804",
+                    "temp": 58.0
+                },
+                {
+                    "ip": "10.178.160.4",
+                    "name": "CRI11004G00",
+                    "model": "V5808",
+                    "temp": 57.0
+                },
+                {
+                    "ip": "10.178.193.28",
+                    "name": "PCT04006G00",
+                    "model": "V5808",
+                    "temp": 57.0
+                },
+                {
+                    "ip": "10.178.166.68",
+                    "name": "KPP01029G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.170.68",
+                    "name": "LPG03009G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.171.49",
+                    "name": "LPN04007G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.191.82",
+                    "name": "PCB05018G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.195.30",
+                    "name": "PHE06008G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.190.77",
+                    "name": "PYO08006G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.212.70",
+                    "name": "SKT01017G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.212.10",
+                    "name": "SKT03005G00",
+                    "model": "V5808",
+                    "temp": 56.0
+                },
+                {
+                    "ip": "10.178.221.36",
+                    "name": "UTT06014G00",
+                    "model": "V5808",
+                    "temp": 56.0
                 }
             ],
-            "top_20pct_avg_temp": 55.47,
-            "top_10pct_avg_temp": 58.06
-        },
-        {
-            "name": "Raisecom",
-            "scanned": 1796,
-            "online": 1775,
-            "offline": 21,
-            "average_temp": 53.0,
-            "max_temp": 78.12,
-            "min_temp": 0.0,
-            "temp_distribution": {
-                "< 30\u00b0C": 2,
-                "30 - 40\u00b0C": 2,
-                "40 - 50\u00b0C": 421,
-                "> 50\u00b0C": 1350
-            },
-            "top_hottest": [
-                {
-                    "ip": "10.177.165.29",
-                    "name": "KLS11001G00",
-                    "model": "ISCOM5508",
-                    "temp": 78.12
-                },
-                {
-                    "ip": "10.177.175.12",
-                    "name": "MHR06007G00",
-                    "model": "ISCOM5508",
-                    "temp": 73.83
-                },
-                {
-                    "ip": "10.177.199.18",
-                    "name": "RCB05028G00",
-                    "model": "ISCOM5508",
-                    "temp": 68.4
-                },
-                {
-                    "ip": "10.177.213.69",
-                    "name": "SPB07010G00",
-                    "model": "ISCOM5504",
-                    "temp": 68.21
-                },
-                {
-                    "ip": "10.177.206.3",
-                    "name": "SMS01004G00",
-                    "model": "ISCOM5508",
-                    "temp": 67.99
-                },
-                {
-                    "ip": "10.177.209.50",
-                    "name": "SSK06007G00",
-                    "model": "ISCOM5508",
-                    "temp": 67.87
-                },
-                {
-                    "ip": "10.177.200.21",
-                    "name": "RNG04009G00",
-                    "model": "ISCOM5504",
-                    "temp": 67.57
-                },
-                {
-                    "ip": "10.177.167.119",
-                    "name": "KCN05014G00",
-                    "model": "ISCOM5504",
-                    "temp": 67.54
-                },
-                {
-                    "ip": "10.177.175.96",
-                    "name": "MHR06011G00",
-                    "model": "ISCOM5508",
-                    "temp": 67.23
-                },
-                {
-                    "ip": "10.177.167.35",
-                    "name": "KCN03005G00",
-                    "model": "ISCOM5508",
-                    "temp": 66.55
-                }
-            ],
-            "top_20pct_avg_temp": 59.6,
-            "top_10pct_avg_temp": 61.73
+            "top_20pct_avg_temp": 50.06,
+            "top_10pct_avg_temp": 52.29
         },
         {
             "name": "ZTE",
-            "scanned": 1941,
-            "online": 1921,
-            "offline": 20,
-            "average_temp": 46.4,
-            "max_temp": 87.17,
+            "scanned": 1972,
+            "online": 1958,
+            "offline": 14,
+            "average_temp": 45.36,
+            "max_temp": 86.81,
             "min_temp": 0.0,
             "temp_distribution": {
-                "< 30\u00b0C": 162,
-                "30 - 40\u00b0C": 320,
-                "40 - 50\u00b0C": 734,
-                "> 50\u00b0C": 705
+                "< 30\u00b0C": 150,
+                "30 - 40\u00b0C": 488,
+                "40 - 50\u00b0C": 700,
+                "> 50\u00b0C": 620
             },
             "top_hottest": [
                 {
                     "ip": "10.239.148.15",
                     "name": "PTT02013GO0",
                     "model": "C320",
-                    "temp": 87.17
+                    "temp": 86.81
                 },
                 {
                     "ip": "10.239.198.13",
                     "name": "PBR04013GO0",
                     "model": "C320",
-                    "temp": 82.02
-                },
-                {
-                    "ip": "10.239.141.2",
-                    "name": "BKK28003GO0",
-                    "model": "C320",
-                    "temp": 81.47
+                    "temp": 82.7
                 },
                 {
                     "ip": "10.239.115.2",
@@ -2743,58 +2827,2063 @@ body {
                     "ip": "10.239.228.38",
                     "name": "NKR20002G00",
                     "model": "C300",
-                    "temp": 80.73
+                    "temp": 80.79
                 },
                 {
                     "ip": "10.239.20.19",
                     "name": "BKK11020GO0",
                     "model": "C320",
-                    "temp": 80.21
+                    "temp": 80.63
                 },
                 {
-                    "ip": "10.239.158.22",
-                    "name": "CYP03001GO0",
+                    "ip": "10.239.141.2",
+                    "name": "BKK28003GO0",
                     "model": "C320",
-                    "temp": 80.15
-                },
-                {
-                    "ip": "10.239.10.11",
-                    "name": "NTB04012GO0",
-                    "model": "C320",
-                    "temp": 79.38
+                    "temp": 80.58
                 },
                 {
                     "ip": "10.239.10.12",
                     "name": "NTB04013GO0",
                     "model": "C320",
+                    "temp": 79.38
+                },
+                {
+                    "ip": "10.239.10.11",
+                    "name": "NTB04012GO0",
+                    "model": "C320",
                     "temp": 79.1
+                },
+                {
+                    "ip": "10.239.168.16",
+                    "name": "KKN15001GO0",
+                    "model": "C320",
+                    "temp": 78.94
+                },
+                {
+                    "ip": "10.239.158.22",
+                    "name": "CYP03001GO0",
+                    "model": "C320",
+                    "temp": 78.64
                 },
                 {
                     "ip": "10.239.214.8",
                     "name": "SRT16001G00",
                     "model": "C320",
-                    "temp": 78.22
+                    "temp": 77.99
+                },
+                {
+                    "ip": "10.239.181.16",
+                    "name": "NKS04002GO0",
+                    "model": "C320",
+                    "temp": 77.01
+                },
+                {
+                    "ip": "10.239.21.12",
+                    "name": "BKK10008GO0",
+                    "model": "C320",
+                    "temp": 76.88
+                },
+                {
+                    "ip": "10.239.168.14",
+                    "name": "KKN06001GO0",
+                    "model": "C320",
+                    "temp": 76.18
+                },
+                {
+                    "ip": "10.239.10.19",
+                    "name": "NTB04022GO0",
+                    "model": "C320",
+                    "temp": 76.18
+                },
+                {
+                    "ip": "10.239.188.32",
+                    "name": "PNA07006GO0",
+                    "model": "C320",
+                    "temp": 76.18
+                },
+                {
+                    "ip": "10.239.224.15",
+                    "name": "YST06001GO0",
+                    "model": "C320",
+                    "temp": 76.18
+                },
+                {
+                    "ip": "10.239.56.6",
+                    "name": "PTT06012GO0",
+                    "model": "C320",
+                    "temp": 75.85
+                },
+                {
+                    "ip": "10.239.17.6",
+                    "name": "NTB05006GO0",
+                    "model": "C320",
+                    "temp": 75.79
+                },
+                {
+                    "ip": "10.239.211.3",
+                    "name": "SKA11003G00",
+                    "model": "C300",
+                    "temp": 75.54
+                },
+                {
+                    "ip": "10.239.178.107",
+                    "name": "NKT03019GO0",
+                    "model": "C320",
+                    "temp": 75.46
+                },
+                {
+                    "ip": "10.239.10.20",
+                    "name": "NTB04021GO0",
+                    "model": "C320",
+                    "temp": 75.46
+                },
+                {
+                    "ip": "10.239.15.15",
+                    "name": "NTB03008GO0",
+                    "model": "C320",
+                    "temp": 75.32
+                },
+                {
+                    "ip": "10.239.9.15",
+                    "name": "NTB04011GO0",
+                    "model": "C320",
+                    "temp": 75.32
+                },
+                {
+                    "ip": "10.239.127.12",
+                    "name": "PTT02008GO0",
+                    "model": "C320",
+                    "temp": 75.32
                 }
             ],
-            "top_20pct_avg_temp": 63.67,
-            "top_10pct_avg_temp": 68.83
+            "top_20pct_avg_temp": 63.41,
+            "top_10pct_avg_temp": 68.71
+        },
+        {
+            "name": "Huawei",
+            "scanned": 2491,
+            "online": 2481,
+            "offline": 10,
+            "average_temp": 49.09,
+            "max_temp": 78.0,
+            "min_temp": 23.0,
+            "temp_distribution": {
+                "< 30\u00b0C": 12,
+                "30 - 40\u00b0C": 331,
+                "40 - 50\u00b0C": 944,
+                "> 50\u00b0C": 1194
+            },
+            "top_hottest": [
+                {
+                    "ip": "10.238.152.12",
+                    "name": "YST08001GO0",
+                    "model": "MA5608T",
+                    "temp": 78.0
+                },
+                {
+                    "ip": "10.238.219.16",
+                    "name": "UBR01002GO0",
+                    "model": "MA5608T",
+                    "temp": 75.0
+                },
+                {
+                    "ip": "10.238.152.13",
+                    "name": "YST08002GO0",
+                    "model": "MA5608T",
+                    "temp": 74.0
+                },
+                {
+                    "ip": "10.238.8.2",
+                    "name": "NTB04002G02",
+                    "model": "MA5800-X2",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.238.219.15",
+                    "name": "UBR01001GO0",
+                    "model": "MA5608T",
+                    "temp": 70.0
+                },
+                {
+                    "ip": "10.238.176.13",
+                    "name": "MDH02001GO0",
+                    "model": "MA5608T",
+                    "temp": 68.0
+                },
+                {
+                    "ip": "10.238.219.17",
+                    "name": "UBR10001GO0",
+                    "model": "MA5608T",
+                    "temp": 68.0
+                },
+                {
+                    "ip": "10.238.46.25",
+                    "name": "BKK39002GO1",
+                    "model": "MA5608T",
+                    "temp": 65.0
+                },
+                {
+                    "ip": "10.238.168.11",
+                    "name": "KKN17001GO0",
+                    "model": "MA5608T",
+                    "temp": 65.0
+                },
+                {
+                    "ip": "10.238.185.13",
+                    "name": "NKI15001GO0",
+                    "model": "MA5608T",
+                    "temp": 65.0
+                },
+                {
+                    "ip": "10.238.233.3",
+                    "name": "CBR04112GO0",
+                    "model": "MA5801-FL16",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.232.57",
+                    "name": "CBR07094GO0",
+                    "model": "MA5801-FL16",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.156.14",
+                    "name": "CCS09001GO0",
+                    "model": "MA5608T",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.179.12",
+                    "name": "NKP06001GO0",
+                    "model": "MA5608T",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.135.12",
+                    "name": "SMP01029GO0",
+                    "model": "MA5608T",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.40.8",
+                    "name": "SMP03024GO0",
+                    "model": "MA5800-X2",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.109.9",
+                    "name": "SMP03029GO1",
+                    "model": "MA5800-X2",
+                    "temp": 64.0
+                },
+                {
+                    "ip": "10.238.151.19",
+                    "name": "AYT03002GO0",
+                    "model": "MA5608T",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.69.21",
+                    "name": "BKK11039GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.69.23",
+                    "name": "BKK11041GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.69.24",
+                    "name": "BKK11042GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.69.26",
+                    "name": "BKK11044GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.69.28",
+                    "name": "BKK11046GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.62.12",
+                    "name": "BKK21005GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                },
+                {
+                    "ip": "10.238.59.11",
+                    "name": "BKK21007GO0",
+                    "model": "MA5800-X2",
+                    "temp": 63.0
+                }
+            ],
+            "top_20pct_avg_temp": 60.18,
+            "top_10pct_avg_temp": 61.8
+        },
+        {
+            "name": "Raisecom",
+            "scanned": 1755,
+            "online": 1726,
+            "offline": 29,
+            "average_temp": 48.41,
+            "max_temp": 74.79,
+            "min_temp": 0.0,
+            "temp_distribution": {
+                "< 30\u00b0C": 2,
+                "30 - 40\u00b0C": 37,
+                "40 - 50\u00b0C": 1100,
+                "> 50\u00b0C": 587
+            },
+            "top_hottest": [
+                {
+                    "ip": "10.177.165.29",
+                    "name": "KLS11001G00",
+                    "model": "ISCOM5508",
+                    "temp": 74.79
+                },
+                {
+                    "ip": "10.177.164.27",
+                    "name": "CPN02004G00",
+                    "model": "ISCOM5504",
+                    "temp": 66.07
+                },
+                {
+                    "ip": "10.177.213.69",
+                    "name": "SPB07010G00",
+                    "model": "ISCOM5504",
+                    "temp": 65.98
+                },
+                {
+                    "ip": "10.177.175.12",
+                    "name": "MHR06007G00",
+                    "model": "ISCOM5508",
+                    "temp": 64.75
+                },
+                {
+                    "ip": "10.177.225.24",
+                    "name": "PCK01011G00",
+                    "model": "ISCOM5504",
+                    "temp": 64.58
+                },
+                {
+                    "ip": "10.177.198.20",
+                    "name": "PCK06003G00",
+                    "model": "ISCOM5508",
+                    "temp": 64.52
+                },
+                {
+                    "ip": "10.177.200.21",
+                    "name": "RNG04009G00",
+                    "model": "ISCOM5504",
+                    "temp": 63.84
+                },
+                {
+                    "ip": "10.177.206.3",
+                    "name": "SMS01004G00",
+                    "model": "ISCOM5508",
+                    "temp": 63.43
+                },
+                {
+                    "ip": "10.177.214.15",
+                    "name": "SRT13005G00",
+                    "model": "ISCOM5508",
+                    "temp": 63.43
+                },
+                {
+                    "ip": "10.177.167.35",
+                    "name": "KCN03005G00",
+                    "model": "ISCOM5508",
+                    "temp": 63.08
+                },
+                {
+                    "ip": "10.177.181.36",
+                    "name": "NKS07002G00",
+                    "model": "ISCOM5508",
+                    "temp": 61.77
+                },
+                {
+                    "ip": "10.177.181.75",
+                    "name": "NKS09017G00",
+                    "model": "ISCOM5508",
+                    "temp": 61.77
+                },
+                {
+                    "ip": "10.177.184.25",
+                    "name": "NRT02004G00",
+                    "model": "ISCOM5508",
+                    "temp": 61.38
+                },
+                {
+                    "ip": "10.177.164.51",
+                    "name": "CPN03008G00",
+                    "model": "ISCOM5504",
+                    "temp": 61.37
+                },
+                {
+                    "ip": "10.177.211.22",
+                    "name": "SKA09008G00",
+                    "model": "ISCOM5508",
+                    "temp": 61.35
+                },
+                {
+                    "ip": "10.177.214.81",
+                    "name": "KBI06005G00",
+                    "model": "ISCOM5504",
+                    "temp": 61.27
+                },
+                {
+                    "ip": "10.177.181.66",
+                    "name": "NKS17002G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.94
+                },
+                {
+                    "ip": "10.177.181.77",
+                    "name": "NKS08007G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.72
+                },
+                {
+                    "ip": "10.177.211.56",
+                    "name": "SKA11047G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.45
+                },
+                {
+                    "ip": "10.177.200.12",
+                    "name": "RNG02002G00",
+                    "model": "ISCOM5504",
+                    "temp": 60.44
+                },
+                {
+                    "ip": "10.177.198.14",
+                    "name": "PBR04021G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.41
+                },
+                {
+                    "ip": "10.177.175.96",
+                    "name": "MHR06011G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.4
+                },
+                {
+                    "ip": "10.177.188.27",
+                    "name": "PNA04010G00",
+                    "model": "ISCOM5504",
+                    "temp": 60.21
+                },
+                {
+                    "ip": "10.177.199.18",
+                    "name": "RCB05028G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.11
+                },
+                {
+                    "ip": "10.177.211.45",
+                    "name": "SKA15005G00",
+                    "model": "ISCOM5508",
+                    "temp": 60.11
+                }
+            ],
+            "top_20pct_avg_temp": 55.4,
+            "top_10pct_avg_temp": 57.54
+        },
+        {
+            "name": "Fiberhome",
+            "scanned": 2107,
+            "online": 2104,
+            "offline": 3,
+            "average_temp": 46.78,
+            "max_temp": 73.0,
+            "min_temp": 0.0,
+            "temp_distribution": {
+                "< 30\u00b0C": 29,
+                "30 - 40\u00b0C": 759,
+                "40 - 50\u00b0C": 682,
+                "> 50\u00b0C": 634
+            },
+            "top_hottest": [
+                {
+                    "ip": "10.237.175.2",
+                    "name": "MHR01019GO0",
+                    "model": "AN5516-04",
+                    "temp": 73.0
+                },
+                {
+                    "ip": "10.237.66.3",
+                    "name": "BKK06008GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.141.6",
+                    "name": "BKK12013GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.139.2",
+                    "name": "BKK12015GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.106.6",
+                    "name": "BKK22010GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.74.7",
+                    "name": "BKK30013GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.34.4",
+                    "name": "BKK32015GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.162.4",
+                    "name": "CBR04062GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.159.2",
+                    "name": "CTB01016GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.171.4",
+                    "name": "LPN01025GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.185.2",
+                    "name": "NKI01026GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.177.2",
+                    "name": "NKN01017GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.182.65",
+                    "name": "NKR01084GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.197.6",
+                    "name": "PCR01016GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.107.4",
+                    "name": "SMP01038GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.36.8",
+                    "name": "SMP01065GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.219.3",
+                    "name": "UBR01038GO0",
+                    "model": "AN5516-04",
+                    "temp": 72.0
+                },
+                {
+                    "ip": "10.237.151.4",
+                    "name": "AYT01025GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.151.6",
+                    "name": "AYT06028GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.151.8",
+                    "name": "AYT06031GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.131.3",
+                    "name": "BKK02003GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.35.2",
+                    "name": "BKK09004GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.93.6",
+                    "name": "BKK09012GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.28.2",
+                    "name": "BKK25002GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                },
+                {
+                    "ip": "10.237.25.3",
+                    "name": "BKK29008GO0",
+                    "model": "AN5516-04",
+                    "temp": 71.0
+                }
+            ],
+            "top_20pct_avg_temp": 68.63,
+            "top_10pct_avg_temp": 69.91
         }
     ],
-    "total_scanned": 12596,
-    "total_online": 12447,
-    "total_offline": 149,
+    "total_scanned": 12604,
+    "total_online": 12457,
+    "total_offline": 147,
+    "all_top_hottest": [
+        {
+            "ip": "10.237.205.153",
+            "name": "SMK02007G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 90.0
+        },
+        {
+            "ip": "10.237.165.137",
+            "name": "KLS07001G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 89.0
+        },
+        {
+            "ip": "10.237.165.153",
+            "name": "KLS18002G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 89.0
+        },
+        {
+            "ip": "10.237.224.132",
+            "name": "RET10015G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 89.0
+        },
+        {
+            "ip": "10.237.205.161",
+            "name": "SMK01008G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 89.0
+        },
+        {
+            "ip": "10.237.178.132",
+            "name": "SMK03021G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 89.0
+        },
+        {
+            "ip": "10.237.205.148",
+            "name": "SMK01029G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 88.0
+        },
+        {
+            "ip": "10.237.205.136",
+            "name": "SMK03019G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 88.0
+        },
+        {
+            "ip": "10.237.165.165",
+            "name": "KLS01011G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 87.0
+        },
+        {
+            "ip": "10.237.205.151",
+            "name": "SMK01033G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 87.0
+        },
+        {
+            "ip": "10.237.205.132",
+            "name": "SMK02018G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 87.0
+        },
+        {
+            "ip": "10.239.148.15",
+            "name": "PTT02013GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 86.81
+        },
+        {
+            "ip": "10.237.165.163",
+            "name": "KLS18001G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 86.0
+        },
+        {
+            "ip": "10.237.205.157",
+            "name": "SMK02012G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 86.0
+        },
+        {
+            "ip": "10.237.205.144",
+            "name": "SMK03015G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 86.0
+        },
+        {
+            "ip": "10.237.165.151",
+            "name": "KLS14004G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 85.0
+        },
+        {
+            "ip": "10.237.205.159",
+            "name": "SMK01021G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 85.0
+        },
+        {
+            "ip": "10.237.205.152",
+            "name": "SMK01025G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 85.0
+        },
+        {
+            "ip": "10.237.205.156",
+            "name": "SMK01037G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 85.0
+        },
+        {
+            "ip": "10.237.205.137",
+            "name": "SMK02021G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 85.0
+        },
+        {
+            "ip": "10.237.165.149",
+            "name": "KLS12011G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 84.0
+        },
+        {
+            "ip": "10.237.202.132",
+            "name": "RET14010G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 84.0
+        },
+        {
+            "ip": "10.237.205.150",
+            "name": "SMK01034G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 84.0
+        },
+        {
+            "ip": "10.237.206.131",
+            "name": "SMS01009G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 84.0
+        },
+        {
+            "ip": "10.237.165.138",
+            "name": "KLS07003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.165.164",
+            "name": "KLS07020G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.165.143",
+            "name": "KLS10006G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.205.146",
+            "name": "SMK01024G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.205.147",
+            "name": "SMK01032G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.205.154",
+            "name": "SMK03016G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.205.140",
+            "name": "SMK03017G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.237.205.138",
+            "name": "SMK03018G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 83.0
+        },
+        {
+            "ip": "10.239.198.13",
+            "name": "PBR04013GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 82.7
+        },
+        {
+            "ip": "10.237.168.132",
+            "name": "KLS08003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.237.165.144",
+            "name": "KLS10007G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.237.168.134",
+            "name": "KLS12010G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.237.165.150",
+            "name": "KLS14003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.237.202.146",
+            "name": "RET01004G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.237.202.142",
+            "name": "RET05003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.237.205.134",
+            "name": "SMK02020G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 82.0
+        },
+        {
+            "ip": "10.239.115.2",
+            "name": "BKK37003GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 81.31
+        },
+        {
+            "ip": "10.237.202.147",
+            "name": "RET01009G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 81.0
+        },
+        {
+            "ip": "10.237.202.134",
+            "name": "RET04006G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 81.0
+        },
+        {
+            "ip": "10.237.202.140",
+            "name": "RET20002G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 81.0
+        },
+        {
+            "ip": "10.239.228.38",
+            "name": "NKR20002G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 80.79
+        },
+        {
+            "ip": "10.239.20.19",
+            "name": "BKK11020GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 80.63
+        },
+        {
+            "ip": "10.239.141.2",
+            "name": "BKK28003GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 80.58
+        },
+        {
+            "ip": "10.237.165.135",
+            "name": "KLS01014G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 80.0
+        },
+        {
+            "ip": "10.237.165.139",
+            "name": "KLS07014G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 80.0
+        },
+        {
+            "ip": "10.237.165.140",
+            "name": "KLS07016G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 80.0
+        },
+        {
+            "ip": "10.237.165.160",
+            "name": "KLS13012G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 80.0
+        },
+        {
+            "ip": "10.237.205.155",
+            "name": "SMK01018G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 80.0
+        },
+        {
+            "ip": "10.237.205.141",
+            "name": "SMK03002G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 80.0
+        },
+        {
+            "ip": "10.239.10.12",
+            "name": "NTB04013GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 79.38
+        },
+        {
+            "ip": "10.239.10.11",
+            "name": "NTB04012GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 79.1
+        },
+        {
+            "ip": "10.237.165.131",
+            "name": "KLS01002G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 79.0
+        },
+        {
+            "ip": "10.237.202.145",
+            "name": "RET16003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 79.0
+        },
+        {
+            "ip": "10.237.205.142",
+            "name": "SMK01014G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 79.0
+        },
+        {
+            "ip": "10.237.205.131",
+            "name": "SMK03022G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 79.0
+        },
+        {
+            "ip": "10.239.168.16",
+            "name": "KKN15001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 78.94
+        },
+        {
+            "ip": "10.239.158.22",
+            "name": "CYP03001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 78.64
+        },
+        {
+            "ip": "10.237.165.145",
+            "name": "KLS11002G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 78.0
+        },
+        {
+            "ip": "10.238.152.12",
+            "name": "YST08001GO0",
+            "Vendor": "Huawei",
+            "model": "MA5608T",
+            "temp": 78.0
+        },
+        {
+            "ip": "10.239.214.8",
+            "name": "SRT16001G00",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 77.99
+        },
+        {
+            "ip": "10.239.181.16",
+            "name": "NKS04002GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 77.01
+        },
+        {
+            "ip": "10.237.165.132",
+            "name": "KLS01003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 77.0
+        },
+        {
+            "ip": "10.237.165.159",
+            "name": "KLS07007G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 77.0
+        },
+        {
+            "ip": "10.237.165.146",
+            "name": "KLS12004G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 77.0
+        },
+        {
+            "ip": "10.239.21.12",
+            "name": "BKK10008GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 76.88
+        },
+        {
+            "ip": "10.239.168.14",
+            "name": "KKN06001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 76.18
+        },
+        {
+            "ip": "10.239.10.19",
+            "name": "NTB04022GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 76.18
+        },
+        {
+            "ip": "10.239.188.32",
+            "name": "PNA07006GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 76.18
+        },
+        {
+            "ip": "10.239.224.15",
+            "name": "YST06001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 76.18
+        },
+        {
+            "ip": "10.237.165.133",
+            "name": "KLS01010G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 76.0
+        },
+        {
+            "ip": "10.237.165.158",
+            "name": "KLS14005G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 76.0
+        },
+        {
+            "ip": "10.237.202.143",
+            "name": "RET04007G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 76.0
+        },
+        {
+            "ip": "10.237.205.145",
+            "name": "SMK01031G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 76.0
+        },
+        {
+            "ip": "10.237.205.139",
+            "name": "SMK03020G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 76.0
+        },
+        {
+            "ip": "10.239.56.6",
+            "name": "PTT06012GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.85
+        },
+        {
+            "ip": "10.239.17.6",
+            "name": "NTB05006GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.79
+        },
+        {
+            "ip": "10.239.211.3",
+            "name": "SKA11003G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 75.54
+        },
+        {
+            "ip": "10.239.178.107",
+            "name": "NKT03019GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.46
+        },
+        {
+            "ip": "10.239.10.20",
+            "name": "NTB04021GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.46
+        },
+        {
+            "ip": "10.239.15.15",
+            "name": "NTB03008GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.32
+        },
+        {
+            "ip": "10.239.9.15",
+            "name": "NTB04011GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.32
+        },
+        {
+            "ip": "10.239.127.12",
+            "name": "PTT02008GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.32
+        },
+        {
+            "ip": "10.239.44.8",
+            "name": "NTB06016GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.12
+        },
+        {
+            "ip": "10.239.145.12",
+            "name": "PTT02006GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 75.05
+        },
+        {
+            "ip": "10.237.165.157",
+            "name": "KLS12009G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 75.0
+        },
+        {
+            "ip": "10.238.219.16",
+            "name": "UBR01002GO0",
+            "Vendor": "Huawei",
+            "model": "MA5608T",
+            "temp": 75.0
+        },
+        {
+            "ip": "10.239.154.13",
+            "name": "NKP04001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 74.84
+        },
+        {
+            "ip": "10.177.165.29",
+            "name": "KLS11001G00",
+            "Vendor": "Raisecom",
+            "model": "ISCOM5508",
+            "temp": 74.79
+        },
+        {
+            "ip": "10.239.215.21",
+            "name": "SRN02001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 74.64
+        },
+        {
+            "ip": "10.239.95.4",
+            "name": "NTB06010GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 74.42
+        },
+        {
+            "ip": "10.239.52.3",
+            "name": "BKK42002G01",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 74.29
+        },
+        {
+            "ip": "10.239.204.17",
+            "name": "NKP09001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 74.21
+        },
+        {
+            "ip": "10.239.122.2",
+            "name": "BKK43AGNG00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 74.07
+        },
+        {
+            "ip": "10.239.7.7",
+            "name": "NTB06017GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 74.07
+        },
+        {
+            "ip": "10.237.168.131",
+            "name": "KLS08002G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 74.0
+        },
+        {
+            "ip": "10.237.202.139",
+            "name": "RET17003G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 74.0
+        },
+        {
+            "ip": "10.237.205.149",
+            "name": "SMK02011G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 74.0
+        },
+        {
+            "ip": "10.238.152.13",
+            "name": "YST08002GO0",
+            "Vendor": "Huawei",
+            "model": "MA5608T",
+            "temp": 74.0
+        },
+        {
+            "ip": "10.239.188.39",
+            "name": "PNA04011GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 73.89
+        },
+        {
+            "ip": "10.239.55.14",
+            "name": "BKK46017GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 73.71
+        },
+        {
+            "ip": "10.239.53.17",
+            "name": "PTT06004GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 73.63
+        },
+        {
+            "ip": "10.179.173.93",
+            "name": "LBR04018G00",
+            "Vendor": "GCOM",
+            "model": "GL5610-08P(V2)",
+            "temp": 73.5
+        },
+        {
+            "ip": "10.239.182.28",
+            "name": "NKR17001G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 73.26
+        },
+        {
+            "ip": "10.239.22.14",
+            "name": "BKK10014GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 73.11
+        },
+        {
+            "ip": "10.239.94.7",
+            "name": "PTT01017GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 73.04
+        },
+        {
+            "ip": "10.239.215.23",
+            "name": "SRN01003GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 73.04
+        },
+        {
+            "ip": "10.237.165.155",
+            "name": "KLS10004G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 73.0
+        },
+        {
+            "ip": "10.237.175.2",
+            "name": "MHR01019GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 73.0
+        },
+        {
+            "ip": "10.239.155.26",
+            "name": "BRR09002GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.96
+        },
+        {
+            "ip": "10.239.155.27",
+            "name": "BRR09003GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.96
+        },
+        {
+            "ip": "10.239.81.21",
+            "name": "BKK03019GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.66
+        },
+        {
+            "ip": "10.239.132.11",
+            "name": "BKK05008GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.51
+        },
+        {
+            "ip": "10.239.155.34",
+            "name": "BRR20001GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.51
+        },
+        {
+            "ip": "10.239.55.12",
+            "name": "BKK46016GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.43
+        },
+        {
+            "ip": "10.239.155.31",
+            "name": "BRR12001GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.43
+        },
+        {
+            "ip": "10.239.155.25",
+            "name": "BRR09001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.35
+        },
+        {
+            "ip": "10.239.155.30",
+            "name": "BRR12001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.35
+        },
+        {
+            "ip": "10.239.83.2",
+            "name": "BKK03002G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 72.27
+        },
+        {
+            "ip": "10.239.51.5",
+            "name": "BKK42011GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.2
+        },
+        {
+            "ip": "10.239.211.20",
+            "name": "SKA11005GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 72.19
+        },
+        {
+            "ip": "10.237.66.3",
+            "name": "BKK06008GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.141.6",
+            "name": "BKK12013GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.139.2",
+            "name": "BKK12015GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.106.6",
+            "name": "BKK22010GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.74.7",
+            "name": "BKK30013GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.34.4",
+            "name": "BKK32015GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.162.4",
+            "name": "CBR04062GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.159.2",
+            "name": "CTB01016GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.165.142",
+            "name": "KLS09006G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.171.4",
+            "name": "LPN01025GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.185.2",
+            "name": "NKI01026GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.177.2",
+            "name": "NKN01017GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.178.177.13",
+            "name": "NKN04005G00",
+            "Vendor": "Dasan",
+            "model": "V5808",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.182.65",
+            "name": "NKR01084GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.197.6",
+            "name": "PCR01016GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.202.144",
+            "name": "RET14004G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.107.4",
+            "name": "SMP01038GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.36.8",
+            "name": "SMP01065GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.237.219.3",
+            "name": "UBR01038GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 72.0
+        },
+        {
+            "ip": "10.239.74.7",
+            "name": "BKK30AGNG03",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 71.88
+        },
+        {
+            "ip": "10.239.15.11",
+            "name": "NTB03004GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.8
+        },
+        {
+            "ip": "10.239.127.15",
+            "name": "PTT02019GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.64
+        },
+        {
+            "ip": "10.239.215.27",
+            "name": "SRN12002GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.64
+        },
+        {
+            "ip": "10.239.22.12",
+            "name": "BKK10012GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.56
+        },
+        {
+            "ip": "10.239.127.6",
+            "name": "PTT02003G01",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 71.56
+        },
+        {
+            "ip": "10.239.209.13",
+            "name": "SSK06001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.44
+        },
+        {
+            "ip": "10.239.21.14",
+            "name": "BKK10010GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.32
+        },
+        {
+            "ip": "10.239.182.32",
+            "name": "NKR01011G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 71.32
+        },
+        {
+            "ip": "10.239.73.12",
+            "name": "BKK05004GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.24
+        },
+        {
+            "ip": "10.239.16.11",
+            "name": "NTB05003GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 71.16
+        },
+        {
+            "ip": "10.237.151.4",
+            "name": "AYT01025GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.151.6",
+            "name": "AYT06028GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.151.8",
+            "name": "AYT06031GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.131.3",
+            "name": "BKK02003GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.35.2",
+            "name": "BKK09004GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.93.6",
+            "name": "BKK09012GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.28.2",
+            "name": "BKK25002GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.25.3",
+            "name": "BKK29008GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.35.4",
+            "name": "BKK32019GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.92.11",
+            "name": "BKK34015GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.58.7",
+            "name": "BKK35008GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.45.4",
+            "name": "BKK36008GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.128.2",
+            "name": "BKK36011GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.51.2",
+            "name": "BKK42003GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.19.5",
+            "name": "BKK46023GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.37.2",
+            "name": "BKK47009GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.155.7",
+            "name": "BRR01023GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.155.4",
+            "name": "BRR01043GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.163.15",
+            "name": "CBR01079GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.162.7",
+            "name": "CBR04065GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.162.11",
+            "name": "CBR04091GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.156.7",
+            "name": "CCS01043GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.165.161",
+            "name": "KLS07021G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.165.152",
+            "name": "KLS16004G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.165.154",
+            "name": "KLS18006G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.173.6",
+            "name": "LBR01059GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.182.64",
+            "name": "NKR01081GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.238.8.2",
+            "name": "NTB04002G02",
+            "Vendor": "Huawei",
+            "model": "MA5800-X2",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.202.138",
+            "name": "RET04005G00",
+            "Vendor": "Nokia",
+            "model": "7362 ISAM DF-8G",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.201.3",
+            "name": "RYG01055GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.201.5",
+            "name": "RYG02021GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.211.17",
+            "name": "SKA01033GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.211.25",
+            "name": "SKA01035GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.207.2",
+            "name": "SRB01026GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.209.2",
+            "name": "SSK01018GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.178.216.34",
+            "name": "TAK03006G00",
+            "Vendor": "Dasan",
+            "model": "V5808",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.219.8",
+            "name": "UBR01042GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.237.224.3",
+            "name": "YST01027GO0",
+            "Vendor": "Fiberhome",
+            "model": "AN5516-04",
+            "temp": 71.0
+        },
+        {
+            "ip": "10.239.81.16",
+            "name": "BKK03016GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 70.99
+        },
+        {
+            "ip": "10.239.182.43",
+            "name": "NKR01018G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 70.99
+        },
+        {
+            "ip": "10.239.182.36",
+            "name": "NKR04001GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 70.99
+        },
+        {
+            "ip": "10.239.10.8",
+            "name": "NTB04034GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 70.91
+        },
+        {
+            "ip": "10.239.168.5",
+            "name": "KKN09001G00",
+            "Vendor": "ZTE",
+            "model": "C300",
+            "temp": 70.7
+        },
+        {
+            "ip": "10.239.7.8",
+            "name": "NTB04023GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 70.58
+        },
+        {
+            "ip": "10.239.123.7",
+            "name": "BKK05015GO1",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 70.41
+        },
+        {
+            "ip": "10.239.9.11",
+            "name": "NTB04007GO0",
+            "Vendor": "ZTE",
+            "model": "C320",
+            "temp": 70.41
+        }
+    ],
     "reconciliation": {
-        "device_file_name": "Device-20260809.xlsx",
-        "pms_raw_count": 12930,
-        "dslam_count": 136,
-        "lab_count": 31,
-        "edfa_count": 166,
-        "active_baseline": 12597,
-        "nokia_count": 154,
-        "duplicate_count": 1,
-        "snmp_targets": 12596
+        "device_file_name": "Device-20260829.xlsx",
+        "pms_raw_count": 12934,
+        "dslam_count": 134,
+        "lab_count": 19,
+        "edfa_count": 169,
+        "active_baseline": 12612,
+        "nokia_count": 161,
+        "duplicate_count": 8,
+        "snmp_targets": 12604
     },
-    "last_updated": "14/08/2026 22:04:23"
+    "last_updated": "31/08/2026 22:59:17"
 };
 
         // --- CLOCK ---
@@ -2865,11 +4954,13 @@ body {
                 </div>
             `;
 
-            // Render Table using top_hottest
+            // Render Table using all_top_hottest or top_hottest
             const tbody = document.getElementById('tableBody');
             let rowsHtml = '';
             let allHottest = [];
-            if(dashboardData.brands) {
+            if(dashboardData.all_top_hottest && dashboardData.all_top_hottest.length > 0) {
+                allHottest = [...dashboardData.all_top_hottest];
+            } else if(dashboardData.brands) {
                 dashboardData.brands.forEach(b => {
                     if(b.top_hottest && b.top_hottest.length > 0) {
                         b.top_hottest.forEach(h => {
@@ -2879,7 +4970,8 @@ body {
                     }
                 });
             }
-            allHottest.sort((a,b) => b.temp - a.temp);
+            // Sort by Temp (°C) descending from highest to lowest
+            allHottest.sort((a,b) => (Number(b.temp) || 0) - (Number(a.temp) || 0));
             
             if(allHottest.length === 0) {
                 rowsHtml = '<tr><td colspan="8" style="text-align:center">No temperature data available</td></tr>';
@@ -2887,8 +4979,13 @@ body {
                 allHottest.forEach((row, i) => {
                     let badgeClass = 'b-safe';
                     let status = 'Normal';
-                    if(row.temp >= 50) { badgeClass = 'b-warn'; status = 'Warning'; }
-                    if(row.temp >= 65) { badgeClass = 'b-crit'; status = 'Critical'; }
+                    if (row.Vendor === 'Nokia') {
+                        if (row.temp > 100) { badgeClass = 'b-warn'; status = 'Warning'; }
+                        if (row.temp >= 105) { badgeClass = 'b-crit'; status = 'Critical'; }
+                    } else {
+                        if (row.temp >= 50) { badgeClass = 'b-warn'; status = 'Warning'; }
+                        if (row.temp >= 65) { badgeClass = 'b-crit'; status = 'Critical'; }
+                    }
                     
                     rowsHtml += `
                         <tr>
@@ -2911,7 +5008,32 @@ body {
             let vHtml = '';
             if(dashboardData.brands) {
                 dashboardData.brands.forEach(vdata => {
-                    const dist = vdata.temp_distribution || {"< 30°C":0, "30 - 40°C":0, "40 - 50°C":0, "> 50°C":0};
+                    const isNokia = (vdata.name === 'Nokia');
+                    const dist = vdata.temp_distribution || {};
+                    let distHtml = '';
+                    if (isNokia) {
+                        const d1 = dist["<= 70°C"] || dist["< 70°C"] || dist["< 30°C"] || 0;
+                        const d2 = dist["71 - 100°C"] || dist["70 - 100°C"] || dist["30 - 40°C"] || 0;
+                        const d3 = dist["101 - 104°C"] || dist["40 - 50°C"] || 0;
+                        const d4 = dist[">= 105°C"] || dist["> 50°C"] || 0;
+                        distHtml = `
+                            <div class="dist-pill good" style="flex:${d1||1}">${d1} <span style="font-size:0.6rem">&le;70° OK</span></div>
+                            <div class="dist-pill warm" style="flex:${d2||1}">${d2} <span style="font-size:0.6rem">71-100° OK</span></div>
+                            <div class="dist-pill hot" style="flex:${d3||1}">${d3} <span style="font-size:0.6rem">&gt;100° WARN</span></div>
+                            <div class="dist-pill crit" style="flex:${d4||1}">${d4} <span style="font-size:0.6rem">&ge;105° CRIT</span></div>
+                        `;
+                    } else {
+                        const d1 = dist["< 30°C"] || 0;
+                        const d2 = dist["30 - 40°C"] || 0;
+                        const d3 = dist["40 - 50°C"] || 0;
+                        const d4 = dist["> 50°C"] || 0;
+                        distHtml = `
+                            <div class="dist-pill good" style="flex:${d1||1}">${d1} <span style="font-size:0.6rem">OK</span></div>
+                            <div class="dist-pill warm" style="flex:${d2||1}">${d2} <span style="font-size:0.6rem">OK</span></div>
+                            <div class="dist-pill hot" style="flex:${d3||1}">${d3} <span style="font-size:0.6rem">HOT</span></div>
+                            <div class="dist-pill crit" style="flex:${d4||1}">${d4} <span style="font-size:0.6rem">CRIT</span></div>
+                        `;
+                    }
                     vHtml += `
                         <div class="glass-card">
                             <div class="v-header">
@@ -2929,10 +5051,7 @@ body {
                                 </div>
                             </div>
                             <div class="v-dist">
-                                <div class="dist-pill good" style="flex:${dist["< 30°C"]||1}">${dist["< 30°C"]||0} <span style="font-size:0.6rem">OK</span></div>
-                                <div class="dist-pill warm" style="flex:${dist["30 - 40°C"]||1}">${dist["30 - 40°C"]||0} <span style="font-size:0.6rem">OK</span></div>
-                                <div class="dist-pill hot" style="flex:${dist["40 - 50°C"]||1}">${dist["40 - 50°C"]||0} <span style="font-size:0.6rem">HOT</span></div>
-                                <div class="dist-pill crit" style="flex:${dist["> 50°C"]||1}">${dist["> 50°C"]||0} <span style="font-size:0.6rem">CRIT</span></div>
+                                ${distHtml}
                             </div>
                         </div>
                     `;
@@ -2942,6 +5061,56 @@ body {
             
             // Render Chart
             renderChart();
+        }
+
+        // --- SORT TABLE ---
+        let currentSortCol = 5; // default Temp (°C)
+        let currentSortAsc = false; // default descending
+
+        function sortTable(colIndex) {
+            const table = document.getElementById('dataTable');
+            const tbody = document.getElementById('tableBody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            if(rows.length <= 1) return;
+
+            if(currentSortCol === colIndex) {
+                currentSortAsc = !currentSortAsc;
+            } else {
+                currentSortCol = colIndex;
+                currentSortAsc = (colIndex === 0);
+            }
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.children[colIndex] ? rowA.children[colIndex].innerText.trim() : '';
+                const cellB = rowB.children[colIndex] ? rowB.children[colIndex].innerText.trim() : '';
+
+                if (colIndex === 0 || colIndex === 5) {
+                    const numA = parseFloat(cellA.replace('°C', '')) || 0;
+                    const numB = parseFloat(cellB.replace('°C', '')) || 0;
+                    return currentSortAsc ? numA - numB : numB - numA;
+                }
+                return currentSortAsc ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            });
+
+            rows.forEach((row, idx) => {
+                if (colIndex !== 0) {
+                    row.children[0].innerText = idx + 1;
+                }
+                tbody.appendChild(row);
+            });
+
+            for (let i = 0; i <= 6; i++) {
+                const span = document.getElementById(`sort-${i}`);
+                if (span) {
+                    if (i === colIndex) {
+                        span.innerText = currentSortAsc ? '▲' : '▼';
+                        span.parentElement.style.color = 'var(--accent-cyan)';
+                    } else {
+                        span.innerText = '↕';
+                        span.parentElement.style.color = '';
+                    }
+                }
+            }
         }
 
         // --- FILTER TABLE ---
@@ -3036,6 +5205,87 @@ body {
         }, 100);
 
     
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
         
 
         
