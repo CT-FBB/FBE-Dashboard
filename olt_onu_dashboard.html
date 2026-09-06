@@ -262,6 +262,9 @@
 
 
 
+
+
+
 <style>
         /* === AUTO-HIDE SIDEBAR & FULL SCREEN PAGE LAYOUT === */
         html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
@@ -515,7 +518,6 @@
     <div class="header">
         <div>
             <h1>OLT-ONU Matrix Analysis</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 14/08/2026</span></div>
             <p>Cross-tabulation of OLT and ONU vendor models & software versions</p>
         </div>
         <div style="text-align: right;">
@@ -640,11 +642,30 @@
             document.body.removeChild(link);
         }
 
-        fetch('olt_onu_dashboard_data.json?v=' + new Date().getTime())
+        fetch('olt_onu_dashboard_data.json')
             .then(res => res.json())
             .then(data => {
-                globalRawData = data.all_data;
+                // Support both compact array-of-arrays and legacy all_data
+                let rows = [];
+                if (data.data && Array.isArray(data.data)) {
+                    const cols = data.columns || ['bras_name', 'olt_vendor', 'olt_model', 'olt_version', 'onu_vendor', 'onu_model', 'onu_version', 'count'];
+                    rows = data.data.map(arr => ({
+                        bras_name: arr[0],
+                        olt_vendor: arr[1],
+                        olt_model: arr[2],
+                        olt_version: arr[3],
+                        onu_vendor: arr[4],
+                        onu_model: arr[5],
+                        onu_version: arr[6],
+                        count: arr[7]
+                    }));
+                } else {
+                    rows = data.all_data || [];
+                }
+
+                globalRawData = rows;
                 document.getElementById('update-time').innerText = data.last_updated;
+                
                 // Initialize Charts
                 let oltChartObj = new Chart(document.getElementById('oltChart'), {
                     type: 'doughnut',
@@ -665,19 +686,20 @@
                     let oltVendorCount = {};
                     let onuVendorCount = {};
                     
-                    visibleData.forEach(d => {
+                    for (let i = 0; i < visibleData.length; i++) {
+                        const d = visibleData[i];
                         totalPairs += d.count;
                         oltModels.add(d.olt_model);
                         onuModels.add(d.onu_model);
                         
                         oltVendorCount[d.olt_vendor] = (oltVendorCount[d.olt_vendor] || 0) + d.count;
                         onuVendorCount[d.onu_vendor] = (onuVendorCount[d.onu_vendor] || 0) + d.count;
-                    });
+                    }
                     
                     document.getElementById('kpi-total').innerText = totalPairs.toLocaleString();
                     document.getElementById('kpi-olt-models').innerText = oltModels.size;
                     document.getElementById('kpi-onu-models').innerText = onuModels.size;
-                    document.getElementById('kpi-combos').innerText = visibleData.length;
+                    document.getElementById('kpi-combos').innerText = visibleData.length.toLocaleString();
                     
                     // Update OLT Chart
                     let oltVendors = Object.keys(oltVendorCount);
@@ -696,9 +718,10 @@
                     onuChartObj.update();
                 }
 
-                // Populate Table
+                // Populate Table with deferRender: true for high-performance rendering
                 let dt = $('#matrixTable').DataTable({
-                    data: data.all_data,
+                    data: rows,
+                    deferRender: true,
                     columns: [
                         { data: 'bras_name' },
                         { data: 'olt_vendor', render: function(d) { return getVendorBadge(d); } },
@@ -720,9 +743,21 @@
                 });
                 
                 // Initial load
-                updateDashboardStats(data.all_data);
+                updateDashboardStats(rows);
             });
     
+
+        
+
+
+
+        
+
+
+
+        
+
+
 
         
 
