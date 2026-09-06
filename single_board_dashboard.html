@@ -297,276 +297,12 @@
             box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
         }
 
-        /* ── Sidebar Styles ── */
-        
-        .sidebar-logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
-            color: #f8fafc;
-            font-weight: 800;
-            padding: 24px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .sidebar-logo span {
-            background: linear-gradient(135deg, #06b6d4, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
+        </style>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        .sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-        .sidebar-links a:hover {
-            color: #f8fafc;
-            background: rgba(255,255,255,0.03);
-            border-left-color: rgba(6, 182, 212, 0.3);
-        }
-        .sidebar-links a.active {
-            color: #f8fafc;
-            background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-            border-left-color: #06b6d4;
-            font-weight: 600;
-        }
-
-        .vendor-badge {
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.25px;
-            text-transform: uppercase;
-        }
-        .vendor-huawei { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-        .vendor-zte { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .vendor-fiberhome { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-        .vendor-nokia { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
-        .vendor-dasan { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
-        .vendor-raisecom { background: rgba(6, 182, 212, 0.2); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
-        .vendor-gcom { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-    
-@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } } .blink { animation: blink 1s infinite; }
-
-
-.sidebar-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    color: #f8fafc;
-    font-weight: 800;
-    padding: 24px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.sidebar-logo span {
-    background: linear-gradient(135deg, #06b6d4, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.sidebar-links {
-    flex-grow: 1;
-    padding: 20px 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-
-
-.sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 12px 24px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-left: 3px solid transparent;
-    box-sizing: border-box;
-}
-.sidebar-links a:hover {
-    color: #f8fafc;
-    background: rgba(255,255,255,0.03);
-    border-left-color: rgba(6, 182, 212, 0.3);
-}
-.sidebar-links a.active {
-    color: #f8fafc;
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
-    border-left-color: #06b6d4;
-    font-weight: 600;
-}
-.sidebar-links a.sub-link {
-    padding: 8px 24px 8px 40px;
-    font-size: 0.82rem;
-    color: #64748b;
-    border-left: 3px solid transparent;
-    position: relative;
-}
-.sidebar-links a.sub-link::before {
-    content: '\2514';
-    position: absolute;
-    left: 24px;
-    color: rgba(6,182,212,0.35);
-    font-size: 0.8rem;
-}
-.sidebar-links a.sub-link:hover {
-    color: #22d3ee;
-    background: rgba(6,182,212,0.06);
-    border-left-color: rgba(6,182,212,0.2);
-}
-.sidebar-links a.sub-link.active {
-    color: #22d3ee;
-    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
-    border-left-color: rgba(6,182,212,0.5);
-    font-weight: 600;
-}
-
-/* Responsive Styles for Mobile and Tablets */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100% !important;
-    height: 60px !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: auto !important;
-    flex-direction: row !important;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-    background: #0d1222 !important;
-    z-index: 10000 !important;
-  }
-  .sidebar-logo {
-    display: none !important;
-  }
-  .sidebar-links {
-    display: flex !important;
-    flex-direction: row !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-    scrollbar-width: none !important;
-  }
-  
-  .sidebar-links a {
-    padding: 18px 16px !important;
-    font-size: 0.82rem !important;
-    border-left: none !important;
-    border-bottom: 3px solid transparent !important;
-    display: inline-block !important;
-  }
-  .sidebar-links a.active {
-    border-bottom-color: #06b6d4 !important;
-    background: rgba(6, 182, 212, 0.1) !important;
-    border-left-color: transparent !important;
-  }
-  .sidebar-links a.sub-link {
-    display: none !important;
-  }
-  body {
-    margin-left: 0 !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    padding-top: 80px !important;
-    margin: 0 !important;
-  }
-  .main-content, .content, .container, .main {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  .card, .panel, .chart-card {
-    padding: 14px !important;
-  }
-  .table-responsive, .table-container, table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-  }
-}
-
-
-.sidebar-links::-webkit-scrollbar { width: 4px; }
-
-.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-</style>
 
 
 
@@ -581,10 +317,11 @@
         }
 
         /* Full Width Container across all dashboards */
-        .container, .dashboard-container, .dashboard-wrapper, .main-content, .content, .main, #app, .app-container, .wrapper {
+        .container, .dashboard-container, .dashboard-wrapper, .main-content, .content, .main, #app, .app-container, .wrapper, .max-w-7xl {
             max-width: 100% !important;
             width: 100% !important;
-            margin: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
             padding-left: 8px !important;
             padding-right: 8px !important;
             box-sizing: border-box !important;
@@ -773,9 +510,6 @@
 </head>
 <body>
 
-<!-- FLOATING SIDEBAR TOGGLE BUTTON -->
-<!-- BACKDROP OVERLAY -->
-<!-- SLIDE-OVER SIDEBAR -->
 <!-- FLOATING SIDEBAR TOGGLE BUTTON -->
 <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation Menu" title="เมนูนำทาง (คลิกเพื่อเปิด/ปิด)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1632,6 +1366,26 @@
         // --- END RUN CHECK LOGIC ---
 
         
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
 
         
 
