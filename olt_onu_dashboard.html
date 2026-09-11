@@ -721,8 +721,9 @@
             <tbody>
             </tbody>
         </table>
-        <div style="margin-top: 15px; text-align: right;">
-            <button onclick="exportRawDataCSV()" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">📥 Export CSV (Raw Data)</button>
+        <div style="margin-top: 15px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
+            <a href="olt_onu_rawdata_by_olt.csv" download="olt_onu_rawdata_by_olt.csv" style="display: inline-flex; align-items: center; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.2s ease;">📥 Export CSV with OLT Name (259K rows)</a>
+            <button onclick="exportRawDataCSV()" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">📥 Export CSV (Summary)</button>
         </div>
     </div>
 
@@ -784,7 +785,7 @@
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
             link.setAttribute("href", url);
-            link.setAttribute("download", "olt_onu_rawdata.csv");
+            link.setAttribute("download", "olt_onu_summary.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
