@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L1 Rehome Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -38,30 +39,406 @@
             overflow-x: hidden;
         }
 
-        </style>
+        /* ── Sidebar Styles ── */
+        
+        .sidebar-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            color: #f8fafc;
+            font-weight: 800;
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .sidebar-logo span {
+            background: linear-gradient(135deg, #06b6d4, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .sidebar-links {
+            flex-grow: 1; padding: 20px 0; overflow-y: auto; scrollbar-width: thin;
+        }
+        .sidebar-links::-webkit-scrollbar { width: 4px; }
+        .sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .sidebar-links a {
+            display: flex; align-items: center; padding: 12px 24px;
+            color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500;
+            transition: all 0.2s ease; border-left: 3px solid transparent; box-sizing: border-box;
+        }
+        .sidebar-links a:hover {
+            color: #f8fafc; background: rgba(255,255,255,0.03); border-left-color: rgba(6, 182, 212, 0.3);
+        }
+        .sidebar-links a.active {
+            color: #f8fafc; background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+            border-left-color: #06b6d4; font-weight: 600;
+        }
 
+        /* ── Container & Header ── */
+        .container {
+            max-width: 100% !important;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 0;
+            width: 150px; height: 2px;
+            background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+            border-radius: 99px;
+        }
+        .header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #d1d5db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-title p {
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .meta-badge {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: #38bdf8;
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
 
+        /* ── Grid & KPI Cards ── */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .kpi-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+        }
+        .kpi-card h3 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .kpi-card .value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .value.primary { color: var(--accent-primary); }
+        .value.secondary { color: var(--accent-secondary); }
+        .value.success { color: var(--accent-success); }
+        .value.warning { color: var(--accent-warning); }
+        .value.red { color: var(--accent-red); }
 
+        .text-green { color: var(--accent-success); font-weight: 600; }
+        .text-orange { color: var(--accent-warning); font-weight: 600; }
+        .text-blue { color: var(--accent-primary); font-weight: 600; }
 
+        /* ── Section Title ── */
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
+        /* ── Charts Grid ── */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 1100px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .chart-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .chart-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .chart-container {
+            position: relative;
+            height: 260px;
+            width: 100%;
+        }
 
+        /* ── Breakdown grid ── */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .breakdown-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .breakdown-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .breakdown-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.5rem;
+        }
 
+        /* ── Tables ── */
+        .table-wrapper {
+            overflow-x: auto;
+            max-height: 350px;
+            scrollbar-width: thin;
+        }
+        .table-wrapper::-webkit-scrollbar { width: 4px; height: 4px; }
+        .table-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+        }
+        th {
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--text-muted);
+            font-weight: 600;
+            position: sticky; top: 0;
+            z-index: 10;
+        }
+        tr.clickable {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        tr.clickable:hover {
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+        tr.selected {
+            background-color: rgba(56, 189, 248, 0.15) !important;
+            border-left: 3px solid var(--accent-secondary);
+        }
 
+        /* ── Badge Styles ── */
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .badge-success { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.25); }
+        .badge-warning { background: rgba(245, 158, 11, 0.15); color: var(--accent-warning); border: 1px solid rgba(245, 158, 11, 0.25); }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.25); }
+        .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-secondary); border: 1px solid rgba(56, 189, 248, 0.25); }
+        
+        .text-green { color: var(--accent-success); font-weight: 600; }
+        .text-red { color: var(--accent-red); font-weight: 600; }
 
+        /* ── Report Section & Controls ── */
+        .report-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .filters-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .filter-select {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            outline: none;
+            font-size: 0.85rem;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        .filter-select:focus {
+            border-color: var(--accent-secondary);
+        }
+        .search-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            width: 280px;
+            outline: none;
+            font-size: 0.85rem;
+            font-family: inherit;
+        }
+        .search-box:focus {
+            border-color: var(--accent-secondary);
+        }
+        .export-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 0.55rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+        .export-btn:hover {
+            opacity: 0.9;
+        }
+        .export-btn:active {
+            transform: scale(0.98);
+        }
 
+        .main-table-wrapper {
+            overflow-x: auto;
+            max-height: 500px;
+            scrollbar-width: thin;
+        }
+        .main-table-wrapper::-webkit-scrollbar { width: 6px; height: 6px; }
+        .main-table-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.25rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .pagination-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .page-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        .page-btn:hover:not(:disabled) {
+            background: var(--accent-secondary);
+            color: #000;
+            font-weight: 600;
+        }
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
 
+        /* ── Details Card ── */
+        .details-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            margin-top: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+        .details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.75rem;
+        }
+        .details-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-secondary);
+        }
 
-
-
-
-
-
-
-
-
-
-
+    </style>
 
 <style>
         /* === AUTO-HIDE SIDEBAR & FULL SCREEN PAGE LAYOUT === */
@@ -310,15 +687,13 @@
         <a href="olt_onu_dashboard.html" id="nav-olt-onu">OLT-ONU</a>
         <a href="radius_health_dashboard.html" id="nav-radius">Radius</a>
     </div>
-    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
-</nav>
+    </nav>
 
     <div class="container">
         <!-- HEADER -->
         <header class="header">
             <div class="header-title">
                 <h1>L1 Rehome Executive Dashboard</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 29/07/2026</span></div>
                 <p>Nationwide Overview of L1 Splitter Migrations, Vendor Execution & Distance Optimization</p>
             </div>
             <div class="meta-badge" id="as-of-badge">AS OF: --/--/--</div>
@@ -357,6 +732,34 @@
             <div class="kpi-card" style="border-top: 4px solid var(--accent-red);">
                 <h3>🚨 Overloaded L1</h3>
                 <p class="value red" id="kpi-overloaded-l1">0</p>
+            </div>
+        </div>
+
+        <!-- CHARTS SECTION -->
+        <h2 class="section-title">📊 Rehome Distribution & Analysis</h2>
+        <div class="charts-grid">
+            <!-- Pie Chart 1: Rehome Execution Breakdown -->
+            <div class="chart-card">
+                <h3><span>🍩</span> Rehome Type Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="rehomePieChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Pie Chart 2: Vendor Distribution -->
+            <div class="chart-card">
+                <h3><span>🥧</span> Rehome by Vendor</h3>
+                <div class="chart-container">
+                    <canvas id="vendorPieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Bar Chart 3: Top Provinces -->
+            <div class="chart-card">
+                <h3><span>📈</span> Top 7 Provinces by Rehome</h3>
+                <div class="chart-container">
+                    <canvas id="provinceBarChart"></canvas>
+                </div>
             </div>
         </div>
 
@@ -667,7 +1070,188 @@
             fullData = data.rehome_details;
             filteredData = [...fullData];
             
+            // Render Charts
+            renderCharts(data);
+
             renderTable();
+        }
+
+        function renderCharts(data) {
+            Chart.defaults.color = '#94a3b8';
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+
+            // 1. Rehome Type Distribution Pie / Doughnut Chart
+            const diffOlt = data.summary.diff_olt || 0;
+            const sameOlt = data.summary.same_olt || 0;
+            const invGap = data.summary.inventory_gap || 0;
+            const unchanged = Math.max(0, (data.summary.total_planned || 0) - (data.summary.total_rehomed || 0) - invGap);
+
+            const rehomeCtx = document.getElementById('rehomePieChart').getContext('2d');
+            new Chart(rehomeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Device Rehome (Diff OLT)', 'Port Rehome (Same OLT)', 'Inventory Gap (Done, Unchanged)', 'Pending / Ongoing'],
+                    datasets: [{
+                        data: [diffOlt, sameOlt, invGap, unchanged],
+                        backgroundColor: [
+                            'rgba(129, 140, 248, 0.85)', // Indigo
+                            'rgba(56, 189, 248, 0.85)',  // Cyan/Sky
+                            'rgba(239, 68, 68, 0.85)',   // Red
+                            'rgba(245, 158, 11, 0.85)'   // Warning amber
+                        ],
+                        borderColor: [
+                            '#818cf8',
+                            '#38bdf8',
+                            '#ef4444',
+                            '#f59e0b'
+                        ],
+                        borderWidth: 2,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '62%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 10,
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const val = context.parsed || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const pct = total > 0 ? ((val / total) * 100).toFixed(1) : 0;
+                                    return ` ${context.label}: ${val.toLocaleString()} (${pct}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. Vendor Rehome Distribution Doughnut Chart
+            const vLabels = data.vendor_summary.map(v => v.vendor);
+            const vData = data.vendor_summary.map(v => v.actually_rehomed);
+            const vendorColors = {
+                'Fiberhome': 'rgba(16, 185, 129, 0.85)',
+                'Huawei': 'rgba(239, 68, 68, 0.85)',
+                'ZTE': 'rgba(56, 189, 248, 0.85)'
+            };
+            const vendorBorders = {
+                'Fiberhome': '#10b981',
+                'Huawei': '#ef4444',
+                'ZTE': '#38bdf8'
+            };
+
+            const vendorCtx = document.getElementById('vendorPieChart').getContext('2d');
+            new Chart(vendorCtx, {
+                type: 'pie',
+                data: {
+                    labels: vLabels,
+                    datasets: [{
+                        data: vData,
+                        backgroundColor: vLabels.map(l => vendorColors[l] || 'rgba(129, 140, 248, 0.85)'),
+                        borderColor: vLabels.map(l => vendorBorders[l] || '#818cf8'),
+                        borderWidth: 2,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 10,
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const val = context.parsed || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const pct = total > 0 ? ((val / total) * 100).toFixed(1) : 0;
+                                    return ` ${context.label}: ${val.toLocaleString()} Rehomed (${pct}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 3. Top 7 Provinces Horizontal Bar Chart
+            const top7 = data.province_summary.slice(0, 7);
+            const pLabels = top7.map(p => p.province);
+            const pPlanned = top7.map(p => p.total_planned);
+            const pActual = top7.map(p => p.actually_rehomed);
+
+            const provCtx = document.getElementById('provinceBarChart').getContext('2d');
+            new Chart(provCtx, {
+                type: 'bar',
+                data: {
+                    labels: pLabels,
+                    datasets: [
+                        {
+                            label: 'Rehomed',
+                            data: pActual,
+                            backgroundColor: 'rgba(56, 189, 248, 0.85)',
+                            borderColor: '#38bdf8',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Planned',
+                            data: pPlanned,
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { font: { size: 10 } }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { font: { size: 10, weight: 600 } }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 8,
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.dataset.label}: ${context.parsed.x.toLocaleString()} Splitters`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         function renderTable() {
@@ -872,386 +1456,6 @@
 
         window.onload = init;
     
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        
-
-        
-        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
-        function checkLocalEnv() {
-            const btn = document.getElementById('runCheckBtn');
-            if (btn) {
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-                btn.style.display = isLocal ? 'inline-block' : 'none';
-            }
-        }
-
-        async function triggerRunCheck() {
-            const btn = document.getElementById('runCheckBtn');
-            if (!btn) return;
-            const originalHTML = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = '⏳ Processing... Please wait';
-            btn.style.background = 'rgba(239,68,68,0.2)';
-            btn.style.borderColor = 'rgba(239,68,68,0.4)';
-            btn.style.color = '#ef4444';
-            btn.style.cursor = 'not-allowed';
-            
-            // Set 10 minutes timeout for fetch
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 600000); 
-
-            try {
-                const resp = await fetch('http://127.0.0.1:5050/api/run-check/nav-l1rehome', { 
-                    method: 'POST',
-                    signal: controller.signal
-                });
-                clearTimeout(timeoutId);
-                const data = await resp.json();
-                if (resp.ok) {
-                    alert(data.message || 'สแกนและประมวลผลเสร็จสิ้น!');
-                    window.location.reload();
-                } else {
-                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
-                }
-            } catch (e) {
-                clearTimeout(timeoutId);
-                if (e.name === 'AbortError') {
-                    alert('การเชื่อมต่อหมดเวลา (Timeout) เนื่องจากใช้เวลาประมวลผลข้อมูลขนาดใหญ่นานเกินไป');
-                } else {
-                    alert('ไม่สามารถเชื่อมต่อ Local API Server ได้\n1. ตรวจสอบว่าเปิดเว็บผ่าน http://localhost:9000 หรือ http://127.0.0.1:9000 เท่านั้น (ห้ามเปิดผ่าน file://)\n2. หากยังไม่ได้ผล ให้ลองรัน: python3 /Users/bbae/GPTCodex/scrip/finalize_dashboard.py อีกครั้ง');
-                }
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalHTML;
-                btn.style.background = 'rgba(245,158,11,0.15)';
-                btn.style.borderColor = 'rgba(245,158,11,0.35)';
-                btn.style.color = '#f59e0b';
-                btn.style.cursor = 'pointer';
-            }
-        }
-        setTimeout(checkLocalEnv, 300);
-        // --- END RUN CHECK LOGIC ---
-
-        
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
 
         
 

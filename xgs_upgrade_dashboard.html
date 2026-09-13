@@ -232,6 +232,550 @@ tbody td{padding:10px 14px;white-space:nowrap}
 
 /* Responsive Styles for Mobile and Tablets */
 @media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
   .sidebar {
     width: 100% !important;
     height: 60px !important;
@@ -305,6 +849,11 @@ tbody td{padding:10px 14px;white-space:nowrap}
 }
 
 </style>
+
+
+
+
+
 
 
 
@@ -584,9 +1133,9 @@ tbody td{padding:10px 14px;white-space:nowrap}
     <h1>XGS-PON Upgrade Priority Dashboard</h1>
     <p>วิเคราะห์ข้อมูล OLT ที่ควรได้รับ Priority ในการอัพเกรดเป็น XGS-PON</p>
     <div class="header-meta">
-      <span class="meta-badge info" style="color: #f59e0b; font-weight: bold;">📅 as of 23/08/26</span>
-      <span class="meta-badge info">📦 MB: ftth_with_speed-2026-08-17</span>
-      <span class="meta-badge warn">⚠️ Board coverage: 6,598 / 16,327 OLTs</span>
+      <span class="meta-badge info" style="color: #f59e0b; font-weight: bold;">📅 as of 06/09/26</span>
+      <span class="meta-badge info">📦 MB: ftth_with_speed-2026-09-07</span>
+      <span class="meta-badge warn">⚠️ Board coverage: 7,051 / 12,595 OLTs</span>
     </div>
   </div>
 
@@ -613,7 +1162,7 @@ tbody td{padding:10px 14px;white-space:nowrap}
 
   <h3 style="margin-bottom:12px; font-size:1.1rem; color:var(--text);">GPON HS Concentration</h3>
   <div class="kpi-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: 24px;">
-    <div class="kpi red" style="padding:16px;"><div class="kpi-label" style="font-size:0.8rem;">≥ 80% HS</div><div class="kpi-val" style="font-size:1.8rem;" id="kb-80">-</div><div class="kpi-trend">OLTs</div></div>
+    <div class="kpi red" style="padding:16px; cursor:pointer; transition:transform 0.2s;" onclick="document.getElementById('section-hs80').scrollIntoView({behavior:'smooth'})" title="คลิกเพื่อดูรายชื่อ OLTs ด้านล่าง"><div class="kpi-label" style="font-size:0.8rem;">≥ 80% HS ⚡</div><div class="kpi-val" style="font-size:1.8rem;" id="kb-80">-</div><div class="kpi-trend">OLTs (คลิกดูรายชื่อ)</div></div>
     <div class="kpi orange" style="padding:16px;"><div class="kpi-label" style="font-size:0.8rem;">60-79% HS</div><div class="kpi-val" style="font-size:1.8rem;" id="kb-60">-</div><div class="kpi-trend">OLTs</div></div>
     <div class="kpi yellow" style="padding:16px;"><div class="kpi-label" style="font-size:0.8rem;">40-59% HS</div><div class="kpi-val" style="font-size:1.8rem;" id="kb-40">-</div><div class="kpi-trend">OLTs</div></div>
     <div class="kpi cyan" style="padding:16px;"><div class="kpi-label" style="font-size:0.8rem;">20-39% HS</div><div class="kpi-val" style="font-size:1.8rem;" id="kb-20">-</div><div class="kpi-trend">OLTs</div></div>
@@ -660,6 +1209,40 @@ tbody td{padding:10px 14px;white-space:nowrap}
 
   <h3 style="margin-bottom:12px; font-size:1.1rem; color:var(--text);">High Speed Package Breakdown</h3>
   <div class="kpi-grid" style="grid-template-columns: repeat(6, 1fr); margin-bottom: 24px;" id="speed-packages-grid"></div>
+
+  <!-- OLTs with >=80% 1G Subscribers Table Section -->
+  <div class="table-section" id="section-hs80" style="margin-top: 32px;">
+    <div class="table-toolbar" style="flex-wrap:wrap; gap:12px;">
+      <div class="table-title">⚡ รายชื่อ OLT ที่มีสัดส่วนลูกค้า High Speed (≥ 1G) ตั้งแต่ 80% ขึ้นไป</div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button class="filter-pill active" id="btn-hs80-all" onclick="filterHs80('all', this)" style="background:rgba(99,102,241,0.25); border:1px solid rgba(99,102,241,0.5); color:#a5b4fc; padding:5px 12px; border-radius:8px; cursor:pointer; font-size:0.78rem; font-weight:600; font-family:'Outfit';">All (<span id="cnt-hs80-all">0</span>)</button>
+        <button class="filter-pill" id="btn-hs80-gpon" onclick="filterHs80('gpon', this)" style="background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25); color:#fcd34d; padding:5px 12px; border-radius:8px; cursor:pointer; font-size:0.78rem; font-weight:600; font-family:'Outfit';">GPON (<span id="cnt-hs80-gpon">0</span>)</button>
+        <button class="filter-pill" id="btn-hs80-xgs" onclick="filterHs80('xgs', this)" style="background:rgba(34,211,238,0.1); border:1px solid rgba(34,211,238,0.25); color:#67e8f9; padding:5px 12px; border-radius:8px; cursor:pointer; font-size:0.78rem; font-weight:600; font-family:'Outfit';">XGS-PON (<span id="cnt-hs80-xgs">0</span>)</button>
+      </div>
+      <input class="search-input" id="search-hs80" type="text" placeholder="🔍 ค้นหา OLT Name / Model / Province...">
+      <button class="export-btn" onclick="exportExcel('hs80', 'OLT_HighSpeed_80pct')">📥 Export Excel</button>
+    </div>
+    <div class="table-wrap">
+      <table id="tbl-hs80">
+        <thead>
+          <tr>
+            <th onclick="sortTable('hs80',0)">Device ↕</th>
+            <th>Vendor</th>
+            <th>Model</th>
+            <th onclick="sortTable('hs80',3)">Province ↕</th>
+            <th>Region</th>
+            <th onclick="sortTable('hs80',5)">Total Subs ↕</th>
+            <th onclick="sortTable('hs80',6)">HS Subs (≥1G) ↕</th>
+            <th onclick="sortTable('hs80',7)">% HS ↕</th>
+            <th>PON Type</th>
+            <th>Uplink</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-hs80"></tbody>
+      </table>
+    </div>
+  </div>
 
 </div>
 
@@ -791,6 +1374,13 @@ function fillKPIs() {
   document.getElementById('nb-simplex').textContent = kpi.simplex_hs_olts.toLocaleString();
   document.getElementById('nb-critical').textContent = kpi.critical_olts.toLocaleString();
   document.getElementById('nb-potential-2g').textContent = kpi.potential_2g_olts.toLocaleString();
+
+  const hs80_all = (D.hs_80 || []).length;
+  const hs80_gpon = (D.hs_80 || []).filter(r => (r.PON_Type || '').toUpperCase() === 'GPON').length;
+  const hs80_xgs = (D.hs_80 || []).filter(r => (r.PON_Type || '').toUpperCase().includes('XGS')).length;
+  if (document.getElementById('cnt-hs80-all')) document.getElementById('cnt-hs80-all').textContent = hs80_all.toLocaleString();
+  if (document.getElementById('cnt-hs80-gpon')) document.getElementById('cnt-hs80-gpon').textContent = hs80_gpon.toLocaleString();
+  if (document.getElementById('cnt-hs80-xgs')) document.getElementById('cnt-hs80-xgs').textContent = hs80_xgs.toLocaleString();
   setTimeout(() => {
     animateCount(document.getElementById('k-onu-total'), kpi.total_onu);
     animateCount(document.getElementById('k-xgs'), kpi.xgs_olts);
@@ -818,7 +1408,9 @@ const tickColor = '#475569';
 // Charts
 function buildCharts() {
   // Vendor XGS donut
-  new Chart(document.getElementById('vendorXgsChart'), {
+  window._charts = window._charts || {};
+  if (window._charts['vendorXgsChart']) window._charts['vendorXgsChart'].destroy();
+  window._charts['vendorXgsChart'] = new Chart(document.getElementById('vendorXgsChart'), {
     type: 'doughnut',
     data: {
       labels: D.vendor_xgs_labels,
@@ -831,8 +1423,10 @@ function buildCharts() {
       plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', padding: 12, font: { size: 11 } } } }
     }
   });
+
   // FTTH High Speed Trend Line Chart
-  new Chart(document.getElementById('hsTrendChart'), {
+  if (window._charts['hsTrendChart']) window._charts['hsTrendChart'].destroy();
+  window._charts['hsTrendChart'] = new Chart(document.getElementById('hsTrendChart'), {
     type: 'line',
     data: {
       labels: D.ftth_trend_labels,
@@ -842,7 +1436,10 @@ function buildCharts() {
         borderColor: '#10b981',
         backgroundColor: 'rgba(16, 185, 129, 0.1)',
         borderWidth: 3,
+        pointRadius: 4,
         pointBackgroundColor: '#10b981',
+        pointBorderColor: '#ffffff',
+        pointBorderWidth: 1.5,
         pointHoverRadius: 7,
         fill: true,
         tension: 0.3
@@ -850,7 +1447,14 @@ function buildCharts() {
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      plugins: { 
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) { return ' ' + context.parsed.y.toLocaleString() + ' subs'; }
+          }
+        }
+      },
       scales: {
         x: { ticks: { color: tickColor }, grid: { color: gridColor } },
         y: { 
@@ -867,7 +1471,8 @@ function buildCharts() {
   });
 
   // FTTB Active Subscriber Trend Line Chart
-  new Chart(document.getElementById('fttbTrendChart'), {
+  if (window._charts['fttbTrendChart']) window._charts['fttbTrendChart'].destroy();
+  window._charts['fttbTrendChart'] = new Chart(document.getElementById('fttbTrendChart'), {
     type: 'line',
     data: {
       labels: D.fttb_trend_labels,
@@ -877,7 +1482,10 @@ function buildCharts() {
         borderColor: '#f97316',
         backgroundColor: 'rgba(249, 115, 22, 0.1)',
         borderWidth: 3,
+        pointRadius: 4,
         pointBackgroundColor: '#f97316',
+        pointBorderColor: '#ffffff',
+        pointBorderWidth: 1.5,
         pointHoverRadius: 7,
         fill: true,
         tension: 0.3
@@ -885,7 +1493,14 @@ function buildCharts() {
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      plugins: { 
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) { return ' ' + context.parsed.y.toLocaleString() + ' subs'; }
+          }
+        }
+      },
       scales: {
         x: { ticks: { color: tickColor }, grid: { color: gridColor } },
         y: { 
@@ -975,8 +1590,8 @@ function criticalRow(r) { return `<td><b>${r.Device}</b></td><td>${r.Vendor}</td
 function allRow(r) { return `<td><b>${r.Device}</b></td><td>${r.Vendor}</td><td>${r.Model}</td><td>${r.Province}</td><td>${r.Region}</td><td>${fmt(r.Total_Subs)}</td><td style="color:#a5b4fc;font-weight:700">${fmt(r.HS_Subs)}</td><td>${pctBar(r.HS_Pct)}</td><td>${ponBadge(r.PON_Type)}</td><td>${uplinkBadge(r.Uplink_Status)}</td><td>${riskBadge(r.Risk)}</td>`; }
 function potential2gRow(r) { return `<td><b>${r.Device}</b></td><td>${r.Vendor}</td><td>${r.Model}</td><td>${r.Province}</td><td>${r.Region}</td><td>${fmt(r.Total_Subs)}</td><td style="color:#a5b4fc;font-weight:700">${fmt(r.HS_Subs)}</td><td>${pctBar(r.HS_Pct)}</td><td style="color:#22d3ee;font-weight:700">${fmt(r.Subs_2G)}</td><td>${ponBadge(r.PON_Type)}</td><td>${uplinkBadge(r.Uplink_Status)}</td><td>${riskBadge(r.Risk)}</td>`; }
 
-const bodyMap = { gpon: 'tbody-gpon', simplex: 'tbody-simplex', critical: 'tbody-critical', all: 'tbody-all', potential_2g: 'tbody-potential_2g' };
-const rowFnMap = { gpon: gponRow, simplex: simplexRow, critical: criticalRow, all: allRow, potential_2g: potential2gRow };
+const bodyMap = { gpon: 'tbody-gpon', simplex: 'tbody-simplex', critical: 'tbody-critical', all: 'tbody-all', potential_2g: 'tbody-potential_2g', hs80: 'tbody-hs80' };
+const rowFnMap = { gpon: gponRow, simplex: simplexRow, critical: criticalRow, all: allRow, potential_2g: potential2gRow, hs80: allRow };
 
 const PAGE_SIZE = 500;  // max rows to render (search still filters full dataset)
 const rendered = {};    // track which tabs have been rendered
@@ -984,10 +1599,11 @@ const rendered = {};    // track which tabs have been rendered
 function fillTable(tab, rows) {
   const limited = rows.slice(0, PAGE_SIZE);
   const tbody = document.getElementById(bodyMap[tab]);
+  if (!tbody) return;
   tbody.innerHTML = limited.map(r => `<tr>${rowFnMap[tab](r)}</tr>`).join('');
   // Update row count label
-  const title = document.querySelector(`#tab-${tab} .table-title`);
-  if (title) {
+  const title = document.querySelector(`#tab-${tab} .table-title`) || document.querySelector(`#section-${tab} .table-title`);
+  if (title && dataMap[tab]) {
     const base = title.dataset.base || title.textContent.split(' (')[0];
     title.dataset.base = base;
     title.textContent = rows.length < dataMap[tab].length
@@ -1006,6 +1622,50 @@ function fillTable(tab, rows) {
   });
 });
 
+// HS 80% Filter & Search Logic
+let currentHs80Filter = 'all';
+
+function getFilteredHs80Rows() {
+  const q = (document.getElementById('search-hs80')?.value || '').toLowerCase().trim();
+  let rows = dataMap.hs80 || [];
+  if (currentHs80Filter === 'gpon') {
+    rows = rows.filter(r => (r.PON_Type || '').toUpperCase() === 'GPON');
+  } else if (currentHs80Filter === 'xgs') {
+    rows = rows.filter(r => (r.PON_Type || '').toUpperCase().includes('XGS'));
+  }
+  if (q) {
+    rows = rows.filter(r =>
+      ((r.Device || '') + ' ' + (r.Province || '') + ' ' + (r.Region || '') + ' ' + (r.Vendor || '') + ' ' + (r.Model || '')).toLowerCase().includes(q)
+    );
+  }
+  return rows;
+}
+
+function filterHs80(type, btn) {
+  currentHs80Filter = type;
+  ['all', 'gpon', 'xgs'].forEach(t => {
+    const b = document.getElementById('btn-hs80-' + t);
+    if (b) {
+      b.classList.remove('active');
+      b.style.background = t === 'all' ? 'rgba(99,102,241,0.1)' : t === 'gpon' ? 'rgba(245,158,11,0.1)' : 'rgba(34,211,238,0.1)';
+      b.style.borderColor = t === 'all' ? 'rgba(99,102,241,0.25)' : t === 'gpon' ? 'rgba(245,158,11,0.25)' : 'rgba(34,211,238,0.25)';
+    }
+  });
+  if (btn) {
+    btn.classList.add('active');
+    btn.style.background = type === 'all' ? 'rgba(99,102,241,0.35)' : type === 'gpon' ? 'rgba(245,158,11,0.35)' : 'rgba(34,211,238,0.35)';
+    btn.style.borderColor = type === 'all' ? 'rgba(99,102,241,0.7)' : type === 'gpon' ? 'rgba(245,158,11,0.7)' : 'rgba(34,211,238,0.7)';
+  }
+  applyHs80Filter();
+}
+
+function applyHs80Filter() {
+  fillTable('hs80', getFilteredHs80Rows());
+}
+
+const elHs80 = document.getElementById('search-hs80');
+if (elHs80) elHs80.addEventListener('input', applyHs80Filter);
+
 function showTab(name, el) {
   document.querySelectorAll('.tab-section').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
@@ -1019,7 +1679,7 @@ function showTab(name, el) {
 }
 
 function exportExcel(tab, sheetName) {
-  const rows = dataMap[tab];
+  const rows = tab === 'hs80' ? getFilteredHs80Rows() : dataMap[tab];
   if (!rows || !rows.length) return;
   const ws = XLSX.utils.json_to_sheet(rows);
   const wb = XLSX.utils.book_new();
@@ -1028,7 +1688,7 @@ function exportExcel(tab, sheetName) {
 }
 
 function exportCSV(tab) {
-  const rows = dataMap[tab];
+  const rows = tab === 'hs80' ? getFilteredHs80Rows() : dataMap[tab];
   if (!rows.length) return;
   const keys = Object.keys(rows[0]);
   const csv = [keys.join(','), ...rows.map(r => keys.map(k => JSON.stringify(r[k]||'')).join(','))].join('\n');
@@ -1038,26 +1698,39 @@ function exportCSV(tab) {
   a.click();
 }
 
+let sortDirections = {};
 function sortTable(tab, colIdx) {
-  const rows = [...dataMap[tab]];
+  const rows = [...(tab === 'hs80' ? getFilteredHs80Rows() : dataMap[tab])];
+  if (!rows.length) return;
   const keys = Object.keys(rows[0]);
   const key = keys[colIdx];
+  const dirKey = tab + '_' + colIdx;
+  sortDirections[dirKey] = !sortDirections[dirKey];
+  const asc = sortDirections[dirKey];
   rows.sort((a, b) => {
     const va = a[key], vb = b[key];
-    if (typeof va === 'number') return vb - va;
-    return String(va).localeCompare(String(vb));
+    if (typeof va === 'number') return asc ? va - vb : vb - va;
+    return asc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
   });
   fillTable(tab, rows);
 }
 
 // Init
-fetch('xgs_upgrade_data.json')
+fetch('xgs_upgrade_data.json?t=' + Date.now())
   .then(res => res.json())
   .then(data => {
     D = data;
-    dataMap = { gpon: D.gpon_hs, simplex: D.simplex_hs, critical: D.critical, all: D.all_with_hs, potential_2g: D.potential_2g };
+    dataMap = { 
+      gpon: D.gpon_hs, 
+      simplex: D.simplex_hs, 
+      critical: D.critical, 
+      all: D.all_with_hs, 
+      potential_2g: D.potential_2g,
+      hs80: D.hs_80 || []
+    };
     fillKPIs();
     buildCharts();
+    fillTable('hs80', dataMap.hs80);
   })
   .catch(err => {
     console.error('Failed to load xgs_upgrade_data.json', err);
@@ -1259,6 +1932,119 @@ fetch('xgs_upgrade_data.json')
         
 
         
+        
+
+        
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+        
+
+        
+        
+
+        
         // --- RUN CHECK LOGIC (LOCAL ONLY) ---
         function checkLocalEnv() {
             const btn = document.getElementById('runCheckBtn');
@@ -1316,90 +2102,6 @@ fetch('xgs_upgrade_data.json')
         // --- END RUN CHECK LOGIC ---
 
         
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
-
-        
-
-
 
         
 
