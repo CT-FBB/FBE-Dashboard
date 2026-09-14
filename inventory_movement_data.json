@@ -20,7 +20,8 @@
         "17-Aug-26",
         "24-Aug-26",
         "31-Aug-26",
-        "07-Sep-26"
+        "07-Sep-26",
+        "14-Sep-26"
     ],
     "columns": [
         "Vendor",
@@ -47,6 +48,7 @@
         "24-Aug-26",
         "31-Aug-26",
         "07-Sep-26",
+        "14-Sep-26",
         "Movement_05-Jan-26_to_16-Feb-26",
         "Movement_16-Feb-26_to_16-Mar-26",
         "Movement_16-Mar-26_to_16-Apr-26",
@@ -67,6 +69,7 @@
         "Movement_17-Aug-26_to_24-Aug-26",
         "Movement_24-Aug-26_to_31-Aug-26",
         "Movement_31-Aug-26_to_07-Sep-26",
+        "Movement_07-Sep-26_to_14-Sep-26",
         "Net_Movement"
     ],
     "data": [
@@ -95,6 +98,7 @@
             "24-Aug-26": 24.0,
             "31-Aug-26": 24.0,
             "07-Sep-26": 24.0,
+            "14-Sep-26": 24.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -115,6 +119,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -142,6 +147,7 @@
             "24-Aug-26": 40.0,
             "31-Aug-26": 40.0,
             "07-Sep-26": 40.0,
+            "14-Sep-26": 40.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -162,6 +168,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -189,6 +196,7 @@
             "24-Aug-26": 200.0,
             "31-Aug-26": 200.0,
             "07-Sep-26": 200.0,
+            "14-Sep-26": 200.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -209,6 +217,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -236,6 +245,7 @@
             "24-Aug-26": 80.0,
             "31-Aug-26": 80.0,
             "07-Sep-26": 80.0,
+            "14-Sep-26": 80.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -256,6 +266,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -283,6 +294,7 @@
             "24-Aug-26": 120.0,
             "31-Aug-26": 120.0,
             "07-Sep-26": 120.0,
+            "14-Sep-26": 120.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -303,6 +315,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -330,6 +343,7 @@
             "24-Aug-26": 40.0,
             "31-Aug-26": 40.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -350,6 +364,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": -40.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -40.0
         },
         {
@@ -377,6 +392,7 @@
             "24-Aug-26": 229.0,
             "31-Aug-26": 229.0,
             "07-Sep-26": 229.0,
+            "14-Sep-26": 229.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -397,6 +413,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -424,6 +441,7 @@
             "24-Aug-26": 12.0,
             "31-Aug-26": 12.0,
             "07-Sep-26": 12.0,
+            "14-Sep-26": 12.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -444,6 +462,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -471,6 +490,7 @@
             "24-Aug-26": 150.0,
             "31-Aug-26": 150.0,
             "07-Sep-26": 150.0,
+            "14-Sep-26": 150.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -491,6 +511,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 100.0
         },
         {
@@ -518,6 +539,7 @@
             "24-Aug-26": 40.0,
             "31-Aug-26": 40.0,
             "07-Sep-26": 40.0,
+            "14-Sep-26": 40.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -538,6 +560,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -565,6 +588,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -585,6 +609,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -612,6 +637,7 @@
             "24-Aug-26": 58.0,
             "31-Aug-26": 58.0,
             "07-Sep-26": 58.0,
+            "14-Sep-26": 58.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -632,6 +658,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -659,6 +686,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -679,6 +707,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -47.0
         },
         {
@@ -706,6 +735,7 @@
             "24-Aug-26": 42.0,
             "31-Aug-26": 42.0,
             "07-Sep-26": 42.0,
+            "14-Sep-26": 42.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -726,6 +756,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -753,6 +784,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -773,6 +805,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 2.0,
             "Movement_31-Aug-26_to_07-Sep-26": -2.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -598.0
         },
         {
@@ -800,6 +833,7 @@
             "24-Aug-26": 12.0,
             "31-Aug-26": 12.0,
             "07-Sep-26": 12.0,
+            "14-Sep-26": 12.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -820,6 +854,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -847,6 +882,7 @@
             "24-Aug-26": 24.0,
             "31-Aug-26": 24.0,
             "07-Sep-26": 24.0,
+            "14-Sep-26": 24.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -867,6 +903,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -894,6 +931,7 @@
             "24-Aug-26": 688.0,
             "31-Aug-26": 688.0,
             "07-Sep-26": 688.0,
+            "14-Sep-26": 688.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -914,6 +952,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -80.0
         },
         {
@@ -941,6 +980,7 @@
             "24-Aug-26": 129.0,
             "31-Aug-26": 131.0,
             "07-Sep-26": 129.0,
+            "14-Sep-26": 129.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -961,6 +1001,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 2.0,
             "Movement_31-Aug-26_to_07-Sep-26": -2.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -8.0
         },
         {
@@ -988,6 +1029,7 @@
             "24-Aug-26": 389.0,
             "31-Aug-26": 389.0,
             "07-Sep-26": 389.0,
+            "14-Sep-26": 389.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1008,6 +1050,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 249.0
         },
         {
@@ -1035,6 +1078,7 @@
             "24-Aug-26": 296.0,
             "31-Aug-26": 296.0,
             "07-Sep-26": 296.0,
+            "14-Sep-26": 296.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1055,6 +1099,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1082,6 +1127,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1102,6 +1148,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1129,6 +1176,7 @@
             "24-Aug-26": 18.0,
             "31-Aug-26": 18.0,
             "07-Sep-26": 18.0,
+            "14-Sep-26": 18.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1149,6 +1197,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1176,6 +1225,7 @@
             "24-Aug-26": 8.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1196,6 +1246,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1223,6 +1274,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1243,6 +1295,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1270,6 +1323,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1290,6 +1344,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -11.0
         },
         {
@@ -1317,6 +1372,7 @@
             "24-Aug-26": 1608.0,
             "31-Aug-26": 1608.0,
             "07-Sep-26": 1608.0,
+            "14-Sep-26": 1608.0,
             "Movement_05-Jan-26_to_16-Feb-26": 310.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1337,6 +1393,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -846.0
         },
         {
@@ -1364,6 +1421,7 @@
             "24-Aug-26": 16.0,
             "31-Aug-26": 16.0,
             "07-Sep-26": 16.0,
+            "14-Sep-26": 16.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1384,6 +1442,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1411,6 +1470,7 @@
             "24-Aug-26": 14432.0,
             "31-Aug-26": 14432.0,
             "07-Sep-26": 14432.0,
+            "14-Sep-26": 14432.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1431,6 +1491,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 12158.0
         },
         {
@@ -1458,6 +1519,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 62.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1478,6 +1540,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 62.0,
             "Movement_31-Aug-26_to_07-Sep-26": -62.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -295.0
         },
         {
@@ -1505,6 +1568,7 @@
             "24-Aug-26": 33.0,
             "31-Aug-26": 33.0,
             "07-Sep-26": 33.0,
+            "14-Sep-26": 33.0,
             "Movement_05-Jan-26_to_16-Feb-26": 1.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1525,6 +1589,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1.0
         },
         {
@@ -1552,6 +1617,7 @@
             "24-Aug-26": 32.0,
             "31-Aug-26": 32.0,
             "07-Sep-26": 32.0,
+            "14-Sep-26": 32.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1572,6 +1638,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -1599,6 +1666,7 @@
             "24-Aug-26": 66.0,
             "31-Aug-26": 66.0,
             "07-Sep-26": 66.0,
+            "14-Sep-26": 66.0,
             "Movement_05-Jan-26_to_16-Feb-26": 2.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1619,6 +1687,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 2.0
         },
         {
@@ -1646,6 +1715,7 @@
             "24-Aug-26": 78.0,
             "31-Aug-26": 78.0,
             "07-Sep-26": 78.0,
+            "14-Sep-26": 78.0,
             "Movement_05-Jan-26_to_16-Feb-26": 6.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1666,6 +1736,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 14.0
         },
         {
@@ -1693,6 +1764,7 @@
             "24-Aug-26": 16.0,
             "31-Aug-26": 16.0,
             "07-Sep-26": 16.0,
+            "14-Sep-26": 16.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1713,6 +1785,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -56.0
         },
         {
@@ -1740,6 +1813,7 @@
             "24-Aug-26": 236.0,
             "31-Aug-26": 236.0,
             "07-Sep-26": 236.0,
+            "14-Sep-26": 236.0,
             "Movement_05-Jan-26_to_16-Feb-26": -13.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1760,6 +1834,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -461.0
         },
         {
@@ -1787,6 +1862,7 @@
             "24-Aug-26": 777.0,
             "31-Aug-26": 777.0,
             "07-Sep-26": 777.0,
+            "14-Sep-26": 777.0,
             "Movement_05-Jan-26_to_16-Feb-26": 88.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1807,6 +1883,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 225.0
         },
         {
@@ -1834,6 +1911,7 @@
             "24-Aug-26": 32.0,
             "31-Aug-26": 32.0,
             "07-Sep-26": 32.0,
+            "14-Sep-26": 32.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1854,6 +1932,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -3.0
         },
         {
@@ -1881,6 +1960,7 @@
             "24-Aug-26": 64.0,
             "31-Aug-26": 64.0,
             "07-Sep-26": 64.0,
+            "14-Sep-26": 64.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1901,6 +1981,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -6.0
         },
         {
@@ -1928,6 +2009,7 @@
             "24-Aug-26": 32.0,
             "31-Aug-26": 32.0,
             "07-Sep-26": 32.0,
+            "14-Sep-26": 32.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1948,6 +2030,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -1975,6 +2058,7 @@
             "24-Aug-26": 849.0,
             "31-Aug-26": 849.0,
             "07-Sep-26": 849.0,
+            "14-Sep-26": 849.0,
             "Movement_05-Jan-26_to_16-Feb-26": 88.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -1995,6 +2079,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 735.0
         },
         {
@@ -2022,6 +2107,7 @@
             "24-Aug-26": 4.0,
             "31-Aug-26": 4.0,
             "07-Sep-26": 4.0,
+            "14-Sep-26": 4.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2042,6 +2128,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -10.0
         },
         {
@@ -2069,6 +2156,7 @@
             "24-Aug-26": 16256.0,
             "31-Aug-26": 16256.0,
             "07-Sep-26": 16256.0,
+            "14-Sep-26": 16256.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2089,6 +2177,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 15808.0
         },
         {
@@ -2116,6 +2205,7 @@
             "24-Aug-26": 224.0,
             "31-Aug-26": 224.0,
             "07-Sep-26": 224.0,
+            "14-Sep-26": 224.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2136,6 +2226,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -2163,6 +2254,7 @@
             "24-Aug-26": 1316.0,
             "31-Aug-26": 1316.0,
             "07-Sep-26": 1316.0,
+            "14-Sep-26": 1316.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2183,6 +2275,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1260.0
         },
         {
@@ -2210,6 +2303,7 @@
             "24-Aug-26": 4.0,
             "31-Aug-26": 4.0,
             "07-Sep-26": 4.0,
+            "14-Sep-26": 4.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2230,6 +2324,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -1.0
         },
         {
@@ -2257,6 +2352,7 @@
             "24-Aug-26": 6.0,
             "31-Aug-26": 6.0,
             "07-Sep-26": 6.0,
+            "14-Sep-26": 6.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2277,6 +2373,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -2304,6 +2401,7 @@
             "24-Aug-26": 542.0,
             "31-Aug-26": 542.0,
             "07-Sep-26": 542.0,
+            "14-Sep-26": 542.0,
             "Movement_05-Jan-26_to_16-Feb-26": 61.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2324,6 +2422,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 518.0
         },
         {
@@ -2351,6 +2450,7 @@
             "24-Aug-26": 19.0,
             "31-Aug-26": 19.0,
             "07-Sep-26": 19.0,
+            "14-Sep-26": 19.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2371,6 +2471,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -2398,6 +2499,7 @@
             "24-Aug-26": 626.0,
             "31-Aug-26": 626.0,
             "07-Sep-26": 626.0,
+            "14-Sep-26": 626.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2418,6 +2520,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 546.0
         },
         {
@@ -2445,6 +2548,7 @@
             "24-Aug-26": 35.0,
             "31-Aug-26": 35.0,
             "07-Sep-26": 35.0,
+            "14-Sep-26": 35.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2465,6 +2569,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 3.0
         },
         {
@@ -2492,6 +2597,7 @@
             "24-Aug-26": 19.0,
             "31-Aug-26": 19.0,
             "07-Sep-26": 19.0,
+            "14-Sep-26": 19.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2512,6 +2618,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -2539,6 +2646,7 @@
             "24-Aug-26": 8.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2559,6 +2667,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -2586,6 +2695,7 @@
             "24-Aug-26": 19.0,
             "31-Aug-26": 19.0,
             "07-Sep-26": 19.0,
+            "14-Sep-26": 19.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2606,6 +2716,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -2633,6 +2744,7 @@
             "24-Aug-26": 179.0,
             "31-Aug-26": 179.0,
             "07-Sep-26": 179.0,
+            "14-Sep-26": 179.0,
             "Movement_05-Jan-26_to_16-Feb-26": 48.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2653,6 +2765,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 162.0
         },
         {
@@ -2680,6 +2793,7 @@
             "24-Aug-26": 68.0,
             "31-Aug-26": 68.0,
             "07-Sep-26": 68.0,
+            "14-Sep-26": 68.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2700,6 +2814,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -2727,6 +2842,7 @@
             "24-Aug-26": 254.0,
             "31-Aug-26": 254.0,
             "07-Sep-26": 254.0,
+            "14-Sep-26": 254.0,
             "Movement_05-Jan-26_to_16-Feb-26": 48.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2747,6 +2863,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 163.0
         },
         {
@@ -2774,6 +2891,7 @@
             "24-Aug-26": 254.0,
             "31-Aug-26": 254.0,
             "07-Sep-26": 254.0,
+            "14-Sep-26": 254.0,
             "Movement_05-Jan-26_to_16-Feb-26": 48.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2794,6 +2912,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 163.0
         },
         {
@@ -2821,6 +2940,7 @@
             "24-Aug-26": 266.0,
             "31-Aug-26": 266.0,
             "07-Sep-26": 266.0,
+            "14-Sep-26": 266.0,
             "Movement_05-Jan-26_to_16-Feb-26": 58.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2841,6 +2961,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 175.0
         },
         {
@@ -2868,6 +2989,7 @@
             "24-Aug-26": 2848.0,
             "31-Aug-26": 2848.0,
             "07-Sep-26": 2848.0,
+            "14-Sep-26": 2848.0,
             "Movement_05-Jan-26_to_16-Feb-26": 1243.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2888,6 +3010,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -3248.0
         },
         {
@@ -2915,6 +3038,7 @@
             "24-Aug-26": 266.0,
             "31-Aug-26": 266.0,
             "07-Sep-26": 266.0,
+            "14-Sep-26": 266.0,
             "Movement_05-Jan-26_to_16-Feb-26": 58.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2935,6 +3059,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 175.0
         },
         {
@@ -2962,6 +3087,7 @@
             "24-Aug-26": 738.0,
             "31-Aug-26": 738.0,
             "07-Sep-26": 738.0,
+            "14-Sep-26": 738.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -2982,6 +3108,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 658.0
         },
         {
@@ -3009,6 +3136,7 @@
             "24-Aug-26": 22.0,
             "31-Aug-26": 22.0,
             "07-Sep-26": 22.0,
+            "14-Sep-26": 22.0,
             "Movement_05-Jan-26_to_16-Feb-26": 58.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3029,6 +3157,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -389.0
         },
         {
@@ -3056,6 +3185,7 @@
             "24-Aug-26": 177.0,
             "31-Aug-26": 177.0,
             "07-Sep-26": 177.0,
+            "14-Sep-26": 177.0,
             "Movement_05-Jan-26_to_16-Feb-26": 48.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3076,6 +3206,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 162.0
         },
         {
@@ -3103,6 +3234,7 @@
             "24-Aug-26": 177.0,
             "31-Aug-26": 177.0,
             "07-Sep-26": 177.0,
+            "14-Sep-26": 177.0,
             "Movement_05-Jan-26_to_16-Feb-26": 48.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3123,6 +3255,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 162.0
         },
         {
@@ -3150,6 +3283,7 @@
             "24-Aug-26": 280.0,
             "31-Aug-26": 280.0,
             "07-Sep-26": 280.0,
+            "14-Sep-26": 280.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3170,6 +3304,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -3197,6 +3332,7 @@
             "24-Aug-26": 2332.0,
             "31-Aug-26": 2332.0,
             "07-Sep-26": 2332.0,
+            "14-Sep-26": 2332.0,
             "Movement_05-Jan-26_to_16-Feb-26": -1060.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3217,6 +3353,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1272.0
         },
         {
@@ -3244,6 +3381,7 @@
             "24-Aug-26": 274.0,
             "31-Aug-26": 274.0,
             "07-Sep-26": 274.0,
+            "14-Sep-26": 264.0,
             "Movement_05-Jan-26_to_16-Feb-26": 30.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3264,7 +3402,8 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
-            "Net_Movement": -27.0
+            "Movement_07-Sep-26_to_14-Sep-26": -10.0,
+            "Net_Movement": -37.0
         },
         {
             "Vendor": "FBH",
@@ -3291,6 +3430,7 @@
             "24-Aug-26": 274.0,
             "31-Aug-26": 274.0,
             "07-Sep-26": 274.0,
+            "14-Sep-26": 264.0,
             "Movement_05-Jan-26_to_16-Feb-26": 30.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3311,7 +3451,8 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
-            "Net_Movement": -27.0
+            "Movement_07-Sep-26_to_14-Sep-26": -10.0,
+            "Net_Movement": -37.0
         },
         {
             "Vendor": "FBH",
@@ -3338,6 +3479,7 @@
             "24-Aug-26": 274.0,
             "31-Aug-26": 274.0,
             "07-Sep-26": 274.0,
+            "14-Sep-26": 264.0,
             "Movement_05-Jan-26_to_16-Feb-26": 30.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3358,7 +3500,8 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
-            "Net_Movement": -27.0
+            "Movement_07-Sep-26_to_14-Sep-26": -10.0,
+            "Net_Movement": -37.0
         },
         {
             "Vendor": "FBH",
@@ -3385,6 +3528,7 @@
             "24-Aug-26": 792.0,
             "31-Aug-26": 792.0,
             "07-Sep-26": 792.0,
+            "14-Sep-26": 772.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3405,7 +3549,8 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
-            "Net_Movement": 190.0
+            "Movement_07-Sep-26_to_14-Sep-26": -20.0,
+            "Net_Movement": 170.0
         },
         {
             "Vendor": "FBH",
@@ -3432,6 +3577,7 @@
             "24-Aug-26": 21.0,
             "31-Aug-26": 21.0,
             "07-Sep-26": 21.0,
+            "14-Sep-26": 21.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3452,6 +3598,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -3479,6 +3626,7 @@
             "24-Aug-26": 21.0,
             "31-Aug-26": 21.0,
             "07-Sep-26": 21.0,
+            "14-Sep-26": 21.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3499,6 +3647,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -3526,6 +3675,7 @@
             "24-Aug-26": 13952.0,
             "31-Aug-26": 13952.0,
             "07-Sep-26": 13952.0,
+            "14-Sep-26": 13952.0,
             "Movement_05-Jan-26_to_16-Feb-26": 1440.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3546,6 +3696,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 8016.0
         },
         {
@@ -3573,6 +3724,7 @@
             "24-Aug-26": 109.0,
             "31-Aug-26": 109.0,
             "07-Sep-26": 109.0,
+            "14-Sep-26": 109.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3593,6 +3745,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 79.0
         },
         {
@@ -3620,6 +3773,7 @@
             "24-Aug-26": 48.0,
             "31-Aug-26": 48.0,
             "07-Sep-26": 48.0,
+            "14-Sep-26": 48.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3640,6 +3794,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -182.0
         },
         {
@@ -3667,6 +3822,7 @@
             "24-Aug-26": 268.0,
             "31-Aug-26": 268.0,
             "07-Sep-26": 268.0,
+            "14-Sep-26": 268.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3687,6 +3843,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 177.0
         },
         {
@@ -3714,6 +3871,7 @@
             "24-Aug-26": 608.0,
             "31-Aug-26": 608.0,
             "07-Sep-26": 608.0,
+            "14-Sep-26": 608.0,
             "Movement_05-Jan-26_to_16-Feb-26": 120.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3734,6 +3892,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 426.0
         },
         {
@@ -3761,6 +3920,7 @@
             "24-Aug-26": 268.0,
             "31-Aug-26": 268.0,
             "07-Sep-26": 268.0,
+            "14-Sep-26": 268.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3781,6 +3941,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 177.0
         },
         {
@@ -3808,6 +3969,7 @@
             "24-Aug-26": 268.0,
             "31-Aug-26": 268.0,
             "07-Sep-26": 268.0,
+            "14-Sep-26": 268.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3828,6 +3990,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 177.0
         },
         {
@@ -3855,6 +4018,7 @@
             "24-Aug-26": 268.0,
             "31-Aug-26": 268.0,
             "07-Sep-26": 268.0,
+            "14-Sep-26": 268.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3875,6 +4039,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 177.0
         },
         {
@@ -3902,6 +4067,7 @@
             "24-Aug-26": 268.0,
             "31-Aug-26": 268.0,
             "07-Sep-26": 268.0,
+            "14-Sep-26": 268.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3922,6 +4088,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 177.0
         },
         {
@@ -3949,6 +4116,7 @@
             "24-Aug-26": 99.0,
             "31-Aug-26": 99.0,
             "07-Sep-26": 99.0,
+            "14-Sep-26": 99.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -3969,6 +4137,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 49.0
         },
         {
@@ -3996,6 +4165,7 @@
             "24-Aug-26": 797.0,
             "31-Aug-26": 797.0,
             "07-Sep-26": 797.0,
+            "14-Sep-26": 797.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4016,6 +4186,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 658.0
         },
         {
@@ -4043,6 +4214,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4063,6 +4235,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -130.0
         },
         {
@@ -4090,6 +4263,7 @@
             "24-Aug-26": 53.0,
             "31-Aug-26": 53.0,
             "07-Sep-26": 53.0,
+            "14-Sep-26": 53.0,
             "Movement_05-Jan-26_to_16-Feb-26": 20.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4110,6 +4284,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 24.0
         },
         {
@@ -4137,6 +4312,7 @@
             "24-Aug-26": 702.0,
             "31-Aug-26": 714.0,
             "07-Sep-26": 714.0,
+            "14-Sep-26": 714.0,
             "Movement_05-Jan-26_to_16-Feb-26": 24.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4157,6 +4333,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 12.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -304.0
         },
         {
@@ -4184,6 +4361,7 @@
             "24-Aug-26": 388.0,
             "31-Aug-26": 388.0,
             "07-Sep-26": 388.0,
+            "14-Sep-26": 388.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4204,6 +4382,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -32.0
         },
         {
@@ -4231,6 +4410,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4251,6 +4431,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 8.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -4278,6 +4459,7 @@
             "24-Aug-26": 60.0,
             "31-Aug-26": 60.0,
             "07-Sep-26": 60.0,
+            "14-Sep-26": 60.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4298,6 +4480,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -3.0
         },
         {
@@ -4325,6 +4508,7 @@
             "24-Aug-26": 572.0,
             "31-Aug-26": 572.0,
             "07-Sep-26": 572.0,
+            "14-Sep-26": 572.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4345,6 +4529,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -32.0
         },
         {
@@ -4372,6 +4557,7 @@
             "24-Aug-26": 79.0,
             "31-Aug-26": 79.0,
             "07-Sep-26": 79.0,
+            "14-Sep-26": 79.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4392,6 +4578,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -4419,6 +4606,7 @@
             "24-Aug-26": 36.0,
             "31-Aug-26": 36.0,
             "07-Sep-26": 36.0,
+            "14-Sep-26": 36.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4439,6 +4627,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -4466,6 +4655,7 @@
             "24-Aug-26": 1367.0,
             "31-Aug-26": 1367.0,
             "07-Sep-26": 1367.0,
+            "14-Sep-26": 1367.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 64.0,
             "Movement_16-Mar-26_to_16-Apr-26": 104.0,
@@ -4486,6 +4676,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 251.0
         },
         {
@@ -4513,6 +4704,7 @@
             "24-Aug-26": 25024.0,
             "31-Aug-26": 25032.0,
             "07-Sep-26": 25032.0,
+            "14-Sep-26": 25032.0,
             "Movement_05-Jan-26_to_16-Feb-26": 38.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 130.0,
@@ -4533,6 +4725,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 8.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -6586.0
         },
         {
@@ -4560,6 +4753,7 @@
             "24-Aug-26": 2674.0,
             "31-Aug-26": 3474.0,
             "07-Sep-26": 3474.0,
+            "14-Sep-26": 3474.0,
             "Movement_05-Jan-26_to_16-Feb-26": 800.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4580,6 +4774,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 800.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 2196.0
         },
         {
@@ -4607,6 +4802,7 @@
             "24-Aug-26": 15.0,
             "31-Aug-26": 15.0,
             "07-Sep-26": 15.0,
+            "14-Sep-26": 15.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4627,6 +4823,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -4654,6 +4851,7 @@
             "24-Aug-26": 160.0,
             "31-Aug-26": 160.0,
             "07-Sep-26": 160.0,
+            "14-Sep-26": 160.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4674,6 +4872,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -76.0
         },
         {
@@ -4701,6 +4900,7 @@
             "24-Aug-26": 2544.0,
             "31-Aug-26": 3063.0,
             "07-Sep-26": 3075.0,
+            "14-Sep-26": 3075.0,
             "Movement_05-Jan-26_to_16-Feb-26": 393.0,
             "Movement_16-Feb-26_to_16-Mar-26": 73.0,
             "Movement_16-Mar-26_to_16-Apr-26": -29.0,
@@ -4721,6 +4921,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": -36.0,
             "Movement_24-Aug-26_to_31-Aug-26": 519.0,
             "Movement_31-Aug-26_to_07-Sep-26": 12.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1768.0
         },
         {
@@ -4748,6 +4949,7 @@
             "24-Aug-26": 992.0,
             "31-Aug-26": 992.0,
             "07-Sep-26": 994.0,
+            "14-Sep-26": 994.0,
             "Movement_05-Jan-26_to_16-Feb-26": -160.0,
             "Movement_16-Feb-26_to_16-Mar-26": 13.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4768,6 +4970,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": -34.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 2.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 235.0
         },
         {
@@ -4795,6 +4998,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4815,6 +5019,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -4842,6 +5047,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4862,6 +5068,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -4889,6 +5096,7 @@
             "24-Aug-26": 556.0,
             "31-Aug-26": 556.0,
             "07-Sep-26": 556.0,
+            "14-Sep-26": 556.0,
             "Movement_05-Jan-26_to_16-Feb-26": 2.0,
             "Movement_16-Feb-26_to_16-Mar-26": 2.0,
             "Movement_16-Mar-26_to_16-Apr-26": 10.0,
@@ -4909,6 +5117,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -622.0
         },
         {
@@ -4936,6 +5145,7 @@
             "24-Aug-26": 4742.0,
             "31-Aug-26": 7942.0,
             "07-Sep-26": 7942.0,
+            "14-Sep-26": 7942.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -4956,6 +5166,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 3200.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 7360.0
         },
         {
@@ -4983,6 +5194,7 @@
             "24-Aug-26": 14.0,
             "31-Aug-26": 14.0,
             "07-Sep-26": 14.0,
+            "14-Sep-26": 14.0,
             "Movement_05-Jan-26_to_16-Feb-26": -51.0,
             "Movement_16-Feb-26_to_16-Mar-26": 2.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5003,6 +5215,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -63.0
         },
         {
@@ -5030,6 +5243,7 @@
             "24-Aug-26": 24.0,
             "31-Aug-26": 24.0,
             "07-Sep-26": 24.0,
+            "14-Sep-26": 24.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5050,6 +5264,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5077,6 +5292,7 @@
             "24-Aug-26": 12908.0,
             "31-Aug-26": 16108.0,
             "07-Sep-26": 16108.0,
+            "14-Sep-26": 16108.0,
             "Movement_05-Jan-26_to_16-Feb-26": 5440.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5097,6 +5313,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 3200.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 15008.0
         },
         {
@@ -5124,6 +5341,7 @@
             "24-Aug-26": 118.0,
             "31-Aug-26": 118.0,
             "07-Sep-26": 118.0,
+            "14-Sep-26": 118.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5144,6 +5362,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5171,6 +5390,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5191,6 +5411,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5218,6 +5439,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5238,6 +5460,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5265,6 +5488,7 @@
             "24-Aug-26": 71.0,
             "31-Aug-26": 71.0,
             "07-Sep-26": 71.0,
+            "14-Sep-26": 71.0,
             "Movement_05-Jan-26_to_16-Feb-26": 4.0,
             "Movement_16-Feb-26_to_16-Mar-26": -1.0,
             "Movement_16-Mar-26_to_16-Apr-26": 10.0,
@@ -5285,6 +5509,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 30.0
         },
         {
@@ -5312,6 +5537,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5332,6 +5558,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5359,6 +5586,7 @@
             "24-Aug-26": 20.0,
             "31-Aug-26": 20.0,
             "07-Sep-26": 20.0,
+            "14-Sep-26": 20.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5379,6 +5607,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 16.0
         },
         {
@@ -5406,6 +5635,7 @@
             "24-Aug-26": 18.0,
             "31-Aug-26": 18.0,
             "07-Sep-26": 18.0,
+            "14-Sep-26": 18.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 7.0,
@@ -5426,6 +5656,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 13.0
         },
         {
@@ -5453,6 +5684,7 @@
             "24-Aug-26": 94.0,
             "31-Aug-26": 94.0,
             "07-Sep-26": 129.0,
+            "14-Sep-26": 129.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5473,6 +5705,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 35.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 85.0
         },
         {
@@ -5500,6 +5733,7 @@
             "24-Aug-26": 17.0,
             "31-Aug-26": 17.0,
             "07-Sep-26": 17.0,
+            "14-Sep-26": 17.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 1.0,
@@ -5520,6 +5754,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1.0
         },
         {
@@ -5547,6 +5782,7 @@
             "24-Aug-26": 392.0,
             "31-Aug-26": 392.0,
             "07-Sep-26": 392.0,
+            "14-Sep-26": 392.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5567,6 +5803,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5594,6 +5831,7 @@
             "24-Aug-26": 126.0,
             "31-Aug-26": 126.0,
             "07-Sep-26": 126.0,
+            "14-Sep-26": 126.0,
             "Movement_05-Jan-26_to_16-Feb-26": 28.0,
             "Movement_16-Feb-26_to_16-Mar-26": 36.0,
             "Movement_16-Mar-26_to_16-Apr-26": -12.0,
@@ -5614,6 +5852,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 26.0
         },
         {
@@ -5641,6 +5880,7 @@
             "24-Aug-26": 20.0,
             "31-Aug-26": 20.0,
             "07-Sep-26": 20.0,
+            "14-Sep-26": 20.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5661,6 +5901,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5688,6 +5929,7 @@
             "24-Aug-26": 20.0,
             "31-Aug-26": 20.0,
             "07-Sep-26": 20.0,
+            "14-Sep-26": 20.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5708,6 +5950,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5735,6 +5978,7 @@
             "24-Aug-26": 163.0,
             "31-Aug-26": 163.0,
             "07-Sep-26": 163.0,
+            "14-Sep-26": 163.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5755,6 +5999,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5782,6 +6027,7 @@
             "24-Aug-26": 976.0,
             "31-Aug-26": 976.0,
             "07-Sep-26": 976.0,
+            "14-Sep-26": 976.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5802,6 +6048,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5829,6 +6076,7 @@
             "24-Aug-26": 23.0,
             "31-Aug-26": 23.0,
             "07-Sep-26": 23.0,
+            "14-Sep-26": 23.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5849,6 +6097,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5876,6 +6125,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5896,6 +6146,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5923,6 +6174,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5943,6 +6195,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -5970,6 +6223,7 @@
             "24-Aug-26": 59.0,
             "31-Aug-26": 559.0,
             "07-Sep-26": 559.0,
+            "14-Sep-26": 559.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -5990,6 +6244,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 500.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 501.0
         },
         {
@@ -6017,6 +6272,7 @@
             "24-Aug-26": 67.0,
             "31-Aug-26": 67.0,
             "07-Sep-26": 67.0,
+            "14-Sep-26": 67.0,
             "Movement_05-Jan-26_to_16-Feb-26": 20.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6037,6 +6293,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 24.0
         },
         {
@@ -6064,6 +6321,7 @@
             "24-Aug-26": 125.0,
             "31-Aug-26": 125.0,
             "07-Sep-26": 125.0,
+            "14-Sep-26": 125.0,
             "Movement_05-Jan-26_to_16-Feb-26": 30.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 1.0,
@@ -6084,6 +6342,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 113.0
         },
         {
@@ -6111,6 +6370,7 @@
             "24-Aug-26": 6.0,
             "31-Aug-26": 6.0,
             "07-Sep-26": 6.0,
+            "14-Sep-26": 6.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6131,6 +6391,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6158,6 +6419,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6178,6 +6440,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6205,6 +6468,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6225,6 +6489,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6252,6 +6517,7 @@
             "24-Aug-26": 6.0,
             "31-Aug-26": 6.0,
             "07-Sep-26": 6.0,
+            "14-Sep-26": 6.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6272,6 +6538,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6299,6 +6566,7 @@
             "24-Aug-26": 1232.0,
             "31-Aug-26": 1232.0,
             "07-Sep-26": 1232.0,
+            "14-Sep-26": 1232.0,
             "Movement_05-Jan-26_to_16-Feb-26": 72.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6319,6 +6587,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -32.0
         },
         {
@@ -6346,6 +6615,7 @@
             "24-Aug-26": 101.0,
             "31-Aug-26": 101.0,
             "07-Sep-26": 103.0,
+            "14-Sep-26": 103.0,
             "Movement_05-Jan-26_to_16-Feb-26": -789.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 30.0,
@@ -6366,6 +6636,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 2.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -794.0
         },
         {
@@ -6393,6 +6664,7 @@
             "24-Aug-26": 5.0,
             "31-Aug-26": 5.0,
             "07-Sep-26": 5.0,
+            "14-Sep-26": 5.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 10.0,
@@ -6413,6 +6685,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 3.0
         },
         {
@@ -6440,6 +6713,7 @@
             "24-Aug-26": 21.0,
             "31-Aug-26": 21.0,
             "07-Sep-26": 21.0,
+            "14-Sep-26": 21.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 1.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6460,6 +6734,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -29.0
         },
         {
@@ -6487,6 +6762,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6507,6 +6783,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6534,6 +6811,7 @@
             "24-Aug-26": 32.0,
             "31-Aug-26": 32.0,
             "07-Sep-26": 32.0,
+            "14-Sep-26": 32.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6554,6 +6832,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6581,6 +6860,7 @@
             "24-Aug-26": 22.0,
             "31-Aug-26": 22.0,
             "07-Sep-26": 22.0,
+            "14-Sep-26": 22.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6601,6 +6881,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6628,6 +6909,7 @@
             "24-Aug-26": 2.0,
             "31-Aug-26": 2.0,
             "07-Sep-26": 2.0,
+            "14-Sep-26": 2.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6648,6 +6930,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6675,6 +6958,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6695,6 +6979,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6722,6 +7007,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6742,6 +7028,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6769,6 +7056,7 @@
             "24-Aug-26": 5.0,
             "31-Aug-26": 5.0,
             "07-Sep-26": 5.0,
+            "14-Sep-26": 5.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6789,6 +7077,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6816,6 +7105,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": -18.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6836,6 +7126,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -18.0
         },
         {
@@ -6863,6 +7154,7 @@
             "24-Aug-26": 32.0,
             "31-Aug-26": 32.0,
             "07-Sep-26": 32.0,
+            "14-Sep-26": 32.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6883,6 +7175,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -6910,6 +7203,7 @@
             "24-Aug-26": 126.0,
             "31-Aug-26": 126.0,
             "07-Sep-26": 126.0,
+            "14-Sep-26": 126.0,
             "Movement_05-Jan-26_to_16-Feb-26": 40.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -6930,6 +7224,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 48.0
         },
         {
@@ -6957,6 +7252,7 @@
             "24-Aug-26": 12.0,
             "31-Aug-26": 12.0,
             "07-Sep-26": 12.0,
+            "14-Sep-26": 12.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 2.0,
@@ -6977,6 +7273,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 2.0
         },
         {
@@ -7004,6 +7301,7 @@
             "24-Aug-26": 231.0,
             "31-Aug-26": 231.0,
             "07-Sep-26": 231.0,
+            "14-Sep-26": 231.0,
             "Movement_05-Jan-26_to_16-Feb-26": 60.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7024,6 +7322,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 224.0
         },
         {
@@ -7051,6 +7350,7 @@
             "24-Aug-26": 126.0,
             "31-Aug-26": 126.0,
             "07-Sep-26": 126.0,
+            "14-Sep-26": 126.0,
             "Movement_05-Jan-26_to_16-Feb-26": 30.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7071,6 +7371,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 111.0
         },
         {
@@ -7098,6 +7399,7 @@
             "24-Aug-26": 29.0,
             "31-Aug-26": 29.0,
             "07-Sep-26": 29.0,
+            "14-Sep-26": 29.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7118,6 +7420,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -1.0
         },
         {
@@ -7145,6 +7448,7 @@
             "24-Aug-26": 29.0,
             "31-Aug-26": 29.0,
             "07-Sep-26": 29.0,
+            "14-Sep-26": 29.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7165,6 +7469,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -7192,6 +7497,7 @@
             "24-Aug-26": 29.0,
             "31-Aug-26": 29.0,
             "07-Sep-26": 29.0,
+            "14-Sep-26": 29.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7212,6 +7518,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -7239,6 +7546,7 @@
             "24-Aug-26": 29.0,
             "31-Aug-26": 29.0,
             "07-Sep-26": 29.0,
+            "14-Sep-26": 29.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7259,6 +7567,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -7286,6 +7595,7 @@
             "24-Aug-26": 49.0,
             "31-Aug-26": 49.0,
             "07-Sep-26": 49.0,
+            "14-Sep-26": 49.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7306,6 +7616,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -7333,6 +7644,7 @@
             "24-Aug-26": 193.0,
             "31-Aug-26": 193.0,
             "07-Sep-26": 193.0,
+            "14-Sep-26": 193.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7353,6 +7665,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -7380,6 +7693,7 @@
             "24-Aug-26": 111.0,
             "31-Aug-26": 111.0,
             "07-Sep-26": 111.0,
+            "14-Sep-26": 111.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7400,6 +7714,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -43.0
         },
         {
@@ -7427,6 +7742,7 @@
             "24-Aug-26": 290.0,
             "31-Aug-26": 490.0,
             "07-Sep-26": 490.0,
+            "14-Sep-26": 490.0,
             "Movement_05-Jan-26_to_16-Feb-26": 170.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7447,6 +7763,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 200.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 473.0
         },
         {
@@ -7474,6 +7791,7 @@
             "24-Aug-26": 272.0,
             "31-Aug-26": 272.0,
             "07-Sep-26": 272.0,
+            "14-Sep-26": 272.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7494,6 +7812,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -7521,6 +7840,7 @@
             "24-Aug-26": 24.0,
             "31-Aug-26": 24.0,
             "07-Sep-26": 24.0,
+            "14-Sep-26": 24.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7541,6 +7861,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -7568,6 +7889,7 @@
             "24-Aug-26": 79.0,
             "31-Aug-26": 79.0,
             "07-Sep-26": 79.0,
+            "14-Sep-26": 79.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7588,6 +7910,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -66.0
         },
         {
@@ -7615,6 +7938,7 @@
             "24-Aug-26": 145.0,
             "31-Aug-26": 145.0,
             "07-Sep-26": 145.0,
+            "14-Sep-26": 145.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7635,6 +7959,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -7662,6 +7987,7 @@
             "24-Aug-26": 1200.0,
             "31-Aug-26": 1200.0,
             "07-Sep-26": 1200.0,
+            "14-Sep-26": 1200.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 200.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7682,6 +8008,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1000.0
         },
         {
@@ -7709,6 +8036,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7729,6 +8057,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -50.0
         },
         {
@@ -7756,6 +8085,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7776,6 +8106,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -200.0
         },
         {
@@ -7803,6 +8134,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7823,6 +8155,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -7850,6 +8183,7 @@
             "24-Aug-26": 1478.0,
             "31-Aug-26": 1734.0,
             "07-Sep-26": 1734.0,
+            "14-Sep-26": 1734.0,
             "Movement_05-Jan-26_to_16-Feb-26": 240.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7870,6 +8204,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 256.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 814.0
         },
         {
@@ -7897,6 +8232,7 @@
             "24-Aug-26": 247.0,
             "31-Aug-26": 247.0,
             "07-Sep-26": 247.0,
+            "14-Sep-26": 247.0,
             "Movement_05-Jan-26_to_16-Feb-26": 9.0,
             "Movement_16-Feb-26_to_16-Mar-26": 161.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7917,6 +8253,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 136.0
         },
         {
@@ -7944,6 +8281,7 @@
             "24-Aug-26": 348.0,
             "31-Aug-26": 348.0,
             "07-Sep-26": 348.0,
+            "14-Sep-26": 348.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 6.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -7964,6 +8302,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 3.0
         },
         {
@@ -7991,6 +8330,7 @@
             "24-Aug-26": 8.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8011,6 +8351,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8038,6 +8379,7 @@
             "24-Aug-26": 21.0,
             "31-Aug-26": 21.0,
             "07-Sep-26": 21.0,
+            "14-Sep-26": 21.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8058,6 +8400,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8085,6 +8428,7 @@
             "24-Aug-26": 20.0,
             "31-Aug-26": 20.0,
             "07-Sep-26": 20.0,
+            "14-Sep-26": 20.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8105,6 +8449,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8132,6 +8477,7 @@
             "24-Aug-26": 560.0,
             "31-Aug-26": 560.0,
             "07-Sep-26": 560.0,
+            "14-Sep-26": 560.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8152,6 +8498,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 520.0
         },
         {
@@ -8179,6 +8526,7 @@
             "24-Aug-26": 108.0,
             "31-Aug-26": 108.0,
             "07-Sep-26": 108.0,
+            "14-Sep-26": 108.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8199,6 +8547,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8226,6 +8575,7 @@
             "24-Aug-26": 691.0,
             "31-Aug-26": 691.0,
             "07-Sep-26": 691.0,
+            "14-Sep-26": 691.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8246,6 +8596,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -1360.0
         },
         {
@@ -8273,6 +8624,7 @@
             "24-Aug-26": 28.0,
             "31-Aug-26": 28.0,
             "07-Sep-26": 28.0,
+            "14-Sep-26": 28.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8293,6 +8645,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8320,6 +8673,7 @@
             "24-Aug-26": 25.0,
             "31-Aug-26": 25.0,
             "07-Sep-26": 25.0,
+            "14-Sep-26": 25.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8340,6 +8694,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -10.0
         },
         {
@@ -8367,6 +8722,7 @@
             "24-Aug-26": 266.0,
             "31-Aug-26": 266.0,
             "07-Sep-26": 266.0,
+            "14-Sep-26": 266.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8387,6 +8743,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -400.0
         },
         {
@@ -8414,6 +8771,7 @@
             "24-Aug-26": 55.0,
             "31-Aug-26": 55.0,
             "07-Sep-26": 55.0,
+            "14-Sep-26": 55.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8434,6 +8792,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8461,6 +8820,7 @@
             "24-Aug-26": 100.0,
             "31-Aug-26": 100.0,
             "07-Sep-26": 100.0,
+            "14-Sep-26": 100.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8481,6 +8841,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8508,6 +8869,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8528,6 +8890,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -6.0
         },
         {
@@ -8555,6 +8918,7 @@
             "24-Aug-26": 27.0,
             "31-Aug-26": 27.0,
             "07-Sep-26": 27.0,
+            "14-Sep-26": 27.0,
             "Movement_05-Jan-26_to_16-Feb-26": 20.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8575,6 +8939,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8602,6 +8967,7 @@
             "24-Aug-26": 508.0,
             "31-Aug-26": 508.0,
             "07-Sep-26": 508.0,
+            "14-Sep-26": 638.0,
             "Movement_05-Jan-26_to_16-Feb-26": 271.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8622,7 +8988,8 @@
             "Movement_17-Aug-26_to_24-Aug-26": -37.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
-            "Net_Movement": 48.0
+            "Movement_07-Sep-26_to_14-Sep-26": 130.0,
+            "Net_Movement": 178.0
         },
         {
             "Vendor": "ZTE",
@@ -8649,6 +9016,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8669,6 +9037,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -10.0
         },
         {
@@ -8696,6 +9065,7 @@
             "24-Aug-26": 80.0,
             "31-Aug-26": 80.0,
             "07-Sep-26": 80.0,
+            "14-Sep-26": 80.0,
             "Movement_05-Jan-26_to_16-Feb-26": -8.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8716,6 +9086,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -8.0
         },
         {
@@ -8743,6 +9114,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8763,6 +9135,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -74.0
         },
         {
@@ -8790,6 +9163,7 @@
             "24-Aug-26": 37.0,
             "31-Aug-26": 37.0,
             "07-Sep-26": 37.0,
+            "14-Sep-26": 37.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8810,6 +9184,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8837,6 +9212,7 @@
             "24-Aug-26": 38.0,
             "31-Aug-26": 38.0,
             "07-Sep-26": 38.0,
+            "14-Sep-26": 38.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 2.0,
             "Movement_16-Mar-26_to_16-Apr-26": 2.0,
@@ -8857,6 +9233,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": -2.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -8884,6 +9261,7 @@
             "24-Aug-26": 41.0,
             "31-Aug-26": 44.0,
             "07-Sep-26": 44.0,
+            "14-Sep-26": 44.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 1.0,
             "Movement_16-Mar-26_to_16-Apr-26": -1.0,
@@ -8904,6 +9282,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": -1.0,
             "Movement_24-Aug-26_to_31-Aug-26": 3.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 6.0
         },
         {
@@ -8931,6 +9310,7 @@
             "24-Aug-26": 8.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": -2.0,
@@ -8951,6 +9331,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -2.0
         },
         {
@@ -8978,6 +9359,7 @@
             "24-Aug-26": 120.0,
             "31-Aug-26": 120.0,
             "07-Sep-26": 120.0,
+            "14-Sep-26": 120.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -8998,6 +9380,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 43.0
         },
         {
@@ -9025,6 +9408,7 @@
             "24-Aug-26": 119.0,
             "31-Aug-26": 119.0,
             "07-Sep-26": 119.0,
+            "14-Sep-26": 119.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9045,6 +9429,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 42.0
         },
         {
@@ -9072,6 +9457,7 @@
             "24-Aug-26": 160.0,
             "31-Aug-26": 160.0,
             "07-Sep-26": 160.0,
+            "14-Sep-26": 160.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9092,6 +9478,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 100.0
         },
         {
@@ -9119,6 +9506,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9139,6 +9527,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -60.0
         },
         {
@@ -9166,6 +9555,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9186,6 +9576,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -132.0
         },
         {
@@ -9213,6 +9604,7 @@
             "24-Aug-26": 32.0,
             "31-Aug-26": 32.0,
             "07-Sep-26": 32.0,
+            "14-Sep-26": 32.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9233,6 +9625,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9260,6 +9653,7 @@
             "24-Aug-26": 9.0,
             "31-Aug-26": 9.0,
             "07-Sep-26": 9.0,
+            "14-Sep-26": 9.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9280,6 +9674,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9307,6 +9702,7 @@
             "24-Aug-26": 1006.0,
             "31-Aug-26": 1006.0,
             "07-Sep-26": 1006.0,
+            "14-Sep-26": 1006.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9327,6 +9723,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9354,6 +9751,7 @@
             "24-Aug-26": 5280.0,
             "31-Aug-26": 5280.0,
             "07-Sep-26": 5280.0,
+            "14-Sep-26": 5280.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9374,6 +9772,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 4640.0
         },
         {
@@ -9401,6 +9800,7 @@
             "24-Aug-26": 12.0,
             "31-Aug-26": 12.0,
             "07-Sep-26": 12.0,
+            "14-Sep-26": 12.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9421,6 +9821,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9448,6 +9849,7 @@
             "24-Aug-26": 12.0,
             "31-Aug-26": 12.0,
             "07-Sep-26": 12.0,
+            "14-Sep-26": 12.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9468,6 +9870,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 8.0
         },
         {
@@ -9495,6 +9898,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9515,6 +9919,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9542,6 +9947,7 @@
             "24-Aug-26": 6.0,
             "31-Aug-26": 6.0,
             "07-Sep-26": 6.0,
+            "14-Sep-26": 6.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9562,6 +9968,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9589,6 +9996,7 @@
             "24-Aug-26": 155.0,
             "31-Aug-26": 156.0,
             "07-Sep-26": 156.0,
+            "14-Sep-26": 156.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9609,6 +10017,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 1.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 2.0
         },
         {
@@ -9636,6 +10045,7 @@
             "24-Aug-26": 8.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 100.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9656,6 +10066,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -92.0
         },
         {
@@ -9683,6 +10094,7 @@
             "24-Aug-26": 5760.0,
             "31-Aug-26": 5760.0,
             "07-Sep-26": 5760.0,
+            "14-Sep-26": 5760.0,
             "Movement_05-Jan-26_to_16-Feb-26": 96.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9703,6 +10115,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 4496.0
         },
         {
@@ -9730,6 +10143,7 @@
             "24-Aug-26": 60.0,
             "31-Aug-26": 60.0,
             "07-Sep-26": 60.0,
+            "14-Sep-26": 60.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9750,6 +10164,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -176.0
         },
         {
@@ -9777,6 +10192,7 @@
             "24-Aug-26": 10.0,
             "31-Aug-26": 10.0,
             "07-Sep-26": 10.0,
+            "14-Sep-26": 10.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9797,6 +10213,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9824,6 +10241,7 @@
             "24-Aug-26": 561.0,
             "31-Aug-26": 561.0,
             "07-Sep-26": 561.0,
+            "14-Sep-26": 561.0,
             "Movement_05-Jan-26_to_16-Feb-26": -99.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 94.0,
@@ -9844,6 +10262,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 33.0
         },
         {
@@ -9871,6 +10290,7 @@
             "24-Aug-26": 54.0,
             "31-Aug-26": 54.0,
             "07-Sep-26": 56.0,
+            "14-Sep-26": 56.0,
             "Movement_05-Jan-26_to_16-Feb-26": 54.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 26.0,
@@ -9891,6 +10311,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 2.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 11.0
         },
         {
@@ -9918,6 +10339,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9938,6 +10360,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -9965,6 +10388,7 @@
             "24-Aug-26": 22.0,
             "31-Aug-26": 22.0,
             "07-Sep-26": 22.0,
+            "14-Sep-26": 22.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -9985,6 +10409,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10012,6 +10437,7 @@
             "24-Aug-26": 162.0,
             "31-Aug-26": 162.0,
             "07-Sep-26": 162.0,
+            "14-Sep-26": 162.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10032,6 +10458,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 60.0
         },
         {
@@ -10059,6 +10486,7 @@
             "24-Aug-26": 101.0,
             "31-Aug-26": 101.0,
             "07-Sep-26": 101.0,
+            "14-Sep-26": 101.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10079,6 +10507,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 49.0
         },
         {
@@ -10106,6 +10535,7 @@
             "24-Aug-26": 118.0,
             "31-Aug-26": 118.0,
             "07-Sep-26": 118.0,
+            "14-Sep-26": 118.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10126,6 +10556,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 39.0
         },
         {
@@ -10153,6 +10584,7 @@
             "24-Aug-26": 13.0,
             "31-Aug-26": 13.0,
             "07-Sep-26": 13.0,
+            "14-Sep-26": 13.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10173,6 +10605,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -21.0
         },
         {
@@ -10200,6 +10633,7 @@
             "24-Aug-26": 9.0,
             "31-Aug-26": 9.0,
             "07-Sep-26": 9.0,
+            "14-Sep-26": 9.0,
             "Movement_05-Jan-26_to_16-Feb-26": 5.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 13.0,
@@ -10220,6 +10654,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -41.0
         },
         {
@@ -10247,6 +10682,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10267,6 +10703,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10294,6 +10731,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10314,6 +10752,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10341,6 +10780,7 @@
             "24-Aug-26": 36.0,
             "31-Aug-26": 36.0,
             "07-Sep-26": 36.0,
+            "14-Sep-26": 36.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10361,6 +10801,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10388,6 +10829,7 @@
             "24-Aug-26": 30.0,
             "31-Aug-26": 30.0,
             "07-Sep-26": 30.0,
+            "14-Sep-26": 30.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10408,6 +10850,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -6.0
         },
         {
@@ -10435,6 +10878,7 @@
             "24-Aug-26": 101.0,
             "31-Aug-26": 101.0,
             "07-Sep-26": 101.0,
+            "14-Sep-26": 101.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10455,6 +10899,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 40.0
         },
         {
@@ -10482,6 +10927,7 @@
             "24-Aug-26": 2144.0,
             "31-Aug-26": 2144.0,
             "07-Sep-26": 2144.0,
+            "14-Sep-26": 2144.0,
             "Movement_05-Jan-26_to_16-Feb-26": 48.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10502,6 +10948,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1648.0
         },
         {
@@ -10529,6 +10976,7 @@
             "24-Aug-26": 44.0,
             "31-Aug-26": 44.0,
             "07-Sep-26": 44.0,
+            "14-Sep-26": 44.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10549,6 +10997,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10576,6 +11025,7 @@
             "24-Aug-26": 6.0,
             "31-Aug-26": 6.0,
             "07-Sep-26": 6.0,
+            "14-Sep-26": 6.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10596,6 +11046,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -3.0
         },
         {
@@ -10623,6 +11074,7 @@
             "24-Aug-26": 146.0,
             "31-Aug-26": 146.0,
             "07-Sep-26": 146.0,
+            "14-Sep-26": 146.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10643,6 +11095,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10670,6 +11123,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10690,6 +11144,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -146.0
         },
         {
@@ -10717,6 +11172,7 @@
             "24-Aug-26": 242.0,
             "31-Aug-26": 242.0,
             "07-Sep-26": 242.0,
+            "14-Sep-26": 242.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10737,6 +11193,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10764,6 +11221,7 @@
             "24-Aug-26": 114.0,
             "31-Aug-26": 114.0,
             "07-Sep-26": 114.0,
+            "14-Sep-26": 114.0,
             "Movement_05-Jan-26_to_16-Feb-26": 20.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10784,6 +11242,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 60.0
         },
         {
@@ -10811,6 +11270,7 @@
             "24-Aug-26": 672.0,
             "31-Aug-26": 672.0,
             "07-Sep-26": 672.0,
+            "14-Sep-26": 672.0,
             "Movement_05-Jan-26_to_16-Feb-26": 384.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10831,6 +11291,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 384.0
         },
         {
@@ -10858,6 +11319,7 @@
             "24-Aug-26": 135.0,
             "31-Aug-26": 135.0,
             "07-Sep-26": 135.0,
+            "14-Sep-26": 135.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10878,6 +11340,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10905,6 +11368,7 @@
             "24-Aug-26": 115.0,
             "31-Aug-26": 115.0,
             "07-Sep-26": 115.0,
+            "14-Sep-26": 115.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10925,6 +11389,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -10952,6 +11417,7 @@
             "24-Aug-26": 142.0,
             "31-Aug-26": 142.0,
             "07-Sep-26": 142.0,
+            "14-Sep-26": 142.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -10972,6 +11438,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 62.0
         },
         {
@@ -10999,6 +11466,7 @@
             "24-Aug-26": 3152.0,
             "31-Aug-26": 3152.0,
             "07-Sep-26": 3152.0,
+            "14-Sep-26": 3152.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11019,6 +11487,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 2352.0
         },
         {
@@ -11046,6 +11515,7 @@
             "24-Aug-26": 80.0,
             "31-Aug-26": 80.0,
             "07-Sep-26": 80.0,
+            "14-Sep-26": 80.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11066,6 +11536,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 40.0
         },
         {
@@ -11093,6 +11564,7 @@
             "24-Aug-26": 80.0,
             "31-Aug-26": 80.0,
             "07-Sep-26": 80.0,
+            "14-Sep-26": 80.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11113,6 +11585,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 40.0
         },
         {
@@ -11140,6 +11613,7 @@
             "24-Aug-26": 79.0,
             "31-Aug-26": 79.0,
             "07-Sep-26": 79.0,
+            "14-Sep-26": 79.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11160,6 +11634,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 39.0
         },
         {
@@ -11187,6 +11662,7 @@
             "24-Aug-26": 160.0,
             "31-Aug-26": 160.0,
             "07-Sep-26": 160.0,
+            "14-Sep-26": 160.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11207,6 +11683,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 120.0
         },
         {
@@ -11234,6 +11711,7 @@
             "24-Aug-26": 80.0,
             "31-Aug-26": 80.0,
             "07-Sep-26": 80.0,
+            "14-Sep-26": 80.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11254,6 +11732,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 40.0
         },
         {
@@ -11281,6 +11760,7 @@
             "24-Aug-26": 550.0,
             "31-Aug-26": 550.0,
             "07-Sep-26": 550.0,
+            "14-Sep-26": 550.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11301,6 +11781,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -11328,6 +11809,7 @@
             "24-Aug-26": 44.0,
             "31-Aug-26": 44.0,
             "07-Sep-26": 44.0,
+            "14-Sep-26": 44.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11348,6 +11830,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -6.0
         },
         {
@@ -11375,6 +11858,7 @@
             "24-Aug-26": 3.0,
             "31-Aug-26": 3.0,
             "07-Sep-26": 3.0,
+            "14-Sep-26": 3.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11395,6 +11879,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": -328.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": -328.0
         },
         {
@@ -11422,6 +11907,7 @@
             "24-Aug-26": 1456.0,
             "31-Aug-26": 1456.0,
             "07-Sep-26": 1456.0,
+            "14-Sep-26": 1456.0,
             "Movement_05-Jan-26_to_16-Feb-26": 112.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11442,6 +11928,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 48.0
         },
         {
@@ -11469,6 +11956,7 @@
             "24-Aug-26": 249.0,
             "31-Aug-26": 249.0,
             "07-Sep-26": 249.0,
+            "14-Sep-26": 249.0,
             "Movement_05-Jan-26_to_16-Feb-26": 30.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11489,6 +11977,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 249.0
         },
         {
@@ -11516,6 +12005,7 @@
             "24-Aug-26": 257.0,
             "31-Aug-26": 257.0,
             "07-Sep-26": 257.0,
+            "14-Sep-26": 257.0,
             "Movement_05-Jan-26_to_16-Feb-26": 32.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11536,6 +12026,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 257.0
         },
         {
@@ -11563,6 +12054,7 @@
             "24-Aug-26": 510.0,
             "31-Aug-26": 510.0,
             "07-Sep-26": 510.0,
+            "14-Sep-26": 510.0,
             "Movement_05-Jan-26_to_16-Feb-26": 61.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11583,6 +12075,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 510.0
         },
         {
@@ -11610,6 +12103,7 @@
             "24-Aug-26": 4.0,
             "31-Aug-26": 4.0,
             "07-Sep-26": 4.0,
+            "14-Sep-26": 4.0,
             "Movement_05-Jan-26_to_16-Feb-26": 4.0,
             "Movement_16-Feb-26_to_16-Mar-26": 62.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11630,6 +12124,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 4.0
         },
         {
@@ -11657,6 +12152,7 @@
             "24-Aug-26": 400.0,
             "31-Aug-26": 400.0,
             "07-Sep-26": 400.0,
+            "14-Sep-26": 400.0,
             "Movement_05-Jan-26_to_16-Feb-26": 400.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11677,6 +12173,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 400.0
         },
         {
@@ -11704,6 +12201,7 @@
             "24-Aug-26": 490.0,
             "31-Aug-26": 490.0,
             "07-Sep-26": 490.0,
+            "14-Sep-26": 490.0,
             "Movement_05-Jan-26_to_16-Feb-26": 190.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11724,6 +12222,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 490.0
         },
         {
@@ -11751,6 +12250,7 @@
             "24-Aug-26": 24.0,
             "31-Aug-26": 24.0,
             "07-Sep-26": 24.0,
+            "14-Sep-26": 24.0,
             "Movement_05-Jan-26_to_16-Feb-26": 20.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11771,6 +12271,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 24.0
         },
         {
@@ -11798,6 +12299,7 @@
             "24-Aug-26": 540.0,
             "31-Aug-26": 940.0,
             "07-Sep-26": 940.0,
+            "14-Sep-26": 940.0,
             "Movement_05-Jan-26_to_16-Feb-26": 340.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11818,6 +12320,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 400.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 940.0
         },
         {
@@ -11845,6 +12348,7 @@
             "24-Aug-26": 10760.0,
             "31-Aug-26": 12360.0,
             "07-Sep-26": 12360.0,
+            "14-Sep-26": 12360.0,
             "Movement_05-Jan-26_to_16-Feb-26": 4320.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11865,6 +12369,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 1600.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 12360.0
         },
         {
@@ -11892,6 +12397,7 @@
             "24-Aug-26": 1440.0,
             "31-Aug-26": 1440.0,
             "07-Sep-26": 1440.0,
+            "14-Sep-26": 1440.0,
             "Movement_05-Jan-26_to_16-Feb-26": 1440.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11912,6 +12418,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1440.0
         },
         {
@@ -11939,6 +12446,7 @@
             "24-Aug-26": 100.0,
             "31-Aug-26": 100.0,
             "07-Sep-26": 100.0,
+            "14-Sep-26": 100.0,
             "Movement_05-Jan-26_to_16-Feb-26": 100.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -11959,6 +12467,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 100.0
         },
         {
@@ -11986,6 +12495,7 @@
             "24-Aug-26": 848.0,
             "31-Aug-26": 848.0,
             "07-Sep-26": 848.0,
+            "14-Sep-26": 848.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 848.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12006,6 +12516,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 848.0
         },
         {
@@ -12033,6 +12544,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 1.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12053,6 +12565,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1.0
         },
         {
@@ -12080,6 +12593,7 @@
             "24-Aug-26": 1.0,
             "31-Aug-26": 1.0,
             "07-Sep-26": 1.0,
+            "14-Sep-26": 1.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 1.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12100,6 +12614,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1.0
         },
         {
@@ -12127,6 +12642,7 @@
             "24-Aug-26": 13.0,
             "31-Aug-26": 13.0,
             "07-Sep-26": 13.0,
+            "14-Sep-26": 13.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 13.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12147,6 +12663,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 13.0
         },
         {
@@ -12174,6 +12691,7 @@
             "24-Aug-26": 4.0,
             "31-Aug-26": 10788.0,
             "07-Sep-26": 10788.0,
+            "14-Sep-26": 10788.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 4.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12194,6 +12712,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 10784.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 10788.0
         },
         {
@@ -12221,6 +12740,7 @@
             "24-Aug-26": 8.0,
             "31-Aug-26": 8.0,
             "07-Sep-26": 8.0,
+            "14-Sep-26": 8.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 10.0,
             "Movement_16-Mar-26_to_16-Apr-26": 18.0,
@@ -12241,6 +12761,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 8.0
         },
         {
@@ -12268,6 +12789,7 @@
             "24-Aug-26": 40.0,
             "31-Aug-26": 40.0,
             "07-Sep-26": 40.0,
+            "14-Sep-26": 40.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 40.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12288,6 +12810,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 40.0
         },
         {
@@ -12315,6 +12838,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 0.0,
             "07-Sep-26": 0.0,
+            "14-Sep-26": 0.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 320.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12335,6 +12859,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 0.0
         },
         {
@@ -12362,6 +12887,7 @@
             "24-Aug-26": 224.0,
             "31-Aug-26": 224.0,
             "07-Sep-26": 224.0,
+            "14-Sep-26": 224.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 224.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12382,6 +12908,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 224.0
         },
         {
@@ -12409,6 +12936,7 @@
             "24-Aug-26": 5.0,
             "31-Aug-26": 5.0,
             "07-Sep-26": 5.0,
+            "14-Sep-26": 5.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 3.0,
@@ -12429,6 +12957,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 5.0
         },
         {
@@ -12456,6 +12985,7 @@
             "24-Aug-26": 10.0,
             "31-Aug-26": 10.0,
             "07-Sep-26": 10.0,
+            "14-Sep-26": 10.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 6.0,
@@ -12476,6 +13006,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 10.0
         },
         {
@@ -12503,6 +13034,7 @@
             "24-Aug-26": 6.0,
             "31-Aug-26": 6.0,
             "07-Sep-26": 6.0,
+            "14-Sep-26": 6.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 2.0,
@@ -12523,6 +13055,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 6.0
         },
         {
@@ -12550,6 +13083,7 @@
             "24-Aug-26": 130.0,
             "31-Aug-26": 130.0,
             "07-Sep-26": 130.0,
+            "14-Sep-26": 130.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12570,6 +13104,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 130.0
         },
         {
@@ -12597,6 +13132,7 @@
             "24-Aug-26": 30.0,
             "31-Aug-26": 30.0,
             "07-Sep-26": 30.0,
+            "14-Sep-26": 30.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12617,6 +13153,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 30.0
         },
         {
@@ -12644,6 +13181,7 @@
             "24-Aug-26": 30.0,
             "31-Aug-26": 30.0,
             "07-Sep-26": 30.0,
+            "14-Sep-26": 30.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12664,6 +13202,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 30.0
         },
         {
@@ -12691,6 +13230,7 @@
             "24-Aug-26": 160.0,
             "31-Aug-26": 160.0,
             "07-Sep-26": 160.0,
+            "14-Sep-26": 160.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12711,6 +13251,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 160.0
         },
         {
@@ -12738,6 +13279,7 @@
             "24-Aug-26": 100.0,
             "31-Aug-26": 100.0,
             "07-Sep-26": 150.0,
+            "14-Sep-26": 150.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12758,6 +13300,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 50.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 150.0
         },
         {
@@ -12785,6 +13328,7 @@
             "24-Aug-26": 100.0,
             "31-Aug-26": 100.0,
             "07-Sep-26": 100.0,
+            "14-Sep-26": 100.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12805,6 +13349,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 100.0
         },
         {
@@ -12832,6 +13377,7 @@
             "24-Aug-26": 26.0,
             "31-Aug-26": 26.0,
             "07-Sep-26": 26.0,
+            "14-Sep-26": 26.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12852,6 +13398,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 26.0
         },
         {
@@ -12879,6 +13426,7 @@
             "24-Aug-26": 121.0,
             "31-Aug-26": 122.0,
             "07-Sep-26": 121.0,
+            "14-Sep-26": 121.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12899,6 +13447,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 1.0,
             "Movement_31-Aug-26_to_07-Sep-26": -1.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 121.0
         },
         {
@@ -12926,6 +13475,7 @@
             "24-Aug-26": 172.0,
             "31-Aug-26": 172.0,
             "07-Sep-26": 172.0,
+            "14-Sep-26": 162.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12946,7 +13496,8 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
-            "Net_Movement": 172.0
+            "Movement_07-Sep-26_to_14-Sep-26": -10.0,
+            "Net_Movement": 162.0
         },
         {
             "Vendor": "HW",
@@ -12973,6 +13524,7 @@
             "24-Aug-26": 500.0,
             "31-Aug-26": 500.0,
             "07-Sep-26": 500.0,
+            "14-Sep-26": 500.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -12993,6 +13545,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 500.0
         },
         {
@@ -13020,6 +13573,7 @@
             "24-Aug-26": 160.0,
             "31-Aug-26": 160.0,
             "07-Sep-26": 160.0,
+            "14-Sep-26": 160.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13040,6 +13594,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 160.0
         },
         {
@@ -13067,6 +13622,7 @@
             "24-Aug-26": 200.0,
             "31-Aug-26": 200.0,
             "07-Sep-26": 200.0,
+            "14-Sep-26": 200.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13087,6 +13643,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 200.0
         },
         {
@@ -13114,6 +13671,7 @@
             "24-Aug-26": 1600.0,
             "31-Aug-26": 1600.0,
             "07-Sep-26": 1600.0,
+            "14-Sep-26": 1600.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13134,6 +13692,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 1600.0
         },
         {
@@ -13161,6 +13720,7 @@
             "24-Aug-26": 190.0,
             "31-Aug-26": 190.0,
             "07-Sep-26": 190.0,
+            "14-Sep-26": 190.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13181,6 +13741,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 190.0
         },
         {
@@ -13208,6 +13769,7 @@
             "24-Aug-26": 400.0,
             "31-Aug-26": 400.0,
             "07-Sep-26": 400.0,
+            "14-Sep-26": 400.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13228,6 +13790,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 400.0
         },
         {
@@ -13255,6 +13818,7 @@
             "24-Aug-26": 200.0,
             "31-Aug-26": 200.0,
             "07-Sep-26": 200.0,
+            "14-Sep-26": 200.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13275,6 +13839,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 200.0
         },
         {
@@ -13302,6 +13867,7 @@
             "24-Aug-26": 100.0,
             "31-Aug-26": 100.0,
             "07-Sep-26": 100.0,
+            "14-Sep-26": 100.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13322,6 +13888,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 100.0
         },
         {
@@ -13349,6 +13916,7 @@
             "24-Aug-26": 13.0,
             "31-Aug-26": 13.0,
             "07-Sep-26": 13.0,
+            "14-Sep-26": 13.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13369,6 +13937,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 13.0
         },
         {
@@ -13396,6 +13965,7 @@
             "24-Aug-26": 49.0,
             "31-Aug-26": 49.0,
             "07-Sep-26": 49.0,
+            "14-Sep-26": 49.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13416,6 +13986,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 49.0
         },
         {
@@ -13443,6 +14014,7 @@
             "24-Aug-26": 24.0,
             "31-Aug-26": 24.0,
             "07-Sep-26": 24.0,
+            "14-Sep-26": 24.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13463,6 +14035,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 24.0
         },
         {
@@ -13490,6 +14063,7 @@
             "24-Aug-26": 50.0,
             "31-Aug-26": 50.0,
             "07-Sep-26": 50.0,
+            "14-Sep-26": 50.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13510,6 +14084,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 50.0
         },
         {
@@ -13537,6 +14112,7 @@
             "24-Aug-26": 400.0,
             "31-Aug-26": 400.0,
             "07-Sep-26": 400.0,
+            "14-Sep-26": 400.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13557,6 +14133,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 0.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 400.0
         },
         {
@@ -13584,6 +14161,7 @@
             "24-Aug-26": 0.0,
             "31-Aug-26": 50.0,
             "07-Sep-26": 50.0,
+            "14-Sep-26": 50.0,
             "Movement_05-Jan-26_to_16-Feb-26": 0.0,
             "Movement_16-Feb-26_to_16-Mar-26": 0.0,
             "Movement_16-Mar-26_to_16-Apr-26": 0.0,
@@ -13604,6 +14182,7 @@
             "Movement_17-Aug-26_to_24-Aug-26": 0.0,
             "Movement_24-Aug-26_to_31-Aug-26": 50.0,
             "Movement_31-Aug-26_to_07-Sep-26": 0.0,
+            "Movement_07-Sep-26_to_14-Sep-26": 0.0,
             "Net_Movement": 50.0
         }
     ],
@@ -13768,6 +14347,14 @@
                 "in": 101.0,
                 "out": 0.0,
                 "net": 101.0
+            },
+            {
+                "period": "07-Sep-26 to 14-Sep-26",
+                "baseline": 98049.0,
+                "balance": 98049.0,
+                "in": 0.0,
+                "out": 0.0,
+                "net": 0.0
             }
         ],
         "ZTE": [
@@ -13930,6 +14517,14 @@
                 "in": 2.0,
                 "out": 0.0,
                 "net": 2.0
+            },
+            {
+                "period": "07-Sep-26 to 14-Sep-26",
+                "baseline": 29818.0,
+                "balance": 29948.0,
+                "in": 130.0,
+                "out": 0.0,
+                "net": 130.0
             }
         ],
         "FBH": [
@@ -14092,6 +14687,14 @@
                 "in": 0.0,
                 "out": 67.0,
                 "net": -67.0
+            },
+            {
+                "period": "07-Sep-26 to 14-Sep-26",
+                "baseline": 67596.0,
+                "balance": 67536.0,
+                "in": 0.0,
+                "out": 60.0,
+                "net": -60.0
             }
         ],
         "ACI": [
@@ -14254,64 +14857,72 @@
                 "in": 0.0,
                 "out": 40.0,
                 "net": -40.0
+            },
+            {
+                "period": "07-Sep-26 to 14-Sep-26",
+                "baseline": 1039.0,
+                "balance": 1039.0,
+                "in": 0.0,
+                "out": 0.0,
+                "net": 0.0
             }
         ]
     },
     "kpis": {
         "total_mats": 221,
-        "latest_period": "31-Aug-26 to 07-Sep-26",
+        "latest_period": "07-Sep-26 to 14-Sep-26",
         "top_increases": [
             {
-                "Material": "2000042542",
-                "Vendor": "HW",
-                "Movement_31-Aug-26_to_07-Sep-26": 50.0
-            },
-            {
-                "Material": "2000017062",
-                "Vendor": "HW",
-                "Movement_31-Aug-26_to_07-Sep-26": 35.0
-            },
-            {
-                "Material": "2000015539",
-                "Vendor": "HW",
-                "Movement_31-Aug-26_to_07-Sep-26": 12.0
-            },
-            {
-                "Material": "2000015601",
-                "Vendor": "HW",
-                "Movement_31-Aug-26_to_07-Sep-26": 2.0
-            },
-            {
-                "Material": "2000023944",
+                "Material": "2000015603",
                 "Vendor": "ZTE",
-                "Movement_31-Aug-26_to_07-Sep-26": 2.0
+                "Movement_07-Sep-26_to_14-Sep-26": 130.0
+            },
+            {
+                "Material": "2000017006",
+                "Vendor": "ZTE",
+                "Movement_07-Sep-26_to_14-Sep-26": 0.0
+            },
+            {
+                "Material": "2000018403",
+                "Vendor": "ZTE",
+                "Movement_07-Sep-26_to_14-Sep-26": 0.0
+            },
+            {
+                "Material": "2000017546",
+                "Vendor": "ZTE",
+                "Movement_07-Sep-26_to_14-Sep-26": 0.0
+            },
+            {
+                "Material": "2000017419",
+                "Vendor": "ZTE",
+                "Movement_07-Sep-26_to_14-Sep-26": 0.0
             }
         ],
         "top_decreases": [
             {
-                "Material": "2000019022",
+                "Material": "2000041064",
                 "Vendor": "FBH",
-                "Movement_31-Aug-26_to_07-Sep-26": -62.0
+                "Movement_07-Sep-26_to_14-Sep-26": -20.0
             },
             {
-                "Material": "2000019193",
-                "Vendor": "ACI",
-                "Movement_31-Aug-26_to_07-Sep-26": -40.0
+                "Material": "2000042542",
+                "Vendor": "FBH",
+                "Movement_07-Sep-26_to_14-Sep-26": -10.0
             },
             {
-                "Material": "2000010026",
+                "Material": "2000041061",
                 "Vendor": "FBH",
-                "Movement_31-Aug-26_to_07-Sep-26": -2.0
+                "Movement_07-Sep-26_to_14-Sep-26": -10.0
             },
             {
-                "Material": "2000010631",
+                "Material": "2000041062",
                 "Vendor": "FBH",
-                "Movement_31-Aug-26_to_07-Sep-26": -2.0
+                "Movement_07-Sep-26_to_14-Sep-26": -10.0
             },
             {
-                "Material": "2000017062",
+                "Material": "2000041063",
                 "Vendor": "FBH",
-                "Movement_31-Aug-26_to_07-Sep-26": -1.0
+                "Movement_07-Sep-26_to_14-Sep-26": -10.0
             }
         ]
     }
