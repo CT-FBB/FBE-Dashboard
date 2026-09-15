@@ -1215,5 +1215,347 @@
                 "over_50c": 864
             }
         }
+    },
+    {
+        "date": "2026-08-07 20:27:16",
+        "total_online": 12488,
+        "total_offline": 77,
+        "overall_avg_temp": 51.74,
+        "brands": {
+            "ZTE": {
+                "avg": 45.53,
+                "top20_avg": 63.66,
+                "top10_avg": 68.79,
+                "max": 86.13,
+                "over_50c": 624
+            },
+            "Huawei": {
+                "avg": 50.34,
+                "top20_avg": 60.6,
+                "top10_avg": 61.95,
+                "max": 77.0,
+                "over_50c": 1371
+            },
+            "GCOM": {
+                "avg": 45.7,
+                "top20_avg": 55.04,
+                "top10_avg": 58.3,
+                "max": 75.5,
+                "over_50c": 483
+            },
+            "Fiberhome": {
+                "avg": 47.83,
+                "top20_avg": 68.58,
+                "top10_avg": 69.76,
+                "max": 74.0,
+                "over_50c": 695
+            },
+            "Dasan": {
+                "avg": 44.71,
+                "top20_avg": 51.18,
+                "top10_avg": 53.3,
+                "max": 77.0,
+                "over_50c": 244
+            },
+            "Raisecom": {
+                "avg": 49.61,
+                "top20_avg": 56.61,
+                "top10_avg": 58.74,
+                "max": 76.3,
+                "over_50c": 795
+            },
+            "Nokia": {
+                "avg": 78.47,
+                "top20_avg": 87.89,
+                "top10_avg": 89.44,
+                "max": 91.0,
+                "over_50c": 91
+            }
+        }
+    },
+    {
+        "date": "2026-08-14 16:45:32",
+        "total_online": 12447,
+        "total_offline": 149,
+        "overall_avg_temp": 54.61,
+        "brands": {
+            "Fiberhome": {
+                "avg": 50.09,
+                "top20_avg": 69.16,
+                "top10_avg": 70.46,
+                "max": 83.0,
+                "over_50c": 788
+            },
+            "GCOM": {
+                "avg": 50.11,
+                "top20_avg": 59.39,
+                "top10_avg": 62.3,
+                "max": 82.0,
+                "over_50c": 1013
+            },
+            "Nokia": {
+                "avg": 81.25,
+                "top20_avg": 90.61,
+                "top10_avg": 91.67,
+                "max": 93.0,
+                "over_50c": 91
+            },
+            "Huawei": {
+                "avg": 53.02,
+                "top20_avg": 62.2,
+                "top10_avg": 63.38,
+                "max": 83.0,
+                "over_50c": 1824
+            },
+            "Dasan": {
+                "avg": 48.37,
+                "top20_avg": 55.47,
+                "top10_avg": 58.06,
+                "max": 79.0,
+                "over_50c": 712
+            },
+            "Raisecom": {
+                "avg": 53.0,
+                "top20_avg": 59.6,
+                "top10_avg": 61.73,
+                "max": 78.12,
+                "over_50c": 1350
+            },
+            "ZTE": {
+                "avg": 46.4,
+                "top20_avg": 63.67,
+                "top10_avg": 68.83,
+                "max": 87.17,
+                "over_50c": 705
+            }
+        }
+    },
+    {
+        "date": "2026-08-31 22:52:09",
+        "total_online": 12457,
+        "total_offline": 147,
+        "overall_avg_temp": 50.63,
+        "brands": {
+            "Nokia": {
+                "avg": 77.52,
+                "top20_avg": 87.22,
+                "top10_avg": 88.67,
+                "max": 90.0,
+                "over_50c": 0
+            },
+            "GCOM": {
+                "avg": 43.87,
+                "top20_avg": 52.84,
+                "top10_avg": 55.95,
+                "max": 73.5,
+                "over_50c": 323
+            },
+            "Dasan": {
+                "avg": 43.37,
+                "top20_avg": 50.06,
+                "top10_avg": 52.29,
+                "max": 72.0,
+                "over_50c": 154
+            },
+            "ZTE": {
+                "avg": 45.36,
+                "top20_avg": 63.41,
+                "top10_avg": 68.71,
+                "max": 86.81,
+                "over_50c": 620
+            },
+            "Huawei": {
+                "avg": 49.09,
+                "top20_avg": 60.18,
+                "top10_avg": 61.8,
+                "max": 78.0,
+                "over_50c": 1194
+            },
+            "Raisecom": {
+                "avg": 48.41,
+                "top20_avg": 55.4,
+                "top10_avg": 57.54,
+                "max": 74.79,
+                "over_50c": 587
+            },
+            "Fiberhome": {
+                "avg": 46.78,
+                "top20_avg": 68.63,
+                "top10_avg": 69.91,
+                "max": 73.0,
+                "over_50c": 634
+            }
+        }
+    },
+    {
+        "date": "2026-09-03 06:02:54",
+        "total_online": 12437,
+        "total_offline": 167,
+        "overall_avg_temp": 50.45,
+        "brands": {
+            "GCOM": {
+                "avg": 43.89,
+                "top20_avg": 52.93,
+                "top10_avg": 56.03,
+                "max": 73.0,
+                "over_50c": 332
+            },
+            "Huawei": {
+                "avg": 49.42,
+                "top20_avg": 60.19,
+                "top10_avg": 61.62,
+                "max": 78.0,
+                "over_50c": 1247
+            },
+            "Fiberhome": {
+                "avg": 46.62,
+                "top20_avg": 68.48,
+                "top10_avg": 69.69,
+                "max": 77.0,
+                "over_50c": 619
+            },
+            "Nokia": {
+                "avg": 76.95,
+                "top20_avg": 87.0,
+                "top10_avg": 88.33,
+                "max": 90.0,
+                "over_50c": 0
+            },
+            "Dasan": {
+                "avg": 43.23,
+                "top20_avg": 49.81,
+                "top10_avg": 51.95,
+                "max": 71.0,
+                "over_50c": 145
+            },
+            "ZTE": {
+                "avg": 45.15,
+                "top20_avg": 63.3,
+                "top10_avg": 68.58,
+                "max": 86.65,
+                "over_50c": 613
+            },
+            "Raisecom": {
+                "avg": 47.92,
+                "top20_avg": 54.69,
+                "top10_avg": 56.84,
+                "max": 74.39,
+                "over_50c": 514
+            }
+        }
+    },
+    {
+        "date": "2026-09-07 09:08:26",
+        "total_online": 12454,
+        "total_offline": 142,
+        "overall_avg_temp": 52.52,
+        "brands": {
+            "ZTE": {
+                "avg": 46.05,
+                "top20_avg": 63.32,
+                "top10_avg": 68.68,
+                "max": 87.17,
+                "over_50c": 708
+            },
+            "Dasan": {
+                "avg": 46.02,
+                "top20_avg": 52.51,
+                "top10_avg": 54.67,
+                "max": 74.0,
+                "over_50c": 364
+            },
+            "GCOM": {
+                "avg": 46.33,
+                "top20_avg": 55.67,
+                "top10_avg": 58.64,
+                "max": 76.5,
+                "over_50c": 554
+            },
+            "Nokia": {
+                "avg": 79.02,
+                "top20_avg": 88.61,
+                "top10_avg": 89.67,
+                "max": 92.0,
+                "over_50c": 0
+            },
+            "Raisecom": {
+                "avg": 50.31,
+                "top20_avg": 57.53,
+                "top10_avg": 59.84,
+                "max": 74.26,
+                "over_50c": 868
+            },
+            "Fiberhome": {
+                "avg": 48.81,
+                "top20_avg": 70.2,
+                "top10_avg": 71.27,
+                "max": 74.0,
+                "over_50c": 684
+            },
+            "Huawei": {
+                "avg": 51.1,
+                "top20_avg": 61.43,
+                "top10_avg": 62.74,
+                "max": 76.0,
+                "over_50c": 1558
+            }
+        }
+    },
+    {
+        "date": "2026-09-15 16:01:41",
+        "total_online": 12389,
+        "total_offline": 206,
+        "overall_avg_temp": 52.49,
+        "brands": {
+            "Huawei": {
+                "avg": 51.54,
+                "top20_avg": 61.52,
+                "top10_avg": 62.71,
+                "max": 76.0,
+                "over_50c": 1690
+            },
+            "Dasan": {
+                "avg": 47.44,
+                "top20_avg": 54.11,
+                "top10_avg": 56.41,
+                "max": 74.0,
+                "over_50c": 541
+            },
+            "Fiberhome": {
+                "avg": 48.15,
+                "top20_avg": 68.78,
+                "top10_avg": 70.18,
+                "max": 73.0,
+                "over_50c": 669
+            },
+            "GCOM": {
+                "avg": 45.72,
+                "top20_avg": 54.74,
+                "top10_avg": 57.73,
+                "max": 68.0,
+                "over_50c": 465
+            },
+            "Nokia": {
+                "avg": 78.79,
+                "top20_avg": 88.67,
+                "top10_avg": 90.0,
+                "max": 91.0,
+                "over_50c": 0
+            },
+            "ZTE": {
+                "avg": 45.66,
+                "top20_avg": 63.21,
+                "top10_avg": 68.39,
+                "max": 86.13,
+                "over_50c": 661
+            },
+            "Raisecom": {
+                "avg": 50.15,
+                "top20_avg": 57.84,
+                "top10_avg": 60.14,
+                "max": 76.17,
+                "over_50c": 823
+            }
+        }
     }
 ]
