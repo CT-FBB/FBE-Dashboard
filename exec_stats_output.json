@@ -1,0 +1,135 @@
+{
+    "total_2026": 12614,
+    "total_xgs": 26209,
+    "total_xgs_olts": 2550,
+    "total_l1": 244980,
+    "xgs_no_edfa_dvb": 438,
+    "xgs_sales_ready": {
+        "native_xgs_edfa": 230,
+        "no_edfa_dvb": 438,
+        "fwdm_installed": 1235,
+        "not_ready_gpon_no_fwdm": 647,
+        "total_sales_ready": 1903
+    },
+    "vendor_2025": {
+        "HUAWEI": 2551,
+        "GCOM": 2098,
+        "ZTE": 2030,
+        "FIBERHOME": 1893,
+        "DASAN": 1843,
+        "RAISECOM": 1700,
+        "NOKIA": 91
+    },
+    "vendor_2026": {
+        "HUAWEI": 2644,
+        "FIBERHOME": 2127,
+        "GCOM": 2092,
+        "ZTE": 2075,
+        "DASAN": 1814,
+        "RAISECOM": 1685,
+        "NOKIA": 177
+    },
+    "xgs": {
+        "FIBERHOME": 891,
+        "HUAWEI": 1047,
+        "ZTE": 526,
+        "DASAN": 0,
+        "GCOM": 0,
+        "RAISECOM": 0,
+        "NOKIA": 86
+    },
+    "xgs_l1": {
+        "FIBERHOME": 8226,
+        "HUAWEI": 11197,
+        "ZTE": 5394,
+        "DASAN": 0,
+        "GCOM": 0,
+        "RAISECOM": 0,
+        "NOKIA": 1392
+    },
+    "improvement": {
+        "FIBERHOME": 87,
+        "HUAWEI": 197,
+        "ZTE": 63,
+        "DASAN": 65,
+        "GCOM": 26,
+        "RAISECOM": 34,
+        "NOKIA": 9
+    },
+    "marketing_10g": {
+        "FIBERHOME": 0,
+        "HUAWEI": 3,
+        "ZTE": 3,
+        "DASAN": 8,
+        "GCOM": 4,
+        "RAISECOM": 16,
+        "NOKIA": 0
+    },
+    "bma_eec": {
+        "total_2026": 2691,
+        "total_xgs": 16703,
+        "total_xgs_olts": 1147,
+        "total_l1": 112840,
+        "xgs_no_edfa_dvb": 236,
+        "xgs_sales_ready": {
+            "native_xgs_edfa": 159,
+            "no_edfa_dvb": 236,
+            "fwdm_installed": 528,
+            "not_ready_gpon_no_fwdm": 224,
+            "total_sales_ready": 923
+        },
+        "vendor_2025": {
+            "HUAWEI": 957,
+            "FIBERHOME": 728,
+            "ZTE": 629,
+            "DASAN": 90,
+            "GCOM": 1,
+            "RAISECOM": 1,
+            "NOKIA": 0
+        },
+        "vendor_2026": {
+            "HUAWEI": 1112,
+            "FIBERHOME": 768,
+            "ZTE": 719,
+            "DASAN": 90,
+            "GCOM": 1,
+            "RAISECOM": 1
+        },
+        "xgs": {
+            "FIBERHOME": 452,
+            "HUAWEI": 500,
+            "ZTE": 195,
+            "DASAN": 0,
+            "GCOM": 0,
+            "RAISECOM": 0,
+            "NOKIA": 0
+        },
+        "xgs_l1": {
+            "FIBERHOME": 5795,
+            "HUAWEI": 7785,
+            "ZTE": 3123,
+            "DASAN": 0,
+            "GCOM": 0,
+            "RAISECOM": 0,
+            "NOKIA": 0
+        },
+        "improvement": {
+            "FIBERHOME": 39,
+            "HUAWEI": 98,
+            "ZTE": 16,
+            "DASAN": 23,
+            "GCOM": 0,
+            "RAISECOM": 0,
+            "NOKIA": 0
+        },
+        "marketing_10g": {
+            "FIBERHOME": 0,
+            "HUAWEI": 1,
+            "ZTE": 2,
+            "DASAN": 3,
+            "GCOM": 1,
+            "RAISECOM": 6,
+            "NOKIA": 0
+        }
+    }
+}
