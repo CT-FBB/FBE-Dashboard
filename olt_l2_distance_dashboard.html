@@ -903,6 +903,278 @@
 
 /* Responsive Styles for Mobile and Tablets */
 @media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
   .sidebar {
     width: 100% !important;
     height: 60px !important;
@@ -976,6 +1248,10 @@
 }
 
 </style>
+
+
+
+
 
 
 
@@ -1260,7 +1536,7 @@
 <div class="header">
     <div>
         <h1>📊 OLT L2 Distance, Capacity, ODN Drop & 8-Month MB Drift Dashboard</h1>
-        <div><span class="as-of-badge">📅 AS OF 02/09/26</span></div>
+        <div><span class="as-of-badge">📅 AS OF 16/09/26</span></div>
         <p style="color:var(--text-muted); margin: 6px 0 0 0; font-size: 0.9rem;">รายงานระยะทาง L2, สัดส่วน Splitter Ratio, ผล Audit OLT No-L1, แนวโน้ม ODN Drop และการตรวจสอบ Real Network (MB) vs Inventory Drift ย้อนหลัง 8 เดือน</p>
     </div>
     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -1287,6 +1563,7 @@
     <button id="tab-btn-distance-nat" class="tab-btn active" onclick="switchMainView('distance_nat')">🌍 L2 Distance (National)</button>
     <button id="tab-btn-distance-bma" class="tab-btn" onclick="switchMainView('distance_bma')">🏙️ L2 Distance (BMA & EEC)</button>
     <button id="tab-btn-capacity" class="tab-btn" onclick="switchMainView('capacity')">📦 L2 Capacity & Ratio Analysis</button>
+    <button id="tab-btn-l3" class="tab-btn" onclick="switchMainView('l3')">🔀 L3 Cascaded Splitters</button>
     <button id="tab-btn-audit" class="tab-btn" onclick="switchMainView('audit')">🔍 OLT No-L1 & ODN Drop Audit</button>
     <button id="tab-btn-drift" class="tab-btn" onclick="switchMainView('drift')">🌐 Network (MB) vs Inventory Drift (8-Month History)</button>
 </div>
@@ -1297,12 +1574,22 @@
         <div class="stat-card" style="border-color: var(--accent-blue);">
             <h3 id="kpiTitle1" style="color: var(--accent-blue);">Total L2 Splitters</h3>
             <div class="value" id="statTotalL2All" style="color: var(--accent-blue);">-</div>
-            <div class="desc">Active + Empty รวมทั้งหมด</div>
+            <div class="desc">The_L2 Master รวมทั้งหมด</div>
         </div>
         <div class="stat-card">
             <h3 id="kpiTitle2">Active L2 Splitters</h3>
             <div class="value" id="statTotalL2">-</div>
             <div class="desc">มี ONU ใช้งานจริง</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--accent-cyan);">
+            <h3 style="color: #38bdf8;">L2 with L3 Splitters</h3>
+            <div class="value" id="statL2WithL3" style="color: #38bdf8;">-</div>
+            <div class="desc" id="descL2WithL3">Cascaded L3 (มี L3 ต่อพ่วง)</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--accent-amber);">
+            <h3 style="color: #fbbf24;">Total L1 Splitters</h3>
+            <div class="value" id="statTotalL1" style="color: #fbbf24;">-</div>
+            <div class="desc" id="descTotalL1">Feeder Splitter (The_L1)</div>
         </div>
         <div class="stat-card">
             <h3>ONUs within 0 - 5 Km</h3>
@@ -1367,11 +1654,13 @@
             <thead>
                 <tr>
                     <th>Vendor</th>
-                    <th style="text-align:right;">Active L2 Splitters</th>
+                    <th style="text-align:right;">Total L2 (Master)</th>
+                    <th style="text-align:right;">Active L2</th>
                     <th style="text-align:right; color:#60a5fa;">0 - 5 Km</th>
                     <th style="text-align:right; color:#34d399;">5 - 9 Km</th>
                     <th style="text-align:right; color:#a78bfa;">> 9 Km</th>
                     <th style="text-align:right; color:#94a3b8;">Empty L2</th>
+                    <th style="text-align:right; color:#38bdf8;">L2 with L3</th>
                     <th style="text-align:right; color:#f87171;">Anomalies (>4Km)</th>
                     <th style="text-align:center;">สัดส่วน 0-5 Km (%)</th>
                 </tr>
@@ -1743,589 +2032,1209 @@
     </div>
 </div>
 
+<!-- ================= SECTION L3: L3 CASCADED SPLITTERS ================= -->
+<div id="view-l3" style="display: none;">
+    <div class="stats-grid">
+        <div class="stat-card" style="border-color: var(--accent-cyan);">
+            <h3 style="color: #38bdf8;">L2 with L3 Splitters</h3>
+            <div class="value" id="l3StatTotalL2" style="color: #38bdf8;">-</div>
+            <div class="desc" id="l3DescTotalL2">-</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--accent-blue);">
+            <h3 style="color: var(--accent-blue);">Total L3 In-Service Ports</h3>
+            <div class="value" id="l3StatTotalPorts" style="color: var(--accent-blue);">-</div>
+            <div class="desc">พอร์ต L3 ในระบบทั้งหมด</div>
+        </div>
+        <div class="stat-card" style="border-color: #10b981;">
+            <h3 style="color: #34d399;">Active L3 Subscribers</h3>
+            <div class="value" id="l3StatActiveCircuits" style="color: #34d399;">-</div>
+            <div class="desc" id="l3DescActiveCircuits">-</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--accent-purple);">
+            <h3 style="color: #a78bfa;">Unique L3 Circuits</h3>
+            <div class="value" id="l3StatCircuits" style="color: #a78bfa;">-</div>
+            <div class="desc">วงจรอินเทอร์เน็ตบน L3</div>
+        </div>
+    </div>
+
+    <div class="charts-container">
+        <div class="chart-card">
+            <h3>L2 with L3 Splitters by Vendor</h3>
+            <div class="chart-wrapper">
+                <canvas id="l3VendorL2Chart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>L3 Port Utilization by Vendor (Active vs In-Service)</h3>
+            <div class="chart-wrapper">
+                <canvas id="l3PortStatusChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <h3>📊 ตารางสรุป Splitter L3 ต่อพ่วงแยกตาม OLT Vendor</h3>
+        <table id="l3VendorTable">
+            <thead>
+                <tr>
+                    <th>Vendor</th>
+                    <th style="text-align:right; color:#38bdf8;">L2 with L3</th>
+                    <th style="text-align:right;">Total L3 Ports</th>
+                    <th style="text-align:right; color:#34d399;">Active Subscribers</th>
+                    <th style="text-align:right; color:#94a3b8;">Total Circuits</th>
+                    <th style="text-align:center;">Port Utilization (%)</th>
+                </tr>
+            </thead>
+            <tbody id="l3VendorTbody"></tbody>
+        </table>
+    </div>
+</div>
+
 <script>
 const rawData = {
-    "total_l2_with_onus": 680517,
-    "total_empty_l2s": 49964,
+    "total_l1_splitters": 165511,
+    "total_l2": 730580,
+    "total_l2_with_onus": 680026,
+    "total_empty_l2s": 50554,
     "vendor_stats": {
         "Dasan": {
-            "total_l2": 35294,
-            "empty_l2": 2938,
-            "0-5Km": 29679,
-            "5-9Km": 4507,
-            ">9Km": 953,
-            "Unknown": 155,
-            "anomalies": 1
+            "total_l2": 37685,
+            "occupied_l2": 34790,
+            "empty_l2": 2895,
+            "l2_with_l3": 6046,
+            "0-5Km": 29210,
+            "5-9Km": 4452,
+            ">9Km": 947,
+            "Unknown": 181,
+            "anomalies": 1,
+            "anomalies_count": 1
         },
         "Fiberhome": {
-            "total_l2": 100775,
-            "empty_l2": 8413,
-            "0-5Km": 89302,
-            "5-9Km": 9809,
-            ">9Km": 1388,
-            "Unknown": 276,
-            "anomalies": 1
+            "total_l2": 109956,
+            "occupied_l2": 101084,
+            "empty_l2": 8872,
+            "l2_with_l3": 18817,
+            "0-5Km": 89529,
+            "5-9Km": 9856,
+            ">9Km": 1393,
+            "Unknown": 306,
+            "anomalies": 1,
+            "anomalies_count": 1
         },
         "Gcom": {
-            "total_l2": 47070,
-            "empty_l2": 3930,
-            "0-5Km": 39401,
-            "5-9Km": 6304,
-            ">9Km": 1273,
-            "Unknown": 92,
-            "anomalies": 17
+            "total_l2": 49072,
+            "occupied_l2": 45320,
+            "empty_l2": 3752,
+            "l2_with_l3": 2452,
+            "0-5Km": 38082,
+            "5-9Km": 5957,
+            ">9Km": 1190,
+            "Unknown": 91,
+            "anomalies": 17,
+            "anomalies_count": 17
         },
         "Huawei": {
-            "total_l2": 262080,
-            "empty_l2": 19094,
-            "0-5Km": 188953,
-            "5-9Km": 59370,
-            ">9Km": 11781,
-            "Unknown": 1976,
-            "anomalies": 5
+            "total_l2": 282954,
+            "occupied_l2": 263582,
+            "empty_l2": 19372,
+            "l2_with_l3": 81324,
+            "0-5Km": 190160,
+            "5-9Km": 59667,
+            ">9Km": 11840,
+            "Unknown": 1915,
+            "anomalies": 5,
+            "anomalies_count": 5
         },
         "Nokia": {
-            "total_l2": 4849,
+            "total_l2": 5083,
+            "occupied_l2": 4849,
             "empty_l2": 234,
+            "l2_with_l3": 598,
             "0-5Km": 3782,
             "5-9Km": 920,
             ">9Km": 147,
             "Unknown": 0,
-            "anomalies": 0
+            "anomalies": 0,
+            "anomalies_count": 0
         },
         "Raisecom": {
-            "total_l2": 33949,
-            "empty_l2": 2863,
-            "0-5Km": 27507,
-            "5-9Km": 5152,
-            ">9Km": 1218,
-            "Unknown": 72,
-            "anomalies": 0
+            "total_l2": 35993,
+            "occupied_l2": 33169,
+            "empty_l2": 2824,
+            "l2_with_l3": 2838,
+            "0-5Km": 26924,
+            "5-9Km": 4991,
+            ">9Km": 1183,
+            "Unknown": 71,
+            "anomalies": 0,
+            "anomalies_count": 0
         },
         "ZTE": {
-            "total_l2": 196500,
-            "empty_l2": 12492,
-            "0-5Km": 136041,
-            "5-9Km": 51414,
-            ">9Km": 8294,
-            "Unknown": 751,
-            "anomalies": 11
+            "total_l2": 209837,
+            "occupied_l2": 197232,
+            "empty_l2": 12605,
+            "l2_with_l3": 62212,
+            "0-5Km": 136549,
+            "5-9Km": 51591,
+            ">9Km": 8340,
+            "Unknown": 752,
+            "anomalies": 11,
+            "anomalies_count": 11
         }
     },
     "distance_distribution": {
-        "0-5Km": 514665,
-        "5-9Km": 137476,
-        ">9Km": 25054,
-        "Unknown": 3322
+        "0-5Km": 514236,
+        "5-9Km": 137434,
+        ">9Km": 25040,
+        "Unknown": 3316
     },
     "anomalies": [
         {
             "vendor": "ZTE",
             "device": "BKK33002G03",
             "l2_name": "BKK07X00X1R",
+            "l2name": "BKK07X00X1R",
+            "l1_name": "BKK07X00X1S",
+            "l1name": "BKK07X00X1S",
+            "region": "BMA",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 5,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "BKK10002G00",
             "l2_name": "BKK10X1JFC9",
+            "l2name": "BKK10X1JFC9",
+            "l1_name": "BKK10X1HZ4G",
+            "l1name": "BKK10X1HZ4G",
+            "region": "BMA",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 6,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "BKK11001G00",
             "l2_name": "BKK11X05024",
+            "l2name": "BKK11X05024",
+            "l1_name": "BKK11X05021",
+            "l1name": "BKK11X05021",
+            "region": "BMA",
             "onu_count": 10,
+            "active_onus": 10,
             "0-5Km_count": 7,
             "5-9Km_count": 1,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "BKK14001G00",
             "l2_name": "BKK14X040BP",
+            "l2name": "BKK14X040BP",
+            "l1_name": "BKK14X040BM",
+            "l1name": "BKK14X040BM",
+            "region": "BMA",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 6,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "BKK14001G01",
             "l2_name": "BKK14X040K8",
+            "l2name": "BKK14X040K8",
+            "l1_name": "BKK14X040K6",
+            "l1name": "BKK14X040K6",
+            "region": "BMA",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 5,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Fiberhome",
             "device": "BKK31009GO0",
             "l2_name": "BKK31X2MPUG",
+            "l2name": "BKK31X2MPUG",
+            "l1_name": "BKK31X2MPUB",
+            "l1name": "BKK31X2MPUB",
+            "region": "BMA",
             "onu_count": 2,
+            "active_onus": 2,
             "0-5Km_count": 1,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "BKK36018GO0",
             "l2_name": "BKK36X18IXO",
+            "l2name": "BKK36X18IXO",
+            "l1_name": "BKK36X1845Q",
+            "l1name": "BKK36X1845Q",
+            "region": "BMA",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 3,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "BRR02012G00",
             "l2_name": "BRR02X3IO9J",
+            "l2name": "BRR02X3IO9J",
+            "l1_name": "BRR02X37LJ7",
+            "l1name": "BRR02X37LJ7",
+            "region": "Northeast",
             "onu_count": 5,
+            "active_onus": 5,
             "0-5Km_count": 1,
             "5-9Km_count": 1,
             ">9Km_count": 3,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "BRR04005G00",
             "l2_name": "BRR04X3BLVA",
+            "l2name": "BRR04X3BLVA",
+            "l1_name": "BRR04X39R3S",
+            "l1name": "BRR04X39R3S",
+            "region": "Northeast",
             "onu_count": 5,
+            "active_onus": 5,
             "0-5Km_count": 2,
             "5-9Km_count": 2,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Huawei",
             "device": "BRR15001G00",
             "l2_name": "BRR15X0001C",
+            "l2name": "BRR15X0001C",
+            "l1_name": "BRR15X0001Q",
+            "l1name": "BRR15X0001Q",
+            "region": "Northeast",
             "onu_count": 5,
+            "active_onus": 5,
             "0-5Km_count": 4,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Huawei",
             "device": "BRR15001G00",
             "l2_name": "BRR15X0001D",
+            "l2name": "BRR15X0001D",
+            "l1_name": "BRR15X0001Q",
+            "l1name": "BRR15X0001Q",
+            "region": "Northeast",
             "onu_count": 2,
+            "active_onus": 2,
             "0-5Km_count": 1,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Huawei",
             "device": "BRR15001G00",
             "l2_name": "BRR15X0001F",
+            "l2name": "BRR15X0001F",
+            "l1_name": "BRR15X0001Q",
+            "l1name": "BRR15X0001Q",
+            "region": "Northeast",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 6,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Huawei",
             "device": "BRR15001G00",
             "l2_name": "BRR15X3OVJU",
+            "l2name": "BRR15X3OVJU",
+            "l1_name": "BRR15X0001Q",
+            "l1name": "BRR15X0001Q",
+            "region": "Northeast",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 2,
             "5-9Km_count": 1,
             ">9Km_count": 3,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Huawei",
             "device": "BRR15001G00",
             "l2_name": "BRR15X3OVJV",
+            "l2name": "BRR15X3OVJV",
+            "l1_name": "BRR15X0001Q",
+            "l1name": "BRR15X0001Q",
+            "region": "Northeast",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 1,
             "5-9Km_count": 0,
             ">9Km_count": 5,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Dasan",
             "device": "CRI07023G00",
             "l2_name": "CRI07X22KTI",
+            "l2name": "CRI07X22KTI",
+            "l1_name": "CRI07X22KS7",
+            "l1name": "CRI07X22KS7",
+            "region": "North",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 5,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "CYP06008GO0",
             "l2_name": "CYP06X000CF",
+            "l2name": "CYP06X000CF",
+            "l1_name": "CYP06X000C8",
+            "l1name": "CYP06X000C8",
+            "region": "Northeast",
             "onu_count": 3,
+            "active_onus": 3,
             "0-5Km_count": 2,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "KCN01002GO0",
             "l2_name": "KCN01X000A5",
+            "l2name": "KCN01X000A5",
+            "l1_name": "KCN01X0002Y",
+            "l1name": "KCN01X0002Y",
+            "region": "West",
             "onu_count": 4,
+            "active_onus": 4,
             "0-5Km_count": 2,
             "5-9Km_count": 1,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "KKN09011G00",
             "l2_name": "KKN09X2XVNK",
+            "l2name": "KKN09X2XVNK",
+            "l1_name": "KKN09X2XVII",
+            "l1name": "KKN09X2XVII",
+            "region": "Northeast",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 2,
             "5-9Km_count": 1,
             ">9Km_count": 3,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "KKN18003G00",
             "l2_name": "KKN18X2ZQWE",
+            "l2name": "KKN18X2ZQWE",
+            "l1_name": "KKN18X2ZQWB",
+            "l1name": "KKN18X2ZQWB",
+            "region": "Northeast",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 4,
             "5-9Km_count": 2,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "LBR01044G00",
             "l2_name": "LBR01X0017K",
+            "l2name": "LBR01X0017K",
+            "l1_name": "LBR01X0017H",
+            "l1name": "LBR01X0017H",
+            "region": "Central",
             "onu_count": 5,
+            "active_onus": 5,
             "0-5Km_count": 3,
             "5-9Km_count": 1,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "LOI04005G00",
             "l2_name": "LOI04X0000H",
+            "l2name": "LOI04X0000H",
+            "l1_name": "LOI04X0000I",
+            "l1name": "LOI04X0000I",
+            "region": "Northeast",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 5,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "NKR05002G00",
             "l2_name": "NKR05X2X6I9",
+            "l2name": "NKR05X2X6I9",
+            "l1_name": "NKR05X2X6IB",
+            "l1name": "NKR05X2X6IB",
+            "region": "Northeast",
             "onu_count": 8,
+            "active_onus": 8,
             "0-5Km_count": 7,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "NKR12016G00",
             "l2_name": "NKR12X001CC",
+            "l2name": "NKR12X001CC",
+            "l1_name": "NKR12X001C7",
+            "l1name": "NKR12X001C7",
+            "region": "Northeast",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 3,
             "5-9Km_count": 2,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "NKR17003G00",
             "l2_name": "NKR17X000ET",
+            "l2name": "NKR17X000ET",
+            "l1_name": "NKR17X000EQ",
+            "l1name": "NKR17X000EQ",
+            "region": "Northeast",
             "onu_count": 5,
+            "active_onus": 5,
             "0-5Km_count": 4,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "NKR30002G00",
             "l2_name": "NKR30X0002D",
+            "l2name": "NKR30X0002D",
+            "l1_name": "NKR30X00025",
+            "l1name": "NKR30X00025",
+            "region": "Northeast",
             "onu_count": 4,
+            "active_onus": 4,
             "0-5Km_count": 3,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "NKW12007G00",
             "l2_name": "NKW12X25LGQ",
+            "l2name": "NKW12X25LGQ",
+            "l1_name": "NKW12X25LHQ",
+            "l1name": "NKW12X25LHQ",
+            "region": "Central",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 6,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "PCK01001G00",
             "l2_name": "PCK01X0005Y",
+            "l2name": "PCK01X0005Y",
+            "l1_name": "PCK01X0005Z",
+            "l1name": "PCK01X0005Z",
+            "region": "West",
             "onu_count": 4,
+            "active_onus": 4,
             "0-5Km_count": 3,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "PTT06002G01",
             "l2_name": "PTT06X3IHRS",
+            "l2name": "PTT06X3IHRS",
+            "l1_name": "PTT06X3IHRW",
+            "l1name": "PTT06X3IHRW",
+            "region": "Other/Unknown",
             "onu_count": 5,
+            "active_onus": 5,
             "0-5Km_count": 1,
             "5-9Km_count": 3,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "SRN01017G00",
             "l2_name": "SRN01X05LKO",
+            "l2name": "SRN01X05LKO",
+            "l1_name": "SRN01X002FG",
+            "l1name": "SRN01X002FG",
+            "region": "Northeast",
             "onu_count": 6,
+            "active_onus": 6,
             "0-5Km_count": 5,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "SRN07008G00",
             "l2_name": "SRN07X3GWWM",
+            "l2name": "SRN07X3GWWM",
+            "l1_name": "SRN07X3GWX3",
+            "l1name": "SRN07X3GWX3",
+            "region": "Northeast",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 4,
             "5-9Km_count": 2,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "SRN10017G00",
             "l2_name": "SRN10X3K3FV",
+            "l2name": "SRN10X3K3FV",
+            "l1_name": "SRN10X00JJ1",
+            "l1name": "SRN10X00JJ1",
+            "region": "Northeast",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 1,
             "5-9Km_count": 5,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "ZTE",
             "device": "SRT04001G00",
             "l2_name": "SRT04X0014J",
+            "l2name": "SRT04X0014J",
+            "l1_name": "SRT04X0014K",
+            "l1name": "SRT04X0014K",
+            "region": "South",
             "onu_count": 9,
+            "active_onus": 9,
             "0-5Km_count": 1,
             "5-9Km_count": 0,
             ">9Km_count": 8,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "UBR07029G00",
             "l2_name": "UBR07X000PV",
+            "l2name": "UBR07X000PV",
+            "l1_name": "UBR07X000PS",
+            "l1name": "UBR07X000PS",
+            "region": "Northeast",
             "onu_count": 4,
+            "active_onus": 4,
             "0-5Km_count": 3,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "UDT02014G00",
             "l2_name": "UDT02X000E9",
+            "l2name": "UDT02X000E9",
+            "l1_name": "UDT02X000EB",
+            "l1name": "UDT02X000EB",
+            "region": "Northeast",
             "onu_count": 4,
+            "active_onus": 4,
             "0-5Km_count": 2,
             "5-9Km_count": 1,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         },
         {
             "vendor": "Gcom",
             "device": "UDT17005G00",
             "l2_name": "UDT17X0005N",
+            "l2name": "UDT17X0005N",
+            "l1_name": "UDT17X0005T",
+            "l1name": "UDT17X0005T",
+            "region": "Northeast",
             "onu_count": 7,
+            "active_onus": 7,
             "0-5Km_count": 6,
             "5-9Km_count": 0,
             ">9Km_count": 1,
+            "min_dist": "<5Km",
+            "max_dist": ">9Km",
+            "variance": ">4Km",
             "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
         }
     ],
     "region_empty_counts": {
-        "BMA": 14517,
-        "Northeast": 8925,
-        "Other/Unknown": 7803,
-        "Central": 5287,
-        "East": 4659,
-        "South": 4480,
-        "North": 3270,
-        "West": 1023
+        "BMA": 14962,
+        "Northeast": 8941,
+        "Other/Unknown": 7833,
+        "Central": 5286,
+        "East": 4672,
+        "South": 4543,
+        "North": 3284,
+        "West": 1033
+    },
+    "l3_summary": {
+        "total_l2_with_l3": 174287,
+        "total_l3_ports": 440321,
+        "total_l3_circuits": 439518,
+        "total_l3_active": 437381,
+        "pct_l2_has_l3": 23.86,
+        "by_vendor": [
+            {
+                "Vendor": "Dasan",
+                "l2_with_l3": 6046,
+                "total_l3_ports": 13137,
+                "total_l3_circuits": 13122,
+                "total_l3_active": 13032
+            },
+            {
+                "Vendor": "Fiberhome",
+                "l2_with_l3": 18817,
+                "total_l3_ports": 47365,
+                "total_l3_circuits": 47243,
+                "total_l3_active": 46828
+            },
+            {
+                "Vendor": "Gcom",
+                "l2_with_l3": 2452,
+                "total_l3_ports": 4278,
+                "total_l3_circuits": 4275,
+                "total_l3_active": 4264
+            },
+            {
+                "Vendor": "Huawei",
+                "l2_with_l3": 81324,
+                "total_l3_ports": 209549,
+                "total_l3_circuits": 208985,
+                "total_l3_active": 207706
+            },
+            {
+                "Vendor": "Nokia",
+                "l2_with_l3": 598,
+                "total_l3_ports": 1308,
+                "total_l3_circuits": 1307,
+                "total_l3_active": 1300
+            },
+            {
+                "Vendor": "Raisecom",
+                "l2_with_l3": 2838,
+                "total_l3_ports": 5262,
+                "total_l3_circuits": 5259,
+                "total_l3_active": 5239
+            },
+            {
+                "Vendor": "ZTE",
+                "l2_with_l3": 62212,
+                "total_l3_ports": 159422,
+                "total_l3_circuits": 159327,
+                "total_l3_active": 159012
+            }
+        ],
+        "data_sources": {
+            "splitter_file": "Data_Splitter_L3_20260917.parquet",
+            "inservice_file": "L3_Inservice_Port_20260916.parquet"
+        }
+    },
+    "l1_summary": {
+        "total_l1_splitters": 165511,
+        "total_l1_ports": 963870,
+        "total_l1_olts": 12735,
+        "by_vendor": [
+            {
+                "Vendor": "Dasan",
+                "total_l1": 6952,
+                "total_ports": 51864
+            },
+            {
+                "Vendor": "Fiberhome",
+                "total_l1": 19888,
+                "total_ports": 145245
+            },
+            {
+                "Vendor": "Gcom",
+                "total_l1": 8802,
+                "total_ports": 64230
+            },
+            {
+                "Vendor": "Huawei",
+                "total_l1": 69357,
+                "total_ports": 373288
+            },
+            {
+                "Vendor": "Nokia",
+                "total_l1": 1029,
+                "total_ports": 6748
+            },
+            {
+                "Vendor": "Raisecom",
+                "total_l1": 6816,
+                "total_ports": 48291
+            },
+            {
+                "Vendor": "ZTE",
+                "total_l1": 52671,
+                "total_ports": 274204
+            }
+        ],
+        "report_file": "The_L1_Splitter_Report_20260916.parquet"
     },
     "bma_eec": {
-        "total_l2_with_onus": 228884,
-        "total_empty_l2s": 18028,
+        "total_l1_splitters": 165511,
+        "total_l2": 247259,
+        "total_l2_with_onus": 228776,
+        "total_empty_l2s": 18483,
         "vendor_stats": {
             "Dasan": {
-                "total_l2": 3690,
-                "empty_l2": 257,
-                "0-5Km": 3407,
-                "5-9Km": 248,
-                ">9Km": 14,
-                "Unknown": 21,
-                "anomalies": 0
+                "total_l2": 3450,
+                "occupied_l2": 3242,
+                "empty_l2": 208,
+                "l2_with_l3": 455,
+                "0-5Km": 2987,
+                "5-9Km": 223,
+                ">9Km": 13,
+                "Unknown": 19,
+                "anomalies": 0,
+                "anomalies_count": 0
             },
             "Fiberhome": {
-                "total_l2": 43535,
-                "empty_l2": 3527,
-                "0-5Km": 42076,
-                "5-9Km": 1314,
+                "total_l2": 47637,
+                "occupied_l2": 43742,
+                "empty_l2": 3895,
+                "l2_with_l3": 6769,
+                "0-5Km": 42255,
+                "5-9Km": 1332,
                 ">9Km": 52,
-                "Unknown": 93,
-                "anomalies": 1
+                "Unknown": 103,
+                "anomalies": 1,
+                "anomalies_count": 1
             },
             "Huawei": {
-                "total_l2": 125485,
-                "empty_l2": 10244,
-                "0-5Km": 97080,
-                "5-9Km": 22892,
-                ">9Km": 4195,
-                "Unknown": 1318,
-                "anomalies": 0
+                "total_l2": 135980,
+                "occupied_l2": 125620,
+                "empty_l2": 10360,
+                "l2_with_l3": 39576,
+                "0-5Km": 97263,
+                "5-9Km": 22908,
+                ">9Km": 4196,
+                "Unknown": 1253,
+                "anomalies": 0,
+                "anomalies_count": 0
             },
             "ZTE": {
-                "total_l2": 56174,
-                "empty_l2": 4000,
-                "0-5Km": 39854,
+                "total_l2": 60192,
+                "occupied_l2": 56172,
+                "empty_l2": 4020,
+                "l2_with_l3": 20631,
+                "0-5Km": 39853,
                 "5-9Km": 14127,
                 ">9Km": 1816,
-                "Unknown": 377,
-                "anomalies": 6
+                "Unknown": 376,
+                "anomalies": 6,
+                "anomalies_count": 6
             }
         },
         "distance_distribution": {
-            "0-5Km": 182417,
-            "5-9Km": 38581,
+            "0-5Km": 182358,
+            "5-9Km": 38590,
             ">9Km": 6077,
-            "Unknown": 1809
+            "Unknown": 1751
         },
         "anomalies": [
             {
                 "vendor": "ZTE",
                 "device": "BKK33002G03",
                 "l2_name": "BKK07X00X1R",
+                "l2name": "BKK07X00X1R",
+                "l1_name": "BKK07X00X1S",
+                "l1name": "BKK07X00X1S",
+                "region": "BMA",
                 "onu_count": 6,
+                "active_onus": 6,
                 "0-5Km_count": 5,
                 "5-9Km_count": 0,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             },
             {
                 "vendor": "ZTE",
                 "device": "BKK10002G00",
                 "l2_name": "BKK10X1JFC9",
+                "l2name": "BKK10X1JFC9",
+                "l1_name": "BKK10X1HZ4G",
+                "l1name": "BKK10X1HZ4G",
+                "region": "BMA",
                 "onu_count": 7,
+                "active_onus": 7,
                 "0-5Km_count": 6,
                 "5-9Km_count": 0,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             },
             {
                 "vendor": "ZTE",
                 "device": "BKK11001G00",
                 "l2_name": "BKK11X05024",
+                "l2name": "BKK11X05024",
+                "l1_name": "BKK11X05021",
+                "l1name": "BKK11X05021",
+                "region": "BMA",
                 "onu_count": 10,
+                "active_onus": 10,
                 "0-5Km_count": 7,
                 "5-9Km_count": 1,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             },
             {
                 "vendor": "ZTE",
                 "device": "BKK14001G00",
                 "l2_name": "BKK14X040BP",
+                "l2name": "BKK14X040BP",
+                "l1_name": "BKK14X040BM",
+                "l1name": "BKK14X040BM",
+                "region": "BMA",
                 "onu_count": 7,
+                "active_onus": 7,
                 "0-5Km_count": 6,
                 "5-9Km_count": 0,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             },
             {
                 "vendor": "ZTE",
                 "device": "BKK14001G01",
                 "l2_name": "BKK14X040K8",
+                "l2name": "BKK14X040K8",
+                "l1_name": "BKK14X040K6",
+                "l1name": "BKK14X040K6",
+                "region": "BMA",
                 "onu_count": 6,
+                "active_onus": 6,
                 "0-5Km_count": 5,
                 "5-9Km_count": 0,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             },
             {
                 "vendor": "Fiberhome",
                 "device": "BKK31009GO0",
                 "l2_name": "BKK31X2MPUG",
+                "l2name": "BKK31X2MPUG",
+                "l1_name": "BKK31X2MPUB",
+                "l1name": "BKK31X2MPUB",
+                "region": "BMA",
                 "onu_count": 2,
+                "active_onus": 2,
                 "0-5Km_count": 1,
                 "5-9Km_count": 0,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             },
             {
                 "vendor": "ZTE",
                 "device": "BKK36018GO0",
                 "l2_name": "BKK36X18IXO",
+                "l2name": "BKK36X18IXO",
+                "l1_name": "BKK36X1845Q",
+                "l1name": "BKK36X1845Q",
+                "region": "BMA",
                 "onu_count": 7,
+                "active_onus": 7,
                 "0-5Km_count": 3,
                 "5-9Km_count": 0,
                 ">9Km_count": 1,
+                "min_dist": "<5Km",
+                "max_dist": ">9Km",
+                "variance": ">4Km",
                 "reason": "Variance >4Km (ONUs in 0-5Km and >9Km)"
             }
         ],
         "region_empty_counts": {
-            "BMA": 14517,
-            "East": 3511
+            "BMA": 14962,
+            "East": 3521
+        },
+        "l3_summary": {
+            "total_l2_with_l3": 67431,
+            "total_l3_ports": 176938,
+            "total_l3_circuits": 176669,
+            "total_l3_active": 175318,
+            "pct_l2_has_l3": 27.27,
+            "by_vendor": [
+                {
+                    "Vendor": "Dasan",
+                    "l2_with_l3": 455,
+                    "total_l3_ports": 971,
+                    "total_l3_circuits": 970,
+                    "total_l3_active": 964
+                },
+                {
+                    "Vendor": "Fiberhome",
+                    "l2_with_l3": 6769,
+                    "total_l3_ports": 16033,
+                    "total_l3_circuits": 15986,
+                    "total_l3_active": 15762
+                },
+                {
+                    "Vendor": "Huawei",
+                    "l2_with_l3": 39576,
+                    "total_l3_ports": 104436,
+                    "total_l3_circuits": 104242,
+                    "total_l3_active": 103314
+                },
+                {
+                    "Vendor": "ZTE",
+                    "l2_with_l3": 20631,
+                    "total_l3_ports": 55498,
+                    "total_l3_circuits": 55471,
+                    "total_l3_active": 55278
+                }
+            ],
+            "data_sources": {
+                "splitter_file": "Data_Splitter_L3_20260917.parquet",
+                "inservice_file": "L3_Inservice_Port_20260916.parquet"
+            }
+        },
+        "l1_summary": {
+            "total_l1_splitters": 165511,
+            "total_l1_ports": 963870,
+            "total_l1_olts": 12735,
+            "by_vendor": [
+                {
+                    "Vendor": "Dasan",
+                    "total_l1": 6952,
+                    "total_ports": 51864
+                },
+                {
+                    "Vendor": "Fiberhome",
+                    "total_l1": 19888,
+                    "total_ports": 145245
+                },
+                {
+                    "Vendor": "Gcom",
+                    "total_l1": 8802,
+                    "total_ports": 64230
+                },
+                {
+                    "Vendor": "Huawei",
+                    "total_l1": 69357,
+                    "total_ports": 373288
+                },
+                {
+                    "Vendor": "Nokia",
+                    "total_l1": 1029,
+                    "total_ports": 6748
+                },
+                {
+                    "Vendor": "Raisecom",
+                    "total_l1": 6816,
+                    "total_ports": 48291
+                },
+                {
+                    "Vendor": "ZTE",
+                    "total_l1": 52671,
+                    "total_ports": 274204
+                }
+            ],
+            "report_file": "The_L1_Splitter_Report_20260916.parquet"
         }
     },
     "ratio_summary": [
         {
             "L2_Ratio": "1:8",
-            "Total_L2": 702435,
-            "Occupied_L2": 652813,
-            "Empty_L2": 49622,
-            "Total_Ports": 5619480,
-            "Used_Ports": 3050471,
-            "Empty_Ports": 2593296,
-            "Port_Util_Pct": 54.28,
-            "Empty_L2_Pct": 7.06
+            "Total_L2": 702523,
+            "Occupied_L2": 652313,
+            "Empty_L2": 50210,
+            "Total_Ports": 5620184,
+            "Used_Ports": 3048359,
+            "Empty_Ports": 2596085,
+            "Port_Util_Pct": 54.24,
+            "Empty_L2_Pct": 7.15
         },
         {
             "L2_Ratio": "1:16",
-            "Total_L2": 27378,
-            "Occupied_L2": 27085,
-            "Empty_L2": 293,
-            "Total_Ports": 438048,
-            "Used_Ports": 234691,
-            "Empty_Ports": 203742,
-            "Port_Util_Pct": 53.58,
-            "Empty_L2_Pct": 1.07
+            "Total_L2": 27389,
+            "Occupied_L2": 27094,
+            "Empty_L2": 295,
+            "Total_Ports": 438224,
+            "Used_Ports": 234769,
+            "Empty_Ports": 203839,
+            "Port_Util_Pct": 53.57,
+            "Empty_L2_Pct": 1.08
         },
         {
             "L2_Ratio": "1:32",
@@ -2333,9 +3242,9 @@ const rawData = {
             "Occupied_L2": 585,
             "Empty_L2": 37,
             "Total_Ports": 19904,
-            "Used_Ports": 9362,
-            "Empty_Ports": 10543,
-            "Port_Util_Pct": 47.04,
+            "Used_Ports": 9361,
+            "Empty_Ports": 10544,
+            "Port_Util_Pct": 47.03,
             "Empty_L2_Pct": 5.95
         },
         {
@@ -2386,69 +3295,69 @@ const rawData = {
     "vendor_capacity": [
         {
             "Vendor": "Huawei",
-            "Total_L2": 281174,
-            "Occupied_L2": 262080,
-            "Empty_L2": 19094,
-            "Total_Ports": 2358335,
-            "Used_Ports": 1273506,
-            "Empty_Ports": 1093961,
-            "Port_Util_Pct": 54.0,
-            "Empty_L2_Pct": 6.79
+            "Total_L2": 282954,
+            "Occupied_L2": 263582,
+            "Empty_L2": 19372,
+            "Total_Ports": 2372655,
+            "Used_Ports": 1279140,
+            "Empty_Ports": 1102606,
+            "Port_Util_Pct": 53.91,
+            "Empty_L2_Pct": 6.85
         },
         {
             "Vendor": "ZTE",
-            "Total_L2": 208992,
-            "Occupied_L2": 196500,
-            "Empty_L2": 12492,
-            "Total_Ports": 1771572,
-            "Used_Ports": 998318,
-            "Empty_Ports": 782973,
-            "Port_Util_Pct": 56.35,
-            "Empty_L2_Pct": 5.98
+            "Total_L2": 209837,
+            "Occupied_L2": 197232,
+            "Empty_L2": 12605,
+            "Total_Ports": 1778404,
+            "Used_Ports": 1001559,
+            "Empty_Ports": 786579,
+            "Port_Util_Pct": 56.32,
+            "Empty_L2_Pct": 6.01
         },
         {
             "Vendor": "Fiberhome",
-            "Total_L2": 109188,
-            "Occupied_L2": 100775,
-            "Empty_L2": 8413,
-            "Total_Ports": 892048,
-            "Used_Ports": 505367,
-            "Empty_Ports": 390694,
-            "Port_Util_Pct": 56.65,
-            "Empty_L2_Pct": 7.71
+            "Total_L2": 109956,
+            "Occupied_L2": 101084,
+            "Empty_L2": 8872,
+            "Total_Ports": 898224,
+            "Used_Ports": 506886,
+            "Empty_Ports": 395381,
+            "Port_Util_Pct": 56.43,
+            "Empty_L2_Pct": 8.07
         },
         {
             "Vendor": "Gcom",
-            "Total_L2": 51000,
-            "Occupied_L2": 47070,
-            "Empty_L2": 3930,
-            "Total_Ports": 409840,
-            "Used_Ports": 199520,
-            "Empty_Ports": 210782,
-            "Port_Util_Pct": 48.68,
-            "Empty_L2_Pct": 7.71
+            "Total_L2": 49072,
+            "Occupied_L2": 45320,
+            "Empty_L2": 3752,
+            "Total_Ports": 394368,
+            "Used_Ports": 192498,
+            "Empty_Ports": 202321,
+            "Port_Util_Pct": 48.81,
+            "Empty_L2_Pct": 7.65
         },
         {
             "Vendor": "Dasan",
-            "Total_L2": 38232,
-            "Occupied_L2": 35294,
-            "Empty_L2": 2938,
-            "Total_Ports": 307529,
-            "Used_Ports": 155692,
-            "Empty_Ports": 152742,
-            "Port_Util_Pct": 50.63,
+            "Total_L2": 37685,
+            "Occupied_L2": 34790,
+            "Empty_L2": 2895,
+            "Total_Ports": 303129,
+            "Used_Ports": 153336,
+            "Empty_Ports": 150678,
+            "Port_Util_Pct": 50.58,
             "Empty_L2_Pct": 7.68
         },
         {
             "Vendor": "Raisecom",
-            "Total_L2": 36812,
-            "Occupied_L2": 33949,
-            "Empty_L2": 2863,
-            "Total_Ports": 296888,
-            "Used_Ports": 138691,
-            "Empty_Ports": 158547,
-            "Port_Util_Pct": 46.71,
-            "Empty_L2_Pct": 7.78
+            "Total_L2": 35993,
+            "Occupied_L2": 33169,
+            "Empty_L2": 2824,
+            "Total_Ports": 290312,
+            "Used_Ports": 135639,
+            "Empty_Ports": 155022,
+            "Port_Util_Pct": 46.72,
+            "Empty_L2_Pct": 7.85
         },
         {
             "Vendor": "Nokia",
@@ -2456,8 +3365,8 @@ const rawData = {
             "Occupied_L2": 4849,
             "Empty_L2": 234,
             "Total_Ports": 41952,
-            "Used_Ports": 23677,
-            "Empty_Ports": 18430,
+            "Used_Ports": 23678,
+            "Empty_Ports": 18429,
             "Port_Util_Pct": 56.44,
             "Empty_L2_Pct": 4.6
         }
@@ -2465,233 +3374,233 @@ const rawData = {
     "province_summary": [
         {
             "L2 Province": "BANGKOK",
-            "Total_L2": 191987,
-            "Empty_L2": 14374,
-            "Total_Ports": 1611936,
-            "Used_Ports": 860402,
-            "Empty_L2_Pct": 7.49,
-            "Port_Util_Pct": 53.38
+            "Total_L2": 192429,
+            "Empty_L2": 14817,
+            "Total_Ports": 1615496,
+            "Used_Ports": 860188,
+            "Empty_L2_Pct": 7.7,
+            "Port_Util_Pct": 53.25
         },
         {
             "L2 Province": "SAMUT PRAKAN",
-            "Total_L2": 42363,
-            "Empty_L2": 3016,
-            "Total_Ports": 348840,
-            "Used_Ports": 179734,
-            "Empty_L2_Pct": 7.12,
+            "Total_L2": 42357,
+            "Empty_L2": 3020,
+            "Total_Ports": 348792,
+            "Used_Ports": 179696,
+            "Empty_L2_Pct": 7.13,
             "Port_Util_Pct": 51.52
         },
         {
             "L2 Province": "PATHUM THANI",
-            "Total_L2": 35821,
-            "Empty_L2": 2673,
-            "Total_Ports": 296512,
-            "Used_Ports": 160010,
-            "Empty_L2_Pct": 7.46,
-            "Port_Util_Pct": 53.96
+            "Total_L2": 35842,
+            "Empty_L2": 2681,
+            "Total_Ports": 296696,
+            "Used_Ports": 160128,
+            "Empty_L2_Pct": 7.48,
+            "Port_Util_Pct": 53.97
         },
         {
             "L2 Province": "CHON BURI",
-            "Total_L2": 33634,
-            "Empty_L2": 2281,
-            "Total_Ports": 272966,
-            "Used_Ports": 155800,
-            "Empty_L2_Pct": 6.78,
-            "Port_Util_Pct": 57.08
+            "Total_L2": 33551,
+            "Empty_L2": 2291,
+            "Total_Ports": 272310,
+            "Used_Ports": 155355,
+            "Empty_L2_Pct": 6.83,
+            "Port_Util_Pct": 57.05
         },
         {
             "L2 Province": "NONTHABURI",
-            "Total_L2": 37760,
-            "Empty_L2": 2063,
-            "Total_Ports": 316496,
-            "Used_Ports": 182298,
-            "Empty_L2_Pct": 5.46,
-            "Port_Util_Pct": 57.6
+            "Total_L2": 37785,
+            "Empty_L2": 2083,
+            "Total_Ports": 316704,
+            "Used_Ports": 182321,
+            "Empty_L2_Pct": 5.51,
+            "Port_Util_Pct": 57.57
         },
         {
             "L2 Province": "NAKHON RATCHASIMA",
-            "Total_L2": 24256,
-            "Empty_L2": 1785,
-            "Total_Ports": 204504,
-            "Used_Ports": 102014,
-            "Empty_L2_Pct": 7.36,
-            "Port_Util_Pct": 49.88
+            "Total_L2": 24002,
+            "Empty_L2": 1763,
+            "Total_Ports": 202472,
+            "Used_Ports": 101035,
+            "Empty_L2_Pct": 7.35,
+            "Port_Util_Pct": 49.9
         },
         {
             "L2 Province": "CHIANG MAI",
-            "Total_L2": 18411,
-            "Empty_L2": 1384,
-            "Total_Ports": 152000,
-            "Used_Ports": 87171,
-            "Empty_L2_Pct": 7.52,
-            "Port_Util_Pct": 57.35
+            "Total_L2": 18418,
+            "Empty_L2": 1388,
+            "Total_Ports": 152056,
+            "Used_Ports": 87174,
+            "Empty_L2_Pct": 7.54,
+            "Port_Util_Pct": 57.33
         },
         {
             "L2 Province": "UBON RATCHATHANI",
-            "Total_L2": 11864,
+            "Total_L2": 11849,
             "Empty_L2": 883,
-            "Total_Ports": 99424,
-            "Used_Ports": 52097,
-            "Empty_L2_Pct": 7.44,
-            "Port_Util_Pct": 52.4
+            "Total_Ports": 99304,
+            "Used_Ports": 52041,
+            "Empty_L2_Pct": 7.45,
+            "Port_Util_Pct": 52.41
         },
         {
             "L2 Province": "SONGKHLA",
-            "Total_L2": 12620,
-            "Empty_L2": 822,
-            "Total_Ports": 107640,
-            "Used_Ports": 58187,
-            "Empty_L2_Pct": 6.51,
-            "Port_Util_Pct": 54.06
+            "Total_L2": 12562,
+            "Empty_L2": 862,
+            "Total_Ports": 107176,
+            "Used_Ports": 57837,
+            "Empty_L2_Pct": 6.86,
+            "Port_Util_Pct": 53.96
         },
         {
             "L2 Province": "LOP BURI",
-            "Total_L2": 5530,
-            "Empty_L2": 818,
-            "Total_Ports": 44840,
-            "Used_Ports": 18525,
-            "Empty_L2_Pct": 14.79,
-            "Port_Util_Pct": 41.31
+            "Total_L2": 5526,
+            "Empty_L2": 816,
+            "Total_Ports": 44808,
+            "Used_Ports": 18522,
+            "Empty_L2_Pct": 14.77,
+            "Port_Util_Pct": 41.34
         },
         {
             "L2 Province": "RAYONG",
-            "Total_L2": 11718,
-            "Empty_L2": 751,
-            "Total_Ports": 95424,
-            "Used_Ports": 54789,
-            "Empty_L2_Pct": 6.41,
-            "Port_Util_Pct": 57.42
+            "Total_L2": 11719,
+            "Empty_L2": 753,
+            "Total_Ports": 95432,
+            "Used_Ports": 54788,
+            "Empty_L2_Pct": 6.43,
+            "Port_Util_Pct": 57.41
         },
         {
             "L2 Province": "SURAT THANI",
-            "Total_L2": 9355,
-            "Empty_L2": 671,
-            "Total_Ports": 77128,
-            "Used_Ports": 43060,
-            "Empty_L2_Pct": 7.17,
-            "Port_Util_Pct": 55.83
+            "Total_L2": 9337,
+            "Empty_L2": 674,
+            "Total_Ports": 76984,
+            "Used_Ports": 43004,
+            "Empty_L2_Pct": 7.22,
+            "Port_Util_Pct": 55.86
         },
         {
             "L2 Province": "PHUKET",
-            "Total_L2": 8754,
-            "Empty_L2": 653,
-            "Total_Ports": 75184,
-            "Used_Ports": 46082,
-            "Empty_L2_Pct": 7.46,
-            "Port_Util_Pct": 61.29
+            "Total_L2": 8755,
+            "Empty_L2": 655,
+            "Total_Ports": 75200,
+            "Used_Ports": 46074,
+            "Empty_L2_Pct": 7.48,
+            "Port_Util_Pct": 61.27
+        },
+        {
+            "L2 Province": "KHON KAEN",
+            "Total_L2": 12537,
+            "Empty_L2": 627,
+            "Total_Ports": 105960,
+            "Used_Ports": 63706,
+            "Empty_L2_Pct": 5.0,
+            "Port_Util_Pct": 60.12
         },
         {
             "L2 Province": "SARABURI",
             "Total_L2": 7020,
             "Empty_L2": 617,
             "Total_Ports": 57060,
-            "Used_Ports": 25604,
+            "Used_Ports": 25602,
             "Empty_L2_Pct": 8.79,
             "Port_Util_Pct": 44.87
         },
         {
-            "L2 Province": "KHON KAEN",
-            "Total_L2": 12525,
-            "Empty_L2": 615,
-            "Total_Ports": 105864,
-            "Used_Ports": 63704,
-            "Empty_L2_Pct": 4.91,
-            "Port_Util_Pct": 60.18
-        },
-        {
             "L2 Province": "NAKHON SI THAMMARAT",
-            "Total_L2": 8578,
-            "Empty_L2": 567,
-            "Total_Ports": 73056,
-            "Used_Ports": 39116,
-            "Empty_L2_Pct": 6.61,
+            "Total_L2": 8580,
+            "Empty_L2": 568,
+            "Total_Ports": 73072,
+            "Used_Ports": 39120,
+            "Empty_L2_Pct": 6.62,
             "Port_Util_Pct": 53.54
         },
         {
             "L2 Province": "CHACHOENGSAO",
-            "Total_L2": 6902,
+            "Total_L2": 6889,
             "Empty_L2": 566,
-            "Total_Ports": 56100,
-            "Used_Ports": 31790,
-            "Empty_L2_Pct": 8.2,
-            "Port_Util_Pct": 56.67
+            "Total_Ports": 55988,
+            "Used_Ports": 31704,
+            "Empty_L2_Pct": 8.22,
+            "Port_Util_Pct": 56.63
         },
         {
             "L2 Province": "CHIANG RAI",
-            "Total_L2": 9148,
-            "Empty_L2": 556,
-            "Total_Ports": 74880,
-            "Used_Ports": 43316,
-            "Empty_L2_Pct": 6.08,
-            "Port_Util_Pct": 57.85
+            "Total_L2": 9179,
+            "Empty_L2": 562,
+            "Total_Ports": 75128,
+            "Used_Ports": 43405,
+            "Empty_L2_Pct": 6.12,
+            "Port_Util_Pct": 57.77
         },
         {
             "L2 Province": "UDON THANI",
-            "Total_L2": 9669,
-            "Empty_L2": 524,
-            "Total_Ports": 79244,
-            "Used_Ports": 44601,
-            "Empty_L2_Pct": 5.42,
-            "Port_Util_Pct": 56.28
+            "Total_L2": 9676,
+            "Empty_L2": 532,
+            "Total_Ports": 79300,
+            "Used_Ports": 44600,
+            "Empty_L2_Pct": 5.5,
+            "Port_Util_Pct": 56.24
         },
         {
             "L2 Province": "NAKHON SAWAN",
-            "Total_L2": 7025,
+            "Total_L2": 7026,
             "Empty_L2": 519,
-            "Total_Ports": 58304,
-            "Used_Ports": 28638,
+            "Total_Ports": 58312,
+            "Used_Ports": 28641,
             "Empty_L2_Pct": 7.39,
             "Port_Util_Pct": 49.12
         },
         {
             "L2 Province": "PHRA NAKHON SI AYUTTHAYA",
-            "Total_L2": 8912,
+            "Total_L2": 8908,
             "Empty_L2": 481,
-            "Total_Ports": 73616,
-            "Used_Ports": 43359,
+            "Total_Ports": 73584,
+            "Used_Ports": 43344,
             "Empty_L2_Pct": 5.4,
             "Port_Util_Pct": 58.9
         },
         {
             "L2 Province": "SURIN",
             "Total_L2": 8403,
-            "Empty_L2": 470,
+            "Empty_L2": 471,
             "Total_Ports": 68272,
             "Used_Ports": 35753,
-            "Empty_L2_Pct": 5.59,
+            "Empty_L2_Pct": 5.61,
             "Port_Util_Pct": 52.37
         },
         {
             "L2 Province": "CHAIYAPHUM",
-            "Total_L2": 7451,
-            "Empty_L2": 464,
-            "Total_Ports": 60848,
-            "Used_Ports": 33430,
-            "Empty_L2_Pct": 6.23,
-            "Port_Util_Pct": 54.94
+            "Total_L2": 7468,
+            "Empty_L2": 468,
+            "Total_Ports": 60992,
+            "Used_Ports": 33487,
+            "Empty_L2_Pct": 6.27,
+            "Port_Util_Pct": 54.9
         },
         {
             "L2 Province": "SI SA KET",
-            "Total_L2": 6281,
-            "Empty_L2": 449,
-            "Total_Ports": 52312,
-            "Used_Ports": 25673,
-            "Empty_L2_Pct": 7.15,
-            "Port_Util_Pct": 49.08
+            "Total_L2": 6294,
+            "Empty_L2": 458,
+            "Total_Ports": 52416,
+            "Used_Ports": 25676,
+            "Empty_L2_Pct": 7.28,
+            "Port_Util_Pct": 48.99
         },
         {
             "L2 Province": "BURI RAM",
-            "Total_L2": 10454,
-            "Empty_L2": 444,
-            "Total_Ports": 85488,
-            "Used_Ports": 50143,
-            "Empty_L2_Pct": 4.25,
-            "Port_Util_Pct": 58.66
+            "Total_L2": 10464,
+            "Empty_L2": 453,
+            "Total_Ports": 85568,
+            "Used_Ports": 50145,
+            "Empty_L2_Pct": 4.33,
+            "Port_Util_Pct": 58.6
         }
     ],
     "no_l1_audit": {
-        "total_production_olts": 12730,
-        "olts_with_l1": 12560,
+        "total_production_olts": 12722,
+        "olts_with_l1": 12552,
         "olts_no_l1_total": 170,
         "mismatch_count": 70,
         "standby_count": 100,
@@ -11470,6 +12379,7 @@ const rawData = {
         ]
     }
 };
+// END_DATA
 
 let charts = {};
 let currentView = 'distance_nat';
@@ -11485,16 +12395,18 @@ function switchMainView(viewName) {
     const btnDistNat = document.getElementById('tab-btn-distance-nat');
     const btnDistBma = document.getElementById('tab-btn-distance-bma');
     const btnCap = document.getElementById('tab-btn-capacity');
+    const btnL3 = document.getElementById('tab-btn-l3');
     const btnAudit = document.getElementById('tab-btn-audit');
     const btnDrift = document.getElementById('tab-btn-drift');
 
     const viewDist = document.getElementById('view-distance');
     const viewCap = document.getElementById('view-capacity');
+    const viewL3 = document.getElementById('view-l3');
     const viewAudit = document.getElementById('view-audit');
     const viewDrift = document.getElementById('view-drift');
 
-    [btnDistNat, btnDistBma, btnCap, btnAudit, btnDrift].forEach(b => b.classList.remove('active'));
-    [viewDist, viewCap, viewAudit, viewDrift].forEach(v => v.style.display = 'none');
+    [btnDistNat, btnDistBma, btnCap, btnL3, btnAudit, btnDrift].forEach(b => { if(b) b.classList.remove('active'); });
+    [viewDist, viewCap, viewL3, viewAudit, viewDrift].forEach(v => { if(v) v.style.display = 'none'; });
 
     if (viewName === 'distance_nat') {
         btnDistNat.classList.add('active');
@@ -11508,6 +12420,10 @@ function switchMainView(viewName) {
         btnCap.classList.add('active');
         viewCap.style.display = 'block';
         initCapacityDashboard();
+    } else if (viewName === 'l3') {
+        if(btnL3) btnL3.classList.add('active');
+        if(viewL3) viewL3.style.display = 'block';
+        initL3Dashboard();
     } else if (viewName === 'audit') {
         btnAudit.classList.add('active');
         viewAudit.style.display = 'block';
@@ -11523,13 +12439,28 @@ function switchMainView(viewName) {
 function initDistanceDashboard(data, zone) {
     const totalWithOnus = data.total_l2_with_onus;
     const totalEmpty = data.total_empty_l2s;
-    const totalAll = totalWithOnus + totalEmpty;
+    const totalMaster = data.total_l2 || (totalWithOnus + totalEmpty);
 
     document.getElementById('kpiTitle1').textContent = `Total L2 Splitters (${zone})`;
     document.getElementById('kpiTitle2').textContent = `Active L2 Splitters (${zone})`;
 
-    document.getElementById('statTotalL2All').textContent = formatNumber(totalAll);
+    document.getElementById('statTotalL2All').textContent = formatNumber(totalMaster);
     document.getElementById('statTotalL2').textContent = formatNumber(totalWithOnus);
+
+    // L2 with L3 Splitters KPI
+    const l3Data = data.l3_summary || (rawData && rawData.l3_summary) || {};
+    const totalL2WithL3 = l3Data.total_l2_with_l3 || 0;
+    const statL2WithL3Elem = document.getElementById('statL2WithL3');
+    if (statL2WithL3Elem) statL2WithL3Elem.textContent = formatNumber(totalL2WithL3);
+    const descL2WithL3Elem = document.getElementById('descL2WithL3');
+    if (descL2WithL3Elem && totalMaster > 0) {
+        descL2WithL3Elem.textContent = `${((totalL2WithL3 / totalMaster) * 100).toFixed(1)}% ของ L2 ทั้งหมด`;
+    }
+
+    // Total L1 Splitters KPI
+    const totalL1 = data.total_l1_splitters || (data.l1_summary && data.l1_summary.total_l1_splitters) || (rawData && rawData.total_l1_splitters) || 165511;
+    const statTotalL1Elem = document.getElementById('statTotalL1');
+    if (statTotalL1Elem) statTotalL1Elem.textContent = formatNumber(totalL1);
     
     const d0_5 = data.distance_distribution['0-5Km'] || 0;
     const d5_9 = data.distance_distribution['5-9Km'] || 0;
@@ -11548,7 +12479,7 @@ function initDistanceDashboard(data, zone) {
     document.getElementById('statAnomalies').textContent = formatNumber(totalAnom);
 
     document.getElementById('statEmpty').textContent = formatNumber(totalEmpty);
-    document.getElementById('descEmpty').textContent = `${((totalEmpty / totalAll) * 100).toFixed(1)}% of all L2s`;
+    document.getElementById('descEmpty').textContent = `${((totalEmpty / totalMaster) * 100).toFixed(1)}% of all L2s`;
 
     renderDistanceCharts(data, zone);
     renderDistanceTables(data, zone);
@@ -11556,7 +12487,7 @@ function initDistanceDashboard(data, zone) {
 
 function renderDistanceCharts(data, zone) {
     const vendors = Object.keys(data.vendor_stats);
-    const vendorTotals = vendors.map(v => data.vendor_stats[v].total_l2);
+    const vendorTotals = vendors.map(v => data.vendor_stats[v].occupied_l2 || data.vendor_stats[v].total_l2);
 
     const vendorColors = {
         'Huawei': '#3b82f6',
@@ -11671,16 +12602,22 @@ function renderDistanceTables(data, zone) {
 
     vendors.forEach(v => {
         const s = data.vendor_stats[v];
-        const ratio0_5 = s.total_l2 > 0 ? ((s['0-5Km'] / s.total_l2) * 100).toFixed(1) : '0.0';
+        const activeCount = s.occupied_l2 || (s.total_l2 - s.empty_l2);
+        const ratio0_5 = activeCount > 0 ? ((s['0-5Km'] / activeCount) * 100).toFixed(1) : '0.0';
+        const l3Count = s.l2_with_l3 || 0;
+        const anom = s.anomalies_count !== undefined ? s.anomalies_count : (s.anomalies || 0);
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td style="font-weight:600; font-family:'Outfit';">${v}</td>
             <td style="text-align:right; font-weight:700;">${formatNumber(s.total_l2)}</td>
+            <td style="text-align:right; font-weight:600; color:#38bdf8;">${formatNumber(activeCount)}</td>
             <td style="text-align:right; color:#60a5fa;">${formatNumber(s['0-5Km'])}</td>
             <td style="text-align:right; color:#34d399;">${formatNumber(s['5-9Km'])}</td>
             <td style="text-align:right; color:#a78bfa;">${formatNumber(s['>9Km'])}</td>
             <td style="text-align:right; color:#94a3b8;">${formatNumber(s.empty_l2)}</td>
-            <td style="text-align:right; color:#f87171; font-weight:700;">${formatNumber(s.anomalies_count)}</td>
+            <td style="text-align:right; color:#38bdf8; font-weight:700;">${formatNumber(l3Count)}</td>
+            <td style="text-align:right; color:#f87171; font-weight:700;">${formatNumber(anom)}</td>
             <td style="text-align:center;">
                 <span class="badge" style="background:rgba(59,130,246,0.15); color:#60a5fa;">${ratio0_5}%</span>
             </td>
@@ -11694,15 +12631,15 @@ function renderDistanceTables(data, zone) {
     anomList.slice(0, 100).forEach(a => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td style="font-weight:600; color:#38bdf8;">${a.l2name}</td>
-            <td>${a.l1name || '-'}</td>
+            <td style="font-weight:600; color:#38bdf8;">${a.l2name || a.l2_name}</td>
+            <td>${a.l1name || a.l1_name || '-'}</td>
             <td>${a.device || '-'}</td>
             <td>${a.vendor || '-'}</td>
             <td>${a.region || '-'}</td>
-            <td style="text-align:right; font-weight:600;">${formatNumber(a.active_onus)}</td>
-            <td style="text-align:right;">${a.min_dist}</td>
-            <td style="text-align:right;">${a.max_dist}</td>
-            <td style="text-align:right; color:#f87171; font-weight:700;">${a.variance}</td>
+            <td style="text-align:right; font-weight:600;">${formatNumber(a.active_onus || a.onu_count)}</td>
+            <td style="text-align:right;">${a.min_dist || '<5Km'}</td>
+            <td style="text-align:right;">${a.max_dist || '>9Km'}</td>
+            <td style="text-align:right; color:#f87171; font-weight:700;">${a.variance || '>4Km'}</td>
         `;
         anomTbody.appendChild(tr);
     });
@@ -11713,6 +12650,110 @@ function filterAnomalyTable() {
     const rows = document.querySelectorAll('#tbodyAnomalies tr');
     rows.forEach(r => {
         r.style.display = r.textContent.toLowerCase().includes(val) ? '' : 'none';
+    });
+}
+
+// ================= L3 CASCADED SPLITTERS VIEW =================
+function initL3Dashboard() {
+    const l3 = rawData.l3_summary || {};
+    const totalMaster = rawData.total_l2 || (rawData.total_l2_with_onus + rawData.total_empty_l2s);
+
+    const totalL2WithL3 = l3.total_l2_with_l3 || 0;
+    document.getElementById('l3StatTotalL2').textContent = formatNumber(totalL2WithL3);
+    const pct = totalMaster > 0 ? ((totalL2WithL3 / totalMaster) * 100).toFixed(1) : (l3.pct_l2_has_l3 || '0');
+    document.getElementById('l3DescTotalL2').textContent = `${pct}% ของ Splitter L2 ทั้งหมด`;
+
+    document.getElementById('l3StatTotalPorts').textContent = formatNumber(l3.total_l3_ports || 0);
+    document.getElementById('l3StatActiveCircuits').textContent = formatNumber(l3.total_l3_active || 0);
+    const activeRate = l3.total_l3_ports > 0 ? ((l3.total_l3_active / l3.total_l3_ports) * 100).toFixed(1) : '0.0';
+    document.getElementById('l3DescActiveCircuits').textContent = `${activeRate}% Port Utilization`;
+
+    document.getElementById('l3StatCircuits').textContent = formatNumber(l3.total_l3_circuits || 0);
+
+    // L3 Vendor Table
+    const tbody = document.getElementById('l3VendorTbody');
+    if (tbody) {
+        tbody.innerHTML = '';
+        const list = l3.by_vendor || [];
+        list.forEach(item => {
+            const actRate = item.total_l3_ports > 0 ? ((item.total_l3_active / item.total_l3_ports) * 100).toFixed(1) : '0.0';
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="font-weight:600; font-family:'Outfit';">${item.Vendor}</td>
+                <td style="text-align:right; font-weight:700; color:#38bdf8;">${formatNumber(item.l2_with_l3)}</td>
+                <td style="text-align:right;">${formatNumber(item.total_l3_ports)}</td>
+                <td style="text-align:right; color:#34d399; font-weight:700;">${formatNumber(item.total_l3_active)}</td>
+                <td style="text-align:right; color:#94a3b8;">${formatNumber(item.total_l3_circuits)}</td>
+                <td style="text-align:center;"><span class="badge" style="background:rgba(16,185,129,0.15); color:#34d399;">${actRate}%</span></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    renderL3Charts(l3);
+}
+
+function renderL3Charts(l3) {
+    const list = l3.by_vendor || [];
+    const vendors = list.map(x => x.Vendor);
+    const l2Counts = list.map(x => x.l2_with_l3);
+    const ports = list.map(x => x.total_l3_ports);
+    const active = list.map(x => x.total_l3_active);
+
+    const vendorColors = {
+        'Huawei': '#3b82f6',
+        'ZTE': '#10b981',
+        'Fiberhome': '#f59e0b',
+        'Nokia': '#8b5cf6',
+        'Dasan': '#ec4899',
+        'Raisecom': '#06b6d4',
+        'Gcom': '#ef4444'
+    };
+
+    if (charts.l3VendorL2) charts.l3VendorL2.destroy();
+    const ctx1 = document.getElementById('l3VendorL2Chart').getContext('2d');
+    charts.l3VendorL2 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: vendors,
+            datasets: [{
+                label: 'L2 with L3 Splitters',
+                data: l2Counts,
+                backgroundColor: vendors.map(v => vendorColors[v] || '#38bdf8'),
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+
+    if (charts.l3PortStatus) charts.l3PortStatus.destroy();
+    const ctx2 = document.getElementById('l3PortStatusChart').getContext('2d');
+    charts.l3PortStatus = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: vendors,
+            datasets: [
+                { label: 'Active Subscribers', data: active, backgroundColor: '#10b981', borderRadius: 4 },
+                { label: 'Total In-Service Ports', data: ports, backgroundColor: 'rgba(56,189,248,0.3)', borderRadius: 4 }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { color: '#f8fafc', font: { family: 'Outfit' } } } },
+            scales: {
+                x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
     });
 }
 
@@ -12483,6 +13524,31 @@ window.addEventListener('DOMContentLoaded', () => {
         
 
 
+
+        
+
+
+        
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+
+
+        
+
+
+        
+
+        
 
         // --- AUTO-HIDE SIDEBAR CONTROLLER ---
         (function initSidebarToggle() {

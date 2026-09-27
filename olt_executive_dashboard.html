@@ -4736,6 +4736,278 @@
 
 /* Responsive Styles for Mobile and Tablets */
 @media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  .sidebar-links {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    scrollbar-width: none !important;
+  }
+  .sidebar-links::-webkit-scrollbar { display: none !important; }
+  .sidebar-links a {
+    padding: 18px 16px !important;
+    font-size: 0.82rem !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    display: inline-block !important;
+  }
+  .sidebar-links a.active {
+    border-bottom-color: #06b6d4 !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-left-color: transparent !important;
+  }
+  .sidebar-links a.sub-link {
+    display: none !important;
+  }
+  body {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+  }
+  .main-content, .content, .container, .main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .grid, .grid-2, .grid-3, .stats-container, .charts-grid, .dashboard-grid, .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .card, .panel, .chart-card {
+    padding: 14px !important;
+  }
+  .table-responsive, .table-container, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+
+
+.sidebar-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 800;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar-logo span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    flex-grow: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.sidebar-links::-webkit-scrollbar { width: 4px; }
+.sidebar-links::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+}
+.sidebar-links a:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.03);
+    border-left-color: rgba(6, 182, 212, 0.3);
+}
+.sidebar-links a.active {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, transparent 100%);
+    border-left-color: #06b6d4;
+    font-weight: 600;
+}
+.sidebar-links a.sub-link {
+    padding: 8px 24px 8px 40px;
+    font-size: 0.82rem;
+    color: #64748b;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.sidebar-links a.sub-link::before {
+    content: '\2514';
+    position: absolute;
+    left: 24px;
+    color: rgba(6,182,212,0.35);
+    font-size: 0.8rem;
+}
+.sidebar-links a.sub-link:hover {
+    color: #22d3ee;
+    background: rgba(6,182,212,0.06);
+    border-left-color: rgba(6,182,212,0.2);
+}
+.sidebar-links a.sub-link.active {
+    color: #22d3ee;
+    background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, transparent 100%);
+    border-left-color: rgba(6,182,212,0.5);
+    font-weight: 600;
+}
+
+/* Responsive Styles for Mobile and Tablets */
+@media (max-width: 768px) {
   .sidebar {
     width: 100% !important;
     height: 60px !important;
@@ -4809,6 +5081,10 @@
 }
 
 </style>
+
+
+
+
 
 
 
@@ -5122,7 +5398,7 @@
         </div>
         <div class="title-area">
           <h1>XGS-PON network readiness</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 05/09/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 19/09/2026</span></div>
 
         </div>
       </div>
@@ -5130,7 +5406,7 @@
       <div class="header-controls" style="display: flex; gap: 10px;">
         <div class="date-badge">
           <span class="date-badge-dot"></span>
-          <span>ข้อมูลปรับปรุงล่าสุด: 5 กันยายน 2569</span>
+          <span>ข้อมูลปรับปรุงล่าสุด: 19 กันยายน 2569</span>
         </div>
         <button class="btn-export" onclick="triggerPrint()">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
@@ -5295,7 +5571,7 @@
     
     <!-- CHART GENERATING LOGICS AND TAB INTERACTIVITY -->
   <script>
-    const execStatsData = {"total_2026": 12621, "total_xgs": 22231, "total_xgs_olts": 2126, "total_l1": 242564, "xgs_no_edfa_dvb": 403, "xgs_sales_ready": {"native_xgs_edfa": 176, "no_edfa_dvb": 403, "fwdm_installed": 657, "not_ready_gpon_no_fwdm": 890, "total_sales_ready": 1236}, "vendor_2025": {"HUAWEI": 2442, "GCOM": 2242, "ZTE": 1945, "DASAN": 1884, "FIBERHOME": 1874, "RAISECOM": 1728, "NOKIA": 91}, "vendor_2026": {"HUAWEI": 2539, "GCOM": 2236, "FIBERHOME": 2108, "ZTE": 1987, "DASAN": 1858, "RAISECOM": 1716, "NOKIA": 177}, "xgs": {"FIBERHOME": 777, "HUAWEI": 849, "ZTE": 414, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 86}, "xgs_l1": {"FIBERHOME": 6679, "HUAWEI": 9821, "ZTE": 4339, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 1392}, "improvement": {"FIBERHOME": 85, "HUAWEI": 191, "ZTE": 55, "DASAN": 66, "GCOM": 31, "RAISECOM": 35, "NOKIA": 9}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 3, "ZTE": 3, "DASAN": 8, "GCOM": 4, "RAISECOM": 16, "NOKIA": 0}, "bma_eec": {"total_2026": 2686, "total_xgs": 14606, "total_xgs_olts": 987, "total_l1": 112156, "xgs_no_edfa_dvb": 214, "xgs_sales_ready": {"native_xgs_edfa": 115, "no_edfa_dvb": 214, "fwdm_installed": 323, "not_ready_gpon_no_fwdm": 335, "total_sales_ready": 652}, "vendor_2025": {"HUAWEI": 940, "FIBERHOME": 727, "ZTE": 633, "DASAN": 107, "GCOM": 1, "RAISECOM": 1, "NOKIA": 0}, "vendor_2026": {"HUAWEI": 1095, "FIBERHOME": 766, "ZTE": 716, "DASAN": 107, "GCOM": 1, "RAISECOM": 1}, "xgs": {"FIBERHOME": 385, "HUAWEI": 436, "ZTE": 166, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "xgs_l1": {"FIBERHOME": 4738, "HUAWEI": 7249, "ZTE": 2619, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "improvement": {"FIBERHOME": 39, "HUAWEI": 98, "ZTE": 16, "DASAN": 25, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 1, "ZTE": 2, "DASAN": 3, "GCOM": 1, "RAISECOM": 6, "NOKIA": 0}}};
+    const execStatsData = {"total_2026": 12622, "total_xgs": 22760, "total_xgs_olts": 2179, "total_l1": 242852, "xgs_no_edfa_dvb": 412, "xgs_sales_ready": {"native_xgs_edfa": 182, "no_edfa_dvb": 412, "fwdm_installed": 1028, "not_ready_gpon_no_fwdm": 557, "total_sales_ready": 1622}, "vendor_2025": {"HUAWEI": 2516, "GCOM": 2156, "ZTE": 1989, "FIBERHOME": 1883, "DASAN": 1863, "RAISECOM": 1708, "NOKIA": 91}, "vendor_2026": {"HUAWEI": 2612, "GCOM": 2150, "FIBERHOME": 2118, "ZTE": 2034, "DASAN": 1837, "RAISECOM": 1694, "NOKIA": 177}, "xgs": {"FIBERHOME": 790, "HUAWEI": 875, "ZTE": 428, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 86}, "xgs_l1": {"FIBERHOME": 6866, "HUAWEI": 10035, "ZTE": 4467, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 1392}, "improvement": {"FIBERHOME": 87, "HUAWEI": 195, "ZTE": 56, "DASAN": 66, "GCOM": 28, "RAISECOM": 34, "NOKIA": 9}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 3, "ZTE": 3, "DASAN": 8, "GCOM": 4, "RAISECOM": 16, "NOKIA": 0}, "bma_eec": {"total_2026": 2693, "total_xgs": 14938, "total_xgs_olts": 1010, "total_l1": 112356, "xgs_no_edfa_dvb": 223, "xgs_sales_ready": {"native_xgs_edfa": 120, "no_edfa_dvb": 223, "fwdm_installed": 478, "not_ready_gpon_no_fwdm": 189, "total_sales_ready": 821}, "vendor_2025": {"HUAWEI": 950, "FIBERHOME": 728, "ZTE": 630, "DASAN": 97, "GCOM": 1, "RAISECOM": 1, "NOKIA": 0}, "vendor_2026": {"HUAWEI": 1106, "FIBERHOME": 768, "ZTE": 720, "DASAN": 97, "GCOM": 1, "RAISECOM": 1}, "xgs": {"FIBERHOME": 396, "HUAWEI": 442, "ZTE": 172, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "xgs_l1": {"FIBERHOME": 4909, "HUAWEI": 7318, "ZTE": 2711, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "improvement": {"FIBERHOME": 39, "HUAWEI": 97, "ZTE": 16, "DASAN": 24, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 1, "ZTE": 2, "DASAN": 3, "GCOM": 1, "RAISECOM": 6, "NOKIA": 0}}};
     let distChartInstance = null;
     let xgsChartInstance = null;
 
@@ -6033,6 +6309,31 @@
         
 
 
+
+        
+
+
+        
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+
+
+        
+
+
+        
+
+        
 
         // --- AUTO-HIDE SIDEBAR CONTROLLER ---
         (function initSidebarToggle() {
