@@ -1558,6 +1558,10 @@
 
 
 
+
+
+
+
 <style>
         /* === AUTO-HIDE SIDEBAR & FULL SCREEN PAGE LAYOUT === */
         html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
@@ -1805,7 +1809,8 @@
         <a href="olt_onu_dashboard.html" id="nav-olt-onu">OLT-ONU</a>
         <a href="radius_health_dashboard.html" id="nav-radius">Radius</a>
     </div>
-    </nav>
+    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
+</nav>
 
 <div class="header">
   <div>
@@ -2133,6 +2138,22 @@ window.addEventListener('error', function(e) {
     document.body.appendChild(errorDiv);
 });
 setTimeout(checkLocalEnv, 300);
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
 
 
         
