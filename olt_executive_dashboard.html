@@ -5123,6 +5123,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <style>
         /* === AUTO-HIDE SIDEBAR & FULL SCREEN PAGE LAYOUT === */
         html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
@@ -5371,8 +5380,7 @@
         <a href="olt_onu_dashboard.html" id="nav-olt-onu">OLT-ONU</a>
         <a href="radius_health_dashboard.html" id="nav-radius">Radius</a>
     </div>
-    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
-</nav>
+    </nav>
 
 
 
@@ -5403,7 +5411,7 @@
         </div>
         <div class="title-area">
           <h1>XGS-PON network readiness</h1>
-            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 27/09/2026</span></div>
+            <div style="margin-top: 8px;"><span style="background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(99, 102, 241, 0.35); color: #a5b4fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.04em;">📅 AS OF 11/10/2026</span></div>
 
         </div>
       </div>
@@ -5411,7 +5419,7 @@
       <div class="header-controls" style="display: flex; gap: 10px;">
         <div class="date-badge">
           <span class="date-badge-dot"></span>
-          <span>ข้อมูลปรับปรุงล่าสุด: 27 กันยายน 2569</span>
+          <span>ข้อมูลปรับปรุงล่าสุด: 11 ตุลาคม 2569</span>
         </div>
         <button class="btn-export" onclick="triggerPrint()">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
@@ -5576,7 +5584,7 @@
     
     <!-- CHART GENERATING LOGICS AND TAB INTERACTIVITY -->
   <script>
-    const execStatsData = {"total_2026": 12614, "total_xgs": 26209, "total_xgs_olts": 2550, "total_l1": 244980, "xgs_no_edfa_dvb": 438, "xgs_sales_ready": {"native_xgs_edfa": 230, "no_edfa_dvb": 438, "fwdm_installed": 1235, "not_ready_gpon_no_fwdm": 647, "total_sales_ready": 1903}, "vendor_2025": {"HUAWEI": 2551, "GCOM": 2098, "ZTE": 2030, "FIBERHOME": 1893, "DASAN": 1843, "RAISECOM": 1700, "NOKIA": 91}, "vendor_2026": {"HUAWEI": 2644, "FIBERHOME": 2127, "GCOM": 2092, "ZTE": 2075, "DASAN": 1814, "RAISECOM": 1685, "NOKIA": 177}, "xgs": {"FIBERHOME": 891, "HUAWEI": 1047, "ZTE": 526, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 86}, "xgs_l1": {"FIBERHOME": 8226, "HUAWEI": 11197, "ZTE": 5394, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 1392}, "improvement": {"FIBERHOME": 87, "HUAWEI": 197, "ZTE": 63, "DASAN": 65, "GCOM": 26, "RAISECOM": 34, "NOKIA": 9}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 3, "ZTE": 3, "DASAN": 8, "GCOM": 4, "RAISECOM": 16, "NOKIA": 0}, "bma_eec": {"total_2026": 2691, "total_xgs": 16703, "total_xgs_olts": 1147, "total_l1": 112840, "xgs_no_edfa_dvb": 236, "xgs_sales_ready": {"native_xgs_edfa": 159, "no_edfa_dvb": 236, "fwdm_installed": 528, "not_ready_gpon_no_fwdm": 224, "total_sales_ready": 923}, "vendor_2025": {"HUAWEI": 957, "FIBERHOME": 728, "ZTE": 629, "DASAN": 90, "GCOM": 1, "RAISECOM": 1, "NOKIA": 0}, "vendor_2026": {"HUAWEI": 1112, "FIBERHOME": 768, "ZTE": 719, "DASAN": 90, "GCOM": 1, "RAISECOM": 1}, "xgs": {"FIBERHOME": 452, "HUAWEI": 500, "ZTE": 195, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "xgs_l1": {"FIBERHOME": 5795, "HUAWEI": 7785, "ZTE": 3123, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "improvement": {"FIBERHOME": 39, "HUAWEI": 98, "ZTE": 16, "DASAN": 23, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 1, "ZTE": 2, "DASAN": 3, "GCOM": 1, "RAISECOM": 6, "NOKIA": 0}}};
+    const execStatsData = {"total_2026": 12610, "total_xgs": 29289, "total_xgs_olts": 2836, "total_l1": 247000, "xgs_no_edfa_dvb": 457, "xgs_sales_ready": {"native_xgs_edfa": 258, "no_edfa_dvb": 457, "fwdm_installed": 1298, "not_ready_gpon_no_fwdm": 823, "total_sales_ready": 2013}, "vendor_2025": {"HUAWEI": 2605, "ZTE": 2116, "GCOM": 1996, "FIBERHOME": 1920, "DASAN": 1801, "RAISECOM": 1677, "NOKIA": 91}, "vendor_2026": {"HUAWEI": 2696, "ZTE": 2161, "FIBERHOME": 2154, "GCOM": 1989, "DASAN": 1772, "RAISECOM": 1661, "NOKIA": 177}, "xgs": {"FIBERHOME": 984, "HUAWEI": 1133, "ZTE": 633, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 86}, "xgs_l1": {"FIBERHOME": 9709, "HUAWEI": 11754, "ZTE": 6434, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 1392}, "improvement": {"FIBERHOME": 89, "HUAWEI": 201, "ZTE": 70, "DASAN": 63, "GCOM": 21, "RAISECOM": 33, "NOKIA": 9}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 3, "ZTE": 3, "DASAN": 8, "GCOM": 4, "RAISECOM": 16, "NOKIA": 0}, "bma_eec": {"total_2026": 2691, "total_xgs": 18660, "total_xgs_olts": 1254, "total_l1": 113524, "xgs_no_edfa_dvb": 247, "xgs_sales_ready": {"native_xgs_edfa": 181, "no_edfa_dvb": 247, "fwdm_installed": 552, "not_ready_gpon_no_fwdm": 274, "total_sales_ready": 980}, "vendor_2025": {"HUAWEI": 960, "FIBERHOME": 728, "ZTE": 630, "DASAN": 87, "GCOM": 1, "RAISECOM": 1, "NOKIA": 0}, "vendor_2026": {"HUAWEI": 1115, "FIBERHOME": 767, "ZTE": 720, "DASAN": 87, "GCOM": 1, "RAISECOM": 1}, "xgs": {"FIBERHOME": 518, "HUAWEI": 516, "ZTE": 220, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "xgs_l1": {"FIBERHOME": 7079, "HUAWEI": 7924, "ZTE": 3657, "DASAN": 0, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "improvement": {"FIBERHOME": 39, "HUAWEI": 97, "ZTE": 16, "DASAN": 23, "GCOM": 0, "RAISECOM": 0, "NOKIA": 0}, "marketing_10g": {"FIBERHOME": 0, "HUAWEI": 1, "ZTE": 2, "DASAN": 3, "GCOM": 1, "RAISECOM": 6, "NOKIA": 0}}};
     let distChartInstance = null;
     let xgsChartInstance = null;
 
@@ -6347,63 +6355,54 @@
         
 
 
-        // --- RUN CHECK LOGIC (LOCAL ONLY) ---
-        function checkLocalEnv() {
-            const btn = document.getElementById('runCheckBtn');
-            if (btn) {
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-                btn.style.display = isLocal ? 'inline-block' : 'none';
-            }
-        }
-
-        async function triggerRunCheck() {
-            const btn = document.getElementById('runCheckBtn');
-            if (!btn) return;
-            const originalHTML = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = '⏳ Processing... Please wait';
-            btn.style.background = 'rgba(239,68,68,0.2)';
-            btn.style.borderColor = 'rgba(239,68,68,0.4)';
-            btn.style.color = '#ef4444';
-            btn.style.cursor = 'not-allowed';
-            
-            // Set 10 minutes timeout for fetch
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 600000); 
-
-            try {
-                const resp = await fetch('http://127.0.0.1:5050/api/run-check/nav-executive', { 
-                    method: 'POST',
-                    signal: controller.signal
-                });
-                clearTimeout(timeoutId);
-                const data = await resp.json();
-                if (resp.ok) {
-                    alert(data.message || 'สแกนและประมวลผลเสร็จสิ้น!');
-                    window.location.reload();
-                } else {
-                    alert('เกิดข้อผิดพลาด: ' + (data.message || 'Unknown Error'));
-                }
-            } catch (e) {
-                clearTimeout(timeoutId);
-                if (e.name === 'AbortError') {
-                    alert('การเชื่อมต่อหมดเวลา (Timeout) เนื่องจากใช้เวลาประมวลผลข้อมูลขนาดใหญ่นานเกินไป');
-                } else {
-                    alert('ไม่สามารถเชื่อมต่อ Local API Server ได้\n1. ตรวจสอบว่าเปิดเว็บผ่าน http://localhost:9000 หรือ http://127.0.0.1:9000 เท่านั้น (ห้ามเปิดผ่าน file://)\n2. หากยังไม่ได้ผล ให้ลองรัน: python3 /Users/bbae/GPTCodex/scrip/finalize_dashboard.py อีกครั้ง');
-                }
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalHTML;
-                btn.style.background = 'rgba(245,158,11,0.15)';
-                btn.style.borderColor = 'rgba(245,158,11,0.35)';
-                btn.style.color = '#f59e0b';
-                btn.style.cursor = 'pointer';
-            }
-        }
-        setTimeout(checkLocalEnv, 300);
-        // --- END RUN CHECK LOGIC ---
+        
 
         
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+        
+
+        
+
+        
+
+
+
+        
+
+
+        
+
+        
+
+        
+
+
+
+        
+
+
+        
+
+        
+
+        
+
+
 
         
 

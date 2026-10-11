@@ -2433,6 +2433,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <style>
         /* === AUTO-HIDE SIDEBAR & FULL SCREEN PAGE LAYOUT === */
         html { scrollbar-gutter: stable !important; overflow-y: scroll !important; }
@@ -2679,8 +2688,7 @@
         <a href="olt_onu_dashboard.html" id="nav-olt-onu">OLT-ONU</a>
         <a href="radius_health_dashboard.html" id="nav-radius">Radius</a>
     </div>
-    <button id="runCheckBtn" style="display:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35); color:#f59e0b; font-weight:600; cursor:pointer; padding:10px 16px; border-radius:8px; font-family:'Outfit',sans-serif; margin:12px 16px 8px; width:calc(100% - 32px); text-align:center; font-size:0.85rem;" onclick="triggerRunCheck()">⚡ RUN-CHECK</button>
-</nav>
+    </nav>
 
 <!-- NAV -->
 <nav class="nav">
@@ -2698,7 +2706,7 @@
   <div class="hero-badge">📶 Drop Wire Analysis · Circuit 96</div>
   <h1>Drop Wire Distance Dashboard</h1>
   <p class="hero-sub">วิเคราะห์ระยะสาย Drop Wire (DW) ของลูกค้า Circuit ID 96 แยกตามภูมิภาค · ตัดข้อมูล DW &lt; 0 และ &gt; 1,200 ม. ออก</p>
-  <div class="as-of">📅 AS OF 10/08/2026 · ข้อมูลจาก onu_range</div>
+  <div class="as-of">📅 AS OF 26/09/2026 · ข้อมูลจาก onu_range</div>
 </div>
 
 <div class="container">
@@ -2764,697 +2772,688 @@ const DATA = {
   },
   "regions": {
     "กรุงเทพและปริมณฑล": {
-      "short": 937270,
-      "mid": 204318,
-      "long": 41194,
-      "total": 1182782,
-      "excluded": 313395,
-      "avg_dw": 175.9
+      "short": 1286662,
+      "mid": 193223,
+      "long": 18695,
+      "total": 1498580,
+      "excluded": 0,
+      "avg_dw": 149.1
     },
     "ภาคกลาง": {
-      "short": 201389,
-      "mid": 122676,
-      "long": 15957,
-      "total": 340022,
-      "excluded": 17079,
-      "avg_dw": 267.0
+      "short": 215122,
+      "mid": 130749,
+      "long": 13851,
+      "total": 359722,
+      "excluded": 0,
+      "avg_dw": 260.6
     },
     "ภาคตะวันออก": {
-      "short": 150868,
-      "mid": 63078,
-      "long": 7288,
-      "total": 221234,
-      "excluded": 17032,
-      "avg_dw": 222.9
+      "short": 163782,
+      "mid": 68704,
+      "long": 7278,
+      "total": 239764,
+      "excluded": 0,
+      "avg_dw": 221.6
     },
     "ภาคเหนือ": {
-      "short": 183245,
-      "mid": 119176,
-      "long": 13876,
-      "total": 316297,
-      "excluded": 18234,
-      "avg_dw": 271.3
+      "short": 196879,
+      "mid": 127616,
+      "long": 12070,
+      "total": 336565,
+      "excluded": 0,
+      "avg_dw": 265.3
     },
     "ภาคตะวันออกเฉียงเหนือ": {
-      "short": 378253,
-      "mid": 205770,
-      "long": 20170,
-      "total": 604193,
-      "excluded": 25327,
-      "avg_dw": 247.3
+      "short": 395274,
+      "mid": 215836,
+      "long": 18982,
+      "total": 630092,
+      "excluded": 0,
+      "avg_dw": 245.5
     },
     "ภาคใต้": {
-      "short": 179168,
-      "mid": 98550,
-      "long": 11450,
-      "total": 289168,
-      "excluded": 9653,
-      "avg_dw": 252.6
-    },
-    "อื่นๆ": {
-      "short": 0,
-      "mid": 0,
-      "long": 0,
-      "total": 0,
-      "excluded": 69,
-      "avg_dw": 0
+      "short": 182429,
+      "mid": 101836,
+      "long": 10231,
+      "total": 294496,
+      "excluded": 0,
+      "avg_dw": 250.4
     }
   },
   "provinces": {
     "กรุงเทพและปริมณฑล": [
       {
         "name": "กรุงเทพมหานคร",
-        "short": 537879,
-        "mid": 99151,
-        "long": 22599,
-        "total": 659629,
-        "avg_dw": 165.6
+        "short": 786288,
+        "mid": 92664,
+        "long": 9553,
+        "total": 888505,
+        "avg_dw": 140.0
       },
       {
         "name": "นนทบุรี",
-        "short": 121940,
-        "mid": 28843,
-        "long": 5922,
-        "total": 156705,
-        "avg_dw": 185.1
+        "short": 157896,
+        "mid": 23712,
+        "long": 2357,
+        "total": 183965,
+        "avg_dw": 148.8
       },
       {
         "name": "สมุทรปราการ",
-        "short": 121370,
-        "mid": 23021,
-        "long": 4667,
-        "total": 149058,
-        "avg_dw": 165.9
+        "short": 153527,
+        "mid": 22798,
+        "long": 1897,
+        "total": 178222,
+        "avg_dw": 143.2
       },
       {
         "name": "ปทุมธานี",
-        "short": 106020,
-        "mid": 26466,
-        "long": 4642,
-        "total": 137128,
-        "avg_dw": 182.3
+        "short": 131767,
+        "mid": 26326,
+        "long": 2850,
+        "total": 160943,
+        "avg_dw": 163.1
       },
       {
         "name": "นครปฐม",
-        "short": 25917,
-        "mid": 15447,
-        "long": 2237,
-        "total": 43601,
-        "avg_dw": 265.1
+        "short": 30139,
+        "mid": 16139,
+        "long": 1369,
+        "total": 47647,
+        "avg_dw": 241.3
       },
       {
         "name": "สมุทรสาคร",
-        "short": 24144,
-        "mid": 11390,
-        "long": 1127,
-        "total": 36661,
-        "avg_dw": 232.1
+        "short": 27045,
+        "mid": 11584,
+        "long": 669,
+        "total": 39298,
+        "avg_dw": 215.1
       }
     ],
     "ภาคกลาง": [
       {
         "name": "พระนครศรีอยุธยา",
-        "short": 26114,
-        "mid": 14209,
-        "long": 1465,
-        "total": 41788,
-        "avg_dw": 246.9
+        "short": 27648,
+        "mid": 14840,
+        "long": 1328,
+        "total": 43816,
+        "avg_dw": 243.3
       },
       {
         "name": "ฉะเชิงเทรา",
-        "short": 17965,
-        "mid": 9749,
-        "long": 1809,
-        "total": 29523,
-        "avg_dw": 266.4
+        "short": 19192,
+        "mid": 10885,
+        "long": 1790,
+        "total": 31867,
+        "avg_dw": 266.3
       },
       {
         "name": "นครสวรรค์",
-        "short": 17517,
-        "mid": 9286,
-        "long": 1318,
-        "total": 28121,
-        "avg_dw": 260.2
+        "short": 18693,
+        "mid": 9482,
+        "long": 1005,
+        "total": 29180,
+        "avg_dw": 247.6
       },
       {
         "name": "ราชบุรี",
-        "short": 12574,
-        "mid": 12871,
-        "long": 1915,
-        "total": 27360,
-        "avg_dw": 328.3
+        "short": 13299,
+        "mid": 13665,
+        "long": 1696,
+        "total": 28660,
+        "avg_dw": 319.5
       },
       {
         "name": "สระบุรี",
-        "short": 17715,
-        "mid": 6301,
-        "long": 600,
-        "total": 24616,
-        "avg_dw": 210.7
+        "short": 18382,
+        "mid": 6553,
+        "long": 469,
+        "total": 25404,
+        "avg_dw": 206.5
       },
       {
         "name": "กำแพงเพชร",
-        "short": 12143,
-        "mid": 7897,
-        "long": 907,
-        "total": 20947,
-        "avg_dw": 268.8
+        "short": 12955,
+        "mid": 8456,
+        "long": 754,
+        "total": 22165,
+        "avg_dw": 261.9
       },
       {
         "name": "เพชรบุรี",
-        "short": 10479,
-        "mid": 8809,
-        "long": 864,
-        "total": 20152,
-        "avg_dw": 290.7
+        "short": 10850,
+        "mid": 9115,
+        "long": 788,
+        "total": 20753,
+        "avg_dw": 286.5
       },
       {
         "name": "ประจวบคีรีขันธ์",
-        "short": 10118,
-        "mid": 7869,
-        "long": 1436,
-        "total": 19423,
-        "avg_dw": 304.9
-      },
-      {
-        "name": "ลพบุรี",
-        "short": 12661,
-        "mid": 4918,
-        "long": 423,
-        "total": 18002,
-        "avg_dw": 215.3
+        "short": 10798,
+        "mid": 8181,
+        "long": 1153,
+        "total": 20132,
+        "avg_dw": 290.6
       },
       {
         "name": "กาญจนบุรี",
-        "short": 9162,
-        "mid": 7504,
-        "long": 967,
-        "total": 17633,
-        "avg_dw": 299.4
+        "short": 9870,
+        "mid": 8144,
+        "long": 864,
+        "total": 18878,
+        "avg_dw": 292.5
+      },
+      {
+        "name": "ลพบุรี",
+        "short": 13277,
+        "mid": 5178,
+        "long": 314,
+        "total": 18769,
+        "avg_dw": 210.9
       },
       {
         "name": "ตาก",
-        "short": 10325,
-        "mid": 5428,
-        "long": 689,
-        "total": 16442,
-        "avg_dw": 252.2
+        "short": 11693,
+        "mid": 6068,
+        "long": 510,
+        "total": 18271,
+        "avg_dw": 241.4
       },
       {
         "name": "ปราจีนบุรี",
-        "short": 8212,
-        "mid": 3524,
-        "long": 605,
-        "total": 12341,
-        "avg_dw": 237.9
+        "short": 9189,
+        "mid": 3928,
+        "long": 604,
+        "total": 13721,
+        "avg_dw": 236.5
       },
       {
         "name": "สุพรรณบุรี",
-        "short": 6297,
-        "mid": 4865,
-        "long": 497,
-        "total": 11659,
-        "avg_dw": 282.2
+        "short": 6985,
+        "mid": 5140,
+        "long": 367,
+        "total": 12492,
+        "avg_dw": 268.6
       },
       {
         "name": "สระแก้ว",
-        "short": 5761,
-        "mid": 3501,
-        "long": 310,
-        "total": 9572,
-        "avg_dw": 257.1
+        "short": 6299,
+        "mid": 3906,
+        "long": 300,
+        "total": 10505,
+        "avg_dw": 256.0
       },
       {
         "name": "ชัยนาท",
-        "short": 5231,
-        "mid": 3281,
-        "long": 419,
-        "total": 8931,
-        "avg_dw": 267.9
+        "short": 5863,
+        "mid": 3730,
+        "long": 353,
+        "total": 9946,
+        "avg_dw": 260.7
       },
       {
         "name": "อุทัยธานี",
-        "short": 4564,
-        "mid": 3087,
-        "long": 482,
-        "total": 8133,
-        "avg_dw": 285.9
+        "short": 4828,
+        "mid": 3355,
+        "long": 460,
+        "total": 8643,
+        "avg_dw": 282.6
       },
       {
         "name": "อ่างทอง",
-        "short": 4536,
-        "mid": 3096,
-        "long": 382,
-        "total": 8014,
-        "avg_dw": 277.9
+        "short": 4653,
+        "mid": 3249,
+        "long": 349,
+        "total": 8251,
+        "avg_dw": 275.7
       },
       {
         "name": "สมุทรสงคราม",
-        "short": 3088,
-        "mid": 2941,
-        "long": 405,
-        "total": 6434,
-        "avg_dw": 315.4
+        "short": 3267,
+        "mid": 3012,
+        "long": 360,
+        "total": 6639,
+        "avg_dw": 305.3
       },
       {
         "name": "นครนายก",
-        "short": 3514,
-        "mid": 1931,
-        "long": 268,
-        "total": 5713,
-        "avg_dw": 258.7
+        "short": 3725,
+        "mid": 2208,
+        "long": 264,
+        "total": 6197,
+        "avg_dw": 260.6
       },
       {
         "name": "สิงห์บุรี",
-        "short": 3413,
-        "mid": 1609,
-        "long": 196,
-        "total": 5218,
-        "avg_dw": 242.1
+        "short": 3656,
+        "mid": 1654,
+        "long": 123,
+        "total": 5433,
+        "avg_dw": 228.6
       }
     ],
     "ภาคตะวันออก": [
       {
         "name": "ชลบุรี",
-        "short": 106678,
-        "mid": 37173,
-        "long": 3798,
-        "total": 147649,
-        "avg_dw": 202.2
+        "short": 115502,
+        "mid": 39819,
+        "long": 3755,
+        "total": 159076,
+        "avg_dw": 200.5
       },
       {
         "name": "ระยอง",
-        "short": 30143,
-        "mid": 18287,
-        "long": 2366,
-        "total": 50796,
-        "avg_dw": 266.1
+        "short": 33109,
+        "mid": 20260,
+        "long": 2383,
+        "total": 55752,
+        "avg_dw": 263.9
       },
       {
         "name": "จันทบุรี",
-        "short": 9725,
-        "mid": 5114,
-        "long": 663,
-        "total": 15502,
-        "avg_dw": 253.5
+        "short": 10335,
+        "mid": 5660,
+        "long": 666,
+        "total": 16661,
+        "avg_dw": 254.1
       },
       {
         "name": "ตราด",
-        "short": 4322,
-        "mid": 2504,
-        "long": 461,
-        "total": 7287,
-        "avg_dw": 277.0
+        "short": 4836,
+        "mid": 2965,
+        "long": 474,
+        "total": 8275,
+        "avg_dw": 278.3
       }
     ],
     "ภาคเหนือ": [
       {
         "name": "เชียงใหม่",
-        "short": 48505,
-        "mid": 29247,
-        "long": 3914,
-        "total": 81666,
-        "avg_dw": 268.9
+        "short": 51995,
+        "mid": 32065,
+        "long": 3630,
+        "total": 87690,
+        "avg_dw": 266.1
       },
       {
         "name": "เชียงราย",
-        "short": 23143,
-        "mid": 17679,
-        "long": 1424,
-        "total": 42246,
-        "avg_dw": 275.9
+        "short": 24963,
+        "mid": 18620,
+        "long": 1401,
+        "total": 44984,
+        "avg_dw": 273.2
       },
       {
         "name": "พิษณุโลก",
-        "short": 22717,
-        "mid": 12632,
-        "long": 1604,
-        "total": 36953,
-        "avg_dw": 256.3
+        "short": 24618,
+        "mid": 13597,
+        "long": 1299,
+        "total": 39514,
+        "avg_dw": 248.5
       },
       {
         "name": "เพชรบูรณ์",
-        "short": 14484,
-        "mid": 8872,
-        "long": 1209,
-        "total": 24565,
-        "avg_dw": 270.8
+        "short": 15665,
+        "mid": 9222,
+        "long": 964,
+        "total": 25851,
+        "avg_dw": 259.1
       },
       {
         "name": "ลำปาง",
-        "short": 13963,
-        "mid": 8173,
-        "long": 869,
-        "total": 23005,
-        "avg_dw": 260.2
+        "short": 15432,
+        "mid": 8907,
+        "long": 714,
+        "total": 25053,
+        "avg_dw": 253.3
       },
       {
         "name": "สุโขทัย",
-        "short": 10103,
-        "mid": 6679,
-        "long": 913,
-        "total": 17695,
-        "avg_dw": 278.0
+        "short": 11241,
+        "mid": 7209,
+        "long": 735,
+        "total": 19185,
+        "avg_dw": 264.5
       },
       {
         "name": "ลำพูน",
-        "short": 9060,
-        "mid": 7591,
-        "long": 916,
-        "total": 17567,
-        "avg_dw": 300.9
+        "short": 9657,
+        "mid": 8072,
+        "long": 792,
+        "total": 18521,
+        "avg_dw": 292.8
       },
       {
         "name": "อุตรดิตถ์",
-        "short": 10265,
-        "mid": 6057,
-        "long": 624,
-        "total": 16946,
-        "avg_dw": 260.3
+        "short": 10758,
+        "mid": 6252,
+        "long": 476,
+        "total": 17486,
+        "avg_dw": 251.7
       },
       {
         "name": "แพร่",
-        "short": 9177,
-        "mid": 6407,
-        "long": 732,
-        "total": 16316,
-        "avg_dw": 277.2
+        "short": 9753,
+        "mid": 6834,
+        "long": 572,
+        "total": 17159,
+        "avg_dw": 269.5
       },
       {
         "name": "พิจิตร",
-        "short": 8323,
-        "mid": 4932,
-        "long": 642,
-        "total": 13897,
-        "avg_dw": 265.7
+        "short": 8761,
+        "mid": 5234,
+        "long": 551,
+        "total": 14546,
+        "avg_dw": 259.3
       },
       {
         "name": "พะเยา",
-        "short": 7174,
-        "mid": 6045,
-        "long": 514,
-        "total": 13733,
-        "avg_dw": 285.7
+        "short": 7455,
+        "mid": 6454,
+        "long": 464,
+        "total": 14373,
+        "avg_dw": 283.2
       },
       {
         "name": "น่าน",
-        "short": 5209,
-        "mid": 3950,
-        "long": 438,
-        "total": 9597,
-        "avg_dw": 285.6
+        "short": 5402,
+        "mid": 4186,
+        "long": 390,
+        "total": 9978,
+        "avg_dw": 281.9
       },
       {
         "name": "แม่ฮ่องสอน",
-        "short": 1122,
-        "mid": 912,
-        "long": 77,
-        "total": 2111,
-        "avg_dw": 285.1
+        "short": 1179,
+        "mid": 964,
+        "long": 82,
+        "total": 2225,
+        "avg_dw": 286.1
       }
     ],
     "ภาคตะวันออกเฉียงเหนือ": [
       {
         "name": "นครราชสีมา",
-        "short": 61632,
-        "mid": 32904,
-        "long": 3357,
-        "total": 97893,
-        "avg_dw": 244.7
+        "short": 65508,
+        "mid": 34537,
+        "long": 3263,
+        "total": 103308,
+        "avg_dw": 242.7
       },
       {
         "name": "ขอนแก่น",
-        "short": 39844,
-        "mid": 19589,
-        "long": 1725,
-        "total": 61158,
-        "avg_dw": 236.8
+        "short": 43205,
+        "mid": 20692,
+        "long": 1240,
+        "total": 65137,
+        "avg_dw": 229.5
       },
       {
         "name": "อุบลราชธานี",
-        "short": 31702,
-        "mid": 17925,
-        "long": 1925,
-        "total": 51552,
-        "avg_dw": 253.1
+        "short": 32635,
+        "mid": 18653,
+        "long": 1899,
+        "total": 53187,
+        "avg_dw": 252.6
       },
       {
         "name": "บุรีรัมย์",
-        "short": 29616,
-        "mid": 17927,
-        "long": 1558,
-        "total": 49101,
-        "avg_dw": 252.9
+        "short": 31036,
+        "mid": 18991,
+        "long": 1535,
+        "total": 51562,
+        "avg_dw": 252.0
       },
       {
         "name": "อุดรธานี",
-        "short": 29358,
-        "mid": 14163,
-        "long": 1530,
-        "total": 45051,
-        "avg_dw": 238.2
+        "short": 29931,
+        "mid": 14601,
+        "long": 1277,
+        "total": 45809,
+        "avg_dw": 234.7
       },
       {
         "name": "สุรินทร์",
-        "short": 21210,
-        "mid": 13047,
-        "long": 992,
-        "total": 35249,
-        "avg_dw": 253.0
+        "short": 21830,
+        "mid": 13532,
+        "long": 987,
+        "total": 36349,
+        "avg_dw": 252.7
       },
       {
         "name": "ชัยภูมิ",
-        "short": 19951,
-        "mid": 11079,
-        "long": 1069,
-        "total": 32099,
-        "avg_dw": 247.4
+        "short": 21494,
+        "mid": 11602,
+        "long": 954,
+        "total": 34050,
+        "avg_dw": 241.3
       },
       {
         "name": "ร้อยเอ็ด",
-        "short": 18248,
-        "mid": 12076,
-        "long": 1074,
-        "total": 31398,
-        "avg_dw": 265.0
+        "short": 19065,
+        "mid": 12890,
+        "long": 1051,
+        "total": 33006,
+        "avg_dw": 264.9
       },
       {
         "name": "มหาสารคาม",
-        "short": 17271,
-        "mid": 9500,
-        "long": 936,
-        "total": 27707,
-        "avg_dw": 249.6
+        "short": 17615,
+        "mid": 9838,
+        "long": 922,
+        "total": 28375,
+        "avg_dw": 249.9
       },
       {
         "name": "ศรีสะเกษ",
-        "short": 16024,
-        "mid": 8693,
-        "long": 1072,
-        "total": 25789,
-        "avg_dw": 253.4
+        "short": 16489,
+        "mid": 9080,
+        "long": 1056,
+        "total": 26625,
+        "avg_dw": 253.3
       },
       {
         "name": "สกลนคร",
-        "short": 14159,
-        "mid": 8177,
-        "long": 784,
-        "total": 23120,
-        "avg_dw": 255.9
+        "short": 14675,
+        "mid": 8503,
+        "long": 734,
+        "total": 23912,
+        "avg_dw": 253.5
       },
       {
         "name": "กาฬสินธุ์",
-        "short": 13144,
-        "mid": 8591,
-        "long": 712,
-        "total": 22447,
-        "avg_dw": 262.6
+        "short": 13586,
+        "mid": 9065,
+        "long": 642,
+        "total": 23293,
+        "avg_dw": 261.2
       },
       {
         "name": "เลย",
-        "short": 11529,
-        "mid": 5939,
-        "long": 582,
-        "total": 18050,
-        "avg_dw": 241.1
+        "short": 11904,
+        "mid": 6348,
+        "long": 599,
+        "total": 18851,
+        "avg_dw": 243.6
       },
       {
         "name": "หนองคาย",
-        "short": 10548,
-        "mid": 5197,
-        "long": 625,
-        "total": 16370,
-        "avg_dw": 245.6
+        "short": 10708,
+        "mid": 5452,
+        "long": 562,
+        "total": 16722,
+        "avg_dw": 244.7
       },
       {
         "name": "นครพนม",
-        "short": 9281,
-        "mid": 5202,
-        "long": 499,
-        "total": 14982,
-        "avg_dw": 252.3
+        "short": 9663,
+        "mid": 5436,
+        "long": 525,
+        "total": 15624,
+        "avg_dw": 252.8
       },
       {
         "name": "ยโสธร",
-        "short": 9637,
-        "mid": 4008,
-        "long": 430,
-        "total": 14075,
-        "avg_dw": 227.9
+        "short": 9787,
+        "mid": 4102,
+        "long": 422,
+        "total": 14311,
+        "avg_dw": 227.8
       },
       {
         "name": "อำนาจเจริญ",
-        "short": 7368,
-        "mid": 2800,
-        "long": 306,
-        "total": 10474,
-        "avg_dw": 217.9
+        "short": 7590,
+        "mid": 2916,
+        "long": 305,
+        "total": 10811,
+        "avg_dw": 218.7
       },
       {
         "name": "หนองบัวลำภู",
-        "short": 6291,
-        "mid": 3320,
-        "long": 401,
-        "total": 10012,
-        "avg_dw": 248.9
+        "short": 6333,
+        "mid": 3585,
+        "long": 412,
+        "total": 10330,
+        "avg_dw": 254.5
       },
       {
         "name": "มุกดาหาร",
-        "short": 6035,
-        "mid": 2863,
-        "long": 341,
-        "total": 9239,
-        "avg_dw": 238.0
+        "short": 6513,
+        "mid": 3077,
+        "long": 349,
+        "total": 9939,
+        "avg_dw": 236.1
       },
       {
         "name": "บึงกาฬ",
-        "short": 5405,
-        "mid": 2770,
-        "long": 252,
-        "total": 8427,
-        "avg_dw": 240.0
+        "short": 5707,
+        "mid": 2936,
+        "long": 248,
+        "total": 8891,
+        "avg_dw": 238.6
       }
     ],
     "ภาคใต้": [
       {
         "name": "สงขลา",
-        "short": 35131,
-        "mid": 19260,
-        "long": 2608,
-        "total": 56999,
-        "avg_dw": 255.5
-      },
-      {
-        "name": "สุราษฎร์ธานี",
-        "short": 28991,
-        "mid": 15177,
-        "long": 1647,
-        "total": 45815,
-        "avg_dw": 245.9
+        "short": 36801,
+        "mid": 19767,
+        "long": 2038,
+        "total": 58606,
+        "avg_dw": 246.3
       },
       {
         "name": "ภูเก็ต",
-        "short": 34161,
-        "mid": 9101,
-        "long": 861,
-        "total": 44123,
-        "avg_dw": 184.7
+        "short": 35325,
+        "mid": 9291,
+        "long": 735,
+        "total": 45351,
+        "avg_dw": 182.3
+      },
+      {
+        "name": "สุราษฎร์ธานี",
+        "short": 27039,
+        "mid": 15076,
+        "long": 1449,
+        "total": 43564,
+        "avg_dw": 249.7
       },
       {
         "name": "นครศรีธรรมราช",
-        "short": 19591,
-        "mid": 16675,
-        "long": 2272,
-        "total": 38538,
-        "avg_dw": 303.2
+        "short": 19860,
+        "mid": 17364,
+        "long": 2320,
+        "total": 39544,
+        "avg_dw": 304.1
       },
       {
         "name": "พัทลุง",
-        "short": 8842,
-        "mid": 6647,
-        "long": 840,
-        "total": 16329,
-        "avg_dw": 284.9
+        "short": 8971,
+        "mid": 6842,
+        "long": 793,
+        "total": 16606,
+        "avg_dw": 283.2
       },
       {
         "name": "กระบี่",
-        "short": 8380,
-        "mid": 4961,
-        "long": 588,
-        "total": 13929,
-        "avg_dw": 260.3
+        "short": 8665,
+        "mid": 5192,
+        "long": 556,
+        "total": 14413,
+        "avg_dw": 259.7
       },
       {
         "name": "ตรัง",
-        "short": 7234,
-        "mid": 5183,
-        "long": 690,
-        "total": 13107,
-        "avg_dw": 283.4
+        "short": 7669,
+        "mid": 5169,
+        "long": 548,
+        "total": 13386,
+        "avg_dw": 269.5
       },
       {
         "name": "นราธิวาส",
-        "short": 6322,
-        "mid": 4704,
-        "long": 261,
-        "total": 11287,
-        "avg_dw": 269.8
+        "short": 6590,
+        "mid": 5083,
+        "long": 253,
+        "total": 11926,
+        "avg_dw": 270.4
       },
       {
         "name": "ชุมพร",
-        "short": 6186,
-        "mid": 3989,
-        "long": 526,
-        "total": 10701,
-        "avg_dw": 270.8
+        "short": 6424,
+        "mid": 4325,
+        "long": 508,
+        "total": 11257,
+        "avg_dw": 271.3
       },
       {
         "name": "ปัตตานี",
-        "short": 6314,
-        "mid": 3989,
-        "long": 230,
-        "total": 10533,
-        "avg_dw": 257.3
+        "short": 6328,
+        "mid": 4202,
+        "long": 238,
+        "total": 10768,
+        "avg_dw": 259.9
       },
       {
         "name": "ยะลา",
-        "short": 6009,
-        "mid": 2846,
-        "long": 157,
-        "total": 9012,
-        "avg_dw": 230.7
-      },
-      {
-        "name": "พังงา",
-        "short": 4784,
-        "mid": 1927,
-        "long": 330,
-        "total": 7041,
-        "avg_dw": 236.7
+        "short": 6183,
+        "mid": 2986,
+        "long": 155,
+        "total": 9324,
+        "avg_dw": 232.0
       },
       {
         "name": "ระนอง",
-        "short": 4663,
-        "mid": 2087,
-        "long": 260,
-        "total": 7010,
-        "avg_dw": 236.6
+        "short": 4879,
+        "mid": 2399,
+        "long": 240,
+        "total": 7518,
+        "avg_dw": 240.9
+      },
+      {
+        "name": "พังงา",
+        "short": 5072,
+        "mid": 2082,
+        "long": 257,
+        "total": 7411,
+        "avg_dw": 229.6
       },
       {
         "name": "สตูล",
-        "short": 2560,
-        "mid": 2004,
-        "long": 180,
-        "total": 4744,
-        "avg_dw": 279.2
+        "short": 2623,
+        "mid": 2058,
+        "long": 141,
+        "total": 4822,
+        "avg_dw": 272.9
       }
-    ],
-    "อื่นๆ": []
+    ]
   }
 };
 
 // Grand total excluded = 3340051 - 2915932 = 424119 (from script: 423628)
-const GRAND_EXCLUDED = 400789;
+const GRAND_EXCLUDED = 0;
 
 const REGION_CLASS = {
   'กรุงเทพและปริมณฑล': 'r-bkk',
@@ -3761,6 +3760,42 @@ document.addEventListener('DOMContentLoaded', () => {
     URL.revokeObjectURL(url);
   });
 });
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
+
+
+        
+
 
 
         
